@@ -1,0 +1,13 @@
+@font-face {
+    font-family: myFirstFont;
+    src: url('/font/acumin-pro-cufonfonts-webfont/Acumin-RPro.woff') format('woff');
+  }
+
+ .blog-content img {
+    margin: auto;
+ }
+
+ .blog-content p{
+    font-family: myFirstFont;
+    margin: 20px auto;
+ }

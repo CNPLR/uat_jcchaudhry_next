@@ -1,0 +1,28 @@
+[
+  {
+    "relation": [
+      "delegate_permission/common.handle_all_urls"
+    ],
+    "target": {
+      "namespace": "android_app",
+      "package_name": "com.nummerro_app",
+      "sha256_cert_fingerprints": [
+        "8E:1F:65:55:28:0E:8D:E7:D5:48:10:1D:D2:E6:B5:A9:15:45:0D:3C:78:3E:9E:D4:DC:8D:26:AE:A6:7B:C4:7D",
+        "FA:C6:17:45:DC:09:03:78:6F:B9:ED:E6:2A:96:2B:39:9F:73:48:F0:BB:6F:89:9B:83:32:66:75:91:03:3B:9C"
+      ]
+    }
+  },
+  {
+    "relation": [
+      "delegate_permission/common.handle_all_urls",
+      "delegate_permission/common.get_login_creds"
+    ],
+    "target": {
+      "namespace": "android_app",
+      "package_name": "jc.nummerro.app",
+      "sha256_cert_fingerprints": [
+        "16:4F:8D:36:42:EB:73:AC:54:53:A3:E7:B9:B7:53:B8:A8:65:F1:91:FC:41:CE:85:A0:FF:68:7E:ED:F1:9B:01"
+      ]
+    }
+  }
+]

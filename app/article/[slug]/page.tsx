@@ -1,0 +1,77 @@
+import { notFound, redirect } from "next/navigation";
+
+import ClientBlog from './Client'
+import { Blog } from "@/app/models/blog";
+import GenerateMetadata from "@/app/components/MetaGenerator";
+import { headers } from "next/headers";
+
+export async function Metadata({ params }: { params: Promise<{ slug: string }> }) {
+  const { slug } = await params;
+
+  const BACKEND = process.env.URI;
+  const blogRes = await fetch(`${BACKEND}blog/slug/${slug}`, { cache: "no-store" });
+  const blogJson = await blogRes.json();
+  const blog: Blog = blogJson?.data?.[0];
+
+  if (!blog) return {};
+
+  return GenerateMetadata({
+    // pagePath: blog?.slug,
+    banner: `https://newcnpl.s3.ap-south-1.amazonaws.com/public/blogs/banners/${blog.headerBanner}`,
+    title: blog?.metaTitle,
+    description: blog?.metaDescription,
+    keywords: blog?.keywords,
+    headers: headers,
+  });
+}
+
+export default async function Page({ params }: { params: Promise<{ slug: string }> }) {
+  const { slug } = await params; 
+
+  const BACKEND = process.env.URI;
+  const blogRes = await fetch(`${BACKEND}blog/slug/${slug}`, { cache: "no-store" });
+  const blogJson = await blogRes.json();
+  const blog: Blog = blogJson?.data?.[0];
+
+    const path : any= process.env.URI;
+    const domain = process.env.DOMAIN;
+
+  if (!blog?.blogIsActive) notFound();
+
+  if (!blog) return null
+
+  const headersList = await headers();
+  const allHeaders = Object.fromEntries(headersList.entries());
+
+  const blogData:any = await getBlogData(slug, path);
+
+  const bannerUrl = `https://newcnpl.s3.ap-south-1.amazonaws.com/public/blogs/banners/${blog.headerBanner}`
+
+  return (
+    <ClientBlog slug={slug} initialBlog={blog} bannerUrl={bannerUrl} blogData={blogData}/>
+  )
+}
+
+export async function getBlogData(slug: string, path: string) {
+
+  const [blogRes, commentsRes] = await Promise.all([
+    fetch(`${path}blog/slug/${slug}`, { cache: 'no-store' }),
+    fetch(`${path}comment/approvedComments/${slug}`, { cache: 'no-store' }),
+  ]);
+
+  if (!blogRes.ok || !commentsRes.ok) {
+    throw new Error("Failed to fetch data");
+  }
+
+  const blogData = await blogRes.json();
+  const commentsData = await commentsRes.json();
+
+  if (!blogData?.data?.[0]?.blogIsActive) {
+    redirect('/'); // ✅ Server redirect
+  }
+
+  return {
+    pageData: blogData.data,
+    posts: commentsData,
+  };
+}
