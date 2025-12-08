@@ -40,9 +40,9 @@ export default function CardBox({
                                 </span>
                             </h5>
                             <SubHeading2 subHeading={SubHeading} style="my-5 text-white" />
-                            <Link href={link}>
+                            {/* <Link href={link}> */}
                                 <SmallButton text="Know More" style="m-auto" />
-                            </Link>
+                            {/* </Link> */}
                         </div>
                     </div>
                 </Link>

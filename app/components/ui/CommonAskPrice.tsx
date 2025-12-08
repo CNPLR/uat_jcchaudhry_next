@@ -112,7 +112,7 @@ export default function CommonAskPrice() {
             },
           ].map((item, i) => (
             <div key={i} className="mx-5 mb-5">
-              <div className="md:w-80 md:h-72 bg-gradient-to-l from-slate-300 to-slate-100 text-slate-600 border border-slate-300 p-3 rounded-lg shadow-md space-y-2">
+              <div className="md:w-80 md:h-72 bg-linear-to-l from-slate-300 to-slate-100 text-slate-600 border border-slate-300 p-3 rounded-lg shadow-md space-y-2">
                 <Img style="w-20" path={item.img  as string} alt={item.img as string} />
                 <p className="text-[24px] font_family font-semibold text-[#490099]">
                   {item.name}

@@ -244,7 +244,7 @@ const HomePage = () => {
                     <SubHeading style="text-center" subHeading="See What People Say About Us !" />
                     <div className='flex justify-center flex-wrap my-10'>
                         {videos?.data?.map((ele:any, index: any) =>
-                            <Suspense fallback={<div>Loading banner...</div>}>
+                            <Suspense key={index} fallback={<div>Loading banner...</div>}>
                                 <HomeVideos
                                     key={index}
                                     itemKey={index}
@@ -264,7 +264,7 @@ const HomePage = () => {
                     <SubHeading style="text-center" subHeading="Latest Blog Post" />
                     <div className='flex justify-center flex-wrap my-10'>
                         {posts && posts.map((ele: any, index: number) =>
-                            <Suspense fallback={<div>Loading banner...</div>}>
+                            <Suspense key={index} fallback={<div>Loading banner...</div>}>
                                 <CommonBlog
                                     href={`/article/${ele.slug}`}
                                     key={index}

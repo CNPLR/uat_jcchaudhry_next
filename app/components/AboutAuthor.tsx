@@ -18,7 +18,7 @@ export default function AboutAuthor() {
         />
       </div>
 
-      <div className="lg:ml-10 lg:w-[50%] w-[100%] px-10 lg:px-0">
+      <div className="lg:ml-10 lg:w-[50%] w-\[100%] px-10 lg:px-0">
         <SubHeading style="text-center lg:text-left" subHeading="About Author" />
 
         <Para

@@ -42,11 +42,10 @@ const AdvancedNumerology = () => {
                  subHeading2="Advanced Numerology Book, Number Numerology and Relationship of Numbers Explained"
                  subHeading3="₹ 550.00"
                  onClick={onClick}
-                 text="Show More"
+                 text={ showMore ? "Show Less" : "Show More"}
                  list={showMore ? arr : arr.slice(0, 15)}
                  link="https://www.amazon.in/dp/819395310X?ref=myi_title_dp"
-                 list1=''
-                 list2=''
+                 
              />
          </div>
    )

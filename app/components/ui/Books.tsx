@@ -16,8 +16,8 @@ export interface BookProps {
   para2: string;
   para3?: string;
   list: string[];
-  list1?: string;
-  list2?: string;
+  list1?: string[];
+  list2?: string[];
   text: string;
   link: string;
   alt: string;
@@ -40,8 +40,8 @@ export const Books = ({alttag, path, para1, subHeading1, subHeading2, subHeading
                     para2={para2}
                     para3={para3}
                     list={list}
-                    list1={list1 as string}
-                    list2={list2 as string}
+                    list1={list1 as string[]}
+                    list2={list2 as string[]}
                     subHeading4={subHeading4}
                     onClick={onClick}
                     text={text}

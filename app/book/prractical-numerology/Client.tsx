@@ -43,7 +43,7 @@ const page = () => {
                 subHeading1="Prractical Numerology"
                 subHeading2="Prractical Numerology Book, Learn Numerology, Future Predictions with Numerology"
                 subHeading3="₹ 525.00"
-                text="Show More"
+                text={ showMore ? "Show Less" : "Show More"}
                 list={showMore ? arr : arr.slice(0, 15)}
                 onClick={onClick}
                 link="https://www.amazon.in/dp/819471267X"

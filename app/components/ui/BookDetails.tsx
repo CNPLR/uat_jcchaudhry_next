@@ -36,9 +36,24 @@ export default function BookDetails({
         <div className="lg:w-[40%] w-full space-y-5">
           <SubHeading2 style="text-justify" subHeading={subHeading2} />
           <Para style="text-justify" para={para1 as string} />
-          <Para para={list1} />
+           <div className="space-y-1 ml-4">
+              {/* <Para para={list1} /> */}
+              {
+                 list1 && list1.map((item: string, index: number) => (
+                    <div key={index} className={`para`}><li>{item}</li></div>
+                  ))
+                }
+            </div>
           <SubHeading2 style="text-justify" subHeading={subHeading4 as string} />
-          <Para para={list2} />
+           <div className="space-y-1 ml-4">
+          
+            {/* <Para para={list2} /> */}
+            {
+               list2 && list2.map((item: string, index: number) => (
+                  <div key={index} className={`para`}><li>{item}</li></div>
+                ))
+              }
+          </div>
           <Para style="text-justify" para={para2} />
           <Para style="text-justify" para={para3 as string} />
         </div>
@@ -46,7 +61,7 @@ export default function BookDetails({
         {/* Table of Contents */}
         <div className="lg:w-[25%] w-full my-5 lg:my-0">
           <SubHeading2 style="mb-2" subHeading="Table of contents" />
-          <div className="space-y-1">
+          <div className="space-y-1 ml-4">
             {/* <Para para={list} /> */} 
 
             {
@@ -97,8 +112,8 @@ export interface BookDetailsProps {
   para3?: string;
 
   list: string[];
-  list1: string;
-  list2: string;
+  list1: string[];
+  list2: string[];
 
   onClick?: () => void;
 
