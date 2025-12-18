@@ -27,7 +27,7 @@ export default function SliderMotivation() {
               <Img
                 alt="Dr. J C Chaudhry’s motivational quote for success"
                 path="/images_folder/Dr.-J-C-Chaudhry’s-motivational-quote-for-success.png"
-                style=""
+                style="m-auto"
               />
               <Para
                 style="text-justify p-5 text-gray-500"
@@ -42,6 +42,7 @@ export default function SliderMotivation() {
             <Img
               alt="Inspirational awards for Dr. J.C. Chaudhry’s achievements"
               path="/images_folder/Inspirational-awards-for-Dr.-J.C.-Chaudhry’s-achievements.png"
+              style="m-auto"
             />
             <Para
               style="text-justify p-5 text-gray-500"
@@ -55,6 +56,7 @@ export default function SliderMotivation() {
             <Img
               alt="Award-winning motivational speaker Dr. J C Chaudhry"
               path="/images_folder/Award-winning-motivational-speaker-Dr.-J-C-Chaudhry.png"
+              style="m-auto"
             />
             <Para
               style="text-justify p-5 text-gray-500"
@@ -68,6 +70,7 @@ export default function SliderMotivation() {
             <Img
               alt="Dr. J C Chaudhry’s motivational quote for success"
               path="/images_folder/Dr.-J-C-Chaudhrys-motivational-quote-for-success-.png"
+              style="m-auto"
             />
             <Para
               style="text-justify p-5 text-gray-500"
@@ -81,6 +84,7 @@ export default function SliderMotivation() {
             <Img
               alt="Powerful motivational quote from Dr. J C Chaudhry"
               path="/images_folder/Powerful-motivational-quote-from-Dr.-J-C-Chaudhry.png"
+              style="m-auto"
             />
             <Para
               style="text-justify p-5 text-gray-500"

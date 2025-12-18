@@ -1,4 +1,3 @@
-import React from 'react'
 import SubHeading from '../components/ui/SubHeading'
 import Img from '../components/ui/Img'
 import Para from '../components/ui/Para'

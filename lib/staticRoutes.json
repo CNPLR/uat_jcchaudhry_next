@@ -1,0 +1,230 @@
+[
+  {
+    "slug": "/about/biography",
+    "updatedAt": "2025-12-08T10:34:48.624Z"
+  },
+  {
+    "slug": "/about/education",
+    "updatedAt": "2025-12-08T10:35:38.601Z"
+  },
+  {
+    "slug": "/about/experience",
+    "updatedAt": "2025-12-08T10:37:14.951Z"
+  },
+  {
+    "slug": "/about/milestones",
+    "updatedAt": "2025-12-08T10:45:33.266Z"
+  },
+  {
+    "slug": "/about/mission",
+    "updatedAt": "2025-12-08T10:45:33.264Z"
+  },
+  {
+    "slug": "/about",
+    "updatedAt": "2025-12-08T10:45:33.264Z"
+  },
+  {
+    "slug": "/ask-your-question",
+    "updatedAt": "2025-12-12T12:20:59.666Z"
+  },
+  {
+    "slug": "/awards/international",
+    "updatedAt": "2025-12-08T10:50:04.554Z"
+  },
+  {
+    "slug": "/awards/national",
+    "updatedAt": "2025-12-08T10:50:02.526Z"
+  },
+  {
+    "slug": "/blogs",
+    "updatedAt": "2025-12-08T10:39:23.812Z"
+  },
+  {
+    "slug": "/book/abc-vastu-shastra",
+    "updatedAt": "2025-12-08T13:18:51.575Z"
+  },
+  {
+    "slug": "/book/advanced-numerology",
+    "updatedAt": "2025-12-08T10:45:33.264Z"
+  },
+  {
+    "slug": "/book/chakras",
+    "updatedAt": "2025-12-08T11:58:38.819Z"
+  },
+  {
+    "slug": "/book/fundamentals-vastu",
+    "updatedAt": "2025-12-08T13:05:59.175Z"
+  },
+  {
+    "slug": "/book/i-think",
+    "updatedAt": "2025-12-08T12:36:49.927Z"
+  },
+  {
+    "slug": "/book/meditation-subconscious-mind",
+    "updatedAt": "2025-12-08T11:41:30.532Z"
+  },
+  {
+    "slug": "/book/nature-best-cure",
+    "updatedAt": "2025-12-08T11:35:07.257Z"
+  },
+  {
+    "slug": "/book/prractical-numerology",
+    "updatedAt": "2025-12-08T10:46:18.260Z"
+  },
+  {
+    "slug": "/book/rungs-ladder",
+    "updatedAt": "2025-12-08T12:59:19.007Z"
+  },
+  {
+    "slug": "/book/success-few-steps-away",
+    "updatedAt": "2025-12-08T12:44:33.646Z"
+  },
+  {
+    "slug": "/book/you-your-gems",
+    "updatedAt": "2025-12-08T12:10:48.959Z"
+  },
+  {
+    "slug": "/books",
+    "updatedAt": "2025-12-15T07:44:07.181Z"
+  },
+  {
+    "slug": "/business-numerology-reading",
+    "updatedAt": "2025-12-10T08:50:18.417Z"
+  },
+  {
+    "slug": "/career-numerology-reading",
+    "updatedAt": "2025-12-10T11:03:56.333Z"
+  },
+  {
+    "slug": "/chaudhry-nummero-pvt-ltd",
+    "updatedAt": "2025-12-09T07:30:37.056Z"
+  },
+  {
+    "slug": "/compatibility-numerology-tool",
+    "updatedAt": "2025-12-12T06:03:51.905Z"
+  },
+  {
+    "slug": "/contact-us",
+    "updatedAt": "2025-12-15T06:33:39.858Z"
+  },
+  {
+    "slug": "/dashboard",
+    "updatedAt": "2025-12-12T13:26:01.737Z"
+  },
+  {
+    "slug": "/faqs",
+    "updatedAt": "2025-12-15T07:26:35.855Z"
+  },
+  {
+    "slug": "/gallery/awards",
+    "updatedAt": "2025-12-08T10:53:11.024Z"
+  },
+  {
+    "slug": "/gallery/dham",
+    "updatedAt": "2025-12-08T10:53:37.638Z"
+  },
+  {
+    "slug": "/gallery/speech",
+    "updatedAt": "2025-12-08T10:53:37.638Z"
+  },
+  {
+    "slug": "/investor",
+    "updatedAt": "2025-12-15T07:48:07.185Z"
+  },
+  {
+    "slug": "/lo-shu-grid",
+    "updatedAt": "2025-12-09T13:23:22.457Z"
+  },
+  {
+    "slug": "/marriage-numerology-reading",
+    "updatedAt": "2025-12-10T10:35:42.914Z"
+  },
+  {
+    "slug": "/media",
+    "updatedAt": "2025-12-08T10:47:59.990Z"
+  },
+  {
+    "slug": "/motivation",
+    "updatedAt": "2025-12-09T13:28:17.752Z"
+  },
+  {
+    "slug": "/mybookings",
+    "updatedAt": "2025-12-15T09:40:20.135Z"
+  },
+  {
+    "slug": "/new-born-numerology-reading",
+    "updatedAt": "2025-12-10T09:05:57.788Z"
+  },
+  {
+    "slug": "/numerology/login",
+    "updatedAt": "2025-12-12T11:06:33.507Z"
+  },
+  {
+    "slug": "/numerology",
+    "updatedAt": "2025-12-09T13:07:12.828Z"
+  },
+  {
+    "slug": "/numerology/signup",
+    "updatedAt": "2025-12-12T11:15:33.918Z"
+  },
+  {
+    "slug": "/numerology/updatepassword",
+    "updatedAt": "2025-12-12T11:47:37.182Z"
+  },
+  {
+    "slug": "/numerology-calculator",
+    "updatedAt": "2025-12-12T09:38:00.384Z"
+  },
+  {
+    "slug": "/numerology-calculator-name-number",
+    "updatedAt": "2025-12-11T12:20:55.218Z"
+  },
+  {
+    "slug": "/numerology-house-calculator",
+    "updatedAt": "2025-12-12T07:29:38.812Z"
+  },
+  {
+    "slug": "/numerology-life-path-calculator",
+    "updatedAt": "2025-12-12T04:55:04.873Z"
+  },
+  {
+    "slug": "/numerology-mobile-calculator",
+    "updatedAt": "2025-12-11T12:27:42.095Z"
+  },
+  {
+    "slug": "/",
+    "updatedAt": "2025-12-08T09:44:36.865Z"
+  },
+  {
+    "slug": "/personal-numerology-reading",
+    "updatedAt": "2025-12-10T11:14:38.710Z"
+  },
+  {
+    "slug": "/privacy-policy",
+    "updatedAt": "2025-12-15T09:13:32.981Z"
+  },
+  {
+    "slug": "/profile",
+    "updatedAt": "2025-12-15T10:19:34.289Z"
+  },
+  {
+    "slug": "/relationship-numerology-reading",
+    "updatedAt": "2025-12-10T10:51:16.541Z"
+  },
+  {
+    "slug": "/sitemaphtml",
+    "updatedAt": "2025-12-16T12:13:59.971Z"
+  },
+  {
+    "slug": "/terms-and-conditions",
+    "updatedAt": "2025-12-15T08:14:30.441Z"
+  },
+  {
+    "slug": "/testimonials",
+    "updatedAt": "2025-12-15T07:34:30.585Z"
+  },
+  {
+    "slug": "/vastu-meditation-others",
+    "updatedAt": "2025-12-09T13:15:48.790Z"
+  }
+]

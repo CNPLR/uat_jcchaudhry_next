@@ -17,7 +17,7 @@ export default function CommonLearnGrow({
 }: CommonLearnGrowProps) {
   return (
     <Link href={link}>
-      <div className="border shadow-md p-5 bg-white rounded-lg w-[180px] h-[220px] hover:shadow-2xl transition md:mr-5 mb-5">
+      <div className="border border-gray-200 shadow-md p-5 bg-white rounded-lg w-[180px] h-[220px] hover:shadow-2xl transition md:mr-5 mb-5">
         <div className="w-28 h-28 m-auto">
           <Img alt={alt} style="m-auto" path={path  as string} />
         </div>

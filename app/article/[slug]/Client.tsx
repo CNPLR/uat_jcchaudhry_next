@@ -11,7 +11,6 @@ import Para from '../../components/ui/Para';
 import LinkText from '../../components/ui/LinkText';
 import Banner from '../../components/ui/Banner';
 import MainHeading from '../../components/ui/MainHeading';
-import { Metadata } from 'next'
 import Subscribe from '@/app/components/Subscribe'
 import dynamic from 'next/dynamic';
 import { Blog } from '@/app/models/blog';
@@ -149,7 +148,6 @@ export default function ClientBlog({ slug, initialBlog, bannerUrl, blogData } : 
         return null;
     }
 
-
   return   (
      <div className=''>
             {/* <Suspense fallback={<ComponentLoader height="60px" />}>
@@ -187,7 +185,7 @@ export default function ClientBlog({ slug, initialBlog, bannerUrl, blogData } : 
                 />
 
                 <div className='blog-content my-10 px-10'>
-                    <div dangerouslySetInnerHTML={{ __html: blogPost.pageContent }}></div>
+                    <div dangerouslySetInnerHTML={{  __html: blogPost.pageContent }}></div>
 
                     {faqData.length > 0 && (
                         <div className="mt-8">

@@ -1,4 +1,4 @@
-import "../../common.css";
+import "../../styles/common.css";
 
 type SparaProps = {
   para: string;

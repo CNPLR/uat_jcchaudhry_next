@@ -1,25 +1,10 @@
 import React, { ChangeEvent } from "react";
 
-interface CountriesNameProps {
-  text: string;
-  value: string;
-  onChange: (event: ChangeEvent<HTMLSelectElement>) => void;
-}
-
-export default function CountriesName({
-  text,
-  value,
-  onChange,
-}: CountriesNameProps) {
-  return (
-    <div className="flex-shrink border">
-      <select
-        id="firstCatList"
-        value={value}
-        onChange={onChange}
-        className="customSelect business-audit outline-none p-2 w-full"
-      >
-        <option value="noCountry">{text}</option>
+export default function CountriesName({ text, onChange, value }: any) {
+    return (
+        <div className="flex-shrink border">
+            <select name="" value={value} onChange={onChange} id="firstCatList" className="customSelect business-audit outline-none p-2 w-full bg-white">
+                <option value="noCountry">{text}</option>
 
                 <option value="IN">India</option>
 
@@ -408,7 +393,7 @@ export default function CountriesName({
                 <option value="VN">Viet Nam</option>
                 <option value="VG">Virgin Islands, British</option>
                 <option value="VI">Virgin Islands, U.S.</option>
-      </select>
-    </div>
-  );
+            </select>
+        </div>
+    )
 }

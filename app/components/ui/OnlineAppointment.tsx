@@ -26,254 +26,231 @@ interface AppointmentDetails {
 }
 
 export default function OnlineAppointment() {
-  const selectRef = useRef<HTMLSelectElement | null>(null);
-  const modalRef = useRef<HTMLDivElement | null>(null);
+   const selectRef = useRef<any>(null);
+    let path = process.env.NEXT_PUBLIC_URI;
+    const modalRef = useRef<any>(null)
+    let token = localStorage.getItem('token');
+    const headers = {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${token}`, // Ensure `token` is not null or undefined
+        "Accept": "*/*"
+    };
 
-  const path = process.env.NEXT_PUBLIC_BACKEND_URI as string;
-  const token =
-    typeof window !== "undefined" ? localStorage.getItem("token") : "";
+    const navigate = useRouter()
+    const [showModalForBook, setShowModalForBook] = useState(false)
+    const [apd, setApd] = useState<any>('')
+    const [category, setCategory] = useState<any>()
+    const [time, setTime] = useState<string| Date>()
+    const [country, setCountry] = useState("IN")
+    const [newDate, seNewDate] = useState<any>()
+    const [userData, setUserData] = useState()
+    const [number, setNumber] = useState<string>()
+    const [slotData, setSlotData] = useState<any>()
+    const [slotTime, setSlotTime] = useState<any>()
+    const [evalue, setEvalue] = useState(new Date());
+    const [slot, setSlot] = useState<any>()
+    const [userDate, setUserDate] = useState<any>()
+    let [loading, setLoading] = useState(false);
+    const [currency, setCurrency] = useState()
 
-  const headers = {
-    "Content-Type": "application/json",
-    Authorization: `Bearer ${token}`,
-    Accept: "*/*",
-  };
+    let mlist = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+    let dlist = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
 
-  const router = useRouter();
+    let totalPrice = apd.total_price?.split(" ")[0]
 
-  const [showModalForBook, setShowModalForBook] = useState(false);
-  const [apd, setApd] = useState<AppointmentDetails>({});
-  const [category, setCategory] = useState<string | undefined>();
-  const [time, setTime] = useState<string | undefined>();
-  const [country, setCountry] = useState("IN");
-  const [newDate, seNewDate] = useState<any>();
-  const [number, setNumber] = useState<any>();
-  const [slotData, setSlotData] = useState<SlotData[] | undefined>();
-  const [slotTime, setSlotTime] = useState<string | undefined>();
-  const [slot, setSlot] = useState<string | undefined>();
-  const [userDate, setUserDate] = useState<string | undefined>();
-  const [currency, setCurrency] = useState<string | undefined>();
-  const [loading, setLoading] = useState(false);
+    let userUrl = path + 'userAppointment/'
 
-  const [evalue, setEvalue] = useState<Date>(new Date());
+    const handleDate = async (date: any= "") => {
+        if (date) {
+            let isoDate = date.toISOString().split("T")[0];
+            setUserDate(isoDate);
+            let slotUrl = path + `timeslot/available?appointment_date=${isoDate}&appointment_time=${slotTime}`;
+            try {
+                const response = await fetch(slotUrl);
+                const data = await response.json();
+                if (data.success) {
+                    setSlotData(data.data);
+                }
+            } catch (err: any) {
+                console.log(err.message);
+            }
+            setEvalue(date);
+        }
+    };
 
-  const mlist = [
-    "January","February","March","April","May","June",
-    "July","August","September","October","November","December",
-  ];
-  const dlist = ["Sun","Mon","Tue","Wed","Thu","Fri","Sat"];
-
-  const totalPrice = apd.total_price?.split(" ")[0];
-  const userUrl = path + "userAppointment/";
-
-  // ---------------- DATE SELECT ----------------
-  const handleDate = async (date: any) => {
-    if (!date) return;
-
-    const isoDate = date.toISOString().split("T")[0];
-    setUserDate(isoDate);
-
-    const slotUrl = `${path}timeslot/available?appointment_date=${isoDate}&appointment_time=${slotTime}`;
-
-    try {
-      const res = await fetch(slotUrl);
-      const data = await res.json();
-      if (data.success) setSlotData(data.data);
-    } catch (err) {
-      console.log(err);
+    const showModal = (cat: any, tim: any) => {
+        if (!localStorage.getItem('token')) {
+            navigate.push('/numerology/login')
+        }
+        setSlotTime(tim)
+        setCategory(cat)
+        setTime(tim)
+        setShowModalForBook(true)
     }
 
-    setEvalue(date);
-  };
-
-  // ---------------- OPEN MODAL ----------------
-  const showModal = (cat: string, tim: string) => {
-    if (!token) {
-      router.push("/numerology/login");
-      return;
-    }
-    setSlotTime(tim);
-    setCategory(cat);
-    setTime(tim);
-    setShowModalForBook(true);
-  };
-
-  // ---------------- ENABLE DATES ----------------
-  const enabledDates =
-    newDate?.adate
-      ?.map((d: any) => {
+    // currect formate to the user
+    const enabledDates = newDate?.adate?.map((date: any) => {
         const today = new Date();
         today.setDate(today.getDate() + 15);
 
-        const cd = new Date(d);
-        cd.setHours(0, 0, 0, 0);
+        const currentDate = new Date(date);
+        currentDate.setHours(0, 0, 0, 0); // Ignore time on each date to compare only date values
 
-        if (cd.getDay() !== 0 && cd >= today) return cd;
-        return null;
-      })
-      .filter(Boolean) || [];
-
-  const isEnabled = (date: Date) =>
-    enabledDates.some((d: any) => d.toDateString() === date.toDateString());
-
-  // ---------------- PAYMENT ----------------
-  const paySubmit = async (e: any) => {
-    e.preventDefault();
-    setLoading(true);
-
-    if (!userDate) {
-      alert("Please Select Your Appointment Date");
-      setLoading(false);
-      return;
-    }
-
-    if (!slot) {
-      alert("Please Select Your Appointment Time Slot");
-      setLoading(false);
-      return;
-    }
-
-    const req = await fetch(userUrl, {
-      method: "POST",
-      headers,
-      body: JSON.stringify({
-        number,
-        country,
-        category,
-        slot,
-        userDate,
-        slotTime,
-        totalPrice,
-        currency,
-        platform: "Desktop",
-      }),
-    });
-
-    const res = await req.json();
-
-    if (country !== "IN") {
-      if (
-        apd.category === res.info.appointment_type_id &&
-        apd.time === res.info.appointment_time &&
-        apd.total_price?.split(" ")[0] ===
-          res.data.transactions[0].amount.total.split(".")[0] &&
-        apd.total_price?.split(" ")[1] ===
-          res.data.transactions[0].amount.currency
-      ) {
-        if (res.success) {
-          window.location.href = res.data.links[1].href;
+        // Check that the date is not a Sunday and not in the past
+        if (currentDate.getDay() !== 0 && currentDate >= today) {
+            return currentDate;
         }
-      } else {
-        alert(res.message || "Something Went Wrong");
-        setLoading(false);
-      }
-    } else {
-      if (res.success) {
-        if (
-          apd.category === res.info.appointment_type_id &&
-          apd.time === res.info.appointment_time &&
-          Number(apd.total_price?.split(" ")[0]) * 100 === res.data.amount &&
-          apd.total_price?.split(" ")[1] === res.data.currency
-        ) {
-          const paymentForm = document.createElement("form");
-          paymentForm.method = "POST";
-          paymentForm.action = "https://api.razorpay.com/v1/checkout/embedded";
 
-          const add = (name: string, value: any) => {
-            const input = document.createElement("input");
-            input.type = "hidden";
-            input.name = name;
-            input.value = value;
-            paymentForm.appendChild(input);
-          };
+        return null; // Explicitly return null for excluded dates
+    }).filter(Boolean); // Filter out null values
 
-          add("key_id", process.env.NEXT_PUBLIC_KEY_ID);
-          add("amount", res.data.amount);
-          add("currency", res.data.currency);
-          add("order_id", res.data.id);
-          add("name", "Chaudhry Nummero Pvt. Ltd.");
-          add("description", "Test Transaction");
-          add("image", "https://cdn.razorpay.com/logos/BUVwvgaqVByGp2_large.jpg");
-          add("prefill[name]", res.info.userData.user.full_name);
-          add("prefill[contact]", res.info.userData.userAccount.mobile_number);
-          add("prefill[email]", res.info.userData.userAccount.email_id);
-          add("notes[shipping address]", "L-16, The Business Centre, 61 Wellfield Road, New Delhi - 110001");
-          add("callback_url", path + "userAppointment/book-appointment/rezorpay/success");
-
-          document.body.appendChild(paymentForm);
-          paymentForm.submit();
-          setLoading(false);
-        }
-      } else {
-        alert(res.message || "Something Went Wrong");
-        setLoading(false);
-      }
-    }
-  };
-
-  // ---------------- PAYMENT INFO ----------------
-  const getSlots = (c: string) => {
-    if (!token || !category || !time) return;
-
-    let countryCode = c !== "IN" ? "AE" : "IN";
-    const payUrl = `${path}paymentDetails/query?category=${category}&country=${countryCode}&time=${time}`;
-
-    fetch(payUrl)
-      .then((r) => r.json())
-      .then((d) => {
-        if (d.success) {
-          setApd(d.data);
-          setCurrency(d.data.currency);
-        }
-      })
-      .catch((err) => console.log(err));
-  };
-
-  // ---------------- INIT ----------------
-  useEffect(() => {
-    if (!token) return;
-
-    const stored = localStorage.getItem("number");
-    if (stored) setNumber(JSON.parse(stored));
-
-    getSlots(country);
-
-    const dateUrl = `${path}availableDates`;
-    fetch(dateUrl)
-      .then((r) => r.json())
-      .then((d) => {
-        if (d.success) seNewDate(d.data[0]);
-      })
-      .catch((err) => console.log(err));
-  }, [country, slotTime, slotData]);
-
-  // ---------------- CLOSE MODAL ----------------
-  const closeModal = () => {
-    setSlotData(undefined);
-    setSlot(undefined);
-    setShowModalForBook(false);
-  };
-
-  const handleOutsideClick = (e: any) => {
-    if (modalRef.current && !modalRef.current.contains(e.target)) {
-      closeModal();
-    }
-  };
-
-  useEffect(() => {
-    if (showModalForBook) {
-      document.addEventListener("mousedown", handleOutsideClick);
-    } else {
-      document.removeEventListener("mousedown", handleOutsideClick);
-    }
-
-    return () => {
-      document.removeEventListener("mousedown", handleOutsideClick);
+    const isEnabled = (date: any) => {
+        return enabledDates?.some(
+            (enabledDate: any) => enabledDate?.toDateString() === date?.toDateString()
+        );
     };
-  }, [showModalForBook]);
 
-  return (
-     <>
+    const paySubmit = async (e: any) => {
+        e.preventDefault();
+        setLoading(true)
+        if (!userDate) {
+            setLoading(false)
+            return alert("Please Select Your Appointment Date")
+        }
+        else if (!slot) {
+            setLoading(false)
+            return alert("Please Select Your Appointment Time Slot")
+        }
+        else {
+            let req = await fetch(userUrl, {
+                method: "POST",
+                headers: headers,
+                body: JSON.stringify({ number, country, category, slot, userDate, slotTime, totalPrice, currency, platform: "Desktop" })
+            })
+
+            let res = await req.json()
+            if (country !== "IN") {
+                if (apd.category == res.info.appointment_type_id && apd.time == res.info.appointment_time && apd.total_price.split(" ")[0] == res.data.transactions[0].amount.total.split(".")[0] && apd.total_price.split(" ")[1] == res.data.transactions[0].amount.currency) {
+                    if (res.success === true) {
+                        window.location = res.data.links[1].href
+                    }
+                }
+                else if (res.success == false) {
+                    setLoading(false)
+                    return alert(res.message)
+                }
+                else {
+                    setLoading(false)
+                    return alert("Somthing Went Wrong")
+                }
+            }
+            else {
+                if (res.success === true) {
+                    if (apd.category == res.info.appointment_type_id && apd.time == res.info.appointment_time && apd.total_price.split(" ")[0] * 100 == res.data.amount && apd.total_price.split(" ")[1] == res.data.currency) {
+                        let paymentForm = document.createElement('form');
+                        paymentForm.setAttribute('method', 'POST');
+                        paymentForm.setAttribute('action', 'https://api.razorpay.com/v1/checkout/embedded')
+
+                        const addHiddenInput = (name: any, value: any) => {
+                            const input = document.createElement('input');
+                            input.setAttribute('type', 'hidden');
+                            input.setAttribute('name', name);
+                            input.setAttribute('value', value);
+                            paymentForm.appendChild(input);
+                        };
+
+                        // Set all the hidden fields from the original form
+                        addHiddenInput('key_id', process.env.NEXT_PUBLIC_KEY_ID);
+                        addHiddenInput('amount', res?.data?.amount);
+                        addHiddenInput('currency', res.data.currency);
+                        addHiddenInput('order_id', res?.data?.id);
+                        addHiddenInput('name', 'Chaudhry Nummero Pvt. Ltd.');
+                        addHiddenInput('description', 'Test Transaction');
+                        addHiddenInput('image', 'https://cdn.razorpay.com/logos/BUVwvgaqVByGp2_large.jpg');
+                        addHiddenInput('prefill[name]', res?.info?.userData.user.full_name);
+                        addHiddenInput('prefill[contact]', res?.info?.userData.userAccount.mobile_number);
+                        addHiddenInput('prefill[email]', res?.info?.userData.userAccount.email_id);
+                        addHiddenInput('notes[shipping address]', 'L-16, The Business Centre, 61 Wellfield Road, New Delhi - 110001');
+                        addHiddenInput('callback_url', path + 'userAppointment/book-appointment/rezorpay/success');
+                        // addHiddenInput('cancel_url', path + 'userAppointment/book-appointment/failed');
+                        // Append the form to the body and submit it automatically
+                        document.body.appendChild(paymentForm);
+                        paymentForm.submit();
+                        setLoading(false)
+                    }
+                }
+                else if (res.success == false) {
+                    setLoading(false)
+                    return alert(res.message)
+                }
+                else {
+                    setLoading(false)
+                    return alert("Somthing Went Wrong")
+                }
+            }
+        }
+    }
+
+    const getSlots = (country: any) => {
+        if (!token) return
+        if (!category || !time) return
+
+        if (country !== "IN") {
+            country = "AE"
+        }
+        let payUrl = path + `paymentDetails/query?category=${category}&country=${country}&time=${time}`;
+        fetch(payUrl).then((res) => res.json()).then((data) => {
+            if (data.success == true) {
+                setApd(data?.data)
+                setCurrency(data?.data.currency)
+            }
+        }).catch((err) => console.log(err.message));
+    }
+
+    useEffect(() => {
+        if (!token) return
+        setNumber(JSON.parse(localStorage.getItem('number') as string))
+        if (country) {
+            getSlots(country)
+        }
+
+        handleDate()
+        if (country) {
+            let dateUrl = path + `availableDates`;
+            fetch(dateUrl).then((res) => res.json()).then((data) => {
+                if (data.success == true) {
+                    seNewDate(data?.data[0])
+                }
+            }).catch((err) => console.log(err.message));
+        }
+
+    }, [country, slotTime, slotData])
+
+    const closeModal = () => {
+        setSlotData("");
+        setSlot("");
+        setShowModalForBook(false);
+    };
+
+    const handleOutsideClick = (e: any) => {
+        if (modalRef.current && !modalRef.current.contains(e.target )) {
+            closeModal();
+        }
+    };
+
+    useEffect(() => {
+        if (showModalForBook) {
+            document.addEventListener("mousedown", handleOutsideClick);
+        } else {
+            document.removeEventListener("mousedown", handleOutsideClick);
+        }
+        return () => {
+            document.removeEventListener("mousedown", handleOutsideClick);
+        };
+    }, [showModalForBook]);
+
+    return (
+        <>
             <div className='flex flex-col lg:flex-row'>
                 <div className=''>
                     <Img alt="Online consultation" style="w-72 mx-auto lg:mx-0 shadow-2xl rounded-md" path="/images_folder/Online-consultation.webp" />
@@ -347,19 +324,19 @@ export default function OnlineAppointment() {
 
                                     {/* Booking Form */}
                                     <div className="space-y-5">
-                                        <div className="border">
+                                        <div className="border border-gray-200">
                                             <input
                                                 type="text"
-                                                className="customSelect business-audit outline-none p-2 w-full"
+                                                className="customSelect business-audit outline-none p-2 w-full bg-white"
                                                 value={category}
                                                 readOnly
                                             />
                                         </div>
-                                        <div className="border">
+                                        <div className="border border-gray-200">
                                             <input
                                                 type="text"
-                                                className="customSelect business-audit outline-none p-2 w-full"
-                                                value={time}
+                                                className="customSelect business-audit outline-none p-2 w-full bg-white"
+                                                value={time as string}
                                                 readOnly
                                             />
                                         </div>
@@ -367,7 +344,7 @@ export default function OnlineAppointment() {
                                             <CountriesName
                                                 text="Select your Country"
                                                 value={country}
-                                                onChange={(e) => setCountry(e.target.value)}
+                                                onChange={(e: any) => setCountry(e.target.value)}
                                             />
                                         </div>
 
@@ -391,17 +368,17 @@ export default function OnlineAppointment() {
                                             </div>
                                         </div>
 
-                                        <div className="border">
+                                        <div className="border border-gray-200">
                                             <select
                                                 ref={selectRef}
                                                 id="firstCatList"
-                                                className="customSelect business-audit outline-none p-2 w-full"
+                                                className="customSelect business-audit outline-none p-2 w-full bg-white"
                                                 // onChange={slotDatahandle}
                                                 onChange={(e) => setSlot(e.target.value)}
                                             >
                                                 <option value="noSlot">Select Time Slot</option>
                                                 {slotData?.length ? (
-                                                    slotData.map((ele) => (
+                                                    slotData.map((ele: any) => (
                                                         <option key={ele.slotTime} value={ele.slotTime}>
                                                             {ele.slotTime}
                                                         </option>
@@ -431,7 +408,7 @@ export default function OnlineAppointment() {
                                 <div className="mx-auto p-2 md:p-0">
                                     <div className="flex justify-between border p-3 bg-white">
                                         <Para style="font-bold" para="Total Amount" />
-                                        <Para style="font-bold" para={apd.total_price || ""} />
+                                        <Para style="font-bold" para={apd.total_price} />
                                     </div>
 
                                     {country === "AE" ?
@@ -449,15 +426,15 @@ export default function OnlineAppointment() {
                                             <Para style="font-bold" para="GST Details" />
                                             <div className="flex justify-between">
                                                 <Para style="" para="Total Amount (With GST)" />
-                                                <Para style="" para={apd.total_price || ""} />
+                                                <Para style="" para={apd.total_price} />
                                             </div>
                                             <div className="flex justify-between">
                                                 <Para style="" para="Amount (Without GST)" />
-                                                <Para style="" para={apd.no_gst || ""} />
+                                                <Para style="" para={apd.no_gst} />
                                             </div>
                                             <div className="flex justify-between">
                                                 <Para style="" para="GST (18%)" />
-                                                <Para style="" para={apd.gst || ""} />
+                                                <Para style="" para={apd.gst} />
                                             </div>
                                         </div>
                                     )}
@@ -467,7 +444,7 @@ export default function OnlineAppointment() {
 
                                 {loading ? (
                                     <div className="w-28 mx-auto rounded-md font-bold text-center bg-[#fd7e14] py-2 shadow-2xl">
-                                        <Img style="mx-auto w-7" path="/logos/loader_gif.gif" alt="image"/>
+                                        <Img style="mx-auto w-7" path="/logos/loader_gif.gif" alt=""/>
                                     </div>
                                 ) : (
                                     <SmallButton
@@ -492,5 +469,5 @@ export default function OnlineAppointment() {
                 </div>
             )}
         </>
-  );
+    )
 }

@@ -61,7 +61,7 @@ const router = useRouter();
             <div className="p-4 md:p-5 space-y-4 text-center">
               <CountriesName
                 value={countries}
-                onChange={(e) => setCountries(e.target.value)}
+                onChange={(e: any) => setCountries(e.target.value)}
                 text="Select your Country to know the price"
               />
 

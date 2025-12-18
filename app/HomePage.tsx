@@ -164,8 +164,8 @@ const HomePage = () => {
                 </div>
                 <div className='text-center mx-5 my-5 lg:hidden'>
                     <div className='flex lg:justify-start justify-center items-center space-x-5 lg:mx-40'>
-                        <ImgLink path="/images_folder/google-play.png" style="w-36" to="https://play.google.com/store/apps/details?id=jc.nummerro.app" alt="google-play" />
-                        <ImgLink path="/images_folder/app-store.png" style="w-36" to="https://apps.apple.com/us/app/jc-nummerro-app/id1529437444" alt="app-store" />
+                        <ImgLink path="/images_folder/google-play.png" style="w-[140px] h-[40px]" to="https://play.google.com/store/apps/details?id=jc.nummerro.app" alt="google-play" />
+                        <ImgLink path="/images_folder/app-store.png" style="w-[140px] h-[40px]" to="https://apps.apple.com/us/app/jc-nummerro-app/id1529437444" alt="app-store" />
                     </div>
                     <Para style="my-5 text-black" para="J C Nummerro App provides the future predictions based on your Name and Date of Birth" />
                 </div>

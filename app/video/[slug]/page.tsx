@@ -25,15 +25,11 @@ export default page
 export async function generateMetadata({ params }: Props) {
   const { slug } = await params;
 
-  const headersList = await headers();
-  const pathName = await headersList.get("x-pathname") || "";
-
   const meta = VideoMetaData[slug];
 
   if (!meta) return {};
 
   return GenerateMetadata({
-    pagePath: pathName,
     banner: meta.banner,
     title: meta.title,
     description: meta.description,

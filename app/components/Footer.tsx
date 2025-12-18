@@ -157,8 +157,8 @@ export default function Footer() {
             alt="calculators"
           />
           <div className='flex items-center space-x-1 mt-4 justify-center'>
-            <ImgLink to="https://play.google.com/store/apps/details?id=jc.nummerro.app" path="/images_folder/google-play.png" style="w-28 border  border-white" alt="play-store" />
-            <ImgLink to="https://apps.apple.com/us/app/jc-nummerro-app/id1529437444" path="/images_folder/app-store.png" style="w-28 border  border-white" alt="app-store" />
+            <ImgLink to="https://play.google.com/store/apps/details?id=jc.nummerro.app" path="/images_folder/google-play.png" style="w-[140px] h-[50px] border  border-white" alt="play-store" />
+            <ImgLink to="https://apps.apple.com/us/app/jc-nummerro-app/id1529437444" path="/images_folder/app-store.png" style="w-[140px] h-[50px] border  border-white" alt="app-store" />
           </div>
         </div>
       </div>

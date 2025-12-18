@@ -7,11 +7,12 @@ import Para from "./ui/Para";
 import ImgLink from "./ui/ImgLink";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
+import { use, useEffect, useState } from "react";
 
 export default function Header() {
   const router = useRouter();
-  const token =
-    typeof window !== "undefined" ? localStorage.getItem("token") : null;
+  const [token, setToken] = useState<string | null>(null);
+   
 
   const logout = async () => {
     const person = confirm("You want to log out");
@@ -44,6 +45,11 @@ export default function Header() {
       ? formatDateTime(lastLogin)
       : "";
 
+      useEffect(() => {
+        if (typeof window !== "undefined") {
+          setToken(localStorage.getItem("token"));
+        }
+      }, []); 
   return (
     <>
       <div className="md:flex justify-between items-center lg:py-1 px-2 sm:px-6 lg:px-4">
@@ -102,9 +108,9 @@ export default function Header() {
           <div className="flex items-center space-x-2">
             {token ? (
               <>
-                <button type="button" onClick={logout}>
+                <button type="button" className="text-sm" onClick={logout}>
                   <FaUserAlt className="m-auto" size={20} />
-                  <p className="text-xs">LogOut</p>
+                  LogOut
                 </button>
 
                 <p>||</p>

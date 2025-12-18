@@ -26,7 +26,7 @@ export default function CardBox({
   alt2,
 }: CardBoxProps) {
   return (
-    <div className="work opacity-100 w-[270px] h-[360px] shadow-lg border m-auto mb-10 bg-white rounded-md">
+    <div className="work opacity-100 w-[270px] h-[360px] shadow-lg border border-gray-200 m-auto mb-10 bg-white rounded-md">
             <div className='px-10'>
                 <Link href={link} className="work-box text-center m-auto">
                     <Img alt={alt1 as string} style='w-48 m-auto' path={path} />
