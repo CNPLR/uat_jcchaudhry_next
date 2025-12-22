@@ -12,7 +12,7 @@ import Para from "./ui/Para";
 
 export default function SliderMotivation() {
   return (
-    <div className="lg:px-10 px-5 lg:w-[75%] mx-auto motivation_slider">
+    <div className="lg:px-10 px-5 wi-fit lg:w-[75%] mx-auto motivation_slider">
       <Swiper
         modules={[Navigation, Pagination, A11y]}
         spaceBetween={20}

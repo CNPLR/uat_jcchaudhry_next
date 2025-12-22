@@ -1,60 +1,53 @@
 'use client';
 import Link from 'next/link';
 import { useEffect, useState } from 'react';
-// import React, { useEffect, useState } from 'react'
-
-
 
 const PaymentSuccess = ({ searchParams }: any) => {
 
     const { category, id } = searchParams;
 
     const orderId = id ?? "order_RsfBrfPlAMLdTJ";
-    const amount = "15000";
-    const email = "yourmail@example.com";
 
     let path = process.env.NEXT_PUBLIC_URI
     const [userData, setUserData] = useState<any>();
     const [number, setNumber] = useState<string | null>();
     const [paymentData, setPaymentData] = useState<any>();
 
-    async function callAsync() {
-        const number = localStorage.getItem('number');
-        if (number) {
-            setNumber(number);
-            setUserData(await httpFn('websiteuser/', number))
-        }
 
-
-        if (category === "ask-your-question") {
-            setPaymentData(await httpFn('pay/ask-question/orders/', id))
-        }
-        else if (category === "report") {
-            setPaymentData(await httpFn('report/', id))
-        }
-        else {
-            setPaymentData(await httpFn('userAppointment/appointment/orders/', id))
-        }
-
-       
-    }
 
     useEffect(() => {
+        async function callAsync() {
+            const number = JSON.parse(localStorage.getItem('number') as string);
+            if (!number) return;
 
+            if (number) {
+                setNumber(number);
+                await setUserData(await httpFn('websiteuser/', number))
+            }
+
+            if (category === "ask-your-question") {
+                await setPaymentData(await httpFn('pay/ask-question/orders/', id))
+            }
+            else if (category === "report") {
+                await setPaymentData(await httpFn('report/', id))
+            }
+            else {
+                await setPaymentData(await httpFn('userAppointment/appointment/orders/', id))
+            }
+        }
 
         callAsync();
 
-    }, [userData, paymentData]);
+    }, []);
 
     async function httpFn(url: string, params: any): Promise<any> {
-        let res = await fetch(`${path + url}/${params}`)
+        let res = await fetch(`${path + url + params}`)
         const data = await res.json();
         if (data.success === true) {
             return data
         }
         return null;
     }
-
 
     return (
         <main className="p-10 bg-slate-50 text-slate-900 flex items-center justify-center px-4">
@@ -89,8 +82,8 @@ const PaymentSuccess = ({ searchParams }: any) => {
 
                     {/* Info text */}
                     <p className="text-sm md:text-base text-slate-600 mb-6">
-                        Your Boooking is Successfull and confirmation email in send on {userData?.account?.email_id ? userData?.account?.email_id : paymentData?.report?.email}
-                        <span className="font-medium text-emerald-600">{email}</span>.
+                        Your Boooking is Successfull and confirmation email in send on
+                        <span className="font-medium text-emerald-600"> {userData?.account?.email_id ? userData?.account?.email_id : paymentData?.report?.email}</span>.
                     </p>
 
                     {/* Booking details card */}
@@ -102,15 +95,15 @@ const PaymentSuccess = ({ searchParams }: any) => {
                         <div className="flex items-center justify-between text-sm md:text-base">
                             <span className="text-slate-500">Amount</span>
                             <span className="font-semibold text-emerald-600">
-                                ₹{Number(paymentData?.amount).toLocaleString("en-IN")} INR
+                                ₹{Number(paymentData?.data?.amount).toLocaleString("en-IN")} INR
                             </span>
                         </div>
                         <div className="flex items-center justify-between text-xs md:text-sm pt-2 border-t border-slate-200">
                             <span className="text-slate-500">Status</span>
-                            <span className="inline-flex items-center gap-1 rounded-full bg-emerald-50 px-2.5 py-1 text-[11px] font-medium text-emerald-600">
-                                <span className="h-1.5 w-1.5 rounded-full bg-emerald-500" />
-                                Confirmed
-                            </span>
+                            <div className="flex justify-end items-center gap-1 rounded-full bg-emerald-50 px-2.5 py-1 text-[11px] font-medium text-emerald-600">
+                                <p className="h-1.5 w-1.5 rounded-full bg-emerald-500" />
+                                <p className='mt-1' >Confirmed</p>
+                            </div>
                         </div>
                     </div>
 

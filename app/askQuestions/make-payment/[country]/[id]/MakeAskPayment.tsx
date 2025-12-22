@@ -71,9 +71,10 @@ const MakeAskPayment = ({country, id}:any) => {
         setNumber(JSON.parse(localStorage.getItem('number') as string));
 
         async function getUserData() {
-            if(number === null) return
-            let res = await fetch(`${path}websiteuser/${number}`)
-            const data = await res.json();
+            if(number === null || path === undefined) return
+
+            let res: any = await fetch(`${path}websiteuser/${number}`)
+            const data : any = await res.json();
             if (data?.success === true) {
                 setApiUserData(data)
                  setTimeOfBirth(data?.user?.time_of_birth)
@@ -81,7 +82,7 @@ const MakeAskPayment = ({country, id}:any) => {
             }
         }
         getUserData()
-    }, [text, number, apiUserData])
+    }, [text, number])
 
 
     const makePay = async (e: any) => {

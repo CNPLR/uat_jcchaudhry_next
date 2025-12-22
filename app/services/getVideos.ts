@@ -5,7 +5,7 @@ export async function getVideos(endpoint: string) {
     const url = path + endpoint;
 
     const res = await fetch(url, {
-        cache: "no-store",
+        next: { revalidate: 3600 },
     });
 
 

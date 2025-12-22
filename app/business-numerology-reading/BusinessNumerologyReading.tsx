@@ -73,7 +73,7 @@ const BusinessNumerologyReading = () => {
             </div>
             <div className='luck-business px-10 my-10'>
                 <div className='flex justify-evenly items-center text-white'>
-                    <div className='w-full'>
+                    <div className='w-fit m-auto text-center'>
                         <SubHeading style="my-5" subHeading="Lucky Business Name Numerology by Dr. J C Chaudhry" />
                         <SubHeading2 style="" subHeading="40 years EXPERIENCED NUMEROLOGIST, Dr. J C Chaudhry ADVISES THE LUCKY BUSINESS NAME ACCORDING TO DATE OF BIRTH (DOB)." />
                         <Para style="my-5" para="You can also share your Destiny Number or Life Path Number for business name advice for:" />

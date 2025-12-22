@@ -14,7 +14,7 @@ const CommonVideos = ({ para, path, url }: any) => {
   }
   return (
     <div className="w-[270px] md:mr-7 mb-7 relative bg-white">
-      <div className="shadow-lg rounded-md overflow-hidden border">
+      <div className="shadow-lg rounded-md overflow-hidden border border-gray-200">
         <div className="cursor-pointer relative" onClick={showModal}>
           <Img style="" path={path} alt={para} />
 
@@ -41,7 +41,7 @@ const CommonVideos = ({ para, path, url }: any) => {
           ref={modelRef}
           id="popup-modal"
           tabIndex={-1}
-          className="fixed inset-0 z-50 flex justify-center items-center bg-black bg-opacity-50"
+          className="fixed inset-0 z-50 flex justify-center items-center bg-black/50"
         >
           <div className="relative p-4 w-full max-w-fit max-h-full">
             <div className="relative bg-white rounded-lg shadow dark:bg-gray-700">
@@ -49,7 +49,7 @@ const CommonVideos = ({ para, path, url }: any) => {
               <button
                 type="button"
                 onClick={closeModal}
-                className="absolute right-\[-20px] top-\[-20px] bg-[#490099] text-white p-2 rounded-full"
+                className="absolute -right-5 -top-5 bg-[#490099] text-white p-2 rounded-full"
                 data-modal-hide="popup-modal"
               >
                 <svg

@@ -71,7 +71,7 @@ const CareerNumerologyReading = () => {
             </div>
             <div className='luck-business px-10 my-10'>
                 <div className='flex justify-evenly items-center text-white'>
-                    <div className='w-full'>
+                    <div className='w-fit m-auto text-center'>
                         <SubHeading style="my-5" subHeading="Numerology Predictions for Career by Dr. J C Chaudhry" />
                         <SubHeading2 style="" subHeading="ONE OF THE MOST FAMOUS NUMEROLOGISTS IN INDIA, Dr. J C Chaudhry ADVICES THE LUCKY CAREER OPTIONS ACCORDING TO DATE OF BIRTH (DOB)." />
                         <Para style="my-5" para="You can also share your Destiny Number or Life Path Number for career advice for:" />

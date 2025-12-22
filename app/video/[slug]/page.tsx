@@ -12,8 +12,8 @@ type Props = {
 
 const page = async ({ params }: Props) => {
    const { slug } = await params; 
-    
-    const videos = await getVideos(VideoMetaData[slug].videoUrl);
+
+    const videos = await getVideos(VideoMetaData[slug]?.videoUrl);
 
   return (
     <Client videos={videos} alt={slug} BannerPath={VideoMetaData[slug]?.banner} heading={VideoMetaData[slug].heading} />

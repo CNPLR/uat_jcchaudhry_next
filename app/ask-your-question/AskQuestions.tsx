@@ -161,7 +161,7 @@ const FA = ({ image, question, category, faq, showAns, index, toggleFAQ }:any) =
                         <div className="p-4 md:p-5 space-y-4 text-center">
                             <CountriesName
                                 onChange={(e: any) => setCountry(e.target.value)}
-                                text="Select your Country to know the price" value={''}                            />
+                                text="Select your Country to know the price" value={country}                            />
                             <SmallButton
                                 onClick={next}
                                 style="mx-auto cursor-pointer"

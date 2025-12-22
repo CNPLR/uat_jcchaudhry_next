@@ -8,17 +8,22 @@ import { useRouter } from "next/navigation";
 const API_URL = process.env.NEXT_PUBLIC_URI;
 let token ="";
 
-const headers = token
-    ? {
-        "Content-Type": "application/json",
-        Authorization: `Bearer ${token}`,
-        Accept: "*/*",
-    }
-    : {};
+// const headers = token
+//     ? {
+//         "Content-Type": "application/json",
+//         Authorization: `Bearer ${token}`,
+//         Accept: "*/*",
+//     }
+//     : {};
 
-    useEffect(() => {
-       
-    }, []);
+   function getHeaders(token: string) {
+        return {
+            "Content-Type": "application/json",
+            Authorization: `Bearer ${token}`,
+            Accept: "*/*",
+        }
+    }
+
 
 export default function MyBookings() {
     const [bookings, setBookings] = useState([]);
@@ -44,7 +49,7 @@ export default function MyBookings() {
         const fetchData = async () => {
             const storedNumber = localStorage.getItem("number");
             if (!storedNumber) return;
-
+            const headers =  getHeaders(token) ;
             try {
                 const [userRes, reportRes, doneRep] = await Promise.all([
                     axios.get(
@@ -82,7 +87,7 @@ export default function MyBookings() {
         fetchData();
 
         
-    }, []); // eslint-disable-line react-hooks/exhaustive-deps
+    }, []);
 
     /* ------------------------------------------------------------------ */
     /*                          EVENT HANDLERS                            */
@@ -240,6 +245,7 @@ const Modal = React.forwardRef(({ closeModal, name, id, number, email, country }
     const [message, setMessage] = useState("");
 
     const handleSubmit = async () => {
+        const headers = getHeaders(token);
         const data = { name, id, number, email, message, country, platform: "Desktop" };
         try {
             const res = await axios.post(`${API_URL}report/`, data, { headers });
@@ -286,7 +292,7 @@ const Modal = React.forwardRef(({ closeModal, name, id, number, email, country }
                     Leave Your Message
                 </h3>
                 <textarea
-                    className="w-full rounded-lg border border-gray-300 p-3 text-sm focus:border-[#490099] focus:ring-[#490099]"
+                    className="w-full rounded-lg bg-white border border-gray-300 p-3 text-sm focus:border-[#490099] focus:ring-[#490099]"
                     placeholder="Type here..."
                     rows={5}
                     value={message}

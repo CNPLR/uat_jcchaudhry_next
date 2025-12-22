@@ -1,3 +1,5 @@
+import { headers } from "next/headers";
+
 
 interface MetaGeneratorProps {
   title: string;
@@ -8,7 +10,7 @@ interface MetaGeneratorProps {
   banner: string;
   blogFaqSchema?: Record<string, any>;
   isCanonical?: boolean;
-  headers: () => Promise<Headers>;
+  nextHeaders: () => Promise<Headers>;
 }
 
 export async function GenerateMetadata({
@@ -20,7 +22,7 @@ export async function GenerateMetadata({
   banner,
   blogFaqSchema,
   isCanonical,
-  headers
+  nextHeaders
 }: MetaGeneratorProps): Promise< Record<string, any> > {
   const DOMAIN = process.env.NEXT_PUBLIC_DOMAIN || '';
   const imgUrl = banner && banner.includes('http') ? `${DOMAIN}${banner}` : banner;

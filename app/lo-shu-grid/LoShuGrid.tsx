@@ -119,7 +119,7 @@ const LoShuGrid = () => {
                         />
                     )}
                 </div>
-                <Link href="/video/loshu">
+                <Link href="/video/lo-shu">
                     <SmallButton text="View More" style="m-auto" />
                 </Link>
             </div>

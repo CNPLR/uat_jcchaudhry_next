@@ -29,7 +29,8 @@ export default function OnlineAppointment() {
    const selectRef = useRef<any>(null);
     let path = process.env.NEXT_PUBLIC_URI;
     const modalRef = useRef<any>(null)
-    let token = localStorage.getItem('token');
+    const [token, setToken] = useState<string | null>(null);
+    
     const headers = {
         "Content-Type": "application/json",
         Authorization: `Bearer ${token}`, // Ensure `token` is not null or undefined
@@ -208,12 +209,18 @@ export default function OnlineAppointment() {
     }
 
     useEffect(() => {
+        let token = localStorage.getItem('token');
+        if (token) {
+            setToken(token);
+        }
+
         if (!token) return
         setNumber(JSON.parse(localStorage.getItem('number') as string))
         if (country) {
             getSlots(country)
         }
 
+        
         handleDate()
         if (country) {
             let dateUrl = path + `availableDates`;
@@ -224,7 +231,7 @@ export default function OnlineAppointment() {
             }).catch((err) => console.log(err.message));
         }
 
-    }, [country, slotTime, slotData])
+    }, [country, slotTime, slotData, token])
 
     const closeModal = () => {
         setSlotData("");

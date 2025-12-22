@@ -149,7 +149,7 @@
   },
   {
     "slug": "/mybookings",
-    "updatedAt": "2025-12-15T09:40:20.135Z"
+    "updatedAt": "2025-12-18T10:49:20.006Z"
   },
   {
     "slug": "/new-born-numerology-reading",
@@ -205,15 +205,19 @@
   },
   {
     "slug": "/profile",
-    "updatedAt": "2025-12-15T10:19:34.289Z"
+    "updatedAt": "2025-12-16T12:52:52.970Z"
   },
   {
     "slug": "/relationship-numerology-reading",
     "updatedAt": "2025-12-10T10:51:16.541Z"
   },
   {
+    "slug": "/report-payment",
+    "updatedAt": "2025-12-18T13:48:28.542Z"
+  },
+  {
     "slug": "/sitemaphtml",
-    "updatedAt": "2025-12-16T12:13:59.971Z"
+    "updatedAt": "2025-12-16T12:25:59.108Z"
   },
   {
     "slug": "/terms-and-conditions",
@@ -222,6 +226,10 @@
   {
     "slug": "/testimonials",
     "updatedAt": "2025-12-15T07:34:30.585Z"
+  },
+  {
+    "slug": "/thankyou",
+    "updatedAt": "2025-12-18T09:51:30.465Z"
   },
   {
     "slug": "/vastu-meditation-others",

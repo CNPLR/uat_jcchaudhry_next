@@ -41,16 +41,16 @@ const Motivation = () => {
                     </div>
                 </div>
                 <div className='flex items-center text-center my-10 lg:space-x-10 lg:flex-row flex-col justify-center'>
-                    <div className='w-60 border p-5 h-80 bg-white rounded-md shadow-md mb-5'>
-                        <Img alt="Distinguished Entrepreneurship Award 2020 for Dr. J C Chaudhry" style="m-auto h-[200px]" path="/images_folder/Distinguished-Entrepreneurship-Award-2020-for-Dr.-J-C-Chaudhry.png" />
+                    <div className='w-60 border border-gray-200 p-5 h-80 bg-white rounded-md shadow-md mb-5'>
+                        <Img alt="Distinguished Entrepreneurship Award 2020 for Dr. J C Chaudhry" style="m-auto w-fit h-[200px]" path="/images_folder/Distinguished-Entrepreneurship-Award-2020-for-Dr.-J-C-Chaudhry.png" />
                         <Para para="Distinguished Entrepreneurship Award 2020" />
                     </div>
-                    <div className='w-60 border p-5 h-80 bg-white rounded-md shadow-md mb-5'>
-                        <Img alt="Hall of Fame 2014 Recognition for Dr. J.C. Chaudhry" style="m-auto h-[200px]" path="/images_folder/Hall-of-Fame-2014-Recognition-for-Dr.-J.C.-Chaudhry.png" />
+                    <div className='w-60 border border-gray-200 p-5 h-80 bg-white rounded-md shadow-md mb-5'>
+                        <Img alt="Hall of Fame 2014 Recognition for Dr. J.C. Chaudhry" style="m-auto w-fit h-[200px]" path="/images_folder/Hall-of-Fame-2014-Recognition-for-Dr.-J.C.-Chaudhry.png" />
                         <Para para="Hall of Fame 2014’" />
                     </div>
-                    <div className='w-60 border p-5 h-80 bg-white rounded-md shadow-md mb-5'>
-                        <Img alt="Vasundhara Ratan Award of Excellence 2013" style="m-auto h-[200px]" path="/images_folder/Vasundhara-Ratan-Award-of-Excellence-2013.png" />
+                    <div className='w-60 border border-gray-200 p-5 h-80 bg-white rounded-md shadow-md mb-5'>
+                        <Img alt="Vasundhara Ratan Award of Excellence 2013" style="m-auto w-fit h-[200px]" path="/images_folder/Vasundhara-Ratan-Award-of-Excellence-2013.png" />
                         <Para para="Vasundhara Ratan Award of Excellence 2013" />
                     </div>
                 </div>

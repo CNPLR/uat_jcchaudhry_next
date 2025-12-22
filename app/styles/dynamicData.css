@@ -22,7 +22,9 @@ p {
 .horizontal .image {
     margin: 1rem auto;
 }
-
+.horizontal  figure {
+    width: fit-content !important;
+}
 .horizontal h2 {
     font-size: 30px;
     background: none !important;
@@ -52,7 +54,9 @@ p {
 
 .horizontal .table td {
     border: 1px solid;
-    /* width: 100px; */
+    width: fit-content !important;
+    min-width: 100px;
+    /* padding: 5px 10px; */
     font-weight: bolder !important;
     color: black !important;
     font-size: 20px;

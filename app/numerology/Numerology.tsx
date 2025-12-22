@@ -62,6 +62,7 @@ const Numerology = () => {
                         heading="Business Company Name Numerology"
                         para="To conduct a numerology audit of the company or corporation to determine the percentage of lucky and unlucky employees."
                         link="/business-name-numerology"
+                        style='px-10 pb-4'
                     />
                     <ImgHeadingBox
                         alt="Business Partner Compatibility"
@@ -69,6 +70,7 @@ const Numerology = () => {
                         heading="Business Partner Compatibility"
                         para="To check the compatibility of the owner of the business with the existing or new partners."
                         link="/business-partnership-numerology"
+                        style='px-10 pb-4'
                     />
                     <ImgHeadingBox
                         alt="Right Time of Investment"
@@ -76,6 +78,7 @@ const Numerology = () => {
                         heading="Right Time of Investment"
                         para="To find out the best dates, period, and time for investment for greater ROI."
                         link="/business-numerology-reading"
+                        style='px-10 pb-4'
                     />
                     <ImgHeadingBox
                         alt="Business Name Compatibility"
@@ -83,6 +86,7 @@ const Numerology = () => {
                         heading="Business Name Compatibility"
                         para="To check the compatibility of the name and to suggest the lucky name of the brand that benefits the owner and other people."
                         link="/business-numerology-reading"
+                        style='px-10 pb-4'
                     />
                     <ImgHeadingBox
                         alt="Marriage Love Compatibility Service by Dr J C Chaudhry"
@@ -90,6 +94,7 @@ const Numerology = () => {
                         heading="Marriage Love Compatibility"
                         para="To find out the compatibility between two people for a harmonious relationship or marriage."
                         link="/marriage-numerology-reading"
+                        style='px-10 pb-4'
                     />
                     <ImgHeadingBox
                         alt="Numerology for Name Change"
@@ -97,6 +102,7 @@ const Numerology = () => {
                         heading="Change of Name Numerology"
                         para="To check the suitability of the name for a person and to suggest a name that vibrates harmoniously with the person’s date of birth."
                         link="/name-correction-in-numerology"
+                        style='px-10 pb-4'
                     />
                     <ImgHeadingBox
                         alt="Numerology Guide for Choosing a Baby's Name"
@@ -104,6 +110,7 @@ const Numerology = () => {
                         heading="Naming Newly Born Baby"
                         para="To suggest initial letters and names for a newborn baby in harmony with the date of birth to attract luck in the future."
                         link="/new-born-numerology-reading"
+                        style='px-10 pb-4'
                     />
                     <ImgHeadingBox
                         alt="Numerology for House and Office Compatibility"
@@ -111,6 +118,7 @@ const Numerology = () => {
                         heading="House/Office Compatibility"
                         para="To tell whether the house or office number is compatible with the owners or people who wish to rent it out."
                         link="/house-number-numerology"
+                        style='px-10 pb-4'
                     />
                     <ImgHeadingBox
                         alt="Numerology for Calculating Engagement and Marriage Dates"
@@ -118,6 +126,7 @@ const Numerology = () => {
                         heading="Engagement/Marriage Dates Calculation"
                         para="To identify the best dates for engagement and marriage that are lucky for both partners."
                         link="/marriage-numerology-reading"
+                        style='px-10 pb-4'
                     />
                 </div>
             </div>
