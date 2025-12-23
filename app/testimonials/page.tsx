@@ -8,7 +8,7 @@ export const metadata = GenerateMetadata({
         title: "Numerology Testimonials | Numerology Calculation by Dr. J C Chaudhry",
         description: "Check out the testimonials shared by satisfied clients who have taken Numerology advice from Dr. J C Chaudhry for their Life, Health, Family, Relationship, Marriage, Business or Corporate.",
         keywords: "numerologist in india, numerology by jc chaudhry, vaastu shastra expert, motivational speaker, motivational speakers in india",
-    headers: headers
+    // headers: headers
 })
 const page = () => {
   return (

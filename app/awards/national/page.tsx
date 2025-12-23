@@ -10,7 +10,7 @@ export const metadata = GenerateMetadata({
         title: "Static National Awards Page | JC Chaudhry",
         description: "National Awards",
         keywords: "numerologist in india, numerology by jc chaudhry, vaastu shastra expert, motivational speaker, motivational speakers in india",
-        headers: headers,
+        // headers: headers,
 });
 
 const page = async () => {

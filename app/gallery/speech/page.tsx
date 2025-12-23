@@ -11,7 +11,7 @@ export const metadata =  GenerateMetadata({
             keywords: "numerologist in india, numerology by jc chaudhry, vaastu shastra expert, motivational speaker, motivational speakers in india",
             pagePath: '/gallery/speech',
             banner: "/allbanners/Gallery-of-Dr-J-C-Chaudhry’s-awards.webp",
-            headers: headers,
+            // headers: headers,
          });
          
 const  page = async () => {

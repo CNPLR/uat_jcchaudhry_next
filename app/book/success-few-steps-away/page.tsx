@@ -7,7 +7,7 @@ export const metadata =GenerateMetadata({
     title: "Success, A Few Steps Away Book | Motivate yourself for Success",
     description: "This book explains about the different actions and steps towards success. Keep on reading all the 41 chapters of this book and you will build the confidence to achieve more and being successful with every step.",
     keywords: "Successful life book, success life journey book, how to be successful book, steps of success, successful people habits, how to create habits for success, motivation mantras for success, motivational reading book on success",
-    headers: headers
+    pagePath: "/book/success-few-steps-away",
 })
 const page = () => {
    return (

@@ -25,7 +25,7 @@ export default function ImgHeadingBox({
   style= '',
 
 }: ImgHeadingBoxProps) {
-  console.log(style)
+  // console.log(style)
   return (
     <div className='text-center lg:w-[30%] w-64 border border-gray-200 p-5 space-y-5 md:mr-5 mb-5 rounded-md shadow-md bg-white'>
       <Link href={link}>

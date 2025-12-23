@@ -11,7 +11,7 @@ export const metadata = GenerateMetadata({
     title: "Dr. J C Chaudhry Milestones Achieved | Achievements in Education Field",
     description: "The life journey of Dr. J C Chaudhry from 1949, completed education in 1972 and started his teaching journey itself. Established the Aakash institute in 1988, Aakash IIT-JEE in 2007, Aakash iTutor in 2012, Aakash Live in 2016, Launched Chaudhry Nummero Private Limited in 2018 and more.",
     keywords: "numerologist in india, numerology by jc chaudhry, vaastu shastra expert, motivational speaker, motivational speakers in india",
-    headers: headers,
+    // headers: headers,
 });
 
 

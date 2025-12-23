@@ -1,5 +1,3 @@
-import { headers } from "next/headers";
-
 
 interface MetaGeneratorProps {
   title: string;
@@ -10,7 +8,7 @@ interface MetaGeneratorProps {
   banner: string;
   blogFaqSchema?: Record<string, any>;
   isCanonical?: boolean;
-  nextHeaders: () => Promise<Headers>;
+  // headers: () => Promise<Headers>;
 }
 
 export async function GenerateMetadata({
@@ -22,15 +20,12 @@ export async function GenerateMetadata({
   banner,
   blogFaqSchema,
   isCanonical,
-  nextHeaders
+  // headers
 }: MetaGeneratorProps): Promise< Record<string, any> > {
   const DOMAIN = process.env.NEXT_PUBLIC_DOMAIN || '';
-  const imgUrl = banner && banner.includes('http') ? `${DOMAIN}${banner}` : banner;
-
-  const headersList = await headers()
-  const fullURL = headersList.get('referer')
-
-
+  const imgUrl = banner && banner.includes('http') ?  banner : `${DOMAIN}${banner}`;
+  const fullURL =   isCanonical ? `https://www.jcchaudhry.com${pagePath}` : `https://www.jcchaudhry.com${pagePath}`
+ 
   return {
     title: title,
     description: description,
@@ -83,3 +78,40 @@ export async function GenerateMetadata({
 };
 
 export default GenerateMetadata;
+
+export function buildArticleJsonLd(blogPost: Record<string, any> | undefined, fullUrl: string | null, domain: string) {
+  if (!blogPost || !fullUrl) return null;
+
+  const imageUrl = blogPost.headerBanner
+    ? `https://newcnpl.s3.ap-south-1.amazonaws.com/public/blogs/banners/${blogPost.headerBanner}`
+    : '';
+
+  const articleSchema = {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": fullUrl
+    },
+    "headline": blogPost.metaTitle || blogPost.title || '',
+    "description": blogPost.metaDescription || '',
+    "image": imageUrl,
+    "author": {
+      "@type": "Person",
+      "name": "J C Chaudhry",
+      "url": domain
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "Chaudhry Nummero Pvt. Ltd.",
+      "logo": {
+        "@type": "ImageObject",
+        "url": `${domain}/logos/jclogo.png`
+      }
+    },
+    "datePublished": blogPost.createdAt ? new Date(blogPost.createdAt).toISOString() : undefined,
+    "dateModified": blogPost.updatedAt ? new Date(blogPost.updatedAt).toISOString() : undefined
+  };
+
+  return JSON.stringify(articleSchema);
+}

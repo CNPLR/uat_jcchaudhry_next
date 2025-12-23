@@ -2,8 +2,6 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import Script from "next/script";
-import Menu from "./components/Menu";
-import Navbar from "./components/Navbar";
 import MainNavigationCompo from "./components/MainNavigationCompo";
 import Footer from "./components/Footer";
 
@@ -31,12 +29,12 @@ export const metadata: Metadata = {
     "motivational speakers in india",
   ],
 
-   alternates: {
-    canonical: `${DOMAIN}/page-path`,
+  alternates: {
+    canonical: `${DOMAIN}`,
   },
 
   metadataBase: new URL("https://www.jcchaudhry.com"),
-  
+
   verification: {
     google: "ti0zsKNBjhegR03iI5Wf1VJEqFXU_5rfqXZGTRA85S4",
     other: {
@@ -44,7 +42,7 @@ export const metadata: Metadata = {
     },
   },
 
-   openGraph: {
+  openGraph: {
     locale: "en_US",
     type: "website",
     siteName: "J C Chaudhry",
@@ -119,11 +117,7 @@ export default function RootLayout({
           }
           `}
         </Script>
-      </head>
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-      >
-         {/* ✅ Google Analytics (UA) */}
+        {/* ✅ Google Analytics (UA) */}
         <Script
           id="google-analytics"
           strategy="afterInteractive"
@@ -184,8 +178,13 @@ export default function RootLayout({
             alt=""
           />
         </noscript>
+      </head>
+      <body
+        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+      >
+
         <MainNavigationCompo />
-        
+
         {children}
         <Footer />
       </body>

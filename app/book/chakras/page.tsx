@@ -7,7 +7,7 @@ export const metadata = GenerateMetadata({
     title: "A Book about 7 Chakras | Methods and Functions of Chakras",
     description: "This book of 7 Chakras by Dr. J C Chaudhry explains the functions of 7 Chakras, how the Chakras work, relationship of Chakras with human body and methods of Chakras.",
     keywords: "7 chakras book, book about chakras, chakras in human body, how chakras work, learn chakras meditation, how to do chakras meditation, methods of doing chakras, how many types of chakras",
-    headers:headers
+    pagePath: "/book/chakras",
 })
 
 const page = () => {

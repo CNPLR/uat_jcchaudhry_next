@@ -8,7 +8,7 @@ export const metadata = GenerateMetadata({
         title: "Chaudhry Nummero Pvt. Ltd. | Dr. J C Chaudhry | Contact Address",
         description: "Chaudhry Nummero Pvt. Ltd. founded by Dr. J C Chaudhry, Chairman and Managing Director of Aakash Educational Services Ltd. (AESL). Contact Information Chaudhry Nummero Pvt. Ltd.",
         keywords: "numerologist in india, numerology by jc chaudhry, vaastu shastra expert, motivational speaker, motivational speakers in india",
-    headers: headers
+    pagePath: "/contact-us",
 });
 const page = () => {
   return (

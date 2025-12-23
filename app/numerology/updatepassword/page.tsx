@@ -6,7 +6,7 @@ export const metadata = GenerateMetadata({
     title: "Forgot | Update Password | JCChaudhry.com",
     description: "Update or recover your password at jcchaudhry.com. Appointment booking for your personal numerology, life numerology, future numerology reading.",
     keywords: "numerologist in india, numerology by jc chaudhry, vaastu shastra expert, motivational speaker, motivational speakers in india",
-    headers: headers
+    pagePath: "/numerology/updatepassword",
 })
 const page = () => {
   return (

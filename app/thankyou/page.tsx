@@ -13,7 +13,7 @@ export const metadata = GenerateMetadata({
     title: "Thank you | JC Chaudhry",
     keywords: "numerologist in india, numerology by jc chaudhry, vaastu shastra expert, motivational speaker, motivational speakers in india",
     description: "Thanks for contacting us! We will get back to you soon.",
-    headers:headers
+    // headers:headers
 });
 const page = () => {
   return (

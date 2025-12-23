@@ -10,12 +10,11 @@ import { getVideos } from '../services/getVideos'
 import { headers } from 'next/headers'
 
 export const metadata = GenerateMetadata({
-    pagePath: "/chaudhry-nummero-pvt-ltd",
     banner: "/allbanners/Chaudhry-Numerology-Pvt-Ltd-services.webp",
     title: "Chaudhry Nummero Pvt. Ltd | Dr. J C Chaudhry | Numerology Auditing Firm",
     description: "Chaudhry Nummero Pvt. Ltd (CNPL) is a Numerology Auditing company by top numerologist Dr. J C Chaudhry. Contact us for business and personal numerology reading.",
     keywords: "numerology company, best numerology company in India, numerology auditing company, jc chaudhry, famous numerology firm in India, top numerology company, world famous numerology, numerology in India, India numerology company, numerology audit firm",
-    headers: headers,
+    pagePath: "/chaudhry-nummero-pvt-ltd",
 });
 
 const cnpl:any = getVideos('getvideosbycategory/category/CNPL');
@@ -41,9 +40,9 @@ const page = () => {
             />
             <div className='lg:flex justify-center items-start mt-7'>
                 <div className='flex items-center mt-7 border bg-slate-100 px-10 pt-10 rounded-md justify-center flex-wrap'>
-                    {cnpl?.data?.map((ele: any) =>
+                    {cnpl?.data?.map((ele: any, index: number) =>
                         <CommonVideos
-                            key={ele.id}
+                            key={index}
                             path={`https://newcnpl.s3.ap-south-1.amazonaws.com/public/jccms/videosthumbnail/${ele.category}/${ele.thumbnail}`}
                             url={ele.videoUrl}
                             para={ele.title}

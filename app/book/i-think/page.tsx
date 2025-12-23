@@ -1,13 +1,12 @@
 import GenerateMetadata from '@/app/components/MetaGenerator';
 import { Books } from '@/app/components/ui/Books';
-import { headers } from 'next/headers';
 
 export const metadata = GenerateMetadata({
     banner: "/allbanners/I-Think-book-by-Dr-J-C-Chaudhry.webp",
     title: "I Think | Motivational Quotes Book | Dr Dr. J C Chaudhry",
     description: "I Think- poverty is no bar for success book is a collection of inspirational quotes by Dr. J C Chaudhry for positive thinking and success in life.",
     keywords: "numerologist in india, numerology by jc chaudhry, vaastu shastra expert, motivational speaker, motivational speakers in india",
-    headers: headers
+    pagePath: "/book/i-think",
 })
 
 const page = () => {

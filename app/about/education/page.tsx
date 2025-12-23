@@ -5,7 +5,6 @@ import SmallButton from '../../components/ui/SmallButton'
 import MainHeading from '../../components/ui/MainHeading'
 import Banner from '../../components/ui/Banner'
 import GenerateMetadata from '../../components/MetaGenerator'
-import { headers } from 'next/headers'
 
 export const metadata = GenerateMetadata({
     pagePath: "/about/education",
@@ -13,7 +12,7 @@ export const metadata = GenerateMetadata({
     title: "Dr. J C Chaudhry Education | Chairman Aakash Education Study, College, Teaching Experience",
     description: "Dr. J C Chaudhry Chairman &amp; Managing Director of AESL did his Master degree in Science (Botany) from the Birla Institute of Technology and Science from BITS Pilani in the year 1972.",
     keywords: "jc Chaudhry education, 	Dr. J C Chaudhry studies, Dr. J C Chaudhry knowledge, jc Chaudhry aakash chairman, Dr. J C Chaudhry aakash owner, jc Chaudhry college degree, Dr. J C Chaudhry science, jc Chaudhry from bits pilani",
-    headers: headers,
+    // headers: headers,
 });
 
 const education = () => {

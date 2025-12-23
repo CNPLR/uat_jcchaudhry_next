@@ -6,12 +6,12 @@ import MainHeading from '../components/ui/MainHeading'
 import { getImages } from '../services/getImages'
 
 export const metadata = GenerateMetadata({
-        pagePath: "media",
+        pagePath: "/media",
         banner: "/allbanners/Dr-Chaudhry-featured-in-media.webp",
         title: "Media Coverage | News &amp; Recognition | Dr. J C Chaudhry",
         description: "Latest news about Dr. J C Chaudhry in education and numerology field.",
         keywords: "numerologist in india, numerology by jc chaudhry, vaastu shastra expert, motivational speaker, motivational speakers in india",
-        headers: headers,
+        
     });
 
 const page = async () => {

@@ -13,7 +13,7 @@ export const metadata = GenerateMetadata({
         title: "Best Numerology Books | Vastu Books | Dr Dr. J C Chaudhry",
         description: "Dr Dr. J C Chaudhry has written books on numerology, vastu, meditation. His numerology books such as Prractical, Advanced numerology etc. are available on Amazon.",
         keywords: "numerologist in india, numerology by jc chaudhry, vaastu shastra expert, motivational speaker, motivational speakers in india",
-    headers: headers
+    pagePath: "/books",
 });
 const page = () => {
 

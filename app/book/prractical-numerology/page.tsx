@@ -7,7 +7,7 @@ export const metadata = GenerateMetadata({
     title: "Prractical Numerology | Numerology Book by Dr. J C Chaudhry",
     description: "Learn numerology with Dr. J C Chaudhry. Buy his prractical numerology book on Amazon to understand relationship of numbers, how to calculate numbers, etc.",
     keywords: "numerologist in india, numerology by jc chaudhry, vaastu shastra expert, motivational speaker, motivational speakers in india",
-    headers: headers,
+    pagePath: "/book/prractical-numerology",
   });
 const page = () => {
   return (

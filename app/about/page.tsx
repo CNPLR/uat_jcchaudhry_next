@@ -4,7 +4,6 @@ import ImgHeadingContent from '../components/ui/ImgHeadingContent'
 import MainHeading from '../components/ui/MainHeading'
 import Banner from '../components/ui/Banner'
 import GenerateMetadata from '../components/MetaGenerator'
-import { headers } from 'next/headers'
 
 export const metadata = GenerateMetadata({
         pagePath: "/about",
@@ -12,7 +11,7 @@ export const metadata = GenerateMetadata({
         title: "Numerologist &amp; Motivational Speaker Delhi, India | Business Numerology Expert | Dr. J C Chaudhry",
         description: "JC Chaudhry, Chairman &amp; Founder of Aakash Educational Services Ltd. (AESL) is also one of the popular numerologists of India offers life numerology reading services world-wide. Book Appointment Now!",
         keywords: "jc chaudhry, Dr. J C Chaudhry, Dr. J C Chaudhry, jc chaudhary, jc chaudhry house, jc chaudhry full name, aakash institute owner, j c chaudhary, owner of aakash institute, aakash founder, jc chaudhry biography, akash institute owner",
-        headers: headers,
+        // headers: headers,
 });
 
 

@@ -12,7 +12,7 @@ export const metadata = GenerateMetadata({
     title: "Motivation, Teaching, Numerology by Dr. J C Chaudhry",
     description: "Dr. J C Chaudhry is working on his mission to educate students to build better doctors and engineers in India. Also, helping thousands of people to resolve their family, business and career problems with his numerology experience.",
     keywords: "numerologist in india, numerology by jc chaudhry, vaastu shastra expert, motivational speaker, motivational speakers in india",
-    headers: headers,
+    // headers: headers,
 });
 const page = () => {
   return (

@@ -41,7 +41,7 @@ const NumerologyLifePathCalculator = () => {
     const [masterContent, setMasterContent] = useState("");
 
     const inputChange = (value: any, data: any) => {
-        console.log(value.length)
+        // console.log(value.length)
         setCountry(data.name);
         setMobileNumber1(value);
         setCode(data.dialCode);
@@ -148,6 +148,36 @@ const NumerologyLifePathCalculator = () => {
 
     const countryIP = CountryIPaddress();
 
+    function handleDatePicker(e:any){
+        const value = e.target.value;
+        if (!value) return null;
+
+        const parts = value.split("/"); // ["dd","MM","yyyy"]
+        if (parts.length !== 3) return null;
+
+        const [ddStr, mmStr, yyyyStr] = parts;
+        const day = Number(ddStr);
+        const month = Number(mmStr);
+        const year = Number(yyyyStr);
+
+        // basic validation
+        if (!day || !month || !year) return null;
+        if (month < 1 || month > 12) return null;
+        if (day < 1 || day > 31) return null;
+
+        const date = new Date(year, month - 1, day); // month is 0-based
+
+        if (
+            date.getFullYear() !== year ||
+            date.getMonth() !== month - 1 ||
+            date.getDate() !== day
+        ) {
+            return null;
+        }
+
+        setDob(date);
+    }
+
     useEffect(() => {
        const token = localStorage.getItem('token')
        if (token) {
@@ -175,13 +205,15 @@ const NumerologyLifePathCalculator = () => {
                                 <DatePicker
                                     id="date-picker"
                                     selected={dob as Date}
-                                    onChange={date => setDob(date?.toISOString().split("T")[0] as string)}
+                                    onChange={(date: any) =>  setDob(date?.toISOString().split("T")[0] as string)}
+                                    onChangeRaw={handleDatePicker}
                                     dateFormat="dd/MM/yyyy"
                                     maxDate={new Date()} // Disable previous dates
                                     placeholderText="DD-MM-YYYY"
                                     showPopperArrow={false} // Removes arrow for better UI
                                     // peekNextMonth
                                     // showMonthDropdown
+                                    
                                     showYearDropdown
                                     dropdownMode="select"
                                 />
@@ -214,6 +246,7 @@ const NumerologyLifePathCalculator = () => {
                                 id="date-picker"
                                 selected={dob as Date}
                                 onChange={date => setDob(date?.toISOString().split("T")[0] as string)}
+                                onChangeRaw={handleDatePicker}
                                 dateFormat="dd/MM/yyyy"
                                 maxDate={new Date()} // Disable previous dates
                                 placeholderText="DD-MM-YYYY"

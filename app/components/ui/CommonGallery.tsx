@@ -15,9 +15,9 @@ export default function CommonGallery({
   alt = "",
 }: CommonGalleryProps) {
   return (
-     <div className={`${style} border shadow-md rounded-md md:mr-8 mb-8 p-2 w-52`}>
+     <div className={`${style} border border-slate-200 shadow-md rounded-md md:mr-8 mb-8 p-2 w-52`}>
             <Img style="m-auto rounded-md w-52 " path={path} alt={alt} />
-            <div className='w-full h-[2px] bg-white mt-2'></div>
+            <div className='w-full h-0.5 bg-white mt-2'></div>
             <Para style="text-center" para={para} />
         </div>
   );

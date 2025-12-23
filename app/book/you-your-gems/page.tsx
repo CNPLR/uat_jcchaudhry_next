@@ -1,14 +1,13 @@
 import GenerateMetadata from '@/app/components/MetaGenerator';
 import { Books } from '@/app/components/ui/Books';
 import { headers } from 'next/headers';
-import React from 'react'
 
 export const metadata = GenerateMetadata({
     banner: "/allbanners/You-and-Your-Gems-book-by-Dr-J-C-Chaudhry.webp",
     title: "You & Your Gems | Gemstone Types & Benefits | Dr Dr. J C Chaudhry",
     description: "You and Your Gems book by Dr. J C Chaudhry explains different gems, gemstones colours, significance and how it can bring happiness in life.",
     keywords: "numerologist in india, numerology by jc chaudhry, vaastu shastra expert, motivational speaker, motivational speakers in india",
-    headers: headers
+    pagePath: "/book/you-your-gems",
 })
 const page = () => {
     let arr = [

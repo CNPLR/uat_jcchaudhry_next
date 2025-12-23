@@ -8,7 +8,7 @@ export const metadata = GenerateMetadata({
   title: "Advanced Numerology | Best Numerology Book | Dr Dr. J C Chaudhry",
   description: "Advanced numerology book is authored by numerologist Dr. J C Chaudhry. The book explains lo shu grid, power of name, calculation of friendly and anti-numbers, etc.",
   keywords: "numerologist in india, numerology by jc chaudhry, vaastu shastra expert, motivational speaker, motivational speakers in india",
-  headers: headers,
+  pagePath: "/book/advanced-numerology",
 });
 
 const page = () => {

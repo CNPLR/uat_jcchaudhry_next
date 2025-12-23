@@ -12,7 +12,7 @@ export const metadata = GenerateMetadata({
             keywords: "numerologist in india, numerology by jc chaudhry, vaastu shastra expert, motivational speaker, motivational speakers in india",
             pagePath: '/gallery/awards',
             banner: "/allbanners/Gallery-of-Dr-J-C-Chaudhry’s-awards.webp",
-            headers: headers,
+            
          });
 
 

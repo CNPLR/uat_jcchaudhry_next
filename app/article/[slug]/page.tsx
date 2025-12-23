@@ -2,10 +2,12 @@ import { notFound, redirect } from "next/navigation";
 
 import ClientBlog from './Client'
 import { Blog } from "@/app/models/blog";
-import GenerateMetadata from "@/app/components/MetaGenerator";
+import GenerateMetadata, { buildArticleJsonLd } from "@/app/components/MetaGenerator";
 import { headers } from "next/headers";
 
-export async function Metadata({ params }: { params: Promise<{ slug: string }> }) {
+const DOMAIN = process.env.NEXT_PUBLIC_DOMAIN || '';
+
+export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params;
 
   const BACKEND = process.env.URI;
@@ -16,17 +18,17 @@ export async function Metadata({ params }: { params: Promise<{ slug: string }> }
   if (!blog) return {};
 
   return GenerateMetadata({
-    // pagePath: blog?.slug,
+    pagePath: `/article/${blog?.slug}`,
     banner: `https://newcnpl.s3.ap-south-1.amazonaws.com/public/blogs/banners/${blog.headerBanner}`,
     title: blog?.metaTitle,
     description: blog?.metaDescription,
     keywords: blog?.keywords,
-    headers: headers,
+    // headers: headers,
   });
 }
 
 export default async function Page({ params }: { params: Promise<{ slug: string }> }) {
-  const { slug } = await params; 
+  const { slug } = await params;
 
   const BACKEND = process.env.URI;
   const blogRes = await fetch(`${BACKEND}blog/slug/${slug}`, { cache: "no-store" });
@@ -34,7 +36,7 @@ export default async function Page({ params }: { params: Promise<{ slug: string 
   const blog: Blog = blogJson?.data?.[0];
 
     const path : any= process.env.URI;
-    const domain = process.env.DOMAIN;
+  const domain = process.env.DOMAIN;
 
   if (!blog?.blogIsActive) notFound();
 
@@ -47,8 +49,57 @@ export default async function Page({ params }: { params: Promise<{ slug: string 
 
   const bannerUrl = `https://newcnpl.s3.ap-south-1.amazonaws.com/public/blogs/banners/${blog.headerBanner}`
 
+  const fullUrl = `${DOMAIN}/article/${slug}`;
+  const jsonLd = buildArticleJsonLd(blog, fullUrl, DOMAIN);
+
+  const faqItems = blog?.faqInput?.map((f) => ({
+    "@type": "Question",
+    "name": f.question,
+    "acceptedAnswer": {
+      "@type": "Answer",
+      "text": f.answer
+    }
+  }));
+
+  const jsonLdFaq = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": faqItems
+  }
+
+   GenerateMetadata({
+    // pagePath: blog?.slug,
+    banner: `https://newcnpl.s3.ap-south-1.amazonaws.com/public/blogs/banners/${blog.headerBanner}`,
+    title: blog?.metaTitle,
+    description: blog?.metaDescription,
+    keywords: blog?.keywords,
+    // headers: headers,
+  });
+
   return (
-    <ClientBlog slug={slug} initialBlog={blog} bannerUrl={bannerUrl} blogData={blogData}/>
+    <>
+      {jsonLdFaq && (
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(jsonLdFaq).replace(/</g, '\\u003c')
+          }}
+          key="faq-schema"
+        />
+      )}
+
+      {jsonLd && (
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(jsonLd).replace(/</g, '\\u003c')
+          }}
+          key="article-schema"
+        />
+      )}
+
+      <ClientBlog slug={slug} initialBlog={blog} bannerUrl={bannerUrl} blogData={blogData} />
+    </>
   )
 }
 

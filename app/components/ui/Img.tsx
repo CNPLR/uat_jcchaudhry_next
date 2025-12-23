@@ -10,7 +10,7 @@ type ImgProps = {
 
 export default function Img({ alt, style, path, width, height }: ImgProps) {
   if(!path){
-    console.log(path);
+    // console.log(path);
   }
   return (
     <Image

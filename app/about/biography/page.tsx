@@ -14,7 +14,7 @@ export const metadata = GenerateMetadata({
     title: "Dr. J C Chaudhry Biography | The Incredible Aakash Story",
     description: "Biography of Dr. J C Chaudhry, the Chairman of Aakash Educational Services Limited (AESL) and a renowned Numerologist of India.",
     keywords: "Jc chaudhry, biography of JC chaudhry, aakash institute story, book about aakash education",
-    headers: headers,
+    // headers: headers,
 });
 
 const page = () => {

@@ -48,4 +48,4 @@ const routes = collectRoutes(APP_DIR).filter(
 fs.mkdirSync(path.dirname(OUTPUT_FILE), { recursive: true });
 fs.writeFileSync(OUTPUT_FILE, JSON.stringify(routes, null, 2));
 
-console.log("✅ Static routes generated:", routes);
+// console.log("✅ Static routes generated:", routes);

@@ -171,183 +171,231 @@ const NumerologyCalculatorNameNumber = () => {
         backgroundSize: 'cover',
     }
 
-     const countryIP = CountryIPaddress();
+    const countryIP = CountryIPaddress();
 
-     useEffect(() => {
-         const token = localStorage.getItem('token');
-         if (token) {
-             setToken(token);
-         }
-     })
+    useEffect(() => {
+        const token = localStorage.getItem('token');
+        if (token) {
+            setToken(token);
+        }
+    })
+function handleDatePicker(e: any) {
+         let value = e.target.value;
+        if (!value) return null;
 
-  return (
-     <div className='relative'>
-            <ToastContainer />
-            <div className='justify-end items-center hidden lg:flex lg:h-[550px] 2xl:h-[80vh]' style={bgImg}>
-                <form className='bg-[#FFDBF0] p-10 rounded-[25px] mr-10'>
-                    <MainHeading mainHeading={title} style="text-center mb-5 text-purple-600" />
-                    <div className='flex space-x-5'>
-                        <div className='space-y-8 mt-1'>
-                            <label className="block text-base font-medium text-[#07074D]">Full Name:</label>
-                            <label className="block text-base font-medium text-[#07074D]" >Date of Birth:</label>
-                            <label className="block text-base font-medium text-[#07074D]" >Mobile Number:</label>
-                        </div>
-                        <div className='space-y-5'>
-                            <div>
-                                <input className='cal1' onChange={e => setName(e.target.value.replace(/\s+/g, ' '))} type="text" name="name" id="name" placeholder="First, Middle and Last name" />
-                            </div>
-                            <div className='bg-white'>
-                                <DatePicker
-                                    id="date-picker"
-                                    selected={dob as Date }
-                                    onChange={date => setDob(date?.toISOString().split("T")[0] as string)  }
-                                    dateFormat="dd/MM/yyyy"
-                                    // dateFormat="I/R"
-                                    // showMonthDropdown
-                                    // peekNextMonth
-                                    maxDate={new Date()} // Disable previous dates
-                                    placeholderText="DD-MM-YYYY"
-                                    showPopperArrow={false} // Removes arrow for better UI
-                                    showYearDropdown
-                                    dropdownMode="select"
-                                
-                                />
-                            </div>
-                            <div className='nameNumber' id='subject'>
-                                <PhoneInput country={countryIP} value={mobileNumber} onChange={inputChange} countryCodeEditable={false} />
-                            </div>
-                        </div>
-                    </div>
-                    <div className='mt-5'>
-                        <SmallButton text="Submit" style="m-auto" onClick={submit} />
-                    </div>
-                </form>
-            </div>
+        const digitsOnly = value.replace(/\D/g, "");
 
-            <div className='lg:hidden'>
-                <Banner alttag="Numerology calculator for personalized insights and guidance" path="/allbanners/Numerology-calculator-for-personalized-insights-and-guidance.webp" />
-                <form className='bg-[#FFDBF0] p-5 rounded-md w-[320px] mt-5 mx-auto space-y-5'>
-                    <MainHeading mainHeading={title} style="text-center text-purple-600" />
-                    <div className='space-y-2'>
-                        <label htmlFor="name" className="font-medium text-[#07074D]">Full Name:</label>
-                        <div className=''>
-                            <input className='cal2' onChange={e => setName(e.target.value.replace(/\s+/g, ' '))} type="text" name="name" id="name" placeholder="First, Middle and Last name" />
-                        </div>
+        let normalized = value;
+
+        if (digitsOnly.length === 8) {
+            const dd = digitsOnly.slice(0, 2);
+            const mm = digitsOnly.slice(2, 4);
+            const yyyy = digitsOnly.slice(4, 8);
+            normalized = `${dd}/${mm}/${yyyy}`;
+        }
+
+        const parts = normalized.split("/"); 
+        if (parts.length !== 3) return null;
+
+        const [ddStr, mmStr, yyyyStr] = parts;
+        const day = Number(ddStr);
+        const month = Number(mmStr);
+        const year = Number(yyyyStr);
+
+        if (!day || !month || !year) return null;
+        if (month < 1 || month > 12) return null;
+        if (day < 1 || day > 31) return null;
+
+        const date = new Date(year, month - 1, day);
+
+        if (
+            date.getFullYear() !== year ||
+            date.getMonth() !== month - 1 ||
+            date.getDate() !== day
+        ) {
+            return null;
+        }
+
+        setTimeout(() => { 
+          
+            if (!value.includes("/") && value.length >= 8) {
+                e.target.blur();
+            }
+         })
+
+        setDob(date);
+    }
+    
+return (
+    <div className='relative'>
+        <ToastContainer />
+        <div className='justify-end items-center hidden lg:flex lg:h-[550px] 2xl:h-[80vh]' style={bgImg}>
+            <form className='bg-[#FFDBF0] p-10 rounded-[25px] mr-10'>
+                <MainHeading mainHeading={title} style="text-center mb-5 text-purple-600" />
+                <div className='flex space-x-5'>
+                    <div className='space-y-8 mt-1'>
+                        <label className="block text-base font-medium text-[#07074D]">Full Name:</label>
+                        <label className="block text-base font-medium text-[#07074D]" >Date of Birth:</label>
+                        <label className="block text-base font-medium text-[#07074D]" >Mobile Number:</label>
                     </div>
-                    <div className='space-y-2'>
-                        <label htmlFor="email" className="font-medium text-[#07074D]" >Date of Birth:</label>
+                    <div className='space-y-5'>
+                        <div>
+                            <input className='cal1' onChange={e => setName(e.target.value.replace(/\s+/g, ' '))} type="text" name="name" id="name" placeholder="First, Middle and Last name" />
+                        </div>
                         <div className='bg-white'>
                             <DatePicker
-                                id="date-picker"
+                                id="date-picker1"
                                 selected={dob as Date}
                                 onChange={date => setDob(date?.toISOString().split("T")[0] as string)}
+                                onChangeRaw={ handleDatePicker }
                                 dateFormat="dd/MM/yyyy"
-                                maxDate={new Date()} // Disable previous dates
-                                placeholderText="DD-MM-YY"
-                                showPopperArrow={false} // Removes arrow for better UI
-                                // peekNextMonth
+                                // dateFormat="I/R"
                                 // showMonthDropdown
+                                // peekNextMonth
+                                maxDate={new Date()} // Disable previous dates
+                                placeholderText="DD-MM-YYYY"
+                                showPopperArrow={false} // Removes arrow for better UI
                                 showYearDropdown
                                 dropdownMode="select"
+
                             />
                         </div>
-                    </div>
-                    <div className='space-y-2'>
-                        <label htmlFor="subject" className="font-medium text-[#07074D] text-left" >Mobile Number:</label>
-                        <div className='phoneInput'>
+                        <div className='nameNumber' id='subject'>
                             <PhoneInput country={countryIP} value={mobileNumber} onChange={inputChange} countryCodeEditable={false} />
                         </div>
                     </div>
-                    <div className=''>
-                        <SmallButton text="Submit" style="m-auto" onClick={submit} />
-                    </div>
-                </form>
-            </div>
-
-            <div className='lg:px-10 px-5 py-10'>
-                {showResult ?
-                    <>
-                        <SubHeading subHeading="Your Name Number is" style="text-center" />
-                        {masterContent ?
-                            <>
-                                <div className='border my-5 rounded-md text-slate-400 shadow-md text-center mx-auto flex justify-center items-center w-80 pt-5'>
-                                    <p className='text-9xl mb-0 pb-0'>{masterNumber}</p>
-                                    <p className='text-9xl text-orange-400 mb-0 pb-0'>/</p>
-                                    <p className='text-9xl mb-0 pb-0'>{userNameNumber}</p>
-                                </div>
-                                <p className='my-5 text-xl font-semibold text-center mx-auto'>Since your Name number {masterNumber} is a Master number, it is to be considered as {userNameNumber}.</p>
-                            </>
-                            :
-                            <p className='text-9xl border w-36 my-5 rounded-md text-slate-400 shadow-md text-center mx-auto '><p className='mt-6'>{userNameNumber}</p></p>
-                        }
-
-                        {status &&
-                            <>
-                                <p className={`${status1 ? "text-green-500" : "text-red-500"} text-center mb-5`}>{status}</p>
-
-                                <div className='flex justify-center items-center mb-10'>
-                                    <div className='flex-col flex md:flex-row justify-center items-center shadow-md p-5 rounded-md'>
-                                        <p className='text-lg'>Need Detailed Analysis click</p>
-                                        <div className='flex justify-center'>
-                                            <button
-                                                className='mx-2 shadow-sm px-5 py-2 hover:bg-blue-800 bg-orange-500 text-white rounded-md'
-                                                onClick={contact}
-                                            >
-                                                <p className='text-lg text-center'>Yes</p>
-                                            </button>
-                                        </div>
-                                        <p className='text-lg'>and our team will contact you.</p>
-                                    </div>
-                                </div>
-                            </>
-                        }
-                    </>
-                    : ''
-                }
-
-                <Link href={token ? '/dashboard' : '/numerology/signup'}>
-                    <NormalButton text="Book Appointment" style="w-40 mx-auto" />
-                </Link>
-
-                <div className='mt-5 space-y-2'>
-                    <Para para="Consult:" style="text-center text-[#490099] font-bold" />
-                    <SubHeading2 subHeading="Dr. J C Chaudhry" style="text-center" />
-                    <Para para="India’s Famous Numerologist" style="text-center text-[#490099] font-bold" />
                 </div>
-
-                <p className='md:w-2/4 mx-auto rounded-md my-10 text-center font-semibold text-2xl'>Name number Characteristics from Name Number 1 to 9.</p>
-
-                <p className='md:w-2/4 mx-auto rounded-md my-10 text-center font-semibold'>Discover the insights your name number holds. Dive into its traits and learn what it says about you.</p>
-                {
-                    activeTab &&
-                    (
-                        <div className='border border-gray-300 shadow-md p-5 md:w-3/4 mx-auto rounded-md mb-10'>
-                            <div className="bg-purple-600 text-white min-w-8 md:w-2/4 max-w-8 max-h-8 min-h-8 rounded-full flex justify-center items-center mb-5">
-                                <span className="text-center">{activeTab}</span>
-                            </div>
-                            <Para style="text-justify" para={namechar[activeTab]} />
-                        </div>
-                    )
-                }
-                <div className='flex justify-center my-10 flex-wrap'>
-                    {
-                        Array(9).fill(null).map((u, i) => {
-                            return (
-                                <CalculatorNumber key={i} num={(i + 1)} activeTab={activeTab as number} setActiveTab={setActiveTab} />
-                            )
-                        })
-                    }
+                <div className='mt-5'>
+                    <SmallButton text="Submit" style="m-auto" onClick={submit} />
                 </div>
-            </div>
-
-            <Content token={token} />
+            </form>
         </div>
-  )
+
+        <div className='lg:hidden'>
+            <Banner alttag="Numerology calculator for personalized insights and guidance" path="/allbanners/Numerology-calculator-for-personalized-insights-and-guidance.webp" />
+            <form className='bg-[#FFDBF0] p-5 rounded-md w-[320px] mt-5 mx-auto space-y-5'>
+                <MainHeading mainHeading={title} style="text-center text-purple-600" />
+                <div className='space-y-2'>
+                    <label htmlFor="name" className="font-medium text-[#07074D]">Full Name:</label>
+                    <div className=''>
+                        <input className='cal2' onChange={e => setName(e.target.value.replace(/\s+/g, ' '))} type="text" name="name" id="name" placeholder="First, Middle and Last name" />
+                    </div>
+                </div>
+                <div className='space-y-2'>
+                    <label htmlFor="email" className="font-medium text-[#07074D]" >Date of Birth:</label>
+                    <div className='bg-white'>
+                        <DatePicker
+                            id="date-picker"
+                            selected={dob as Date}
+                            onChange={date => setDob(date?.toISOString().split("T")[0] as string)}
+                            onChangeRaw={handleDatePicker}
+                            dateFormat="dd/MM/yyyy"
+                            maxDate={new Date()} // Disable previous dates
+                            placeholderText="DD-MM-YY"
+                            showPopperArrow={false} // Removes arrow for better UI
+                            // peekNextMonth
+                            // showMonthDropdown
+                            showYearDropdown
+                            dropdownMode="select"
+                        />
+                    </div>
+                </div>
+                <div className='space-y-2'>
+                    <label htmlFor="subject" className="font-medium text-[#07074D] text-left" >Mobile Number:</label>
+                    <div className='phoneInput'>
+                        <PhoneInput country={countryIP} value={mobileNumber} onChange={inputChange} countryCodeEditable={false} />
+                    </div>
+                </div>
+                <div className=''>
+                    <SmallButton text="Submit" style="m-auto" onClick={submit} />
+                </div>
+            </form>
+        </div>
+
+        <div className='lg:px-10 px-5 py-10'>
+            {showResult ?
+                <>
+                    <SubHeading subHeading="Your Name Number is" style="text-center" />
+                    {masterContent ?
+                        <>
+                            <div className='border my-5 rounded-md text-slate-400 shadow-md text-center mx-auto flex justify-center items-center w-80 pt-5'>
+                                <p className='text-9xl mb-0 pb-0'>{masterNumber}</p>
+                                <p className='text-9xl text-orange-400 mb-0 pb-0'>/</p>
+                                <p className='text-9xl mb-0 pb-0'>{userNameNumber}</p>
+                            </div>
+                            <p className='my-5 text-xl font-semibold text-center mx-auto'>Since your Name number {masterNumber} is a Master number, it is to be considered as {userNameNumber}.</p>
+                        </>
+                        :
+                        <p className='text-9xl border w-36 my-5 rounded-md text-slate-400 shadow-md text-center mx-auto '><p className='mt-6'>{userNameNumber}</p></p>
+                    }
+
+                    {status &&
+                        <>
+                            <p className={`${status1 ? "text-green-500" : "text-red-500"} text-center mb-5`}>{status}</p>
+
+                            <div className='flex justify-center items-center mb-10'>
+                                <div className='flex-col flex md:flex-row justify-center items-center shadow-md p-5 rounded-md'>
+                                    <p className='text-lg'>Need Detailed Analysis click</p>
+                                    <div className='flex justify-center'>
+                                        <button
+                                            className='mx-2 shadow-sm px-5 py-2 hover:bg-blue-800 bg-orange-500 text-white rounded-md'
+                                            onClick={contact}
+                                        >
+                                            <p className='text-lg text-center'>Yes</p>
+                                        </button>
+                                    </div>
+                                    <p className='text-lg'>and our team will contact you.</p>
+                                </div>
+                            </div>
+                        </>
+                    }
+                </>
+                : ''
+            }
+
+            <Link href={token ? '/dashboard' : '/numerology/signup'}>
+                <NormalButton text="Book Appointment" style="w-40 mx-auto" />
+            </Link>
+
+            <div className='mt-5 space-y-2'>
+                <Para para="Consult:" style="text-center text-[#490099] font-bold" />
+                <SubHeading2 subHeading="Dr. J C Chaudhry" style="text-center" />
+                <Para para="India’s Famous Numerologist" style="text-center text-[#490099] font-bold" />
+            </div>
+
+            <p className='md:w-2/4 mx-auto rounded-md my-10 text-center font-semibold text-2xl'>Name number Characteristics from Name Number 1 to 9.</p>
+
+            <p className='md:w-2/4 mx-auto rounded-md my-10 text-center font-semibold'>Discover the insights your name number holds. Dive into its traits and learn what it says about you.</p>
+            {
+                activeTab &&
+                (
+                    <div className='border border-gray-300 shadow-md p-5 md:w-3/4 mx-auto rounded-md mb-10'>
+                        <div className="bg-purple-600 text-white min-w-8 md:w-2/4 max-w-8 max-h-8 min-h-8 rounded-full flex justify-center items-center mb-5">
+                            <span className="text-center">{activeTab}</span>
+                        </div>
+                        <Para style="text-justify" para={namechar[activeTab]} />
+                    </div>
+                )
+            }
+            <div className='flex justify-center my-10 flex-wrap'>
+                {
+                    Array(9).fill(null).map((u, i) => {
+                        return (
+                            <CalculatorNumber key={i} num={(i + 1)} activeTab={activeTab as number} setActiveTab={setActiveTab} />
+                        )
+                    })
+                }
+            </div>
+        </div>
+
+        <Content token={token} />
+    </div>
+)
 }
 
 export default NumerologyCalculatorNameNumber
 
-export const Content = ({token}: any) => {
+export const Content = ({ token }: any) => {
     return (
         <div>
             <div className='bg-slate-100 lg:w-3/4 m-auto space-y-5 text-center md:p-10 p-5 rounded-lg '>
