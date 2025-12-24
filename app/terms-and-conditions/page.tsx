@@ -11,7 +11,7 @@ export const metadata = GenerateMetadata({
         title: "Terms and Conditions | JC Chaudhry",
         description: "TERMS AND CONDITIONS The content of this Website/App is for your general information and use only. It is subject to change at our sole discretion without any notice.",
         keywords: "numerologist in india, numerology by jc chaudhry, vaastu shastra expert, motivational speaker, motivational speakers in india",
-        // headers: headers
+    pagePath: "/terms-and-conditions",
 });
 const page = () => {
 

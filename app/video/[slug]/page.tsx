@@ -34,6 +34,6 @@ export async function generateMetadata({ params }: Props) {
     title: meta.title,
     description: meta.description,
     keywords: meta.keywords,
-    // headers: headers,
+    pagePath: `/video/${slug}`,
   });
 }

@@ -7,7 +7,7 @@ export const metadata = GenerateMetadata({
     title: "Vastu Consultant, Vastu Shastra Expert | Consultancy for Home &amp; Office",
     description: "Looking for Vastu advice for your home or corporate? Book appointment with Dr. J C Chaudhry for Vastu consultancy and Vastu solutions for home, office, shop and commercial space.",
     keywords: "vastu consultant online, vastu shastra expert, online vastu consultant, vastu consultation, online vastu, online vastu consultation, vastu consultation in india, vastu consultant, vastu online, online vastu shastra, home vastu consultancy, vastu consultan",
-    // headers: headers
+    pagePath: "/vastu-meditation-others",
 })
 const page = () => {
   return (

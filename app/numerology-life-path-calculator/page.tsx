@@ -7,7 +7,7 @@ export const metadata = GenerateMetadata({
     title: "Unlock Your Life’s Purpose with Our Life Path Number Calculator",
     description: "Delve into your Life Path Number with our free easy to use calculator and uncover insights about your life’s purpose and journey!",
     keywords: "Free numerology calculator, name numerology calculator, numerology number calculator, destiny  number calculator, how to calculate numerology, indian numerology calculator, chaldean numerology  calculator, numerology calculator date of birth",
-    // headers: headers
+    pagePath: "/numerology-life-path-calculator",
 })
 const page = () => {
   return (
