@@ -102,7 +102,7 @@ const FA = ({ image, question, category, faq, showAns, index, toggleFAQ }:any) =
     }
 
     return (
-        <div className='mb-10 p-10 border rounded-lg shadow-lg' onClick={() => toggleFAQ(index)}>
+        <div className='mb-10 p-10 border border-slate-200 rounded-lg shadow-lg' onClick={() => toggleFAQ(index)}>
             <div className="faq-question lg:flex justify-start items-center cursor-pointer">
                 <Img path={`https://newcnpl.s3.ap-south-1.amazonaws.com/public/jccms/ask/${image}`} style="w-[80px] m-auto lg:m-0" alt={category} />
                 <div className='lg:ml-5 lg:text-left text-center'>

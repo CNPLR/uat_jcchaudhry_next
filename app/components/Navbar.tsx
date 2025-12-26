@@ -73,13 +73,13 @@ export default function NavBar() {
 
         {/* ===== Social Icons ===== */}
         <div className='flex space-x-2 items-center'>
-          <ImgLink to="https://twitter.com/jc_chaudhry" path="/socialmedia/06.png" alt='ing' />
-          <ImgLink to="https://www.facebook.com/NumerologistAndMotivator/" path="/socialmedia/02.png" alt='ing' />
-          <ImgLink to="https://www.instagram.com/jc_chaudhrynumerology/" path="/socialmedia/03.png" alt='ing' />
-          <ImgLink to="https://www.youtube.com/channel/UCkGRccoFIazt6GZUcdq6Byg/" path="/socialmedia/01.png" alt='ing' />
+          <ImgLink to="https://twitter.com/jc_chaudhry" path="/socialmedia/06.png" alt='ing' style="w-[28px] h-[28px]"/>
+          <ImgLink to="https://www.facebook.com/NumerologistAndMotivator/" path="/socialmedia/02.png" alt='ing'  style="w-[28px] h-[28px]"/>
+          <ImgLink to="https://www.instagram.com/jc_chaudhrynumerology/" path="/socialmedia/03.png" alt='ing'  style="w-[28px] h-[28px]"/>
+          <ImgLink to="https://www.youtube.com/channel/UCkGRccoFIazt6GZUcdq6Byg/" path="/socialmedia/01.png" alt='ing' style="w-[28px] h-[28px]"/>
           <div>||</div>
-          <ImgLink path="/logos/android.png" to="https://play.google.com/store/apps/details?id=jc.nummerro.app" alt='ing' />
-          <ImgLink path="/logos/apple-logo.png" to="https://apps.apple.com/us/app/jc-nummerro-app/id1529437444" alt='ing' />
+          <ImgLink path="/logos/android.png" to="https://play.google.com/store/apps/details?id=jc.nummerro.app" alt='ing' style="w-[28px] h-[28px]"/>
+          <ImgLink path="/logos/apple-logo.png" to="https://apps.apple.com/us/app/jc-nummerro-app/id1529437444" alt='ing' style="w-[28px] h-[28px]"/>
         </div>
 
         <p>||</p>

@@ -2,14 +2,16 @@
 import Img from "@/app/components/ui/Img";
 import SmallButton from "@/app/components/ui/SmallButton";
 import SubHeading1 from "@/app/components/ui/SubHeading1";
-import axios from "axios";
+import { dispatchCustomEvent } from "@/lib/customEvents";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
 import { IoMdEyeOff, IoMdEye } from "react-icons/io";
 import { ToastContainer } from "react-toastify";
 
+
 export default function Login() {
+    const router = useRouter();
     let [loading, setLoading] = useState(false);
     let path = process.env.NEXT_PUBLIC_URI
     
@@ -36,13 +38,21 @@ export default function Login() {
             return alert("Invalid Field")
         }
         try {
-            const res = await axios.post(path + "websiteuser/login", { mob, pass })
-            if (res.data.success) {
+            const res = await fetch(path + "websiteuser/login", {
+                method: "POST",
+                headers,
+                body: JSON.stringify({  mob, pass })
+            })
+
+            const data = await res.json();
+
+            if (data.success) {
                 localStorage.setItem("number", JSON.stringify(mob))
-                localStorage.setItem('token', res.data.token)
-                const lastLoginDate = new Date(res.data.lastLogin)
+                localStorage.setItem('token', data.token)
+                const lastLoginDate = new Date(data.lastLogin)
                 localStorage.setItem('lastLogin', lastLoginDate?.toString())
-                validUser(res.data.token)
+                validUser(data.token)
+                dispatchCustomEvent('userLoggedIn', { user: data.user });
                 redirect.push('/dashboard')
             }
             else {
@@ -54,6 +64,9 @@ export default function Login() {
         }
     }
 
+    const refreshHeader = () => {
+        document
+    }
     const [showPassword, setShowPassword] = useState(false)
 
     return (

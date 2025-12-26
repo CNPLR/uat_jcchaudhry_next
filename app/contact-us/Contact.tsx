@@ -115,7 +115,7 @@ const Contact = () => {
                                     <div className='w-28 rounded-md font-bold text-center bg-[#fd7e14] py-2 shadow-2xl'>
                                         <Img style="mx-auto w-7" path="/logos/loader_gif.gif" alt='' />
                                     </div>
-                                    : <SmallButton text="Submit" />
+                                    : <SmallButton text="Submit" onClick={submit} />
                                 }
                             </div>
                         </form>

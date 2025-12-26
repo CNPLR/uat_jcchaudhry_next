@@ -31,7 +31,7 @@ export default async function Page({ params }: { params: Promise<{ slug: string 
   const { slug } = await params;
 
   const BACKEND = process.env.URI;
-  const blogRes = await fetch(`${BACKEND}blog/slug/${slug}`, { cache: "no-store" });
+  const blogRes = await fetch(`${BACKEND}blog/slug/${slug}`, {  next: { revalidate: 3600 }  });
   const blogJson = await blogRes.json();
   const blog: Blog = blogJson?.data?.[0];
 
@@ -42,8 +42,8 @@ export default async function Page({ params }: { params: Promise<{ slug: string 
 
   if (!blog) return null
 
-  const headersList = await headers();
-  const allHeaders = Object.fromEntries(headersList.entries());
+  // const headersList = await headers();
+  // const allHeaders = Object.fromEntries(headersList.entries());
 
   const blogData:any = await getBlogData(slug, path);
 
@@ -82,7 +82,7 @@ export default async function Page({ params }: { params: Promise<{ slug: string 
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
-            __html: JSON.stringify(jsonLdFaq).replace(/</g, '\\u003c')
+            __html: JSON.stringify(jsonLdFaq)
           }}
           key="faq-schema"
         />
@@ -92,7 +92,7 @@ export default async function Page({ params }: { params: Promise<{ slug: string 
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
-            __html: JSON.stringify(jsonLd).replace(/</g, '\\u003c')
+            __html: jsonLd
           }}
           key="article-schema"
         />
@@ -106,8 +106,8 @@ export default async function Page({ params }: { params: Promise<{ slug: string 
 export async function getBlogData(slug: string, path: string) {
 
   const [blogRes, commentsRes] = await Promise.all([
-    fetch(`${path}blog/slug/${slug}`, { cache: 'no-store' }),
-    fetch(`${path}comment/approvedComments/${slug}`, { cache: 'no-store' }),
+    fetch(`${path}blog/slug/${slug}`, {next: { revalidate: 3600 } }),
+    fetch(`${path}comment/approvedComments/${slug}`, { next: { revalidate: 3600 } }),
   ]);
 
   if (!blogRes.ok || !commentsRes.ok) {

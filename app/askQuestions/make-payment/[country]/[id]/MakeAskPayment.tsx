@@ -151,9 +151,9 @@ const MakeAskPayment = ({country, id}:any) => {
         <div className=''>
             <div className='md:px-20 py-10'>
                 <SubHeading style="text-center mb-5" subHeading="Review your question" />
-                <p className='text-center shadow-lg mb-5 md:p-5 md:w-3/4 p-2 w-[90%] mx-auto border font-bold rounded-md'>{question?.answer}</p>
-                <div className='md:border md:shadow-md rounded-xl bg-gray-100 lg:flex justify-center items-center lg:space-x-20 space-y-10 lg:space-y-0 py-10'>
-                    <div className='p-2 md:p-0'>
+                <p className='text-center shadow-lg mb-5 md:p-5 md:w-3/4 p-2 w-[90%] mx-auto border border-slate-200 font-bold rounded-md'>{question?.answer}</p>
+                <div className='md:border md:shadow-md border-slate-200  rounded-xl bg-gray-100 lg:flex justify-center items-center lg:space-x-20 space-y-10 lg:space-y-0 py-10'>
+                    <div className='p-2 md:p-0 mx-auto'>
                         <SubHeading2 style="text-center" subHeading="Your Details" />
                         <table className='md:border-separate border border-slate-400 md:border-spacing-2 mx-auto'>
                             <tbody>
@@ -190,7 +190,7 @@ const MakeAskPayment = ({country, id}:any) => {
                                 <td className='border border-slate-300'>Place of Birth *</td>
                                 <td className='border border-slate-300'>
                                     <input
-                                        className='border'
+                                        className='border border-slate-300'
                                         onChange={e => setPlaceOfBirth(e.target.value)}
                                         value={placeOfBirth ?? ""}
                                         type="text"
@@ -206,9 +206,9 @@ const MakeAskPayment = ({country, id}:any) => {
                     <div className='lg:w-[35%] md:w-[50%] w-[90%] mx-auto'>
                         <div className='mx-auto'>
                             <SubHeading2 style="text-center md:text-left mb-5 lg:mb-0" subHeading="Describe your problem/issues in detail (Optional)" />
-                            <textarea className='border shadow-md' onChange={e => setDetails(e.target.value)} rows={5} cols={45} required></textarea>
+                            <textarea className='border border-slate-200 shadow-md' onChange={e => setDetails(e.target.value)} rows={5} cols={45} required></textarea>
                         </div>
-                        <div className='border p-5 shadow-md mt-5'>
+                        <div className='border border-slate-200 p-5 shadow-md mt-5'>
                             <SubHeading2 style="text-center" subHeading={`${currency?.askCurrency} ${currency?.askPrice}/-`} />
                             <Para style="text-center" para={country === "AE" ? "You are about to make a payment of AED  650. Please continue with the transaction." : ''} />
                             <p className='text-center text-sm mb-6 mt-2'>After making the payment, your question will be answered by Dr. J C Chaudhry within 7 working days</p>

@@ -81,7 +81,10 @@ export default function MainNavigationCompo() {
                         <Para para="Dr. J C Chaudhry" style="para text-xl font-bold" />
                     </Link>
 
-                    <div ref={hamRef} className='xl:hidden ham' onClick={hamclick}></div>
+                    <div onClick={hamclick} className='w-[30px] h-[30px] z-20 absolute right-6 top-6 caret-transparent' >
+
+                    </div>
+                     <div ref={hamRef} className='xl:hidden ham caret-transparent' ></div>
                 </div>
 
                 {/* ✅ Phone Dropdown */}

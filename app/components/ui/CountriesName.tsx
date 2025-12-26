@@ -2,7 +2,7 @@ import React, { ChangeEvent } from "react";
 
 export default function CountriesName({ text, onChange, value }: any) {
     return (
-        <div className="flex-shrink border">
+        <div className="shrink border border-slate-200">
             <select name="" value={value} onChange={onChange} id="firstCatList" className="customSelect business-audit outline-none p-2 w-full bg-white">
                 <option value="noCountry">{text}</option>
 

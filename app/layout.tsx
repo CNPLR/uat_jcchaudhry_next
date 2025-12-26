@@ -92,8 +92,12 @@ export default function RootLayout({
         />
 
         {/* ✅ Preconnect */}
-        <link rel="preconnect" href="https://www.googletagmanager.com" />
-        <link rel="preconnect" href="https://connect.facebook.net" />
+        {/* <link rel="preconnect" href="https://www.googletagmanager.com" />
+        <link rel="preconnect" href="https://connect.facebook.net" /> */}
+
+
+       <Script src="https://www.googletagmanager.com" security="lazyOnload"></Script>
+       <Script src="https://connect.facebook.net" security="lazyOnload"></Script>
 
         {/* ✅ Organization Schema */}
         <Script

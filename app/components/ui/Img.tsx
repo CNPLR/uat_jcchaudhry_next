@@ -17,8 +17,8 @@ export default function Img({ alt, style, path, width, height }: ImgProps) {
       src={path}
       alt={alt}
       className={style}
-      width={700}
-      height={700}
+      width={1200}
+      height={560}
       // priority={false}
     />
   );

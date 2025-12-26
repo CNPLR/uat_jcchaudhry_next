@@ -7,11 +7,14 @@ import Para from "./ui/Para";
 import ImgLink from "./ui/ImgLink";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
-import { use, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
+import { dispatchCustomEvent } from "@/lib/customEvents";
 
 export default function Header() {
   const router = useRouter();
   const [token, setToken] = useState<string | null>(null);
+  const [lastLogin, setLastLogin] = useState<string | null>(null);
+  const [formattedDate, setFormatDate] = useState<string | null>("");
    
 
   const logout = async () => {
@@ -20,6 +23,9 @@ export default function Header() {
       localStorage.removeItem("token");
       localStorage.removeItem("number");
       localStorage.removeItem("lastLogin");
+      setLastLogin(null);
+      setToken(null);
+      dispatchCustomEvent('userLoggedIn', { user: token });
       router.push("/");
     }
   };
@@ -30,25 +36,30 @@ export default function Header() {
 
   const formatDateTime = (inputDateString: string | Date) => {
     const dateObj = new Date(inputDateString);
-    const datePart = dateObj.toDateString().slice(4, -1);
+    const datePart = dateObj.toDateString().slice(4);
     const hours = dateObj.getHours().toString().padStart(2, "0");
     const minutes = dateObj.getMinutes().toString().padStart(2, "0");
     const timePart = `${hours}:${minutes}`;
     return `${datePart}, ${timePart}`;
   };
 
-  const lastLogin =
-    typeof window !== "undefined" ? localStorage.getItem("lastLogin") : null;
-
-  const formattedDate =
-    lastLogin && lastLogin !== "Invalid Date"
-      ? formatDateTime(lastLogin)
-      : "";
 
       useEffect(() => {
-        if (typeof window !== "undefined") {
-          setToken(localStorage.getItem("token"));
+
+        const handleStorageChange = () => {
+          if (typeof window !== "undefined") {
+            setToken(localStorage.getItem("token"));
+          }
+            const lastLogin = localStorage.getItem("lastLogin");
+            setLastLogin(lastLogin);
+            setFormatDate(formatDateTime(lastLogin as string));
         }
+
+        window.addEventListener("userLoggedIn", handleStorageChange)
+        return () => {
+          window.removeEventListener("userLoggedIn", handleStorageChange);
+        };
+
       }, []); 
   return (
     <>
@@ -89,7 +100,7 @@ export default function Header() {
               ) : null}
             </div>
 
-            <div>||</div>
+            {lastLogin !== null ? (<div>||</div>): null}
 
             <ImgLink style="hover:scale-[1.1] w-7" to="https://twitter.com/jc_chaudhry" path="/socialmedia/06.png" alt="twitter" />
             <ImgLink style="hover:scale-[1.1] w-7" to="https://www.facebook.com/NumerologistAndMotivator/" path="/socialmedia/02.png" alt="facebook" />

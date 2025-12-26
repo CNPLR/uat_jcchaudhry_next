@@ -1,6 +1,6 @@
 'use client'
-import { memo, Suspense, useCallback, useEffect, useMemo, useState } from 'react'
-import { useParams, usePathname, useRouter } from 'next/navigation'
+import {  Suspense, useCallback, useMemo, useState } from 'react'
+import {  usePathname } from 'next/navigation'
 
 import ImgLink from '../../components/ui/ImgLink';
 import SmallButton from '../../components/ui/SmallButton';
@@ -25,7 +25,6 @@ const InlineShareButtons = dynamic(
 
 export default function ClientBlog({ slug, initialBlog, bannerUrl, blogData } : { slug: string, initialBlog: Blog,bannerUrl: string, blogData: any}) {
     
-    const location = useRouter();
     const [formData, setFormData] = useState({
         url: "",
         email: "",
@@ -41,8 +40,8 @@ export default function ClientBlog({ slug, initialBlog, bannerUrl, blogData } : 
     const { submitComment, isSubmitting, submitError } = useCommentSubmission(path, slug);
 
     // Memoized values
-    const blogPost = useMemo(() => pageData?.[0], [pageData]);
-    const faqData = useMemo(() => blogPost?.faqInput || [], [blogPost]);
+    const blogPost = pageData?.[0];
+    const faqData = blogPost?.faqInput || [];
 
     const publishDate : any= useMemo(() =>
         blogPost ? new Date(blogPost.blogPublishDate).toDateString() : '',
@@ -60,55 +59,55 @@ export default function ClientBlog({ slug, initialBlog, bannerUrl, blogData } : 
     );
 
     // Memoized schemas
-    const blogSchema = useMemo(() => {
-        if (!blogPost) return null;
+    // const blogSchema = useMemo(() => {
+    //     if (!blogPost) return null;
 
-        return {
-            "@context": "https://schema.org",
-            "@type": "Article",
-            "mainEntityOfPage": {
-                "@type": "WebPage",
-                "@id": fullUrl
-            },
-            "headline": blogPost.metaTitle,
-            "description": blogPost.metaDescription,
-            "image": `https://newcnpl.s3.ap-south-1.amazonaws.com/public/blogs/banners/${blogPost.headerBanner}`,
-            "author": {
-                "@type": "Person",
-                "name": "J C Chaudhry",
-                "url": domain
-            },
-            "publisher": {
-                "@type": "Organization",
-                "name": "Chaudhry Nummero Pvt. Ltd.",
-                "logo": {
-                    "@type": "ImageObject",
-                    "url": domain + "/logos/jclogo.png"
-                }
-            },
-            "datePublished": new Date(blogPost.createdAt).toDateString(),
-            "dateModified": new Date(blogPost.updatedAt).toDateString()
-        };
-    }, [blogPost, fullUrl, domain]);
+    //     return {
+    //         "@context": "https://schema.org",
+    //         "@type": "Article",
+    //         "mainEntityOfPage": {
+    //             "@type": "WebPage",
+    //             "@id": fullUrl
+    //         },
+    //         "headline": blogPost.metaTitle,
+    //         "description": blogPost.metaDescription,
+    //         "image": `https://newcnpl.s3.ap-south-1.amazonaws.com/public/blogs/banners/${blogPost.headerBanner}`,
+    //         "author": {
+    //             "@type": "Person",
+    //             "name": "J C Chaudhry",
+    //             "url": domain
+    //         },
+    //         "publisher": {
+    //             "@type": "Organization",
+    //             "name": "Chaudhry Nummero Pvt. Ltd.",
+    //             "logo": {
+    //                 "@type": "ImageObject",
+    //                 "url": domain + "/logos/jclogo.png"
+    //             }
+    //         },
+    //         "datePublished": new Date(blogPost.createdAt).toDateString(),
+    //         "dateModified": new Date(blogPost.updatedAt).toDateString()
+    //     };
+    // }, [blogPost, fullUrl, domain]);
 
-    const faqSchema = useMemo(() => {
-        if (faqData.length <= 1) return null;
+    // const faqSchema = () => {
+    //     if (faqData.length <= 1) return null;
 
-        const faqItems = faqData.map((f: any) => ({
-            "@type": "Question",
-            "name": f.question,
-            "acceptedAnswer": {
-                "@type": "Answer",
-                "text": f.answer
-            }
-        }));
+    //     const faqItems = faqData.map((f: any) => ({
+    //         "@type": "Question",
+    //         "name": f.question,
+    //         "acceptedAnswer": {
+    //             "@type": "Answer",
+    //             "text": f.answer
+    //         }
+    //     }));
 
-        return {
-            "@context": "https://schema.org",
-            "@type": "FAQPage",
-            "mainEntity": faqItems
-        };
-    }, [faqData]);
+    //     return {
+    //         "@context": "https://schema.org",
+    //         "@type": "FAQPage",
+    //         "mainEntity": faqItems
+    //     };
+    // };
 
     // Form handlers
     const handleInputChange = useCallback((field: any, value: any) => {
@@ -150,33 +149,22 @@ export default function ClientBlog({ slug, initialBlog, bannerUrl, blogData } : 
 
   return   (
      <div className=''>
-            {/* <Suspense fallback={<ComponentLoader height="60px" />}>
-                <HeadHelmet
-                    isCanonical={false}
-                    pageUrl={fullUrl}
-                    title={blogPost.metaTitle}
-                    description={blogPost.metaDescription}
-                    keywords={blogPost.keywords}
-                    blogSchema={blogSchema}
-                    blogFaqSchema={faqSchema}
-                    DBanner={`https://newcnpl.s3.ap-south-1.amazonaws.com/public/blogs/banners/${blogPost.headerBanner}`}
-                />
-            </Suspense> */}
+           
 
-            <Suspense fallback={<ComponentLoader height="300px" />}>
+            {/* <Suspense fallback={<ComponentLoader height="300px" />}> */}
                 <Banner
                     alttag={blogPost.alttag}
                     path={`https://newcnpl.s3.ap-south-1.amazonaws.com/public/blogs/banners/${blogPost.headerBanner}`}
                 />
-            </Suspense>
+            {/* </Suspense> */}
 
-            <Suspense fallback={<ComponentLoader height="80px" />}>
+            {/* <Suspense fallback={<ComponentLoader height="80px" />}> */}
                 <MainHeading
                     style="text-center my-5 mx-auto w-[90%]"
                     mainHeading={blogPost.pageTitle}
                 />
-            </Suspense>
-
+            {/* </Suspense> */}
+                
             <div className='mx-auto xl:w-3/4'>
                 <BlogMetaInfo
                     publishDate={publishDate}
@@ -198,13 +186,13 @@ export default function ClientBlog({ slug, initialBlog, bannerUrl, blogData } : 
                 </div>
             </div>
 
-            <Suspense fallback={<ComponentLoader height="100px" />}>
+            {/* <Suspense fallback={<ComponentLoader height="100px" />}> */}
                 <Subscribe />
-            </Suspense>
+            {/* </Suspense> */}
 
             <AppStoreLinks />
 
-            <Suspense fallback={<ComponentLoader height="60px" />}>
+            {/* <Suspense fallback={<ComponentLoader height="60px" />}> */}
                 <SubHeading2 style="text-center my-10" subHeading="Share" />
                 <InlineShareButtons
                     config={{
@@ -221,12 +209,12 @@ export default function ClientBlog({ slug, initialBlog, bannerUrl, blogData } : 
                         size: 40,
                     }}
                 />
-            </Suspense>
+            {/* </Suspense> */}
 
             <div className='my-10'>
-                <Suspense fallback={<ComponentLoader height="40px" />}>
+                {/* <Suspense fallback={<ComponentLoader height="40px" />}> */}
                     <SubHeading style="text-center my-10" subHeading="Leave Comment Here !" />
-                </Suspense>
+                {/* </Suspense> */}
 
                 <form onSubmit={handleSubmit} className='mx-auto lg:w-2/4 w-3/4'>
                     <div className="mb-5">
@@ -287,9 +275,9 @@ export default function ClientBlog({ slug, initialBlog, bannerUrl, blogData } : 
             </div>
 
             <div className='mx-auto lg:w-2/4 w-3/4 my-10'>
-                <Suspense fallback={<ComponentLoader height="40px" />}>
+                {/* <Suspense fallback={<ComponentLoader height="40px" />}> */}
                     <SubHeading2 subHeading="Comments" />
-                </Suspense>
+                {/* </Suspense> */}
 
                 <div className='my-10'>
                     <hr />
@@ -326,18 +314,18 @@ type Comment = {
 // -------------------
 // Comment Card
 // -------------------
-function CommentBox({ comment }: { comment: Comment }) {
-  return (
-    <div className="flex justify-between items-center border-b py-4">
-      <div>
-        <Para para={comment.email} />
-        <SubHeading2 subHeading={comment.comment} />
-        <LinkText para={comment.url} />
-      </div>
-      <SmallButton text="Reply" />
-    </div>
-  )
-}
+// function CommentBox({ comment }: { comment: Comment }) {
+//   return (
+//     <div className="flex justify-between items-center border-b py-4">
+//       <div>
+//         <Para para={comment.email} />
+//         <SubHeading2 subHeading={comment.comment} />
+//         <LinkText para={comment.url} />
+//       </div>
+//       <SmallButton text="Reply" />
+//     </div>
+//   )
+// }
 
 // -------------------
 // FAQ Item
@@ -353,7 +341,7 @@ function FAQItem({ faq }: { faq: FAQ }) {
 
 
 // Loading component for lazy-loaded sections
-const ComponentLoader = memo(({ height = "20px" }: { height?: string }) => (
+const ComponentLoader = ({ height = "20px" }: { height?: string }) => (
     <div className={`animate-pulse bg-gray-200 rounded`} style={{ height }}>
         <div className="flex space-x-4 p-4">
             <div className="rounded-full bg-gray-300 h-10 w-10"></div>
@@ -363,10 +351,10 @@ const ComponentLoader = memo(({ height = "20px" }: { height?: string }) => (
             </div>
         </div>
     </div>
-));
+);
 
 // Memoized comment component
-const Comment = memo(({ comment }: any) => (
+const Comment = ({ comment }: any) => (
     <div className='flex justify-between items-center my-5'>
         <div>
             <Para para={comment.email} />
@@ -375,11 +363,11 @@ const Comment = memo(({ comment }: any) => (
         </div>
         <SmallButton text="Reply" />
     </div>
-));
+);
 
 
 // Memoized meta info component
-const BlogMetaInfo = memo(({ publishDate, updateDate, readTime }: any) => (
+const BlogMetaInfo = ({ publishDate, updateDate, readTime }: any) => (
     <div className='px-10'>
         <hr />
         <div className='flex justify-evenly items-center my-2'>
@@ -398,10 +386,10 @@ const BlogMetaInfo = memo(({ publishDate, updateDate, readTime }: any) => (
         </div>
         <hr />
     </div>
-));
+);
 
 // Memoized app store links component
-const AppStoreLinks = memo(() => (
+const AppStoreLinks = () => (
     <>
         <SubHeading2 style="text-center mt-10 mb-5" subHeading="Go to Mobile Application" />
         <div className='flex justify-center items-center space-x-5'>
@@ -422,7 +410,7 @@ const AppStoreLinks = memo(() => (
             </Suspense>
         </div>
     </>
-));
+);
 
 // Custom hook for API calls
 
