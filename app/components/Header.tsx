@@ -47,9 +47,9 @@ export default function Header() {
       useEffect(() => {
 
         const handleStorageChange = () => {
-          if (typeof window !== "undefined") {
-            setToken(localStorage.getItem("token"));
-          }
+            const token = localStorage.getItem("token");
+            setToken(token);
+
             const lastLogin = localStorage.getItem("lastLogin");
             setLastLogin(lastLogin);
             setFormatDate(formatDateTime(lastLogin as string));

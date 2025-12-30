@@ -46,9 +46,9 @@ const NumerologyCalculatorNameNumber = () => {
     const [masterContent, setMasterContent] = useState(false);
     const [masterNumber, setMasterNumber] = useState('');
 
-    const [userNameNumber, setUserNameNumber] = useState();
-    const [userDestinyNumber, setUserDestinyNumber] = useState()
-    const [userPsychicNumber, setUserPsychicNumber] = useState()
+    const [userNameNumber, setUserNameNumber] = useState<number>();
+    const [userDestinyNumber, setUserDestinyNumber] = useState<number>()
+    const [userPsychicNumber, setUserPsychicNumber] = useState<number>()
 
     const inputChange = (value: any, data: any) => {
         setCountry(data.name);
@@ -92,8 +92,8 @@ const NumerologyCalculatorNameNumber = () => {
         }
 
         // Numerology Calculations
-        const destinyTotal = calculateDestiny(dob)
-        const psychicTotal = (dob as string).split("-").pop();
+        const destinyTotal = calculateDestiny(dob);
+        const psychicTotal = (dob.toString()).split("-").pop();
         const mobileTotal = nationalNumber.split("").reduce((sum, char) => sum + (parseInt(char) || 0), 0);
         const phoneNumber = reduceToSingleDigit(mobileTotal);
 
@@ -102,7 +102,7 @@ const NumerologyCalculatorNameNumber = () => {
         setMasterNumber(nameNumberTotal)
 
         const finalDestiny = specialNumbers.includes(destinyTotal) ? destinyTotal % 10 : reduceToSingleDigit(destinyTotal);
-        const finalPsychic = specialNumbers.includes(Number(psychicTotal)) ? Number(psychicTotal) % 10 : reduceToSingleDigit(psychicTotal);
+        const finalPsychic = specialNumbers.includes(Number(psychicTotal)) ? Number(psychicTotal) % 10 : reduceToSingleDigit(parseInt(psychicTotal as string));
 
         let finalNameNumber;
 
@@ -223,7 +223,7 @@ function handleDatePicker(e: any) {
             }
          })
 
-        setDob(date);
+        setDob(date.toISOString().split("T")[0]);
     }
     
 return (
@@ -318,7 +318,7 @@ return (
                     <SubHeading subHeading="Your Name Number is" style="text-center" />
                     {masterContent ?
                         <>
-                            <div className='border my-5 rounded-md text-slate-400 shadow-md text-center mx-auto flex justify-center items-center w-80 pt-5'>
+                            <div className='border border-gray-300 my-5 rounded-md text-slate-400 shadow-md text-center mx-auto flex justify-center items-center w-80 pt-5'>
                                 <p className='text-9xl mb-0 pb-0'>{masterNumber}</p>
                                 <p className='text-9xl text-orange-400 mb-0 pb-0'>/</p>
                                 <p className='text-9xl mb-0 pb-0'>{userNameNumber}</p>
@@ -326,7 +326,7 @@ return (
                             <p className='my-5 text-xl font-semibold text-center mx-auto'>Since your Name number {masterNumber} is a Master number, it is to be considered as {userNameNumber}.</p>
                         </>
                         :
-                        <p className='text-9xl border w-36 my-5 rounded-md text-slate-400 shadow-md text-center mx-auto '><p className='mt-6'>{userNameNumber}</p></p>
+                        <p className='text-9xl border border-gray-300 w-36 my-5 rounded-md text-slate-400 shadow-md text-center mx-auto '><p className='mt-6'>{userNameNumber}</p></p>
                     }
 
                     {status &&

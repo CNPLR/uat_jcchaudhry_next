@@ -24,7 +24,7 @@ interface AppointmentDetails {
 }
 
 export default function OflineAppointment() {
-  const path = process.env.NEXT_PUBLIC_BACKEND_URI as string;
+  const path = process.env.NEXT_PUBLIC_URI as string;
   const token = typeof window !== "undefined" ? localStorage.getItem("token") : "";
   const router = useRouter();
 
@@ -277,7 +277,7 @@ export default function OflineAppointment() {
           ref={modalRef}
           className="overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center items-center w-full h-[calc(100%-1rem)] max-h-full"
         >
-          <div className="relative w-[90%] max-w-xl max-h-full m-auto">
+          <div className="relative w-[90%] h-full max-w-xl max-h-full flex justify-center items-center m-auto">
             <div className="relative bg-slate-200 shadow-xl rounded-md overflow-hidden">
               <div className="flex items-center justify-between rounded-t">
                 <button
@@ -296,21 +296,21 @@ export default function OflineAppointment() {
                 />
 
                 {/* DATE + DETAILS */}
-                <div className="md:flex justify-center items-start md:space-x-5 my-5 p-2">
+                <div className="md:flex justify-center items-start md:space-x-5 my-5 p-2  ">
                   <div className="space-y-5">
-                    <div className="flex-shrink border">
+                    <div className="flex-shrink border border-transparent ">
                       <input
                         type="text"
-                        className="customSelect business-audit outline-none p-2 w-full"
+                        className="customSelect business-audit outline-none p-2 w-full bg-white"
                         value={category}
                         readOnly
                       />
                     </div>
 
-                    <div className="flex-shrink border">
+                    <div className="flex-shrink border border-transparent">
                       <input
                         type="text"
-                        className="customSelect business-audit outline-none p-2 w-full"
+                        className="customSelect business-audit outline-none p-2 w-full bg-white"
                         value={time}
                         readOnly
                       />
@@ -335,9 +335,9 @@ export default function OflineAppointment() {
                     </div>
 
                     {/* TIME SLOT */}
-                    <div className="flex-shrink border">
+                    <div className="flex-shrink border border-transparent ">
                       <select
-                        className="customSelect business-audit outline-none p-2 w-full"
+                        className="customSelect business-audit outline-none p-2 w-full bg-white"
                         onChange={(e) => setSlot(e.target.value)}
                       >
                         <option value="noSlot">Select Time Slot</option>
@@ -375,7 +375,7 @@ export default function OflineAppointment() {
                   <>
                     {/* PRICE DETAILS */}
                     <div className="mx-auto p-2">
-                      <div className="flex justify-between border p-3 bg-white">
+                      <div className="flex justify-between border border-slate-200 p-3 bg-white">
                         <Para style="font-bold" para="Total Amount" />
                         <Para style="font-bold" para={apd.total_price as string} />
                       </div>
@@ -409,7 +409,7 @@ export default function OflineAppointment() {
                       <SmallButton style="my-1 mx-auto" text="Pay Now" onClick={paySubmit} />
                     )}
 
-                    <div className="pb-20">
+                    <div className="p-2">
                       <p className="text-justify text-sm bg-white p-2">
                         Note: To obtain written report (soft copy) of consultation a sum of INR
                         20,000/- will be charged extra and will be available within 4 working days

@@ -55,7 +55,7 @@ p {
 .horizontal .table td {
     border: 1px solid;
     width: fit-content !important;
-    min-width: 100px;
+    min-width: 90px;
     /* padding: 5px 10px; */
     font-weight: bolder !important;
     color: black !important;

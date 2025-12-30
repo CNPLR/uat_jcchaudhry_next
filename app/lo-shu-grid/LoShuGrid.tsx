@@ -53,7 +53,7 @@ const LoShuGrid = () => {
             <div className='my-10 bg-gray-100 py-5 px-5 lg:px-10 space-y-5'>
                 <SubHeading style="text-center" subHeading="Horizontal lines or Planes in Lo Shu Grid" />
 
-                <Img alt="Horizontal Lo Shu grid layout for numerology" style="w-[510px] h-[288px] m-auto" path="/images_folder/Horizontal-Lo-Shu-grid-layout-for-numerology.png" />
+                <Img alt="Horizontal Lo Shu grid layout for numerology" style="w-[510px]  m-auto" path="/images_folder/Horizontal-Lo-Shu-grid-layout-for-numerology.png" />
 
                 <div className='my-5 flex justify-center flex-wrap'>
                     <ImgHeadingBox  style={"w-[252px]"} alt="Numerology Lo Shu grid for personal growth" path="/images_folder/Numerology-Lo-Shu-grid-for-personal-growth.webp" heading="Mind (Intellectual Plane)" para="The first horizontal line of the grid is the mind plane. It represents the thinking capabilities of an individual. It is concerned with psychological factors such as memory, concentration and analyzing power." link={pathName} />

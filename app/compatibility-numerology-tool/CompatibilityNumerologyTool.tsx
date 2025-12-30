@@ -97,8 +97,8 @@ const CompatibilityNumerologyTool = () => {
         const psychic = (dob as string).split('-').pop();
         const partnerPsychic = (pdob as string).split('-').pop();
 
-        const psychicTotal = specialNumbers.includes(Number(psychic)) ? Number(psychic) % 10 : reduceToSingleDigit(psychic);
-        const PartnerPsychicTotal = specialNumbers.includes(Number(partnerPsychic)) ? Number(partnerPsychic) % 10 : reduceToSingleDigit(partnerPsychic);
+        const psychicTotal = specialNumbers.includes(Number(psychic)) ? Number(psychic) % 10 : reduceToSingleDigit(Number(psychic as string));
+        const PartnerPsychicTotal = specialNumbers.includes(Number(partnerPsychic)) ? Number(partnerPsychic) % 10 : reduceToSingleDigit(Number(partnerPsychic));
 
         const nameNumber = calculateNameNumber(name)
         const PartnerNameNumber = calculateNameNumber(pName)
@@ -111,7 +111,7 @@ const CompatibilityNumerologyTool = () => {
         const checkWithName = enemy[finalNameNumber]
 
         if (checkWithDestiny?.includes(PartnerDestinyTotal)) {
-            setStatus(false)
+            setStatus(true)
             setDestinyContent("Not Compatible")
         } else {
             setStatus(true)
@@ -192,8 +192,22 @@ const CompatibilityNumerologyTool = () => {
             return null;
         }
 
-        setDob(date);
+        return date
     }
+
+   function handleDatePicker1(e: any){
+        const value = handleDatePicker(e);
+        console.log(value)
+        if (!value) return null;
+        
+        setDob(value?.toISOString().split("T")[0]);
+   }
+   function handleDatePicker2(e: any){
+        const value = handleDatePicker(e);
+        if (!value) return null;
+        
+        setPdob(value?.toISOString().split("T")[0]);
+   }
 
     return (
         <div className='relative'>
@@ -226,7 +240,7 @@ const CompatibilityNumerologyTool = () => {
                                     id="date-picker"
                                     selected={dob as Date}
                                     onChange={date => setDob(date?.toISOString().split("T")[0] as string)}
-                                    onChangeRaw={handleDatePicker}
+                                    onChangeRaw={handleDatePicker1}
                                     dateFormat="dd/MM/yyyy"
                                     maxDate={new Date()} // Disable previous dates
                                     placeholderText="DD-MM-YYYY"
@@ -242,7 +256,7 @@ const CompatibilityNumerologyTool = () => {
                                     id="date-picker"
                                     selected={pdob as Date}
                                     onChange={date => setPdob(date?.toISOString().split("T")[0])}
-                                    onChangeRaw={handleDatePicker}
+                                    onChangeRaw={handleDatePicker2}
                                     dateFormat="dd/MM/yyyy"
                                     maxDate={new Date()} // Disable previous dates
                                     placeholderText="DD-MM-YYYY"
@@ -256,7 +270,7 @@ const CompatibilityNumerologyTool = () => {
                         </div>
                     </div>
                     <div className='mt-5'>
-                        <SmallButton text="Submit" style="m-auto" onClick={submit} />
+                        <SmallButton text="Submit" style="m-auto" onClick={(e: any)=> submit(e)} />
                     </div>
                 </form>
             </div>
@@ -290,7 +304,7 @@ const CompatibilityNumerologyTool = () => {
                                 id="date-picker"
                                 selected={dob as Date}
                                 onChange={date => setDob(date?.toISOString().split("T")[0] as string)}
-                                onChangeRaw={handleDatePicker}
+                                onChangeRaw={handleDatePicker1}
                                 dateFormat="dd/MM/yyyy"
                                 maxDate={new Date()} // Disable previous dates
                                 placeholderText="DD-MM-YYYY"
@@ -306,10 +320,10 @@ const CompatibilityNumerologyTool = () => {
                         <label htmlFor="email" className="font-medium text-[#07074D]" >Enter Partner’s Date of Birth:</label>
                         <div className='bg-white'>
                             <DatePicker
-                                id="date-picker"
+                                id="date-picker2"
                                 selected={pdob as Date}
                                 onChange={date => setPdob(date?.toISOString().split("T")[0])}
-                                onChangeRaw={handleDatePicker}
+                                onChangeRaw={handleDatePicker2}
                                 dateFormat="dd/MM/yyyy"
                                 maxDate={new Date()} // Disable previous dates
                                 placeholderText="DD-MM-YYYY"
@@ -322,7 +336,7 @@ const CompatibilityNumerologyTool = () => {
                         </div>
                     </div>
                     <div className=''>
-                        <SmallButton text="Submit" style="m-auto" onClick={submit} />
+                        <SmallButton text="Submit" style="m-auto" onClick={(e:any) => submit(e)} />
                     </div>
                 </form>
             </div>

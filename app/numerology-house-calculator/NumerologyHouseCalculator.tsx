@@ -15,6 +15,10 @@ import Para from '../components/ui/Para';
 import SmallButton from '../components/ui/SmallButton';
 import SubHeading from '../components/ui/SubHeading';
 import SubHeading2 from '../components/ui/SubHeading2';
+import '../styles/common.css';
+import 'react-phone-input-2/lib/style.css';
+import "react-datepicker/dist/react-datepicker.css";
+import 'react-toastify/dist/ReactToastify.css';
 import { charValues, nameRegex, reduceToSingleDigit, calculateDestiny, calculateNameNumber, specialNumbers, enemy, housechar } from '../numerology-calculator-name-number/AlllCharectersticks';
 
 export const NumerologyHouseCalculator = () => {
@@ -28,7 +32,7 @@ export const NumerologyHouseCalculator = () => {
     const [name, setName] = useState("");
     const [dob, setDob] = useState<Date | string>("");
 
-    const [houseNum, setHouseNum] = useState('');
+    const [houseNum, setHouseNum] = useState<number>();
     const [house, setHouse] = useState("");
     const [type, setType] = useState("Select Living Type");
 
@@ -114,7 +118,7 @@ export const NumerologyHouseCalculator = () => {
         const nameNumberTotal = calculateNameNumber(name)
 
         const pureDestiny = specialNumbers.includes(destiny) ? destiny % 10 : reduceToSingleDigit(destiny);
-        const purePsychic = specialNumbers.includes(Number(psychic)) ? Number(psychic) % 10 : reduceToSingleDigit(psychic);
+        const purePsychic = specialNumbers.includes(Number(psychic)) ? Number(psychic) % 10 : reduceToSingleDigit(Number(psychic));
         const pureName = specialNumbers.includes(nameNumberTotal) ? nameNumberTotal % 10 : reduceToSingleDigit(nameNumberTotal);
 
         let pureHouseNumber;
@@ -123,13 +127,13 @@ export const NumerologyHouseCalculator = () => {
             pureHouseNumber = Number(houseNumber) % 10;
             setMasterContent(true);
         } else {
-            pureHouseNumber = reduceToSingleDigit(houseNumber);
+            pureHouseNumber = reduceToSingleDigit(Number(houseNumber));
             setMasterContent(false);
         }
 
         // const pureHouseNumber = specialNumbers.includes(houseNumber) ? houseNumber % 10 : reduceToSingleDigit(houseNumber);
 
-        setHouseNum(pureHouseNumber)
+        setHouseNum(Number(pureHouseNumber))
 
         const checkWithDestiny = enemy[pureDestiny]
         const checkWithPsychic = enemy[purePsychic]
@@ -206,7 +210,7 @@ export const NumerologyHouseCalculator = () => {
     return (
         <div className='relative'>
             <ToastContainer />
-            <div className='justify-end items-center hidden lg:flex lg:h-[550px] 2xl:h-[80vh]' style={bgImg}>
+            <div className='justify-end items-center hidden lg:flex lg:h-137.5 2xl:h-[80vh]' style={bgImg}>
                 <form className='bg-[#FFDBF0] p-10 rounded-[25px] mr-10'>
                     <MainHeading mainHeading={title} style="text-center mb-5 text-purple-600" />
                     <div className='flex space-x-5'>
@@ -258,7 +262,7 @@ export const NumerologyHouseCalculator = () => {
                             </div>
                             <div>
                                 <select onChange={(e) => setType(e.target.value)} className='cal1' name="" id="">
-                                    <option value="Select Living Type" disabled>Select Living Type</option>
+                                    <option value="Select Living Type" defaultValue={"Select Living Type"} >Select Living Type</option>
                                     <option value="Long-Term">Long-Term</option>
                                     <option value="Short-Term">Short-Term</option>
                                 </select>

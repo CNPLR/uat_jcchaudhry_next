@@ -188,7 +188,7 @@ const HomePage = () => {
                         <Suspense fallback={<div>Loading banner...</div>}>
                             <OurSolutionCard
                                 alt="personal numerology reading"
-                                link="/personal numerology reading"
+                                link="/personal-numerology-reading"
                                 path="/images_folder/personal-numerology-reading.webp"
                                 subHeading="​Personal Numerology"
                                 para="To find out the personal compatibility by name and date of birth"

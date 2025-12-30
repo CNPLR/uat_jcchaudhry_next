@@ -109,7 +109,7 @@ const FA = ({ image, question, category, faq, showAns, index, toggleFAQ }:any) =
                     <SubHeading2 style="" subHeading={category} />
                     <Para para={question} />
                 </div>
-                <div className='ml-auto text-2xl font-semibold text-right'>
+                <div className='ml-auto text-2xl font-semibold text-right [&>div]:w-fit [&>div]:m-auto'>
                     {showAns ? <div>_</div> : <div>+</div>}
                 </div>
             </div>

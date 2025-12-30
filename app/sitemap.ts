@@ -10,7 +10,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
 
   // Static routes as fallback
  const staticRoutes: MetadataRoute.Sitemap = routes.map((route: RouteItem) => ({
-    url: `${process.env.DOMAIN}${route.slug === "/" ? "" : route.slug}`,
+    url: `${process.env.NEXT_PUBLIC_DOMAIN}${route.slug === "/" ? "" : route.slug}`,
     lastModified:route.updatedAt,
     changeFrequency: "monthly",
     priority: 1.0,
@@ -39,7 +39,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     }
 
     const blogRoutes: MetadataRoute.Sitemap = blogs.map((blog) => ({
-      url: `${process.env.DOMAIN}/article/${blog.slug}`,
+      url: `${process.env.NEXT_PUBLIC_DOMAIN}/article/${blog.slug}`,
       lastModified: blog?.updatedAt,
       changeFrequency: "weekly",
       priority: 0.7,

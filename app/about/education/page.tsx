@@ -23,7 +23,7 @@ const education = () => {
             <Banner alttag="Learn about Dr. J C Chaudhry’s educational journey" path="/allbanners/Learn-about-Dr-J-C-Chaudhry’s-educational-journey.webp" />
             <MainHeading style="text-center my-10" mainHeading="Education" />
             <div className='lg:px-10 px-5'>
-                <div className='flex justify-center space-x-10'>
+                <div className=' flex justify-center flex-col md:flex-row space-x-10 [&>div]:w-full md:[&>div]:w-[30%]'>
                     <ImgHeadingBox
                       alt="About Dr. J.C. Chaudhry’s educational journey"
                       path="/images_folder/About-Dr.-J.C.-Chaudhry’s-educational-journey.webp"
@@ -35,7 +35,7 @@ const education = () => {
                         heading={''} link={''}
                     />
                 </div>
-                <div className='flex justify-center mt-10 space-x-10'>
+                <div className='flex justify-center flex-col md:flex-row  space-x-10 [&>div]:w-full md:[&>div]:w-[30%]'>
                     <ImgHeadingBox
                         alt="To impart quality education to aspiring students"
                         path="/images_folder/To-impart-quality-education-to-aspiring-students-.webp"

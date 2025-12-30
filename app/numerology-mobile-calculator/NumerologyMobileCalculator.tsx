@@ -1,6 +1,5 @@
 'use client';
 import axios from 'axios';
-import { Content } from 'next/font/google';
 import Link from 'next/link';
 import React, { use, useEffect, useState } from 'react'
 import DatePicker from 'react-datepicker';
@@ -19,8 +18,8 @@ import { nameRegex, calculateDestiny, calculateNameNumber, specialNumbers, reduc
 import ImgLink from '../components/ui/ImgLink';
 import '../styles/common.css';
 import 'react-phone-input-2/lib/style.css';
-import 'react-toastify/dist/ReactToastify.css';
 import "react-datepicker/dist/react-datepicker.css";
+import 'react-toastify/dist/ReactToastify.css';
 
 const NumerologyMobileCalculator = () => {
     const path = process.env.NEXT_PUBLIC_URI;
@@ -33,7 +32,7 @@ const NumerologyMobileCalculator = () => {
     const [mobileNumber1, setMobileNumber1] = useState("");
     const [nationalNumber, setNationalNumber] = useState("");
     const [code, setCode] = useState("");
-    const [TotalOfMobileNumber, setTotalOfMobileNumber] = useState();
+    const [TotalOfMobileNumber, setTotalOfMobileNumber] = useState<number>();
     const [dataId, setDataId] = useState('')
     const [status, setStatus] = useState<string| boolean>(false);
     const [status1, setStatus1] = useState(false);
@@ -92,7 +91,7 @@ const NumerologyMobileCalculator = () => {
         const phoneNumber = reduceToSingleDigit(mobileNumber);
         const nameNumberTotal = specialNumbers.includes(nameNumber) ? nameNumber % 10 : reduceToSingleDigit(nameNumber);
 
-        setTotalOfMobileNumber(phoneNumber)
+        setTotalOfMobileNumber(Number(phoneNumber))
 
         const checkWithDestiny = enemy[userDestinyNumber]
         const checkWithPsychic = enemy[userPsychicNumber]
@@ -279,7 +278,7 @@ const NumerologyMobileCalculator = () => {
                 {showResult ?
                     <>
                         <SubHeading subHeading="Your mobile number total is" style="text-center" />
-                        <p className='text-9xl border w-36 my-5 rounded-md text-slate-400 shadow-md text-center mx-auto'><p className='mt-6'>{TotalOfMobileNumber}</p></p>
+                        <p className='text-9xl border border-gray-200 w-36 my-5 rounded-md text-slate-400 shadow-md text-center mx-auto'><p className='mt-6'>{TotalOfMobileNumber}</p></p>
                         {status &&
                             <>
                                 <p className={`${status1 ? "text-green-500" : "text-red-500"} text-center mb-5`}>{status}</p>

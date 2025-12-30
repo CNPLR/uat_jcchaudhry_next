@@ -15,7 +15,7 @@ export default function Img({ alt, style, path, width, height }: ImgProps) {
   return (
     <Image
       src={path}
-      alt={alt}
+      alt={alt || ""}
       className={style}
       width={1200}
       height={560}

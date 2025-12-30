@@ -25,7 +25,7 @@ export default function ImageContent({
 }: ImageContentProps) {
   return (
     <div className={`${style} flex flex-col lg:flex-row w-full justify-start items-start lg:p-10 p-3 mb-5`}>
-      <div className='w-\[100%] lg:w-[30%]'>
+      <div className='w-full lg:w-[30%]'>
         <Img path={path as string} alt={alt as string} style='w-[100%] lg:w-[100%] rounded-lg' />
       </div>
 

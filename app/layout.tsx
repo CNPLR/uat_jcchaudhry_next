@@ -4,6 +4,7 @@ import "./globals.css";
 import Script from "next/script";
 import MainNavigationCompo from "./components/MainNavigationCompo";
 import Footer from "./components/Footer";
+import PhoneViewButton from "./components/PhoneViewButton";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -190,6 +191,7 @@ export default function RootLayout({
         <MainNavigationCompo />
 
         {children}
+        <div className="md:hidden"><PhoneViewButton/></div>
         <Footer />
       </body>
     </html>

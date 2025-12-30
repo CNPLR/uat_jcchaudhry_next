@@ -1,4 +1,5 @@
 import type { NextConfig } from "next";
+/** @type {import('next').NextConfig} */
 
 const nextConfig: NextConfig = {
   experimental: {
@@ -8,6 +9,7 @@ const nextConfig: NextConfig = {
    images: {
     remotePatterns: [new URL('https://newcnpl.s3.ap-south-1.amazonaws.com/**')],
   },
+  productionBrowserSourceMaps: false,
 };
 
 export default nextConfig;

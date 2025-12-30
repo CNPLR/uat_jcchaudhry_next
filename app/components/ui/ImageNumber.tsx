@@ -15,7 +15,7 @@ type BaseProps = {
 export function ImageNumber({ path, para, link, alt = '' }: BaseProps) {
   return (
     <Link href={`/${link}`}>
-      <div className='border border-gray-200 py-2 rounded-lg transition hover:shadow-lg bg-white mb-2 mr-2 text-center w-28'>
+      <div className='border border-gray-200 py-2 px-1 rounded-lg transition hover:shadow-lg bg-white mb-2 mr-2 text-center w-28'>
         <Img style="m-auto transition hover:scale-[1.1] w-[65px]" alt={alt as string} path={path as string} />
         <Para style="mt-2" para={para} />
       </div>

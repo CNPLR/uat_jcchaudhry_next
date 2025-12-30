@@ -295,9 +295,19 @@ export const enemy: any = {
 };
 
 // Utility to reduce a number to a single digit or special number
-export const reduceToSingleDigit: any = (num: any) => {
-    const sum = num.toString().split("").reduce((acc: any, digit: any) => acc + parseInt(digit), 0);
-    return sum < 10 ? sum : reduceToSingleDigit(sum);
+export const reduceToSingleDigit = (num: number): number => {
+  if (!Number.isFinite(num)) return 0;
+
+  // Handle negative & decimal numbers
+  num = Math.abs(Math.floor(num));
+
+  let sum = 0;
+  while (num > 0) {
+    sum += num % 10;
+    num = Math.floor(num / 10);
+  }
+
+  return sum < 10 ? sum : reduceToSingleDigit(sum);
 };
 
 // Calculate soul urge number
@@ -314,7 +324,7 @@ export const calculateSoulurgeNumber = (name: any) => {
 };
 
 export function calculateDestiny(dob: any) {
-    const [yearStr, monthStr, dayStr] = dob.split("-");
+    const [yearStr, monthStr, dayStr] = dob?.toString()?.split("-");
     // Reduce digits of a number string to single digit (or master numbers if needed)
     const digitSum = (str: any) => str?.split("").map(Number).reduce((a: any, b: any) => a + b, 0);
     // Step 1: sum digits of each part

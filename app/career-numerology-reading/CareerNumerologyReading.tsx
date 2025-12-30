@@ -37,7 +37,7 @@ const CareerNumerologyReading = () => {
             <Link href={token ? '/dashboard' : '/numerology/signup'}>
                 <Banner alttag="Career numerology reading services by Dr. J C Chaudhry" path="/allbanners/Career-numerology-reading-services-by-Dr-J-C-Chaudhry.webp" />
             </Link>
-            <MainHeading style="text-center my-10" mainHeading="Numerology Advice for Career and Job by Dr. J C Chaudhry" />
+            <MainHeading style="text-center my-10 px-4" mainHeading="Numerology Advice for Career and Job by Dr. J C Chaudhry" />
             <div className='mx-10 space-y-5'>
                 <Para style='text-justify' para="Your numbers rule your life and influence your career. One must choose a career as per his/her interests, but he/she should also take the help of numerologist to decide their best career options. Your destiny number or life path number can help you select the best profession in life." />
                 <Para style='text-justify' para="It is common for individuals to face problems in their career path and job. Knowing the best-suited career options as per one’s numerology number can guide people to make the right decisions. If you are facing problems in life related to your job or are confused about which profession to choose, you may consult Dr. J C Chaudhry, a numerologist with 40 years of experience, for career advice based on your date of birth." />

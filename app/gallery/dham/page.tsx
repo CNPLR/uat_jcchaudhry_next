@@ -22,8 +22,8 @@ const page = async () => {
             <Banner alttag="Gallery of Dr. Chaudhry’s Dham ceremonies" path="/allbanners/Gallery-of-Dr-Chaudhry’s-Dham-ceremonies.webp" />
             <MainHeading style="text-center my-10" mainHeading="Dham" />
             <div className='px-10 flex flex-wrap justify-center bg-white'>
-                {images && images?.map((ele: any) =>
-                    <CommonGallery
+                {images && images?.map((ele: any, index: number) =>
+                    <CommonGallery key={index}
                         path={`https://newcnpl.s3.ap-south-1.amazonaws.com/public/gallery/Dham/${ele.image}`}
                         para={ele.title}
                         alt={ele.alttag}

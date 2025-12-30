@@ -8,6 +8,7 @@ import Menu from './Menu'
 import Para from './ui/Para'
 import ImgLink from './ui/ImgLink'
 import { FaUserCircle, FaUserAlt } from "react-icons/fa";
+import { dispatchCustomEvent } from '@/lib/customEvents'
 
 export default function NavBar() {
 
@@ -21,6 +22,8 @@ export default function NavBar() {
     if (typeof window !== 'undefined') {
       setToken(localStorage.getItem('token'))
       setLastLogin(localStorage.getItem('lastLogin'))
+            dispatchCustomEvent('userLoggedIn', { user: {token: token} });
+
     }
   }, [])
 

@@ -35,7 +35,7 @@ const NumerologyCalculator = () => {
     const [code, setCode] = useState("");
 
     const [psychicNumber, setPsychicNumber] = useState<number>();
-    const [destinyNumber, setdestinyNumber] = useState();
+    const [destinyNumber, setdestinyNumber] = useState<number>();
     const [isPersonalityNumber, setIsPersonalityNumber] = useState<number>();
 
     const [masterContent, setMasterContent] = useState<string>()
@@ -102,7 +102,7 @@ const NumerologyCalculator = () => {
         const mobileNumberTotal = reduceToSingleDigit(mobileNumber);
         const nameNumberTotal = specialNumbers.includes(nameNumber) ? nameNumber % 10 : reduceToSingleDigit(nameNumber);
 
-        const myPsychic = specialNumbers.includes(Number(psychic)) ? Number(psychic) % 10 : reduceToSingleDigit(psychic);
+        const myPsychic = specialNumbers.includes(Number(psychic)) ? Number(psychic) % 10 : reduceToSingleDigit(Number(psychic));
         const myDestiny = specialNumbers.includes(destiny) ? destiny % 10 : reduceToSingleDigit(destiny);
         const myPersonality = specialNumbers.includes(personalityNumber) ? personalityNumber % 10 : reduceToSingleDigit(personalityNumber);
 
@@ -114,7 +114,7 @@ const NumerologyCalculator = () => {
             setMasterContent(`Since your Psychic number ${psychic} is a Master number, it is to be considered as ${totalNumber}. Characteristics of your Psychic number ${totalNumber}:`);
         } else {
             setMasterNumber(false)
-            const totalPsychic = reduceToSingleDigit(psychic);
+            const totalPsychic = reduceToSingleDigit(Number(psychic));
             setPsychicNumber(totalPsychic)
             setCharacteristic(totalPsychic)
             setMasterContent(`Characteristics of your Psychic number ${totalPsychic}:`);
@@ -129,7 +129,7 @@ const NumerologyCalculator = () => {
         } else {
             setMasterNumber1(false)
             const totalDestiny = reduceToSingleDigit(destiny);
-            setdestinyNumber(totalDestiny)
+            setdestinyNumber(Number(totalDestiny))
             setCharacteristic1(totalDestiny)
             setMasterContent1(`Characteristics of your Destiny number ${totalDestiny}:`);
         }
@@ -297,20 +297,20 @@ const NumerologyCalculator = () => {
                             <SubHeading subHeading="Your Psychic number is" style="text-center" />
 
                             {masterNumber ?
-                                <div className='border my-5 rounded-md text-slate-400 shadow-md text-center mx-auto flex justify-center items-center w-80 pt-5'>
+                                <div className='border border-gray-300 my-5 rounded-md text-slate-400 shadow-md text-center mx-auto flex justify-center items-center w-80 pt-5'>
                                     <p className='text-9xl mb-0 pb-0'>{psychicNumber}</p>
                                     <p className='text-9xl text-orange-400 mb-0 pb-0'>/</p>
                                     <p className='text-9xl mb-0 pb-0'>{characteristic}</p>
                                 </div>
                                 :
-                                <p className='text-9xl border w-36 my-5 rounded-md text-slate-400 shadow-md text-center mx-auto '><p className='mt-6'>{psychicNumber}</p></p>
+                                <p className='text-9xl border border-gray-300 w-36 my-5 rounded-md text-slate-400 shadow-md text-center mx-auto '><p className='mt-6'>{psychicNumber}</p></p>
                             }
 
                             {/* <p className='text-9xl border w-36 my-5 rounded-md text-slate-400 shadow-md text-center mx-auto '><p className='mt-6'>{psychicNumber}</p></p> */}
 
                             <p className='my-5 text-xl font-semibold text-center mx-auto '>{masterContent}</p>
                             <div className='border border-gray-300 shadow-md p-5 md:w-3/4 mx-auto rounded-md mb-10'>
-                                <Para style="text-justify" para={psychic[characteristic].toString()} />
+                                <Para style="text-justify" para={psychic[characteristic]} />
                             </div>
                         </div>
 
@@ -318,20 +318,20 @@ const NumerologyCalculator = () => {
                             <SubHeading subHeading="Your Destiny number is" style="text-center" />
 
                             {masterNumber1 ?
-                                <div className='border my-5 rounded-md text-slate-400 shadow-md text-center mx-auto flex justify-center items-center w-80 pt-5'>
+                                <div className='border border-gray-300 my-5 rounded-md text-slate-400 shadow-md text-center mx-auto flex justify-center items-center w-80 pt-5'>
                                     <p className='text-9xl mb-0 pb-0'>{destinyNumber}</p>
                                     <p className='text-9xl text-orange-400 mb-0 pb-0'>/</p>
                                     <p className='text-9xl mb-0 pb-0'>{characteristic1}</p>
                                 </div>
                                 :
-                                <p className='text-9xl border w-36 my-5 rounded-md text-slate-400 shadow-md text-center mx-auto '><p className='mt-6'>{destinyNumber}</p></p>
+                                <p className='text-9xl border border-gray-300 w-36 my-5 rounded-md text-slate-400 shadow-md text-center mx-auto '><p className='mt-6'>{destinyNumber}</p></p>
                             }
 
                             {/* <p className='text-9xl border w-36 my-5 rounded-md text-slate-400 shadow-md text-center mx-auto '><p className='mt-6'>{destinyNumber}</p></p> */}
 
                             <p className='my-5 text-xl font-semibold text-center mx-auto '>{masterContent1}</p>
                             <div className='border border-gray-300 shadow-md p-5 md:w-3/4 mx-auto rounded-md mb-10'>
-                                <Para style="text-justify" para={destiny[characteristic1].toString()} />
+                                <Para style="text-justify" para={destiny[characteristic1]} />
                             </div>
                         </div>
 
@@ -339,13 +339,13 @@ const NumerologyCalculator = () => {
                             <SubHeading subHeading="Your Personality number is" style="text-center" />
 
                             {masterNumber2 ?
-                                <div className='border my-5 rounded-md text-slate-400 shadow-md text-center mx-auto flex justify-center items-center w-80 pt-5'>
+                                <div className='border border-gray-300 my-5 rounded-md text-slate-400 shadow-md text-center mx-auto flex justify-center items-center w-80 pt-5'>
                                     <p className='text-9xl mb-0 pb-0'>{isPersonalityNumber}</p>
                                     <p className='text-9xl text-orange-400 mb-0 pb-0'>/</p>
                                     <p className='text-9xl mb-0 pb-0'>{characteristic2}</p>
                                 </div>
                                 :
-                                <p className='text-9xl border w-36 my-5 rounded-md text-slate-400 shadow-md text-center mx-auto '><p className='mt-6'>{isPersonalityNumber}</p></p>
+                                <p className='text-9xl border border-gray-300 w-36 my-5 rounded-md text-slate-400 shadow-md text-center mx-auto '><p className='mt-6'>{isPersonalityNumber}</p></p>
                             }
 
                             {/* <p className='text-9xl border w-36 my-5 rounded-md text-slate-400 shadow-md text-center mx-auto '><p className='mt-6'>{isPersonalityNumber}</p></p> */}

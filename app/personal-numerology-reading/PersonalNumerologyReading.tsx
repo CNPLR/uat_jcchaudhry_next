@@ -36,7 +36,7 @@ const PersonalNumerologyReading = () => {
             <Link href={token ? '/dashboard' : '/numerology/signup'}>
                 <Banner alttag="Personal numerology reading by Dr. J C Chaudhry" path="/allbanners/Personal-numerology-reading-by-Dr-J-C-Chaudhry.webp" />
             </Link>
-            <MainHeading style="text-center my-10" mainHeading="Numerology Reading for You" />
+            <MainHeading style="text-center my-10 px-4" mainHeading="Numerology Reading for You" />
             <div className='mx-10 space-y-5'>
                 <Para style='text-justify' para="Most important person in your life should be you yourself. Our self-worth is the value we give to self. This value is about how we see ourselves and how treat ourselves. If you are continuously struggling despite of hard work, you might be missing out onto something." />
                 <Para style='text-justify' para="Hard work and luck go hand in hand. Nothing is pre-fixed. Everything is subject to change. The only thing required is to have the desire, determination, and the will to change it. You might be working very hard but you need to consider other factors also which affect your success. Numbers play very crucial role in life; Your Psychic Number, Destiny Number and Name Number should always be in harmony. Even these days your email address and phone number has become integral part of your identity. In order to achieve what your heart desires make sure you have everything in sync." />

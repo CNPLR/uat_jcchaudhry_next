@@ -23,8 +23,8 @@ const page = async () => {
             <Banner alttag="Dr. Chaudhry featured in media" path="/allbanners/Dr-Chaudhry-featured-in-media.webp" />
             <MainHeading style="text-center my-10" mainHeading="Media" />
             <div className='px-10 flex flex-wrap justify-center bg-white'>
-                {images && images?.map((ele: any) =>
-                    <CommonGallery
+                {images && images?.map((ele: any, index: number) =>
+                    <CommonGallery key={index}
                         path={`https://newcnpl.s3.ap-south-1.amazonaws.com/public/gallery/Media/${ele.image}`}
                         para={ele.title}
                         alt={ele.alttag}

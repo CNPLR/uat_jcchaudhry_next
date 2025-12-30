@@ -33,7 +33,7 @@ const NumerologyLifePathCalculator = () => {
     const [mobileNumber1, setMobileNumber1] = useState("");
     const [nationalNumber, setNationalNumber] = useState("");
     const [code, setCode] = useState("");
-    const [personality, setPersonality] = useState("");
+    const [personality, setPersonality] = useState<number | string>("");
     const [characteristic, setCharacteristic] = useState<any>();
 
     const [masterNumber, setMasterNumber] = useState(false);
@@ -80,11 +80,13 @@ const NumerologyLifePathCalculator = () => {
 
         // Calculate numbers
         const destiny = calculateDestiny(dob)
-        let psychic = (dob as string).split("-").pop()
+        let psychic = (dob.toString()).split("-").pop()
         let mobileNumber = nationalNumber.split("").reduce((sum, char) => sum + (parseInt(char) || 0), 0);
         let nameNumber = calculateNameNumber(name)
 
-        const psychicNumber = specialNumbers.includes(Number(psychic)) ? Number(psychic) % 10 : reduceToSingleDigit(psychic);
+        const SpecialNumbers = specialNumbers;
+
+        const psychicNumber = SpecialNumbers.includes(Number(psychic)) ? Number(psychic) % 10 : reduceToSingleDigit(parseInt(psychic as string));
         const phoneNumber = reduceToSingleDigit(mobileNumber);
         const nameNumberTotal = specialNumbers.includes(nameNumber) ? nameNumber % 10 : reduceToSingleDigit(nameNumber);
 
@@ -175,7 +177,7 @@ const NumerologyLifePathCalculator = () => {
             return null;
         }
 
-        setDob(date);
+        setDob(date?.toISOString().split("T")[0] );
     }
 
     useEffect(() => {
@@ -276,18 +278,18 @@ const NumerologyLifePathCalculator = () => {
                         <SubHeading subHeading="Your Life Path number is" style="text-center" />
 
                         {masterNumber ?
-                            <div className='border my-5 rounded-md text-slate-400 shadow-md text-center mx-auto flex justify-center items-center w-80 pt-5'>
+                            <div className='border border-gray-300 my-5 rounded-md text-slate-400 shadow-md text-center mx-auto flex justify-center items-center w-80 pt-5'>
                                 <p className='text-9xl mb-0 pb-0'>{personality}</p>
                                 <p className='text-9xl text-orange-400 mb-0 pb-0'>/</p>
                                 <p className='text-9xl mb-0 pb-0'>{characteristic}</p>
                             </div>
                             :
-                            <p className='text-9xl border w-36 my-5 rounded-md text-slate-400 shadow-md text-center mx-auto '><p className='mt-6'>{personality}</p></p>
+                            <p className='text-9xl border border-gray-300 w-36 my-5 rounded-md text-slate-400 shadow-md text-center mx-auto '><p className='mt-6'>{personality}</p></p>
                         }
 
                         <p className='my-5 text-xl font-semibold text-center mx-auto'>{masterContent}</p>
                         <div className='border border-gray-300 shadow-md p-5 md:w-3/4 mx-auto rounded-md mb-10'>
-                            <Para style="text-justify" para={life[characteristic as keyof typeof life].toString() } />
+                            <Para style="text-justify" para={life[characteristic] } />
                         </div>
 
                         <div className='flex justify-center items-center mb-10'>
@@ -328,7 +330,7 @@ const NumerologyLifePathCalculator = () => {
                             <div className="bg-purple-600 text-white min-w-8 md:w-2/4 max-w-8 max-h-8 min-h-8 rounded-full flex justify-center items-center mb-5">
                                 <span className="text-center">{activeTab}</span>
                             </div>
-                            <Para style="text-justify" para={life[activeTab].toString()} />
+                            <Para style="text-justify" para={life[activeTab]} />
                         </div>
                     )
                 }

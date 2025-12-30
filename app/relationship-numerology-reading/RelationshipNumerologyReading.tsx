@@ -35,7 +35,7 @@ const RelationshipNumerologyReading = () => {
             <Link href={token ? '/dashboard' : '/numerology/signup'}>
                 <Banner alttag="Relationship numerology consultation with Dr. J C Chaudhry" path="/allbanners/Relationship-numerology-consultation-with-Dr-J-C-Chaudhry.webp" />
             </Link>
-            <MainHeading style="text-center my-10" mainHeading="Relationship Compatibility Test by Dr. J C Chaudhry" />
+            <MainHeading style="text-center my-10 px-4" mainHeading="Relationship Compatibility Test by Dr. J C Chaudhry" />
             <div className='mx-10 space-y-5'>
                 <Para style='text-justify' para="Relationship problems are not uncommon. People experience failed relationships for numerous reasons, one of which is compatibility issues. When the number of partners does not vibrate harmoniously, couples suffer from relationship compatibility issues. For example, if a number 2 person is in a relationship with a number 5 person, they can experience incompatibility in the relationship because number 2 and number 5 are not friendly to each other. Similarly, numerology compatibility can be checked between business partners, mother-daughter-in-law relationships, parent-child relationships, or any other relationship or association." />
                 <Para style='text-justify' para="Relationship numerology can help people select for themselves compatible partners for marriage or business, helping them have a stronger bond. Also, checking number compatibility ensures people make the right choices, minimises discord, and maximises happiness in human relationships." />
