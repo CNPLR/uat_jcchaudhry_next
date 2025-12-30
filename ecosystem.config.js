@@ -3,7 +3,7 @@ module.exports = {
       {
         name: "myapp",
         script: "npm start",
-        port: 3001
+        port: 6161
       }
   ]
 };
