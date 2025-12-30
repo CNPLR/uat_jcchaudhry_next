@@ -277,7 +277,7 @@ export default function OflineAppointment() {
           ref={modalRef}
           className="overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center items-center w-full h-[calc(100%-1rem)] max-h-full"
         >
-          <div className="relative w-[90%] h-full max-w-xl max-h-full flex justify-center items-center m-auto">
+          <div className="relative w-[90%] max-w-xl max-h-full m-auto">
             <div className="relative bg-slate-200 shadow-xl rounded-md overflow-hidden">
               <div className="flex items-center justify-between rounded-t">
                 <button
