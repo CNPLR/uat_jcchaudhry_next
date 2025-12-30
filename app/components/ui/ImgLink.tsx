@@ -22,8 +22,8 @@ export default function ImgLink({ to, path, path1, path2, path3, style, alt, }: 
                     alt={alt}
                     loading="lazy"
                     fetchPriority='high'
-                    width={1200}
-                    height={600}
+                    width={1500}
+                    height={500}
                 />
                 :
                 <Image
@@ -32,8 +32,8 @@ export default function ImgLink({ to, path, path1, path2, path3, style, alt, }: 
                     alt={alt}
                     loading="lazy"
                     fetchPriority='high'
-                    width={1200}
-                    height={600}
+                    width={1500}
+                    height={500}
                 />
             }
 
