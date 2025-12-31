@@ -1,6 +1,7 @@
 'use client';
 import Link from 'next/link';
 import { useEffect, useState } from 'react';
+import Image from 'next/image';
 
 const PaymentSuccess = ({ searchParams }: any) => {
 
@@ -95,7 +96,9 @@ const PaymentSuccess = ({ searchParams }: any) => {
                         <div className="flex items-center justify-between text-sm md:text-base">
                             <span className="text-slate-500">Amount</span>
                             <span className="font-semibold text-emerald-600">
-                                ₹{Number(paymentData?.data?.amount).toLocaleString("en-IN")} INR
+                                {!paymentData ? (
+                                    <Image alt="loading" className='w-8 h-8' src="/images_folder/loading_dots.gif" width={30} height={30} loading="eager" />
+                                ) : ( Number(paymentData?.data?.amount).toLocaleString("en-IN") + ' ' + paymentData?.data?.currency )}
                             </span>
                         </div>
                         <div className="flex items-center justify-between text-xs md:text-sm pt-2 border-t border-slate-200">
