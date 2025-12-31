@@ -83,6 +83,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
+        <meta name="robots" content="noindex, nofollow"/>
         {/* ✅ Font preload */}
         <link
           rel="preload"
