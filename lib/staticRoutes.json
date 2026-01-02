@@ -1,5 +1,13 @@
 [
   {
+    "slug": "/",
+    "updatedAt": "2025-12-23T19:20:40.780Z"
+  },
+  {
+    "slug": "/about",
+    "updatedAt": "2025-12-23T18:04:57.835Z"
+  },
+  {
     "slug": "/about/biography",
     "updatedAt": "2025-12-23T10:40:47.523Z"
   },
@@ -20,20 +28,8 @@
     "updatedAt": "2025-12-23T18:04:34.290Z"
   },
   {
-    "slug": "/about",
-    "updatedAt": "2025-12-23T18:04:57.835Z"
-  },
-  {
-    "slug": "/article/[slug]",
-    "updatedAt": "2025-12-24T13:15:51.531Z"
-  },
-  {
     "slug": "/ask-your-question",
     "updatedAt": "2025-12-23T18:46:50.099Z"
-  },
-  {
-    "slug": "/askQuestions/make-payment/[country]/[id]",
-    "updatedAt": "2025-12-23T18:46:50.097Z"
   },
   {
     "slug": "/awards/international",
@@ -168,11 +164,11 @@
     "updatedAt": "2025-12-23T18:57:04.465Z"
   },
   {
-    "slug": "/numerology/login",
+    "slug": "/numerology",
     "updatedAt": "2025-12-23T18:57:04.465Z"
   },
   {
-    "slug": "/numerology",
+    "slug": "/numerology/login",
     "updatedAt": "2025-12-23T18:57:04.465Z"
   },
   {
@@ -210,10 +206,6 @@
   {
     "slug": "/numerology-mobile-calculator",
     "updatedAt": "2025-12-23T19:14:51.092Z"
-  },
-  {
-    "slug": "/",
-    "updatedAt": "2025-12-23T19:20:40.780Z"
   },
   {
     "slug": "/personal-numerology-reading",
@@ -262,13 +254,5 @@
   {
     "slug": "/video/motivational-seminars",
     "updatedAt": "2026-01-02T07:05:10.314Z"
-  },
-  {
-    "slug": "/video/[slug]",
-    "updatedAt": "2026-01-02T11:18:49.813Z"
-  },
-  {
-    "slug": "/[slug]",
-    "updatedAt": "2025-12-23T12:14:08.431Z"
   }
 ]

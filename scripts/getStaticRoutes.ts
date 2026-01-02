@@ -16,26 +16,28 @@ function collectRoutes(
   const entries = fs.readdirSync(dir, { withFileTypes: true });
   let routes: RouteItem[] = [];
 
+  // Check for page.tsx in current directory first
+  const pageFile = path.join(dir, "page.tsx");
+  if (fs.existsSync(pageFile)) {
+    const stats = fs.statSync(pageFile);
+    const slug = baseRoute || "/";
+    routes.push({
+      slug,
+      updatedAt: stats.mtime.toISOString(),
+    });
+  }
+
   for (const entry of entries) {
     // Ignore route groups & private folders
     if (entry.name.startsWith("(")) continue;
+    // Ignore dynamic routes
+    if (entry.name.startsWith("[")) continue;
+    // Ignore files (we already processed page.tsx above)
+    if (entry.isFile()) continue;
 
     const fullPath = path.join(dir, entry.name);
-
-    if (entry.isDirectory()) {
-      routes.push(
-        ...collectRoutes(fullPath, `${baseRoute}/${entry.name}`)
-      );
-    }
-
-    if (entry.isFile() && entry.name === "page.tsx") {
-      const stats = fs.statSync(fullPath);
-
-      routes.push({
-        slug: baseRoute || "/",
-        updatedAt: stats.mtime.toISOString(), // file last modified
-      });
-    }
+    const newRoute = baseRoute ? `${baseRoute}/${entry.name}` : `/${entry.name}`;
+    routes.push(...collectRoutes(fullPath, newRoute));
   }
 
   return routes;
