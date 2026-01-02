@@ -94,7 +94,7 @@ export default function RootLayout({
           type="font/woff"
           crossOrigin="anonymous"
         />
-
+        <meta name="robots" content="noindex, nofollow"/>
         {/* ✅ Preconnect */}
         {/* <link rel="preconnect" href="https://www.googletagmanager.com" />
         <link rel="preconnect" href="https://connect.facebook.net" /> */}
