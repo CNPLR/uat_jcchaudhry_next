@@ -18,25 +18,31 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
    
 
   try {
-    const response = await fetch(`${baseUrl}/api/blog`, {
-       next: { revalidate: 3600 },
-    });
+    const [blogRes, pageRes] = await Promise.all([
+      fetch(`${baseUrl}/api/blog`, { next: { revalidate: 3600 } }),
+      fetch(`${baseUrl}/api/page`, { next: { revalidate: 3600 } }),
+    ]);
 
-    // Check if response is successful
-    if (!response.ok) {
-      console.error(`Failed to fetch blogs: ${response.status}`);
+    if (!blogRes.ok || !pageRes.ok) {
+      console.error("One of the API calls failed");
       return staticRoutes;
     }
 
-    const res = await response.json();
+    const blogsData = await blogRes.json();
+    const pageResponse = await pageRes.json();
     
     // Validate that blogs is an array
-    const blogs: any[] = Array.isArray(res) ? res : res.data || [];
+    const blogs: any[] = Array.isArray(blogsData) ? blogsData : blogsData.data || [];
+
+    // Validate that pages is an array
+    const pages: any[] = Array.isArray(pageResponse) ? pageResponse : pageResponse.data || [];
     
-    if (blogs.length === 0) {
-      console.warn("No blogs found for sitemap");
+    
+    if (blogs.length === 0 || pages.length === 0) {
+      console.warn("No blogs or pages found for sitemap");
       return staticRoutes;
     }
+
 
     const blogRoutes: MetadataRoute.Sitemap = blogs.map((blog) => ({
       url: `${process.env.NEXT_PUBLIC_DOMAIN}/article/${blog.slug}`,
@@ -45,7 +51,14 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       priority: 0.7,
     }));
 
-    return [...staticRoutes, ...blogRoutes];
+     const pageRoutes: MetadataRoute.Sitemap = pages.map((page) => ({
+      url: `${process.env.NEXT_PUBLIC_DOMAIN}/${page.slug}`,
+      lastModified: page?.updatedAt,
+      changeFrequency: "weekly",
+      priority: 0.7,
+    }));
+
+    return [...staticRoutes, ...blogRoutes, ...pageRoutes];
   } catch (error) {
     console.error("Error generating sitemap:", error);
     return staticRoutes;

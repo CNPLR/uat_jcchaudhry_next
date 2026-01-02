@@ -45,7 +45,29 @@ function collectRoutes(
 
 const routes = collectRoutes(APP_DIR);
 
-fs.mkdirSync(path.dirname(OUTPUT_FILE), { recursive: true });
-fs.writeFileSync(OUTPUT_FILE, JSON.stringify(routes, null, 2));
+// Custom routes to include
+const missingDynamicRoutes = [
+  "video/numerology",
+  "video/motivational-podcasts",
+  "video/vastu",
+  "video/gemstones",
+  "video/lo-shu",
+  "video/2026-numerology-predictions"
+];
 
-// console.log("✅ Static routes generated:", routes);
+// Add custom routes with current timestamp
+const customRouteItems: RouteItem[] = missingDynamicRoutes.map(route => ({
+  slug: `/${route}`,
+  updatedAt: new Date().toISOString()
+}));
+
+// Merge all routes and remove duplicates
+const allRoutes = [...routes, ...customRouteItems];
+const uniqueRoutes = Array.from(
+  new Map(allRoutes.map(route => [route.slug, route])).values()
+);
+
+fs.mkdirSync(path.dirname(OUTPUT_FILE), { recursive: true });
+fs.writeFileSync(OUTPUT_FILE, JSON.stringify(uniqueRoutes, null, 2));
+
+// console.log("✅ Static routes generated:", uniqueRoutes);

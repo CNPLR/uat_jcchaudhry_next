@@ -4,11 +4,11 @@
   "private": true,
   "scripts": {
     "dev": "next dev --webpack",
-    "build": "ts-node scripts/getStaticRoutes.ts && next build",
+    "build": "cross-env NODE_OPTIONS=--max-old-space-size=2048 ts-node scripts/getStaticRoutes.ts && next build",
     "start": "next start",
     "lint": "eslint",
     "staticSitemap": "ts-node scripts/getStaticRoutes.ts",
-    "bs":"ts-node scripts/getStaticRoutes.ts && next build && next start"
+    "bs":"cross-env NODE_OPTIONS=--max-old-space-size=2048 ts-node scripts/getStaticRoutes.ts && next build && next start"
   },
   "dependencies": {
     "@paypal/react-paypal-js": "^8.9.2",
@@ -39,6 +39,7 @@
     "eslint-config-next": "16.0.6",
     "tailwindcss": "^4",
     "ts-node": "^10.9.2",
-    "typescript": "^5"
+    "typescript": "^5",
+    "cross-env": "^7.0.3"
   }
 }

@@ -16,13 +16,23 @@ async function getBlogs(): Promise<Blog[]> {
   return res.json();
 }
 
+async function getPages(): Promise<Blog[]> {
+  const res = await fetch(`${apiUrl}/api/page`, {
+    cache: "no-store",
+  });
+
+  return res.json();
+}
+
+
 export default async function Page() {
   const res: any = await getBlogs();
+  const pages: any = await getPages();
   const staticPages = route.map((route) => ({
     slug: `${route}`
 
   }))
-  const blogs = await [...route , ...res?.data ] || [];
+  const blogs = await [...route , ...res?.data , ...pages?.data] || [];
 
   return (
     <main className="max-w-9/12 mx-auto px-5 py-10">
