@@ -228,7 +228,7 @@ export const MenuItems = [
             { title: 'Vastu', path: '/video/vastu' },
             { title: 'Gemstones', path: '/video/gemstones' },
             { title: 'Lo Shu Grid', path: '/video/lo-shu' },
-            { title: '2024 Predictions', path: '/video/2024-numerology-predictions' },
+            { title: '2026 Predictions', path: '/video/2026-numerology-predictions' },
         ],
     },
     {

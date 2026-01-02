@@ -41,9 +41,7 @@ function collectRoutes(
   return routes;
 }
 
-const routes = collectRoutes(APP_DIR).filter(
-  route => !route.slug.includes("[") // remove dynamic routes
-);
+const routes = collectRoutes(APP_DIR);
 
 fs.mkdirSync(path.dirname(OUTPUT_FILE), { recursive: true });
 fs.writeFileSync(OUTPUT_FILE, JSON.stringify(routes, null, 2));

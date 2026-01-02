@@ -1,19 +1,26 @@
 
 import GenerateMetadata from '@/app/components/MetaGenerator';
 import { getVideos } from '@/app/services/getVideos';
-import { headers } from 'next/headers';
 import VideoMetaData from '../VideoPagesMeta';
 import Client from './Client';
+import { redirect } from 'next/navigation';
 
 type Props = {
   params: { slug: string };
 };
 
+const urls = ['2024-numerology-predictions'];
 
 const page = async ({ params }: Props) => {
-   const { slug } = await params; 
+   let { slug } = await params; 
 
-    const videos = await getVideos(VideoMetaData[slug]?.videoUrl);
+
+    if (urls.includes(slug)) {
+      redirect('2026-numerology-predictions');
+    }
+
+    const videos = await 
+    getVideos(VideoMetaData[slug]?.videoUrl);
 
   return (
     <Client videos={videos} alt={slug} BannerPath={VideoMetaData[slug]?.banner} heading={VideoMetaData[slug].heading} />

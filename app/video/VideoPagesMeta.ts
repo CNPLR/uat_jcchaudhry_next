@@ -51,14 +51,14 @@ const VideoMetaData : VideoPageMetaCollectionType= {
 
     },
 
-    "2024-numerology-predictions":{
-        banner: "/allbanners/2024-Predictions-by-Dr-JC-Chaudhry.webp",
-        title: "2024 Predictions | Numerology Predictions Video for Number 1, 2, 3, 4, 5, 6, 7, 8, 9",
-        description: "Check your yearly numerology predictions for the year 2021. Numerology Videos by Dr. J C Chaudhry for 2024 predictions for the Psychic number 1, 2, 3, 4, 5, 6, 7, 8, 9.",
+    "2026-numerology-predictions":{
+        banner: "/allbanners/2026-Predictions-Videos-by-Dr.-J-C-Chaudhry.jpg",
+        title: "2026 Predictions | Numerology Predictions Video for Number 1, 2, 3, 4, 5, 6, 7, 8, 9",
+        description: "Check your yearly numerology predictions for the year 2021. Numerology Videos by Dr. J C Chaudhry for 2026 predictions for the Psychic number 1, 2, 3, 4, 5, 6, 7, 8, 9.",
         keywords: "numerologist in india, numerology by jc chaudhry, vaastu shastra expert, motivational speaker, motivational speakers in india",
         videoUrl: "getvideosbycategory/category/Predictions",
-        alt:"2024 Predictions by Dr. JC Chaudhry",
-        heading:"2024 Predictions Videos by Dr. J C Chaudhry"
+        alt:"2026 Predictions by Dr. JC Chaudhry",
+        heading:"2026 Predictions Videos by Dr. J C Chaudhry"
 
     }
 

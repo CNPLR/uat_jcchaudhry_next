@@ -4,10 +4,11 @@
   "private": true,
   "scripts": {
     "dev": "next dev --webpack",
-    "build": "next build",
+    "build": "ts-node scripts/getStaticRoutes.ts && next build",
     "start": "next start",
     "lint": "eslint",
-    "staticSitemap": "ts-node scripts/getStaticRoutes.ts"
+    "staticSitemap": "ts-node scripts/getStaticRoutes.ts",
+    "bs":"ts-node scripts/getStaticRoutes.ts && next build && next start"
   },
   "dependencies": {
     "@paypal/react-paypal-js": "^8.9.2",

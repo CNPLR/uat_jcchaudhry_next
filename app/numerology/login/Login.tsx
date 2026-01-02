@@ -5,7 +5,7 @@ import SubHeading1 from "@/app/components/ui/SubHeading1";
 import { dispatchCustomEvent } from "@/lib/customEvents";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { IoMdEyeOff, IoMdEye } from "react-icons/io";
 import { ToastContainer } from "react-toastify";
 
@@ -17,6 +17,7 @@ export default function Login() {
     
     const [mob, setMob] = useState<number | string>("")
     const [pass, setPass] = useState<string>("")
+    const [lastRoute, setLastRoute] = useState<string>('/dashboard')
     const redirect = useRouter();
 
     let headers = { "content-Type": "application/json", "accept": "*/*" };
@@ -53,7 +54,7 @@ export default function Login() {
                 localStorage.setItem('lastLogin', lastLoginDate?.toString())
                 validUser(data.token)
                 dispatchCustomEvent('userLoggedIn', { user: data.user });
-                redirect.push('/dashboard')
+                redirect.push(lastRoute)
             }
             else {
                 setLoading(false)
@@ -68,6 +69,12 @@ export default function Login() {
         document
     }
     const [showPassword, setShowPassword] = useState(false)
+
+    useEffect(() => {
+       if (sessionStorage.getItem("lastRoute")) {
+           setLastRoute(sessionStorage.getItem("lastRoute") || '/dashboard')
+       }
+    }, [])
 
     return (
         <>

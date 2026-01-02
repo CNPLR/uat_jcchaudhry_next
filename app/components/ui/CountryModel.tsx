@@ -28,7 +28,7 @@ const router = useRouter();
         ref={modelRef}
         tabIndex={-1}
         aria-hidden="true"
-        className="hidden fixed inset-0 z-50 justify-center items-center w-full h-full bg-black bg-opacity-50"
+        className="hidden fixed inset-0 z-50 justify-center items-center w-full h-full bg-black/50"
       >
         <div className="relative p-4 w-full max-w-md max-h-full">
           <div className="relative calBg shadow rounded-lg">

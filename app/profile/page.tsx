@@ -7,10 +7,12 @@ import SmallButton from '../components/ui/SmallButton';
 import SubHeading2 from '../components/ui/SubHeading2';
 import { MdEdit } from "react-icons/md";
 import Spara from '../components/ui/Spara';
+import { useAuth } from '../services/AuthContext';
 
 const page = () => {
   let path = process.env.NEXT_PUBLIC_URI;
 
+  const { user, token: authToken, loading: authLoading } = useAuth();
   const [token, setToken] = useState<string | null>(null);
 
     const headers = {
@@ -34,7 +36,7 @@ const page = () => {
 
     let number = fomData?.nationalNumber
 
-    const [email, setEmail] = useState()
+    const [email, setEmail] = useState<string>()
 
     useEffect( () => {
         let  mobNumber = localStorage.getItem('number');
@@ -48,7 +50,18 @@ const page = () => {
                 setFormData({ name: full_name, popular_name, country, date_of_birth, gender, place_of_birth, state, time_of_birth, nationalNumber: res.data.account.mobile_number })
             }
         }
-       getUserData();
+        if(!user){
+            getUserData();
+
+        }else{
+            if(user){
+                 setApiUserData(user)
+                const { full_name, popular_name, country, date_of_birth, gender, place_of_birth, state, time_of_birth } = user.user;
+                setEmail(user?.account?.email_id)
+                setFormData({ name: full_name, popular_name: popular_name, country, date_of_birth, gender, place_of_birth, state, time_of_birth, nationalNumber: user.account.mobile_number })
+            
+            }
+        }
 
         let token = localStorage.getItem('token');
         if (token) {

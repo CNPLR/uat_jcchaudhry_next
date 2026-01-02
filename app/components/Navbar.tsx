@@ -22,7 +22,18 @@ export default function NavBar() {
     if (typeof window !== 'undefined') {
       setToken(localStorage.getItem('token'))
       setLastLogin(localStorage.getItem('lastLogin'))
-            dispatchCustomEvent('userLoggedIn', { user: {token: token} });
+      dispatchCustomEvent('userLoggedIn', { user: {token: token} });
+
+      window.addEventListener("userLoggedIn", () => {
+          setToken(localStorage.getItem('token'))
+          setLastLogin(localStorage.getItem('lastLogin'))
+        })
+      return () => {
+        window.removeEventListener("userLoggedIn", () => {
+          setToken(localStorage.getItem('token'))
+          setLastLogin(localStorage.getItem('lastLogin'))
+        });
+      };
 
     }
   }, [])
@@ -72,23 +83,13 @@ export default function NavBar() {
       </ul>
 
       {/* ✅ Mobile Menu */}
-      <div className='md:hidden flex space-x-2 items-center ml-4 mt-5'>
+      <div className='md:hidden flex flex-col flex-start space-x-2 items-start ml-4 mt-5'>
 
-        {/* ===== Social Icons ===== */}
-        <div className='flex space-x-2 items-center'>
-          <ImgLink to="https://twitter.com/jc_chaudhry" path="/socialmedia/06.png" alt='ing' style="w-[28px] h-[28px]"/>
-          <ImgLink to="https://www.facebook.com/NumerologistAndMotivator/" path="/socialmedia/02.png" alt='ing'  style="w-[28px] h-[28px]"/>
-          <ImgLink to="https://www.instagram.com/jc_chaudhrynumerology/" path="/socialmedia/03.png" alt='ing'  style="w-[28px] h-[28px]"/>
-          <ImgLink to="https://www.youtube.com/channel/UCkGRccoFIazt6GZUcdq6Byg/" path="/socialmedia/01.png" alt='ing' style="w-[28px] h-[28px]"/>
-          <div>||</div>
-          <ImgLink path="/logos/android.png" to="https://play.google.com/store/apps/details?id=jc.nummerro.app" alt='ing' style="w-[28px] h-[28px]"/>
-          <ImgLink path="/logos/apple-logo.png" to="https://apps.apple.com/us/app/jc-nummerro-app/id1529437444" alt='ing' style="w-[28px] h-[28px]"/>
-        </div>
-
-        <p>||</p>
+        
+        {/* <p>||</p> */}
 
         {/* ✅ Login / Logout */}
-        <div className='flex items-center'>
+        <div className='flex items-center space-x-2'>
           {token ? (
             <button onClick={logout}>
               <FaUserAlt className='m-auto' />
@@ -100,18 +101,42 @@ export default function NavBar() {
               <p className='text-xs'>LogIn</p>
             </button>
           )}
+
+          {token && <p>||</p>}
+
+          {/* ✅ Profile */}
+          {token && (
+            <Link href="/profile">
+              <FaUserCircle className='m-auto' size={20} color='#490099' />
+              <p className='text-xs'>Profile</p>
+            </Link>
+          )}
+
+          {token && <p>||</p>}
+          {
+            token && (            
+              <Link href="/mybookings">
+                <FaUserCircle className="m-auto" size={20} color="#490099" />
+                <p className="text-xs">My Bookings</p>
+              </Link>
+            )
+          }
         </div>
 
-        <p>||</p>
+        
+        {/* ===== Social Icons ===== */}
 
-        {/* ✅ Profile */}
-        {token && (
-          <Link href="/profile">
-            <FaUserCircle className='m-auto' size={20} color='#490099' />
-            <p className='text-xs'>Profile</p>
-          </Link>
-        )}
-
+        <div className='flex space-x-2 items-center my-2'>
+          <ImgLink to="https://twitter.com/jc_chaudhry" path="/socialmedia/06.png" alt='ing' style="w-[28px] h-[28px]"/>
+          <ImgLink to="https://www.facebook.com/NumerologistAndMotivator/" path="/socialmedia/02.png" alt='ing'  style="w-[28px] h-[28px]"/>
+          <ImgLink to="https://www.instagram.com/jc_chaudhrynumerology/" path="/socialmedia/03.png" alt='ing'  style="w-[28px] h-[28px]"/>
+          <ImgLink to="https://www.youtube.com/channel/UCkGRccoFIazt6GZUcdq6Byg/" path="/socialmedia/01.png" alt='ing' style="w-[28px] h-[28px]"/>
+           <div>||</div>
+          <ImgLink path="/logos/android.png" to="https://play.google.com/store/apps/details?id=jc.nummerro.app" alt='ing' style="w-[28px] h-[28px]"/>
+          <ImgLink path="/logos/apple-logo.png" to="https://apps.apple.com/us/app/jc-nummerro-app/id1529437444" alt='ing' style="w-[28px] h-[28px]"/>
+        
+          
+        </div>
       </div>
 
       {/* ✅ Desktop CTA */}

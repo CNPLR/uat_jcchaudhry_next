@@ -2,9 +2,12 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import Script from "next/script";
+import { Suspense } from "react";
 import MainNavigationCompo from "./components/MainNavigationCompo";
 import Footer from "./components/Footer";
 import PhoneViewButton from "./components/PhoneViewButton";
+import { AuthProvider } from "./services/AuthContext";
+import LastRouteTracker from "./services/LastRouteTracker";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -83,7 +86,6 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
-        <meta name="robots" content="noindex, nofollow"/>
         {/* ✅ Font preload */}
         <link
           rel="preload"
@@ -188,12 +190,15 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-
+        <AuthProvider>
         <MainNavigationCompo />
-
+            <Suspense fallback={null}>
+              <LastRouteTracker />
+            </Suspense>
         {children}
         <div className="md:hidden"><PhoneViewButton/></div>
         <Footer />
+        </AuthProvider >
       </body>
     </html>
   );

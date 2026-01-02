@@ -5,57 +5,69 @@ import Para from '@/app/components/ui/Para';
 import SubHeading from '@/app/components/ui/SubHeading';
 import SubHeading2 from '@/app/components/ui/SubHeading2';
 import axios from 'axios';
-import React, { useEffect, useState } from 'react'
+import React, { use, useEffect, useState } from 'react'
+import { useAuth } from '@/app/services/AuthContext';
+import Header from '@/app/components/Header';
 
 const MakeAskPayment = ({country, id}:any) => {
     let path = process.env.NEXT_PUBLIC_URI
+
+    const { user, token, loading: authLoading } = useAuth();
     const [text, setText] = useState<any>();
-    const [timeOfBirth, setTimeOfBirth] = useState<string>("");
-    const [placeOfBirth, setPlaceOfBirth] = useState<any>();
+    const [timeOfBirth, setTimeOfBirth] = useState<string|undefined>(user?.user?.time_of_birth);
+    const [placeOfBirth, setPlaceOfBirth] = useState<any>(user?.user?.place_of_birth);
     const [question_id, setQuestion_id] = useState<any>('');
     const [question, setQuestion] = useState<any>()
     const [details, setDetails] = useState<any>()
     // const { id } = useParams();
     // const { country } = useParams();
-    const [apiUserData, setApiUserData] = useState<any>();
-    const [number, setNumber] = useState<any>();
+    const [apiUserData, setApiUserData] = useState<any>(user);
+    const [number, setNumber] = useState<any>(user?.account?.mobile_number);
+
+    const [amount, setAmount] = useState<string>("");
+    const [curren, setCurren] = useState<string>("")
 
 
     const [currency, setCurrency] = useState<any>()
 
     let [loading, setLoading] = useState(false);
 
-    const [token, setToken] = useState<string | null>();
+    // const [token, setToken] = useState<string | null>();
 
-    const headers = {
-        "Content-Type": "application/json",
-        Authorization: `Bearer ${token}`, // Ensure `token` is not null or undefined
+
+    const getHeaders = (token: string) => {
+        if (!token) {
+            return {};
+        }
+
+        let header =  {
+            "Content-Type": "application/json",
+            Authorization: `Bearer ${token as string}`
+        };
+
+        return header;
     };
-
-
 
 
     useEffect(() => {
         const token = localStorage.getItem('token');
         const getAskPayDetails = async () => {
+
+            const headers = getHeaders(token as string);
             let checkCountry = country === "IN" ? "INR" : "USD";
             let getDetails = await fetch(`${path}askpayment/${checkCountry}`, { headers });
             const data = await getDetails.json();
             setCurrency(data?.data?.[0])
+            setAmount(data?.data?.[0]?.amount)
+            setCurren(data?.data?.[0]?.currency)
         }
 
         if(token) {
-            setToken(token)
+            // setToken(token)
             getAskPayDetails()
         }
-        
-
-        
-    }, [token, number])
-
-    let amount = currency?.askPrice
-
-    let curren = currency?.askCurrency
+                
+    }, [])
 
     useEffect(() => {
         setQuestion_id(id)
@@ -68,12 +80,16 @@ const MakeAskPayment = ({country, id}:any) => {
             }
         }
         getData();
-        setNumber(JSON.parse(localStorage.getItem('number') as string));
+
+        const numberFromStorage = localStorage.getItem("number") && JSON.parse(localStorage.getItem("number") || 'null');
+        if (numberFromStorage) {
+            setNumber(numberFromStorage);
+        }
 
         async function getUserData() {
-            if(number === null || path === undefined) return
+            if(numberFromStorage === null || path === undefined) return
 
-            let res: any = await fetch(`${path}websiteuser/${number}`)
+            let res: any = await fetch(`${path}websiteuser/${numberFromStorage}`, { next: { revalidate: 3600 } });
             const data : any = await res.json();
             if (data?.success === true) {
                 setApiUserData(data)
@@ -81,8 +97,10 @@ const MakeAskPayment = ({country, id}:any) => {
                 setPlaceOfBirth(data?.user?.place_of_birth)
             }
         }
-        getUserData()
-    }, [text, number])
+        if(!user)
+            getUserData()
+
+    }, [])
 
 
     const makePay = async (e: any) => {
@@ -92,28 +110,44 @@ const MakeAskPayment = ({country, id}:any) => {
         //     setLoading(false)
         //     return alert('Please Enter Your Time of Birth and Place of Birth')
         // }
-        const res = await axios.post(path + 'pay/topayment',
-            { number, question_id, text, country, details, amount, curren, platform: "Desktop" },
-            { headers }
-        );
+        const res = await fetch(path + 'pay/topayment', {
+                        method: 'POST',
+                        headers: {
+                            ...getHeaders(token as string),
+                            'Content-Type': 'application/json',
+                        },
+                        body: JSON.stringify({
+                            number,
+                            question_id,
+                            text,
+                            country,
+                            details,
+                            amount,
+                            curren,
+                            platform: 'Desktop',
+                        }),
+                    });
+
+        const resData = await res.json();
+        
         // console.log(res.data)
         if (country !== 'IN') {
-            if (res.data.success === true) {
-                if (currency?.askPrice == res.data.info.amount.split(".")[0] && currency?.askCurrency == res.data.info.currency) {
-                    window.location = res.data.data.links[1].href
+            if (resData.success === true) {
+                if (currency?.askPrice == resData.info.amount.split(".")[0] && currency?.askCurrency == resData.info.currency) {
+                    window.location = resData.data.links[1].href
                 }
             }
-            else if (res.data.success == false) {
+            else if (resData.success == false) {
                 setLoading(false)
-                return alert(res.data.message)
+                return alert(resData.message)
             }
             else {
                 setLoading(false)
                 return alert("Somthing Went Wrong")
             }
         } else {
-            if (res.data.success === true) {
-                if (currency?.askPrice == res.data.info.amount.split(".")[0] && currency?.askCurrency == res.data.info.currency) {
+            if (resData.success === true) {
+                if (currency?.askPrice == resData.info.amount.split(".")[0] && currency?.askCurrency == resData.info.currency) {
                     let paymentForm = document.createElement('form');
                     paymentForm.setAttribute('method', 'POST');
                     paymentForm.setAttribute('action', 'https://api.razorpay.com/v1/checkout/embedded');
@@ -126,15 +160,15 @@ const MakeAskPayment = ({country, id}:any) => {
                     };
                     // Set all the hidden fields from the original form
                     addHiddenInput('key_id', process.env.NEXT_PUBLIC_KEY_ID);
-                    addHiddenInput('amount', res?.data?.data?.amount);
-                    addHiddenInput('currency', res?.data?.data?.currency);
-                    addHiddenInput('order_id', res?.data?.data?.id);
+                    addHiddenInput('amount', resData?.data?.amount);
+                    addHiddenInput('currency', resData?.data?.currency);
+                    addHiddenInput('order_id', resData?.data?.id);
                     addHiddenInput('name', 'Chaudhry Nummero Pvt. Ltd.');
                     addHiddenInput('description', 'Test Transaction');
                     addHiddenInput('image', 'https://cdn.razorpay.com/logos/BUVwvgaqVByGp2_large.jpg');
-                    addHiddenInput('prefill[name]', res?.data.info?.userData.user.full_name);
-                    addHiddenInput('prefill[contact]', res?.data.info?.userData.userAccount.mobile_number);
-                    addHiddenInput('prefill[email]', res.data.info.userData.userAccount.email_id);
+                    addHiddenInput('prefill[name]', resData?.data?.info?.userData.user.full_name);
+                    addHiddenInput('prefill[contact]', resData?.data?.info?.userData.userAccount.mobile_number);
+                    addHiddenInput('prefill[email]', resData?.data?.info?.userData.userAccount.email_id);
                     addHiddenInput('notes[shipping address]', 'L-16, The Business Centre, 61 Wellfield Road, New Delhi - 110001');
                     addHiddenInput('callback_url', path + 'pay/ask-question/rezorpay/success');
                     // addHiddenInput('cancel_url', path + 'pay/ask-question/failed');
