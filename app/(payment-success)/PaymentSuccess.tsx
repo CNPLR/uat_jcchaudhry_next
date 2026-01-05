@@ -2,6 +2,7 @@
 import Link from 'next/link';
 import { useEffect, useState } from 'react';
 import Image from 'next/image';
+import { apiFetch } from '@/lib/api';
 
 const PaymentSuccess = ({ searchParams }: any) => {
 
@@ -42,8 +43,15 @@ const PaymentSuccess = ({ searchParams }: any) => {
     }, []);
 
     async function httpFn(url: string, params: any): Promise<any> {
-        let res = await fetch(`${path + url + params}`)
-        const data = await res.json();
+
+        const dataGet: any = {
+            "websiteuser/":'-user-details',
+            "pay/ask-question/orders/":'-ask-question-order',
+            "userAppointment/appointment/orders/":'-appointment-order',
+            "report/":'-report-order'
+        };
+        let data = await apiFetch<any>(`${path + url + params}`,{ revalidate: 3600, tags: [`${params}${dataGet[url]}`] });
+        // const data = await res.json();
         if (data.success === true) {
             return data
         }

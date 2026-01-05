@@ -4,6 +4,7 @@ import ClientBlog from './Client'
 import { Blog } from "@/app/models/blog";
 import GenerateMetadata, { buildArticleJsonLd } from "@/app/components/MetaGenerator";
 import { headers } from "next/headers";
+import { apiFetch } from "@/lib/api";
 
 const DOMAIN = process.env.NEXT_PUBLIC_DOMAIN || '';
 
@@ -106,23 +107,23 @@ export default async function Page({ params }: { params: Promise<{ slug: string 
 export async function getBlogData(slug: string, path: string) {
 
   const [blogRes, commentsRes] = await Promise.all([
-    fetch(`${path}blog/slug/${slug}`, {next: { revalidate: 3600 } }),
-    fetch(`${path}comment/approvedComments/${slug}`, { next: { revalidate: 3600 } }),
+    apiFetch<any>(`${path}blog/slug/${slug}`, {next: { revalidate: 3600, tags: [slug] } }),
+    apiFetch<any>(`${path}comment/approvedComments/${slug}`, {revalidate: 3600, tags: [`${slug}-comments`] }),
   ]);
 
-  if (!blogRes.ok || !commentsRes.ok) {
+  if (!blogRes || !commentsRes) {
     throw new Error("Failed to fetch data");
   }
 
-  const blogData = await blogRes.json();
-  const commentsData = await commentsRes.json();
+  // const blogData = await blogRes.json();
+  // const commentsData = await commentsRes.json();
 
-  if (!blogData?.data?.[0]?.blogIsActive) {
+  if (!blogRes?.data?.[0]?.blogIsActive) {
     redirect('/'); // ✅ Server redirect
   }
 
   return {
-    pageData: blogData.data,
-    posts: commentsData,
+    pageData: blogRes.data,
+    posts: commentsRes.data,
   };
 }

@@ -4,13 +4,15 @@ import NormalButton from '@/app/components/ui/NormalButton';
 import Para from '@/app/components/ui/Para';
 import SubHeading from '@/app/components/ui/SubHeading';
 import SubHeading2 from '@/app/components/ui/SubHeading2';
-import axios from 'axios';
 import React, { use, useEffect, useState } from 'react'
 import { useAuth } from '@/app/services/AuthContext';
-import Header from '@/app/components/Header';
+import { apiFetch } from '@/lib/api';
+import { useRouter } from 'next/navigation';
+import FullLoadingScreen from '@/app/components/ui/full-loading-screen/FullLoadingScreen';
 
 const MakeAskPayment = ({country, id}:any) => {
     let path = process.env.NEXT_PUBLIC_URI
+    const router = useRouter();
 
     const { user, token, loading: authLoading } = useAuth();
     const [text, setText] = useState<any>();
@@ -31,6 +33,7 @@ const MakeAskPayment = ({country, id}:any) => {
     const [currency, setCurrency] = useState<any>()
 
     let [loading, setLoading] = useState(false);
+    const [isLoading, setIsLoading] = useState(true);
 
     // const [token, setToken] = useState<string | null>();
 
@@ -55,11 +58,13 @@ const MakeAskPayment = ({country, id}:any) => {
 
             const headers = getHeaders(token as string);
             let checkCountry = country === "IN" ? "INR" : "USD";
-            let getDetails = await fetch(`${path}askpayment/${checkCountry}`, { headers });
-            const data = await getDetails.json();
+            let getDetails = await apiFetch<any>(`${path}askpayment/${checkCountry}`, { headers, revalidate: 3600, tags: [`ask-payment-${checkCountry}`] });
+            // const data = await getDetails.json();
+            const data = getDetails;
             setCurrency(data?.data?.[0])
-            setAmount(data?.data?.[0]?.amount)
-            setCurren(data?.data?.[0]?.currency)
+            setAmount(data?.data?.[0]?.askPrice)
+            setCurren(data?.data?.[0]?.askCurrency)
+            setIsLoading(false);
         }
 
         if(token) {
@@ -72,29 +77,33 @@ const MakeAskPayment = ({country, id}:any) => {
     useEffect(() => {
         setQuestion_id(id)
         async function getData() {
-            let req = await fetch(`${path}ask/getans/${id}`);
-            let res = await req.json()
-            if (res.success == true) {
+            let res = await apiFetch<any>(`${path}ask/getans/${id}`,{revalidate: 3600, tags: [`${id}-question`] });
+            // let res = await req.json()
+            if (res?.success == true) {
                 setQuestion(res?.data)
                 setText(res?.data?.answer)
             }
+            setIsLoading(false);
         }
         getData();
 
         const numberFromStorage = localStorage.getItem("number") && JSON.parse(localStorage.getItem("number") || 'null');
         if (numberFromStorage) {
             setNumber(numberFromStorage);
+        }else{
+            router.push('/numerology/login');
         }
 
         async function getUserData() {
             if(numberFromStorage === null || path === undefined) return
 
-            let res: any = await fetch(`${path}websiteuser/${numberFromStorage}`, { next: { revalidate: 3600 } });
-            const data : any = await res.json();
+            let data: any = await apiFetch<any>(`${path}websiteuser/${numberFromStorage}`, { revalidate: 3600 , tags: [`${numberFromStorage}-user-details`] });
+            // const data : any = await res.json();
             if (data?.success === true) {
                 setApiUserData(data)
                  setTimeOfBirth(data?.user?.time_of_birth)
                 setPlaceOfBirth(data?.user?.place_of_birth)
+                setIsLoading(false);
             }
         }
         if(!user)
@@ -110,12 +119,11 @@ const MakeAskPayment = ({country, id}:any) => {
         //     setLoading(false)
         //     return alert('Please Enter Your Time of Birth and Place of Birth')
         // }
+        const headers = getHeaders(token as string)
+        console.log(headers)
         const res = await fetch(path + 'pay/topayment', {
                         method: 'POST',
-                        headers: {
-                            ...getHeaders(token as string),
-                            'Content-Type': 'application/json',
-                        },
+                        headers,
                         body: JSON.stringify({
                             number,
                             question_id,
@@ -183,6 +191,7 @@ const MakeAskPayment = ({country, id}:any) => {
 
     return (
         <div className=''>
+            <FullLoadingScreen isLoading={isLoading} />
             <div className='md:px-20 py-10'>
                 <SubHeading style="text-center mb-5" subHeading="Review your question" />
                 <p className='text-center shadow-lg mb-5 md:p-5 md:w-3/4 p-2 w-[90%] mx-auto border border-slate-200 font-bold rounded-md'>{question?.answer}</p>

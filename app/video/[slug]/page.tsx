@@ -12,7 +12,7 @@ type Props = {
 const urls = ['2024-numerology-predictions'];
 
 const page = async ({ params }: Props) => {
-   let { slug } = await params; 
+   const { slug } = await params; 
 
 
     if (urls.includes(slug)) {

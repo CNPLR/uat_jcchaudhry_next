@@ -19,6 +19,7 @@ export default function Banner({ alttag, path, path1, path2, path3 }: BannerProp
         width={1000}
         height={500}
         sizes="(max-width: 768px) 100vw, (max-width: 1200px) 100vw, 1600px"
+        loading="eager"
       />
     </div>
   );

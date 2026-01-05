@@ -3,7 +3,6 @@ import Banner from '@/app/components/ui/Banner'
 import CommonGallery from '@/app/components/ui/CommonGallery'
 import MainHeading from '@/app/components/ui/MainHeading'
 import { getImages } from '@/app/services/getImages'
-import { headers } from 'next/headers';
 
 export const metadata =  GenerateMetadata({
             title: "Numerology Awards to Dr Dr. J C Chaudhry | Best Numerologist Award",

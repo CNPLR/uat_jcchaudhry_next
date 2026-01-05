@@ -10,6 +10,7 @@ import Para from '../components/ui/Para';
 import SubHeading from '../components/ui/SubHeading';
 import SubHeading2 from '../components/ui/SubHeading2';
 import { useRouter } from 'next/navigation';
+import { apiFetch } from '@/lib/api';
 
  function AskQuestions() {
 
@@ -21,9 +22,9 @@ import { useRouter } from 'next/navigation';
 
     useEffect(() => {
         async function getData() {
-            let req = await fetch(`${path}ask`);
-            let res = await req.json()
-            if (res.success == true) {
+            let res = await apiFetch<any>(`${path}ask`, { revalidate: 3600, tags: ["ask-question"] }); //await f(`${path}ask`);
+            // let res = await req.json()
+            if (res?.success == true) {
                 setData(res?.data)
             }
         }

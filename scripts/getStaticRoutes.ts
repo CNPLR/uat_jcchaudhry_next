@@ -14,7 +14,7 @@ function collectRoutes(
   baseRoute = ""
 ): RouteItem[] {
   const entries = fs.readdirSync(dir, { withFileTypes: true });
-  let routes: RouteItem[] = [];
+  const routes: RouteItem[] = [];
 
   // Check for page.tsx in current directory first
   const pageFile = path.join(dir, "page.tsx");

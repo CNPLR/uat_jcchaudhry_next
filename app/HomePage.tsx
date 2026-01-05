@@ -17,6 +17,8 @@ import MainHeading from './components/ui/MainHeading'
 import SubHeading2 from './components/ui/SubHeading2'
 import CardBox from './components/ui/CardBox'
 import MobileApp from './components/MobileApp';
+import { apiFetch } from '@/lib/api';
+import BlogPost from './types/blog';
 
 interface ClientProps {
     headers: Headers;
@@ -32,19 +34,28 @@ const HomePage = () => {
         let isMounted = true;
         const fetchData = async () => {
             try {
-                const [videosRes, cnplRes, postsRes] = await Promise.all([
-                    fetch(`${path}getvideosbycategory/category/HomePage`),
-                    fetch(`${path}getvideosbycategory/category/CNPL`),
-                    fetch(`${path}blog/`),
+                const [videosData, cnplData, postsData] = await Promise.all([
+                    apiFetch(`${path}getvideosbycategory/category/HomePage`, {
+                        revalidate: 3600,
+                        tags: ["home-videos"],
+                    }),
+                    apiFetch(`${path}getvideosbycategory/category/CNPL`, {
+                        revalidate: 3600,
+                        tags: ["cnpl-videos"],
+                    }),
+                    apiFetch<BlogPost>(`${path}blog/`, {
+                        revalidate: 1800,
+                        tags: ["blogs"],
+                    }),
                 ]);
 
                 if (!isMounted) return;
 
-                const [videosData, cnplData, postsData] = await Promise.all([
-                    videosRes.json(),
-                    cnplRes.json(),
-                    postsRes.json(),
-                ]);
+                // const [videosData, cnplData, postsData] = await Promise.all([
+                //     videosRes.json(),
+                //     cnplRes.json(),
+                //     postsRes.json(),
+                // ]);
 
                 setVideos(videosData);
                 setCnpl(cnplData);

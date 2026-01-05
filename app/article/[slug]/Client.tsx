@@ -57,57 +57,7 @@ export default function ClientBlog({ slug, initialBlog, bannerUrl, blogData } : 
         blogPost?.readTime ? `${blogPost.readTime} Minutes` : "12 Minutes",
         [blogPost]
     );
-
-    // Memoized schemas
-    // const blogSchema = useMemo(() => {
-    //     if (!blogPost) return null;
-
-    //     return {
-    //         "@context": "https://schema.org",
-    //         "@type": "Article",
-    //         "mainEntityOfPage": {
-    //             "@type": "WebPage",
-    //             "@id": fullUrl
-    //         },
-    //         "headline": blogPost.metaTitle,
-    //         "description": blogPost.metaDescription,
-    //         "image": `https://newcnpl.s3.ap-south-1.amazonaws.com/public/blogs/banners/${blogPost.headerBanner}`,
-    //         "author": {
-    //             "@type": "Person",
-    //             "name": "J C Chaudhry",
-    //             "url": domain
-    //         },
-    //         "publisher": {
-    //             "@type": "Organization",
-    //             "name": "Chaudhry Nummero Pvt. Ltd.",
-    //             "logo": {
-    //                 "@type": "ImageObject",
-    //                 "url": domain + "/logos/jclogo.png"
-    //             }
-    //         },
-    //         "datePublished": new Date(blogPost.createdAt).toDateString(),
-    //         "dateModified": new Date(blogPost.updatedAt).toDateString()
-    //     };
-    // }, [blogPost, fullUrl, domain]);
-
-    // const faqSchema = () => {
-    //     if (faqData.length <= 1) return null;
-
-    //     const faqItems = faqData.map((f: any) => ({
-    //         "@type": "Question",
-    //         "name": f.question,
-    //         "acceptedAnswer": {
-    //             "@type": "Answer",
-    //             "text": f.answer
-    //         }
-    //     }));
-
-    //     return {
-    //         "@context": "https://schema.org",
-    //         "@type": "FAQPage",
-    //         "mainEntity": faqItems
-    //     };
-    // };
+    
 
     // Form handlers
     const handleInputChange = useCallback((field: any, value: any) => {

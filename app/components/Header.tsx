@@ -67,7 +67,7 @@ export default function Header() {
 
         <Link href="/" className="hidden xl:block">
           <div className="md:flex flex-shrink-0 items-center justify-center my-3 md:my-0 hidden space-x-2">
-            <Img style="w-12 h-12" path="/logos/jclogo.png" alt="logo" />
+            <Img style="w-12 h-12" path="/logos/jclogo.png" alt="logo" loading="eager" />
             <Para para="Dr. J C Chaudhry" style="para text-xl font-bold" />
           </div>
         </Link>

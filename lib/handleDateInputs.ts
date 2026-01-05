@@ -1,5 +1,5 @@
 export default function handleDatePicker(e: any) {
-         let value = e.target.value;
+         const value = e.target.value;
         if (!value) return null;
 
         const digitsOnly = value.replace(/\D/g, "");

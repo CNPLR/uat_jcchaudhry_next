@@ -9,9 +9,10 @@ type ImgLinkProps = {
   path3?: string; // 769w
   style?: string;
   alt: string;
+  loading?: "lazy" | "eager";
 };
 
-export default function ImgLink({ to, path, path1, path2, path3, style, alt, }: any) {
+export default function ImgLink({ to, path, path1, path2, path3, style, alt, loading = 'lazy', }: ImgLinkProps) {
     return (
         <Link href={to}>
             {path1 ?
@@ -20,7 +21,7 @@ export default function ImgLink({ to, path, path1, path2, path3, style, alt, }: 
                     // srcSet={`${path3} 769w, ${path2} 1200w, ${path1} 1600w`}
                     className={style}
                     alt={alt}
-                    loading="lazy"
+                    loading={loading}
                     fetchPriority='high'
                     width={1500}
                     height={500}
@@ -30,7 +31,7 @@ export default function ImgLink({ to, path, path1, path2, path3, style, alt, }: 
                     src={path}
                     className={style}
                     alt={alt}
-                    loading="lazy"
+                    loading={loading}
                     fetchPriority='high'
                     width={1500}
                     height={500}

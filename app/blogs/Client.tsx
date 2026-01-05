@@ -126,17 +126,17 @@ const Client = () => {
     //   const location = useRouter();
     const { posts, loading, error, retryFetch }: any = useBlogData();
 
-    const pathName = usePathname();
-    // Memoized values
-    const fullUrl = useMemo(() => pathName, [pathName]);
+    // const pathName = usePathname();
+    // // Memoized values
+    // const fullUrl = useMemo(() => pathName, [pathName]);
 
-    const pageMetaData = useMemo(() => ({
-        pageUrl: fullUrl,
-        banner: "/allbanners/Numerology-Name-Number-Science-Explained-Motivation-Positive-Thinking-Blog.webp",
-        title: "Numerology Name Number Science Explained | Motivation & Positive Thinking Blog",
-        description: "Blog by Dr. J C Chaudhry, sharing Numerology tips for marriage compatibility, new born baby name predictions, business name and investment suggestions. Motivation for life, success, education and career.",
-        keywords: "numerology blog, positive thinking blogs, numerology blogs, numerology articles, motivation blog, motivational articles, numerology help, numerology learning, motivational tip, motivation blog for students, motivation blog for business",
-    }), [fullUrl]);
+    // const pageMetaData = useMemo(() => ({
+    //     pageUrl: fullUrl,
+    //     banner: "/allbanners/Numerology-Name-Number-Science-Explained-Motivation-Positive-Thinking-Blog.webp",
+    //     title: "Numerology Name Number Science Explained | Motivation & Positive Thinking Blog",
+    //     description: "Blog by Dr. J C Chaudhry, sharing Numerology tips for marriage compatibility, new born baby name predictions, business name and investment suggestions. Motivation for life, success, education and career.",
+    //     keywords: "numerology blog, positive thinking blogs, numerology blogs, numerology articles, motivation blog, motivational articles, numerology help, numerology learning, motivational tip, motivation blog for students, motivation blog for business",
+    // }), [fullUrl]);
 
     // Memoized filtered and processed blog data
     const processedBlogs = useMemo(() => {

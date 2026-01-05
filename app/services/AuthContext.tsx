@@ -1,5 +1,6 @@
 'use client';
 
+import { apiFetch } from '@/lib/api';
 import { createContext, useContext, useEffect, useState, ReactNode } from 'react';
 
 interface UserData {
@@ -37,16 +38,18 @@ export function AuthProvider({ children }: { children: ReactNode }) {
       setToken(storedToken);
 
       try {
-        const response = await fetch(
+        const data = await apiFetch<any>(
           `${process.env.NEXT_PUBLIC_URI}websiteuser/${JSON.parse(storedNumber)}`,
           {
             headers: {
               Authorization: `Bearer ${storedToken}`,
             },
+            revalidate: 3600,
+            tags: ['user-details'],
           }
         );
 
-        const data = await response.json();
+        // const data = await response.json();
 
         if (data?.success) {
           setUser({

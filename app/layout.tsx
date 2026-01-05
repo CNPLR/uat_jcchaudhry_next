@@ -8,6 +8,7 @@ import Footer from "./components/Footer";
 import PhoneViewButton from "./components/PhoneViewButton";
 import { AuthProvider } from "./services/AuthContext";
 import LastRouteTracker from "./services/LastRouteTracker";
+import StoreProvider from "./StoreProvider";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -190,15 +191,17 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        <AuthProvider>
-        <MainNavigationCompo />
-            <Suspense fallback={null}>
-              <LastRouteTracker />
-            </Suspense>
-        {children}
-        <div className="md:hidden"><PhoneViewButton/></div>
-        <Footer />
-        </AuthProvider >
+        {/* <StoreProvider> */}
+          <AuthProvider>
+            <MainNavigationCompo />
+              <Suspense fallback={null}>
+                <LastRouteTracker />
+              </Suspense>
+            {children}
+            <div className="md:hidden"><PhoneViewButton/></div>
+            <Footer />
+          </AuthProvider >
+        {/* </StoreProvider> */}
       </body>
     </html>
   );

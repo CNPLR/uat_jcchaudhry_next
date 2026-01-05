@@ -51,6 +51,7 @@ export default function SliderBanner() {
             to="/top-numerologist-india"
             alt="Dr. J C Chaudhry's Guinness World Record achievement in Numerology and his exceptional contribution to the field"
             path="/allbanners/Dr-J-C-Chaudhrys-Guinness-World-Record-achievement-in-Numerology-and-his-exceptional-contribution-to-the-field-1920.webp"
+            loading="eager"
             path1="/allbanners/Dr-J-C-Chaudhrys-Guinness-World-Record-achievement-in-Numerology-and-his-exceptional-contribution-to-the-field-1440.webp"
             path2="/allbanners/Dr-J-C-Chaudhrys-Guinness-World-Record-achievement-in-Numerology-and-his-exceptional-contribution-to-the-field-1024.webp"
             path3="/allbanners/Dr-J-C-Chaudhrys-Guinness-World-Record-achievement-in-Numerology-and-his-exceptional-contribution-to-the-field-768.webp"

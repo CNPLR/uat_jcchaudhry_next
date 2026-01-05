@@ -1,6 +1,6 @@
 import GenerateMetadata from "@/app/components/MetaGenerator"
 import MakeAskPayment from "./MakeAskPayment"
-import { headers } from "next/headers";
+import { redirect } from "next/navigation";
 
 export const metadata = GenerateMetadata({
     pagePath: "/askQuestions/make-payment",

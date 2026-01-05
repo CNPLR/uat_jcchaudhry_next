@@ -6,9 +6,10 @@ type ImgProps = {
   path: string;
   width?: number;
   height?: number;
+  loading?: "lazy" | "eager";
 };
 
-export default function Img({ alt, style, path, width, height }: ImgProps) {
+export default function Img({ alt, style, path, width, height, loading }: ImgProps) {
   if(!path){
     // console.log(path);
   }
@@ -19,6 +20,7 @@ export default function Img({ alt, style, path, width, height }: ImgProps) {
       className={style}
       width={1200}
       height={560}
+      loading={loading || "lazy"}
       // priority={false}
     />
   );

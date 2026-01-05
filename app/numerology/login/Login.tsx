@@ -2,6 +2,7 @@
 import Img from "@/app/components/ui/Img";
 import SmallButton from "@/app/components/ui/SmallButton";
 import SubHeading1 from "@/app/components/ui/SubHeading1";
+import { apiFetch } from "@/lib/api";
 import { dispatchCustomEvent } from "@/lib/customEvents";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
@@ -53,6 +54,7 @@ export default function Login() {
                 const lastLoginDate = new Date(data.lastLogin)
                 localStorage.setItem('lastLogin', lastLoginDate?.toString())
                 validUser(data.token)
+                await apiFetch<any>(path + "websiteuser/"+Number(mob), { revalidate: 3600, tags: [`${mob}-user-details`] }); //api/websiteuser/9669507012
                 dispatchCustomEvent('userLoggedIn', { user: data.user });
                 redirect.push(lastRoute)
             }
@@ -73,6 +75,10 @@ export default function Login() {
     useEffect(() => {
        if (sessionStorage.getItem("lastRoute")) {
            setLastRoute(sessionStorage.getItem("lastRoute") || '/dashboard')
+       }
+
+       if (localStorage.getItem("token")) {
+           router.push("/dashboard")
        }
     }, [])
 
