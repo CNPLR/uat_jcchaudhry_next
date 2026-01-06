@@ -1,12 +1,23 @@
 'use client'
 
 import Link from "next/link";
-import { useParams, usePathname } from "next/navigation"
+import { useParams, usePathname, useRouter } from "next/navigation"
 
 
 export default function PaymentFailed() {
     const path = usePathname();
+    const router = useRouter();
     let lastRoute = '/' + path.split('/').filter(i=> i != '')[0];
+
+    const paymentPath = ():void =>{
+        const storedPath = localStorage.getItem('paymentPath');
+        if (storedPath) {
+            localStorage.removeItem('paymentPath');
+            router.push(storedPath);
+            return;
+        }
+        router.push(lastRoute);
+    }
 
     switch (lastRoute) {
         case '/ask-question':   
@@ -43,12 +54,8 @@ export default function PaymentFailed() {
                 </p>
                 <div className="flex justify-center">
 
-                        <Link
-                            href={lastRoute}
-                            className="inline-flex items-center justify-center rounded-full border border-slate-200 bg-white px-4 py-2 text-xs md:text-sm font-medium text-slate-700 hover:bg-slate-50 transition"
-                        >
-                            Go Back
-                        </Link>
+                       
+                        <button onClick={(e) => paymentPath()}  type="button" className="cursor-pointer bg-neutral-primary-soft border border-gray-200 hover:bg-neutral-secondary-medium hover:text-heading focus:bg-gray-300 shadow-xs font-medium leading-5 rounded-full text-sm px-4 py-2.5 focus:outline-none ">Go Back</button>
 
                     </div>
             </div>

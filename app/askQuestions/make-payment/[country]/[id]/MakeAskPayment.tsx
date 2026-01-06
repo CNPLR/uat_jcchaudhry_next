@@ -7,12 +7,13 @@ import SubHeading2 from '@/app/components/ui/SubHeading2';
 import React, { use, useEffect, useState } from 'react'
 import { useAuth } from '@/app/services/AuthContext';
 import { apiFetch } from '@/lib/api';
-import { useRouter } from 'next/navigation';
+import { usePathname, useRouter } from 'next/navigation';
 import FullLoadingScreen from '@/app/components/ui/full-loading-screen/FullLoadingScreen';
 
 const MakeAskPayment = ({country, id}:any) => {
     let path = process.env.NEXT_PUBLIC_URI
     const router = useRouter();
+    const pathName = usePathname();
 
     const { user, token, loading: authLoading } = useAuth();
     const [text, setText] = useState<any>();
@@ -64,13 +65,14 @@ const MakeAskPayment = ({country, id}:any) => {
             setCurrency(data?.data?.[0])
             setAmount(data?.data?.[0]?.askPrice)
             setCurren(data?.data?.[0]?.askCurrency)
-            setIsLoading(false);
         }
 
         if(token) {
             // setToken(token)
             getAskPayDetails()
         }
+        
+       localStorage.setItem('paymentPath', pathName)
                 
     }, [])
 
@@ -83,7 +85,6 @@ const MakeAskPayment = ({country, id}:any) => {
                 setQuestion(res?.data)
                 setText(res?.data?.answer)
             }
-            setIsLoading(false);
         }
         getData();
 

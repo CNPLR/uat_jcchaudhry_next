@@ -39,7 +39,7 @@ const PaymentSuccess = ({ searchParams }: any) => {
         }
 
         callAsync();
-
+         localStorage.removeItem('paymentPath');
     }, []);
 
     async function httpFn(url: string, params: any): Promise<any> {

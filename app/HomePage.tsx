@@ -17,60 +17,59 @@ import MainHeading from './components/ui/MainHeading'
 import SubHeading2 from './components/ui/SubHeading2'
 import CardBox from './components/ui/CardBox'
 import MobileApp from './components/MobileApp';
-import { apiFetch } from '@/lib/api';
-import BlogPost from './types/blog';
+
 
 interface ClientProps {
     headers: Headers;
 }
-const HomePage = () => {
+const HomePage = ({videoData, cnplData, postsData, isMounted}: any) => {
     let path = process.env.NEXT_PUBLIC_URI
 
-    const [videos, setVideos]: any = useState()
-    const [cnpl, setCnpl]: any = useState()
-    const [posts, setPosts]: any = useState();
+    const [videos, setVideos]: any = useState(videoData)
+    const [cnpl, setCnpl]: any = useState(cnplData)
+    const [posts, setPosts]: any = useState(postsData?.data?.slice(0, 4) || []);
 
-    useEffect(() => {
-        let isMounted = true;
-        const fetchData = async () => {
-            try {
-                const [videosData, cnplData, postsData] = await Promise.all([
-                    apiFetch(`${path}getvideosbycategory/category/HomePage`, {
-                        revalidate: 3600,
-                        tags: ["home-videos"],
-                    }),
-                    apiFetch(`${path}getvideosbycategory/category/CNPL`, {
-                        revalidate: 3600,
-                        tags: ["cnpl-videos"],
-                    }),
-                    apiFetch<BlogPost>(`${path}blog/`, {
-                        revalidate: 1800,
-                        tags: ["blogs"],
-                    }),
-                ]);
+    // useEffect(() => {
+    //     let isMounted = true;
+    //     const fetchData = async () => {
+    //         try {
+    //             const [videosData, cnplData, postsData] = await Promise.all([
+    //                 apiFetch(`${path}getvideosbycategory/category/HomePage`, {
+    //                     revalidate: 3600,
+    //                     tags: ["home-videos"],
+    //                 }),
+    //                 apiFetch(`${path}getvideosbycategory/category/CNPL`, {
+    //                     revalidate: 3600,
+    //                     tags: ["cnpl-videos"],
+    //                 }),
+    //                 apiFetch<BlogPost>(`${path}blog/`, {
+    //                     revalidate: 1800,
+    //                     tags: ["blogs"],
+    //                 }),
+    //             ]);
 
-                if (!isMounted) return;
+    //             if (!isMounted) return;
 
-                // const [videosData, cnplData, postsData] = await Promise.all([
-                //     videosRes.json(),
-                //     cnplRes.json(),
-                //     postsRes.json(),
-                // ]);
+    //             // const [videosData, cnplData, postsData] = await Promise.all([
+    //             //     videosRes.json(),
+    //             //     cnplRes.json(),
+    //             //     postsRes.json(),
+    //             // ]);
 
-                setVideos(videosData);
-                setCnpl(cnplData);
-                setPosts(postsData?.data?.slice(0, 4) || []);
-            } catch (err: any) {
-                console.log("Fetch error:", err.message);
-            }
-        };
+    //             setVideos(videosData);
+    //             setCnpl(cnplData);
+    //             setPosts(postsData?.data?.slice(0, 4) || []);
+    //         } catch (err: any) {
+    //             console.log("Fetch error:", err.message);
+    //         }
+    //     };
 
-        fetchData();
+    //     fetchData();
 
-        return () => {
-            isMounted = false;
-        };
-    }, [path]);
+    //     return () => {
+    //         isMounted = false;
+    //     };
+    // }, [path]);
   return (
      <div>
             <Suspense fallback={<div>Loading banner...</div>}>
