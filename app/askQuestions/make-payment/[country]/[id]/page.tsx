@@ -1,6 +1,7 @@
 import GenerateMetadata from "@/app/components/MetaGenerator"
 import MakeAskPayment from "./MakeAskPayment"
 import { redirect } from "next/navigation";
+import AuthGuard from "@/app/components/AuthGuard";
 
 export const metadata = GenerateMetadata({
     pagePath: "/askQuestions/make-payment",
@@ -16,7 +17,9 @@ const page = async ({ params }: { params: { country: string, id: string } }) => 
       const { country, id } = await params;
       
   return (
+    <AuthGuard>
       <MakeAskPayment country={country} id={id}/>
+    </AuthGuard>
   )
 }
 

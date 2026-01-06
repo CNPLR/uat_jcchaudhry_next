@@ -2,6 +2,7 @@ import React from 'react'
 import GenerateMetadata from '../components/MetaGenerator'
 import { headers } from 'next/headers'
 import AskQuestions from './AskQuestions'
+import { apiFetch } from '@/lib/api'
 
 export const metadata = GenerateMetadata({
   pagePath: "/ask-your-question",
@@ -11,9 +12,13 @@ export const metadata = GenerateMetadata({
     keywords: "Numerology advice, numerology consultation, numerology exert, numerology specialist, numerology  guidance, numerology report, numerology problems || numerologist in india, numerology by jc chaudhry, vaastu shastra expert, motivational speaker, motivational speakers in india",
     // headers: headers
 })
-const page = () => {
+const page = async () => {
+
+    let path = process.env.NEXT_PUBLIC_URI;
+    let res = await apiFetch<any>(`${path}ask`, { revalidate: 3600, tags: ["ask-question"] }); 
+
   return (
-    <AskQuestions/>
+    <AskQuestions Questions={res}/>
   )
 }
 

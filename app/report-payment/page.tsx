@@ -1,8 +1,10 @@
-import React from 'react'
 import ReportPayment from './ReportPayment'
+import AuthGuard from '../components/AuthGuard'
 
 export default function page() {
   return (
-   <ReportPayment/>
+    <AuthGuard>
+      <ReportPayment/>
+    </AuthGuard>
   )
 }

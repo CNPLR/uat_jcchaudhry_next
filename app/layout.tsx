@@ -8,7 +8,6 @@ import Footer from "./components/Footer";
 import PhoneViewButton from "./components/PhoneViewButton";
 import { AuthProvider } from "./services/AuthContext";
 import LastRouteTracker from "./services/LastRouteTracker";
-import StoreProvider from "./StoreProvider";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -51,7 +50,7 @@ export const metadata: Metadata = {
     locale: "en_US",
     type: "website",
     siteName: "J C Chaudhry",
-    url: `${DOMAIN}/page-path`,
+    url: `${DOMAIN}`,
 
     title: "PAGE TITLE HERE",
     description: "PAGE DESCRIPTION HERE",

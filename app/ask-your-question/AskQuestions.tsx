@@ -12,24 +12,24 @@ import SubHeading2 from '../components/ui/SubHeading2';
 import { useRouter } from 'next/navigation';
 import { apiFetch } from '@/lib/api';
 
- function AskQuestions() {
+ function AskQuestions({Questions}: any) {
 
     let path = process.env.NEXT_PUBLIC_URI
 
-    const [data, setData] = useState([]);
+    const [data, setData] = useState(Questions.data || []);
 
     const [activeIndex, setActiveIndex] = useState<number | null>(null);
 
-    useEffect(() => {
-        async function getData() {
-            let res = await apiFetch<any>(`${path}ask`, { revalidate: 3600, tags: ["ask-question"] }); //await f(`${path}ask`);
-            // let res = await req.json()
-            if (res?.success == true) {
-                setData(res?.data)
-            }
-        }
-        getData();
-    }, [])
+    // useEffect(() => {
+    //     async function getData() {
+    //         let res = await apiFetch<any>(`${path}ask`, { revalidate: 3600, tags: ["ask-question"] }); //await f(`${path}ask`);
+    //         // let res = await req.json()
+    //         if (res?.success == true) {
+    //             setData(res?.data)
+    //         }
+    //     }
+    //     getData();
+    // }, [])
 
     const toggleFAQ = (index: number) => {
         if (activeIndex === index) {

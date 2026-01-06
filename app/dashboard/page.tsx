@@ -2,6 +2,7 @@
 import GenerateMetadata from '../components/MetaGenerator';
 import { headers } from 'next/headers';
 import Dashboard from './Dashboard';
+import AuthGuard from '../components/AuthGuard';
 
 export const metadata = GenerateMetadata({
      banner: "/allbanners/Login-Page-of-website.jpg",
@@ -12,8 +13,10 @@ export const metadata = GenerateMetadata({
 })
 const page = () => {
    return (
+    <AuthGuard>
        <Dashboard />
-   )
+   </AuthGuard>
+)
 }
 
 export default page

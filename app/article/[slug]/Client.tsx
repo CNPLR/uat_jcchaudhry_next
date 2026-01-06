@@ -230,11 +230,11 @@ export default function ClientBlog({ slug, initialBlog, bannerUrl, blogData } : 
                 {/* </Suspense> */}
 
                 <div className='my-10'>
-                    <hr />
+                    <hr className='border-gray-200' />
                 </div>
 
-                {posts?.data?.length > 0 ? (
-                    posts.data.map((comment: any) => (
+                {posts?.length > 0 ? (
+                    posts.map((comment: any) => (
                         <Comment key={comment._id} comment={comment} />
                     ))
                 ) : (

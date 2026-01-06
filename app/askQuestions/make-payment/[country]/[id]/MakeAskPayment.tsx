@@ -120,8 +120,8 @@ const MakeAskPayment = ({country, id}:any) => {
         //     setLoading(false)
         //     return alert('Please Enter Your Time of Birth and Place of Birth')
         // }
-        const headers = getHeaders(token as string)
-        console.log(headers)
+        const token = localStorage.getItem('token');
+        const headers = getHeaders(token as string);
         const res = await fetch(path + 'pay/topayment', {
                         method: 'POST',
                         headers,

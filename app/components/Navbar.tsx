@@ -9,6 +9,7 @@ import Para from './ui/Para'
 import ImgLink from './ui/ImgLink'
 import { FaUserCircle, FaUserAlt } from "react-icons/fa";
 import { dispatchCustomEvent } from '@/lib/customEvents'
+import { checkTokenExpiry, validate } from './AuthGuard'
 
 export default function NavBar() {
 
@@ -16,27 +17,38 @@ export default function NavBar() {
 
   const [token, setToken] = useState<string | null>(null)
   const [lastLogin, setLastLogin] = useState<string | null>(null)
+  const [isValidToken, setIsValidToken] = useState<boolean>(false)
 
   // ✅ Safe localStorage access
   useEffect(() => {
-    if (typeof window !== 'undefined') {
-      setToken(localStorage.getItem('token'))
-      setLastLogin(localStorage.getItem('lastLogin'))
+    // if (typeof window !== 'undefined') {
+
+    if(!isValidToken)
+      (async () => {
+        const res =await validate() && checkTokenExpiry() || false;
+        setIsValidToken(res);
+      })();
+
+     if(isValidToken){
+        setToken(localStorage.getItem('token'));
+        setLastLogin(localStorage.getItem('lastLogin'));
+      }
+       
+      if(isValidToken)
       dispatchCustomEvent('userLoggedIn', { user: {token: token} });
 
-      window.addEventListener("userLoggedIn", () => {
-          setToken(localStorage.getItem('token'))
-          setLastLogin(localStorage.getItem('lastLogin'))
+      window.addEventListener("userLoggedIn", async() => {
+           setToken(isValidToken ? localStorage.getItem('token') : null)
+          setLastLogin(isValidToken ? localStorage.getItem('lastLogin') : null)
         })
       return () => {
-        window.removeEventListener("userLoggedIn", () => {
-          setToken(localStorage.getItem('token'))
-          setLastLogin(localStorage.getItem('lastLogin'))
+        window.removeEventListener("userLoggedIn", async () => {
+          setToken(isValidToken ? localStorage.getItem('token') : null)
+          setLastLogin(isValidToken ? localStorage.getItem('lastLogin') : null)
         });
-      };
-
-    }
-  }, [])
+      };      
+    // }
+  }, [isValidToken])
 
   // ✅ Logout handler
   const logout = () => {

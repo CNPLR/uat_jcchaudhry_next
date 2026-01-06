@@ -413,7 +413,7 @@ export default function OnlineAppointment() {
 
                                 {/* Amount Display */}
                                 <div className="mx-auto p-2 md:p-0">
-                                    <div className="flex justify-between border p-3 bg-white">
+                                    <div className="flex justify-between border border-gray-200 p-3 bg-white">
                                         <Para style="font-bold" para="Total Amount" />
                                         <Para style="font-bold" para={apd.total_price} />
                                     </div>
@@ -429,7 +429,7 @@ export default function OnlineAppointment() {
                                     }
 
                                     {country === "IN" && (
-                                        <div className="bg-white px-3 space-y-3">
+                                        <div className="bg-white px-3 py-1 space-y-3">
                                             <Para style="font-bold" para="GST Details" />
                                             <div className="flex justify-between">
                                                 <Para style="" para="Total Amount (With GST)" />

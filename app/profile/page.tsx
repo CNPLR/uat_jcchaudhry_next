@@ -1,6 +1,7 @@
 import React from 'react'
 import Profile from './Profile'
 import axios from 'axios';
+import AuthGuard from '../components/AuthGuard';
 
 const Path = process.env.NEXT_PUBLIC_URI;
 
@@ -18,8 +19,8 @@ export async function getUserData(mobNumber: string, token: string): Promise<any
         }
 export default function page() {
   return (
-    <div>
+    <AuthGuard>
       <Profile />
-    </div>
+    </AuthGuard>
   )
 }

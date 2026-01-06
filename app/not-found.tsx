@@ -1,7 +1,10 @@
     // app/not-found.tsx
     import Link from 'next/link';
+import { redirect } from 'next/navigation';
+
 
     export default function NotFound() {
+     redirect('/');
       return (
         <div>
           <h2>Not Found</h2>

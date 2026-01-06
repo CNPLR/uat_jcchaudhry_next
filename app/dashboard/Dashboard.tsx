@@ -6,16 +6,18 @@ import OnlineAppointment from '../components/ui/OnlineAppointment';
 import Para from '../components/ui/Para';
 import SmallButton from '../components/ui/SmallButton';
 import SubHeading from '../components/ui/SubHeading';
-import { useRouter } from 'next/navigation';
+import { usePathname, useRouter } from 'next/navigation';
 import { useEffect } from 'react';
 
 const Dashboard = () => {
    const navigate = useRouter()
+   const pathName = usePathname();
 
     useEffect(() => {
         if (!localStorage.getItem('token')) {
             navigate.push('/numerology/login')
         }
+        localStorage.setItem('paymentPath', pathName);
     }, [])
 
     return (
