@@ -14,7 +14,7 @@ type ImgLinkProps = {
 
 export default function ImgLink({ to, path, path1, path2, path3, style, alt, loading = 'lazy', }: ImgLinkProps) {
     return (
-        <Link href={to}>
+        <Link href={to} target="blank">
             {path1 ?
                 <Image
                     src={path}

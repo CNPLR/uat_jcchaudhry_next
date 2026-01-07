@@ -11,11 +11,12 @@ import Spara from '../components/ui/Spara';
 import { useAuth } from '../services/AuthContext';
 import FullLoadingScreen from '../components/ui/full-loading-screen/FullLoadingScreen';
 import { getUserData } from './page';
+import { useAlert } from '@/lib/AlertBox';
 
 
 const Profile = () => {
   const path = process.env.NEXT_PUBLIC_URI;
-
+  const { showAlert } = useAlert();
   const { user, token: authToken, loading: authLoading } = useAuth();
   const [token, setToken] = useState<string | null>(null);
   const [isLoading, setIsLoading] = useState<boolean>(true);
@@ -98,7 +99,12 @@ const Profile = () => {
             const res = await axios.put(`${path}websiteuser/update`, fomData, { headers }); // Pass headers inside config object
             if (res.data.success === true) {
                await fetch(number as string, token as string);
-                alert("Update Profile Successfully");
+
+                showAlert({ 
+                    title: "Success", 
+                    message: "Update Profile Successfully", 
+                    type: "success" 
+                });
 
                 setIsUpdating(false);
             }

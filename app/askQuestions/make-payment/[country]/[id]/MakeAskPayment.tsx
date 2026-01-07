@@ -34,7 +34,7 @@ const MakeAskPayment = ({country, id}:any) => {
     const [currency, setCurrency] = useState<any>()
 
     let [loading, setLoading] = useState(false);
-    const [isLoading, setIsLoading] = useState(true);
+    const [isLoading, setIsLoading] = useState( user ? false : true);
 
     // const [token, setToken] = useState<string | null>();
 

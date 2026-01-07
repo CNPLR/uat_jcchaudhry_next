@@ -12,7 +12,7 @@ const FA = ({ faq, index, toggleFAQ }: any) => {
         >
             <div className="faq-question">{faq.question}</div>
             <div className="faq-answer">
-                <hr />
+                <hr className='border-gray-300  pt-4' />
                 {faq.answer}
             </div>
         </div>

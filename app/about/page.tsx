@@ -32,6 +32,7 @@ const page = () => {
                     subhs="text-center lg:text-left"
                     nomore="Know More"
                     link="https://www.aakash.ac.in/"
+                    target="_blank"
                 />
                 <ImgHeadingContent
                     path="/images_folder/Dr.-J-C-Chaudhry’s-vast-experience-in-numerology.png"
@@ -44,6 +45,7 @@ const page = () => {
                     subhs="text-center lg:text-left"
                     nomore="Know More"
                     link="/numerology"
+                    target="_blank"
 
                 />
                 <ImgHeadingContent
@@ -57,6 +59,7 @@ const page = () => {
                     subhs="text-center lg:text-left"
                     nomore="Know More"
                     link="https://aakashhealthcare.com/"
+                    target="_blank"
                 />
                 <ImgHeadingContent
                     alt="Maa Vaishno Devi Dham"

@@ -20,7 +20,7 @@ export function CommonTest({ subHeading, path, para, para1, para2, para3, para4,
                 {para4 ? <Para style='text-black text-justify' para={para4} /> : ''}
                 {para5 ? <Para style='text-black text-justify' para={para5} /> : ''}
             </div>
-            <hr />
+            <hr className='border-gray-200 '/>
         </div>
     )
 }

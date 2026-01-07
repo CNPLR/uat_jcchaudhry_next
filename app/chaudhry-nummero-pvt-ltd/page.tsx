@@ -69,7 +69,7 @@ const page = async () => {
               {
                   data?.map((ele: IData, index: number) => {
                       return (
-                          <div key={index} className=' bg-slate-200 shadow-md p-5 rounded-md m-4 '>
+                          <div key={index} className=' bg-slate-100 shadow-md p-5 rounded-md m-4 flex flex-col justify-between'>
                               <Image
                                   src={ele.imagePath}
                                   alt={ele.alt}

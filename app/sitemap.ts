@@ -12,8 +12,8 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
  const staticRoutes: MetadataRoute.Sitemap = routes.map((route: RouteItem) => ({
     url: `${process.env.NEXT_PUBLIC_DOMAIN}${route.slug === "/" ? "" : route.slug}`,
     lastModified:route.updatedAt,
-    changeFrequency: "monthly",
-    priority: 1.0,
+    changeFrequency: "weekly",
+    priority: route.slug === "/" ? 1.00 : 0.80,
   }));
    
 
@@ -48,14 +48,14 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       url: `${process.env.NEXT_PUBLIC_DOMAIN}/article/${blog.slug}`,
       lastModified: blog?.updatedAt,
       changeFrequency: "weekly",
-      priority: 0.7,
+      priority: 0.80,
     }));
 
      const pageRoutes: MetadataRoute.Sitemap = pages.map((page) => ({
       url: `${process.env.NEXT_PUBLIC_DOMAIN}/${page.slug}`,
       lastModified: page?.updatedAt,
       changeFrequency: "weekly",
-      priority: 0.7,
+      priority: 0.80,
     }));
 
     return [...staticRoutes, ...blogRoutes, ...pageRoutes];

@@ -8,6 +8,7 @@ import Footer from "./components/Footer";
 import PhoneViewButton from "./components/PhoneViewButton";
 import { AuthProvider } from "./services/AuthContext";
 import LastRouteTracker from "./services/LastRouteTracker";
+import { AlertProvider } from "@/lib/AlertBox";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -20,6 +21,7 @@ const geistMono = Geist_Mono({
 });
 
 const DOMAIN = process.env.NEXT_PUBLIC_DOMAIN || "https://www.jcchaudhry.com";
+const API_URL = process.env.NEXT_PUBLIC_URI || "https://api.jcchaudhry.com";
 export const metadata: Metadata = {
   title: "Dr. J C Chaudhry",
   description: "Official website of Dr. J.C. Chaudhry",
@@ -94,7 +96,8 @@ export default function RootLayout({
           type="font/woff"
           crossOrigin="anonymous"
         />
-        <meta name="robots" content="noindex, nofollow"/>
+        {API_URL.includes("staging") ? <meta name="robots" content="noindex, nofollow"/> : <meta name="robots" content="index, follow" /> }
+
         {/* ✅ Preconnect */}
         {/* <link rel="preconnect" href="https://www.googletagmanager.com" />
         <link rel="preconnect" href="https://connect.facebook.net" /> */}
@@ -196,7 +199,9 @@ export default function RootLayout({
               <Suspense fallback={null}>
                 <LastRouteTracker />
               </Suspense>
-            {children}
+              <AlertProvider>
+                {children}
+              </AlertProvider>
             <div className="md:hidden"><PhoneViewButton/></div>
             <Footer />
           </AuthProvider >

@@ -56,7 +56,7 @@ export default function Login() {
                 validUser(data.token)
                 await apiFetch<any>(path + "websiteuser/"+Number(mob), { revalidate: 3600, tags: [`${mob}-user-details`] }); //api/websiteuser/9669507012
                 dispatchCustomEvent('userLoggedIn', { user: data.user });
-                redirect.push(lastRoute)
+                redirect.push(lastRoute == '/ask-your-question' ? lastRoute: '/dashboard')
             }
             else {
                 setLoading(false)

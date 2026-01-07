@@ -4,6 +4,7 @@ import SmallButton from "../components/ui/SmallButton";
 import axios from "axios";
 import SubHeading from "../components/ui/SubHeading";
 import { useRouter } from "next/navigation";
+import { useAlert } from "@/lib/AlertBox";
 
 const API_URL = process.env.NEXT_PUBLIC_URI;
 let token ="";
@@ -243,6 +244,7 @@ export default function Mybookings() {
 /* ------------------------------------------------------------------ */
 const Modal = React.forwardRef(({ closeModal, name, id, number, email, country }: any, ref: any) => {
     const [message, setMessage] = useState("");
+    const { showAlert } = useAlert();
 
     const handleSubmit = async () => {
         const headers = getHeaders(token);
@@ -251,13 +253,15 @@ const Modal = React.forwardRef(({ closeModal, name, id, number, email, country }
             const res = await axios.post(`${API_URL}report/`, data, { headers });
             if (res.data.success) {
                 closeModal();
-                alert(res.data.message);
+                showAlert({ title: "Success", message: res.data.message, type: "success" });
             } else {
                 alert("Something went wrong");
+                showAlert({ title: "Error", message: "Something went wrong", type: "error" });
             }
         } catch (err) {
             console.log(err);
-            alert("Unable to submit your message.");
+            // alert("Unable to submit your message.");
+            showAlert({ title: "Error", message: "Unable to submit your message.", type: "error" });
         }
     };
 

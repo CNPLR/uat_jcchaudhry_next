@@ -15,6 +15,8 @@ import Subscribe from '@/app/components/Subscribe'
 import dynamic from 'next/dynamic';
 import { Blog } from '@/app/models/blog';
 import "../../styles/blog.css"
+import { useAlert } from '@/lib/AlertBox';
+import Link from 'next/link'
 
 const InlineShareButtons = dynamic(
   () => import('sharethis-reactjs').then(mod => mod.InlineShareButtons),
@@ -30,7 +32,7 @@ export default function ClientBlog({ slug, initialBlog, bannerUrl, blogData } : 
         email: "",
         comment: ""
     });
-
+     const { showAlert } = useAlert();
     const path : any= process.env.NEXT_PUBLIC_URI;
     const domain = process.env.NEXT_PUBLIC_DOMAIN;
     const fullUrl = usePathname();
@@ -68,7 +70,14 @@ export default function ClientBlog({ slug, initialBlog, bannerUrl, blogData } : 
         event.preventDefault();
         const success = await submitComment(formData);
         if (success) {
+
             setFormData({ url: "", email: "", comment: "" });
+             showAlert({
+                title: 'Success!',
+                message: 'Your comment has been submitted successfully.',
+                type: 'success',
+                autoClose: 5000
+            });
         }
     }, [formData, submitComment]);
 
@@ -134,7 +143,20 @@ export default function ClientBlog({ slug, initialBlog, bannerUrl, blogData } : 
                         </div>
                     )}
                 </div>
+
+
             </div>
+
+            {/* ✅ Desktop CTA */}
+                <div className='flex items-center justify-center space-x-2 mb-4'>
+                    <Link href="/ask-your-question">
+                    <Para style='bg-[#CE82B5] px-2 py-1 rounded text-white transition buttonHover buttonBackground' para="Ask Your Question" />
+                    </Link>
+
+                    <Link href="/numerology/signup">
+                    <Para style='bg-[#CE82B5] px-2 py-1 rounded text-white transition buttonHover buttonBackground' para="Book Appointment" />
+                    </Link>
+                </div>
 
             {/* <Suspense fallback={<ComponentLoader height="100px" />}> */}
                 <Subscribe />
@@ -319,7 +341,7 @@ const Comment = ({ comment }: any) => (
 // Memoized meta info component
 const BlogMetaInfo = ({ publishDate, updateDate, readTime }: any) => (
     <div className='px-10'>
-        <hr />
+        <hr className='border-gray-200'/>
         <div className='flex justify-evenly items-center my-2'>
             <div>
                 <Para para="Published" />
@@ -334,7 +356,7 @@ const BlogMetaInfo = ({ publishDate, updateDate, readTime }: any) => (
                 <Para para={readTime} />
             </div>
         </div>
-        <hr />
+        <hr className='border-gray-200'/>
     </div>
 );
 
