@@ -4,6 +4,8 @@ import SmallButton from "@/app/components/ui/SmallButton";
 import SubHeading1 from "@/app/components/ui/SubHeading1";
 import { apiFetch } from "@/lib/api";
 import { dispatchCustomEvent } from "@/lib/customEvents";
+import { useAppDispatch, useAppSelector } from "@/lib/hooks";
+import { fetchUser } from "@/lib/slices/userSlice";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
@@ -20,6 +22,9 @@ export default function Login() {
     const [pass, setPass] = useState<string>("")
     const [lastRoute, setLastRoute] = useState<string>('/dashboard')
     const redirect = useRouter();
+
+    const dispatch = useAppDispatch();
+    const user = useAppSelector((state)=> state.user);
 
     let headers = { "content-Type": "application/json", "accept": "*/*" };
 
@@ -54,7 +59,8 @@ export default function Login() {
                 const lastLoginDate = new Date(data.lastLogin)
                 localStorage.setItem('lastLogin', lastLoginDate?.toString())
                 validUser(data.token)
-                await apiFetch<any>(path + "websiteuser/"+Number(mob), { revalidate: 3600, tags: [`${mob}-user-details`] }); //api/websiteuser/9669507012
+                // await apiFetch<any>(path + "websiteuser/"+Number(mob), { revalidate: 3600, tags: [`${mob}-user-details`] }); //api/websiteuser/9669507012
+                dispatch(fetchUser());
                 dispatchCustomEvent('userLoggedIn', { user: data.user });
                 redirect.push(lastRoute == '/ask-your-question' ? lastRoute: '/dashboard')
             }

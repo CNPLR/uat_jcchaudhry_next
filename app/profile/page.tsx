@@ -17,6 +17,7 @@ export async function getUserData(mobNumber: string, token: string): Promise<any
 
             return res;
         }
+        
 export default function page() {
   return (
     <AuthGuard>

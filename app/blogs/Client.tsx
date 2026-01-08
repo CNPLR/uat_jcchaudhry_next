@@ -7,6 +7,8 @@ import MainHeading from '../components/ui/MainHeading'
 import { useParams, usePathname } from 'next/navigation'
 
 import { CommonBlog } from '../components/ui/BlogVideos'
+import { useAppDispatch, useAppSelector } from '@/lib/hooks'
+import { fetchBlogs } from '@/lib/slices/blogSlice'
 
 
 // Loading components for better UX
@@ -123,26 +125,14 @@ const useIntersectionObserver = (options = {}) => {
 
 
 const Client = () => {
-    //   const location = useRouter();
-    const { posts, loading, error, retryFetch }: any = useBlogData();
-
-    // const pathName = usePathname();
-    // // Memoized values
-    // const fullUrl = useMemo(() => pathName, [pathName]);
-
-    // const pageMetaData = useMemo(() => ({
-    //     pageUrl: fullUrl,
-    //     banner: "/allbanners/Numerology-Name-Number-Science-Explained-Motivation-Positive-Thinking-Blog.webp",
-    //     title: "Numerology Name Number Science Explained | Motivation & Positive Thinking Blog",
-    //     description: "Blog by Dr. J C Chaudhry, sharing Numerology tips for marriage compatibility, new born baby name predictions, business name and investment suggestions. Motivation for life, success, education and career.",
-    //     keywords: "numerology blog, positive thinking blogs, numerology blogs, numerology articles, motivation blog, motivational articles, numerology help, numerology learning, motivational tip, motivation blog for students, motivation blog for business",
-    // }), [fullUrl]);
+    const dispatch = useAppDispatch();
+    const { blogs, loading, error } = useAppSelector((state) => state.blogs);
 
     // Memoized filtered and processed blog data
     const processedBlogs = useMemo(() => {
-        if (!posts?.data) return [];
+        if (!blogs?.data) return [];
 
-        return posts.data
+        return blogs.data
             .filter((blog: any) => blog.blogIsActive !== false)
             .map((blog:any) => ({
                 ...blog,
@@ -150,7 +140,7 @@ const Client = () => {
                 id: blog._id || blog.slug,
             }))
             .sort((a: any, b: any) =>   new Date(b.updatedAt).getTime() - new Date(a.updatedAt).getTime()); // Sort by most recent
-    }, [posts]);
+    }, [blogs]);
 
     // Memoized blog components
     const blogComponents = useMemo(() =>
@@ -159,17 +149,11 @@ const Client = () => {
         )), [processedBlogs]
     );
 
-    // Error handling
-    // if (error) {
-    //     return (
-    //         <div>
-    //             <Suspense fallback={<ComponentLoader height="60px" />}>
-    //                 <HeadHelmet {...pageMetaData} />
-    //             </Suspense>
-    //             <ErrorFallback error={error} resetError={retryFetch} />
-    //         </div>
-    //     );
-    // }
+   useEffect(() => {
+    if(blogs.data.length === 0)
+       dispatch(fetchBlogs());
+    
+   },[])
   return (
     <div>
             {/* <Suspense fallback={<ComponentLoader height="60px" />}>

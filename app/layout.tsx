@@ -9,6 +9,7 @@ import PhoneViewButton from "./components/PhoneViewButton";
 import { AuthProvider } from "./services/AuthContext";
 import LastRouteTracker from "./services/LastRouteTracker";
 import { AlertProvider } from "@/lib/AlertBox";
+import StoreProvider from "@/lib/stores/StoreProvider";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -193,7 +194,7 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        {/* <StoreProvider> */}
+        <StoreProvider>
           <AuthProvider>
             <MainNavigationCompo />
               <Suspense fallback={null}>
@@ -205,7 +206,7 @@ export default function RootLayout({
             <div className="md:hidden"><PhoneViewButton/></div>
             <Footer />
           </AuthProvider >
-        {/* </StoreProvider> */}
+        </StoreProvider>
       </body>
     </html>
   );

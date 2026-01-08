@@ -10,6 +10,11 @@ import ImgLink from './ui/ImgLink'
 import { FaUserCircle, FaUserAlt } from "react-icons/fa";
 import { dispatchCustomEvent } from '@/lib/customEvents'
 import { checkTokenExpiry, validate } from './AuthGuard'
+import { useAppDispatch, useAppSelector } from '@/lib/hooks'
+import { fetchUser } from '@/lib/slices/userSlice'
+import { fetchBlogs } from '@/lib/slices/blogSlice'
+import { fetchHomeVideo } from '@/lib/slices/homeVideoSlice'
+import { fetchCNPLVideo } from '@/lib/slices/CNPLVideoSlice'
 
 export default function NavBar() {
 
@@ -18,10 +23,32 @@ export default function NavBar() {
   const [token, setToken] = useState<string | null>(null)
   const [lastLogin, setLastLogin] = useState<string | null>(null)
   const [isValidToken, setIsValidToken] = useState<boolean>(false)
+   const dispatch = useAppDispatch();
+    const user = useAppSelector((state)=> state.user);
+
+     const cnpl = useAppSelector((state) => state.CNPLVideo)
+        
+        const { blogs, loading, error } = useAppSelector((state) => state.blogs)
+        const homeVideo = useAppSelector((state) => state.homeVideo)
+    
+         useEffect(() => {
+           
+         }, []);
+
 
   // ✅ Safe localStorage access
   useEffect(() => {
     // if (typeof window !== 'undefined') {
+    if(!user.user){
+      dispatch(fetchUser());
+    }
+
+    if(blogs.data.length === 0)
+        dispatch(fetchBlogs());
+    if(homeVideo.homeVideo.data.length === 0)
+        dispatch(fetchHomeVideo());
+    if(cnpl.CNPLVideo.data.length === 0)
+        dispatch(fetchCNPLVideo());
 
     if(!isValidToken)
       (async () => {
@@ -40,6 +67,15 @@ export default function NavBar() {
       window.addEventListener("userLoggedIn", async() => {
            setToken(isValidToken ? localStorage.getItem('token') : null)
           setLastLogin(isValidToken ? localStorage.getItem('lastLogin') : null)
+
+              if(blogs.data.length === 0)
+                dispatch(fetchBlogs());
+              
+            if(homeVideo.homeVideo.data.length === 0)
+              dispatch(fetchHomeVideo());
+            
+            if(cnpl.CNPLVideo.data.length === 0)
+              dispatch(fetchCNPLVideo());
         })
       return () => {
         window.removeEventListener("userLoggedIn", async () => {

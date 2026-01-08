@@ -1,5 +1,5 @@
 import  './loading.css'
-const loading = () => {
+const Loading = () => {
   return (
     
 <main>
@@ -91,4 +91,4 @@ const loading = () => {
   )
 }
 
-export default loading
+export default Loading

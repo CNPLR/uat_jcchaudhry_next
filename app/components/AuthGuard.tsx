@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react";
 import { usePathname, useRouter } from "next/navigation";
+import Loading from "../loading";
 
  export const checkTokenExpiry = (): boolean => {
         const token = localStorage.getItem("token");
@@ -111,7 +112,7 @@ export default function AuthGuard({
     }, [loading])
 
 
-  if (loading) return null; // or loader
+  if (loading) return <Loading />; // or loader
 
   return <>{children}</>;
 }

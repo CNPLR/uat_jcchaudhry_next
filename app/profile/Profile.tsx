@@ -10,17 +10,26 @@ import { MdEdit } from "react-icons/md";
 import Spara from '../components/ui/Spara';
 import { useAuth } from '../services/AuthContext';
 import FullLoadingScreen from '../components/ui/full-loading-screen/FullLoadingScreen';
-import { getUserData } from './page';
+// import { getUserData } from './page';
 import { useAlert } from '@/lib/AlertBox';
+import { useAppDispatch, useAppSelector } from '@/lib/hooks';
+import { fetchUser } from '@/lib/slices/userSlice';
 
 
 const Profile = () => {
   const path = process.env.NEXT_PUBLIC_URI;
   const { showAlert } = useAlert();
-  const { user, token: authToken, loading: authLoading } = useAuth();
+//   const { user, token: authToken, loading: authLoading } = useAuth();
+    
+
+  const user = useAppSelector((state) => state.user.user);
   const [token, setToken] = useState<string | null>(null);
   const [isLoading, setIsLoading] = useState<boolean>(true);
   const [isUpdating, setIsUpdating] = useState<boolean>(false);
+  
+  const dispatch = useAppDispatch();
+
+
 
     const headers = {
         "Content-Type": "application/json",
@@ -45,18 +54,18 @@ const Profile = () => {
 
     const [email, setEmail] = useState<string>()
 
-    const fetch = async (mobNumber: string, token: string) => {
-            if (mobNumber && token) {
-                const res = await getUserData(mobNumber as string, token as string);
-                if (res?.data.success === true) {
-                    setApiUserData(res.data)
-                    const { full_name, popular_name, country, date_of_birth, gender, place_of_birth, state, time_of_birth } = res.data.user
-                    setEmail(res.data.account.email_id)
-                    setFormData({ name: full_name, popular_name, country, date_of_birth, gender, place_of_birth, state, time_of_birth, nationalNumber: res.data.account.mobile_number })
-                }
-                setIsLoading(false)
-            }
-        }
+    // const fetch = async (mobNumber: string, token: string) => {
+    //         if (mobNumber && token) {
+    //             const res = await getUserData(mobNumber as string, token as string);
+    //             if (res?.data.success === true) {
+    //                 setApiUserData(res.data)
+    //                 const { full_name, popular_name, country, date_of_birth, gender, place_of_birth, state, time_of_birth } = res.data.user
+    //                 setEmail(res.data.account.email_id)
+    //                 setFormData({ name: full_name, popular_name, country, date_of_birth, gender, place_of_birth, state, time_of_birth, nationalNumber: res.data.account.mobile_number })
+    //             }
+    //             setIsLoading(false)
+    //         }
+    //     }
 
     useEffect(() => {
         let  mobNumber = localStorage.getItem('number');
@@ -67,20 +76,20 @@ const Profile = () => {
         }
 
         
-        if(!user){
-          fetch(mobNumber as string, token as string);
+        if(!user.user){
+        //   fetch(mobNumber as string, token as string);
+          dispatch(fetchUser());
          
-         }else{
-            if(user){
+         }
+            if(user.account){
                  setApiUserData(user)
-                const { full_name, popular_name, country, date_of_birth, gender, place_of_birth, state, time_of_birth } = user.user;
+                const { full_name, popular_name, country, date_of_birth, gender, place_of_birth, state, time_of_birth } = user.user!;
                 setEmail(user?.account?.email_id)
-                setFormData({ name: full_name, popular_name: popular_name, country, date_of_birth, gender, place_of_birth, state, time_of_birth, nationalNumber: user.account.mobile_number })
+                setFormData({ name: full_name, popular_name: popular_name, country, date_of_birth, gender, place_of_birth, state, time_of_birth, nationalNumber: user.account?.mobile_number! })
                 setIsLoading(false)
-            }
         }
 
-    }, [])
+    }, [user, dispatch])
 
     // const passwordRegex = /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/.test(v);
     // const validatePassword = (password) => passwordRegex.test(password);
@@ -98,7 +107,7 @@ const Profile = () => {
         try {
             const res = await axios.put(`${path}websiteuser/update`, fomData, { headers }); // Pass headers inside config object
             if (res.data.success === true) {
-               await fetch(number as string, token as string);
+              await dispatch(fetchUser());
 
                 showAlert({ 
                     title: "Success", 
@@ -131,6 +140,7 @@ const Profile = () => {
         <>
        
          <FullLoadingScreen isLoading={isLoading} />
+
             <div>
                 {/* <Banner path="/images_folder/personal_numerology_bg.webp" /> */}
                 <MainHeading mainHeading="My Profile" style="text-center my-5" />

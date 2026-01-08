@@ -17,59 +17,32 @@ import MainHeading from './components/ui/MainHeading'
 import SubHeading2 from './components/ui/SubHeading2'
 import CardBox from './components/ui/CardBox'
 import MobileApp from './components/MobileApp';
+import { useAppDispatch, useAppSelector } from '@/lib/hooks';
+import { fetchBlogs } from '@/lib/slices/blogSlice';
+import { fetchHomeVideo } from '@/lib/slices/homeVideoSlice';
+import { fetchCNPLVideo } from '@/lib/slices/CNPLVideoSlice';
 
 
 interface ClientProps {
     headers: Headers;
 }
-const HomePage = ({videoData, cnplData, postsData, isMounted}: any) => {
-    let path = process.env.NEXT_PUBLIC_URI
+const HomePage = ({isMounted}: any) => {
+    const dispatch = useAppDispatch();
 
-    const [videos, setVideos]: any = useState(videoData)
-    const [cnpl, setCnpl]: any = useState(cnplData)
-    const [posts, setPosts]: any = useState(postsData?.data?.slice(0, 4) || []);
+    const cnpl = useAppSelector((state) => state.CNPLVideo)
+    
+    const { blogs, loading, error } = useAppSelector((state) => state.blogs)
+    const homeVideo = useAppSelector((state) => state.homeVideo)
 
-    // useEffect(() => {
-    //     let isMounted = true;
-    //     const fetchData = async () => {
-    //         try {
-    //             const [videosData, cnplData, postsData] = await Promise.all([
-    //                 apiFetch(`${path}getvideosbycategory/category/HomePage`, {
-    //                     revalidate: 3600,
-    //                     tags: ["home-videos"],
-    //                 }),
-    //                 apiFetch(`${path}getvideosbycategory/category/CNPL`, {
-    //                     revalidate: 3600,
-    //                     tags: ["cnpl-videos"],
-    //                 }),
-    //                 apiFetch<BlogPost>(`${path}blog/`, {
-    //                     revalidate: 1800,
-    //                     tags: ["blogs"],
-    //                 }),
-    //             ]);
-
-    //             if (!isMounted) return;
-
-    //             // const [videosData, cnplData, postsData] = await Promise.all([
-    //             //     videosRes.json(),
-    //             //     cnplRes.json(),
-    //             //     postsRes.json(),
-    //             // ]);
-
-    //             setVideos(videosData);
-    //             setCnpl(cnplData);
-    //             setPosts(postsData?.data?.slice(0, 4) || []);
-    //         } catch (err: any) {
-    //             console.log("Fetch error:", err.message);
-    //         }
-    //     };
-
-    //     fetchData();
-
-    //     return () => {
-    //         isMounted = false;
-    //     };
-    // }, [path]);
+    //  useEffect(() => {
+    //     if(blogs.data.length === 0)
+    //         dispatch(fetchBlogs());
+    //     if(homeVideo.homeVideo.data.length === 0)
+    //         dispatch(fetchHomeVideo());
+    //     if(cnpl.CNPLVideo.data.length === 0)
+    //         dispatch(fetchCNPLVideo());
+    //  }, []);
+   
   return (
      <div>
             <Suspense fallback={<div>Loading banner...</div>}>
@@ -83,7 +56,7 @@ const HomePage = ({videoData, cnplData, postsData, isMounted}: any) => {
                 <div className='flex px-10 justify-between my-10 items-center flex-col lg:flex-row max-w-[1300px] mx-auto'>
                     <MainHeading style="lg:hidden" mainHeading="Chaudhry Nummero Pvt. Ltd." />
                     <div className='lg:w-[48%] w-\[100%] mt-5 lg:mt-0'>
-                        {cnpl?.data?.map((ele: any, index: number) =>
+                        {cnpl?.CNPLVideo?.data?.map((ele: any, index: number) =>
                             <Suspense key={index} fallback={<div>Loading banner...</div>}>
                                 <CNPL
                                     key={index}
@@ -253,7 +226,7 @@ const HomePage = ({videoData, cnplData, postsData, isMounted}: any) => {
                 <div className='px-10 pb-10 mt-10'>
                     <SubHeading style="text-center" subHeading="See What People Say About Us !" />
                     <div className='flex justify-center flex-wrap my-10'>
-                        {videos?.data?.map((ele:any, index: any) =>
+                        {homeVideo?.homeVideo?.data?.map((ele:any, index: any) =>
                             <Suspense key={index} fallback={<div>Loading banner...</div>}>
                                 <HomeVideos
                                     key={index}
@@ -273,7 +246,7 @@ const HomePage = ({videoData, cnplData, postsData, isMounted}: any) => {
                 <div className='px-10 py-10 homeservices'>
                     <SubHeading style="text-center" subHeading="Latest Blog Post" />
                     <div className='flex justify-center flex-wrap my-10'>
-                        {posts && posts.map((ele: any, index: number) =>
+                        {blogs?.data?.length > 0 ? blogs?.data?.slice(0, 4).map((ele: any, index: number) =>
                             <Suspense key={index} fallback={<div>Loading banner...</div>}>
                                 <CommonBlog
                                     href={`/article/${ele.slug}`}
@@ -285,7 +258,7 @@ const HomePage = ({videoData, cnplData, postsData, isMounted}: any) => {
                                     alt={ele.alttag}
                                 />
                             </Suspense>
-                        )}
+                        ): <div className='text-center'>Loading...</div>}
                     </div>
                     <Link href="/blogs">
                         <SmallButton text="View More" style="m-auto" />
