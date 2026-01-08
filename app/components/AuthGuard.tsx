@@ -3,6 +3,8 @@
 import { useEffect, useState } from "react";
 import { usePathname, useRouter } from "next/navigation";
 import Loading from "../loading";
+import { useAppDispatch, useAppSelector } from "@/lib/hooks";
+import { fetchUser } from "@/lib/slices/userSlice";
 
  export const checkTokenExpiry = (): boolean => {
         const token = localStorage.getItem("token");
@@ -64,9 +66,14 @@ export default function AuthGuard({
 }) {
   const router = useRouter();
   const pathname = usePathname();
-  const [loading, setLoading] = useState(true);
+  const [loading2, setLoading] = useState(true);
+  const dispatch = useAppDispatch();
+  const { user , loading, error} = useAppSelector((state) => state.user);
 
+  if(!loading && !user.user)
+        dispatch(fetchUser())
 
+console.log('authGuard')
     // const checkTokenExpiry = () => {
     //     const token = localStorage.getItem("token");
     //     if (token !== null) {
@@ -97,6 +104,7 @@ export default function AuthGuard({
     // };
 
     useEffect(() => {
+        
 
         (async () => {
             const res = await validate() && checkTokenExpiry();
@@ -109,10 +117,10 @@ export default function AuthGuard({
         })()
 
        
-    }, [loading])
+    }, [loading2])
 
 
-  if (loading) return <Loading />; // or loader
+  if (loading2) return <Loading />; // or loader
 
   return <>{children}</>;
 }

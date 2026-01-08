@@ -21,11 +21,9 @@ import { useAppDispatch, useAppSelector } from '@/lib/hooks';
 import { fetchBlogs } from '@/lib/slices/blogSlice';
 import { fetchHomeVideo } from '@/lib/slices/homeVideoSlice';
 import { fetchCNPLVideo } from '@/lib/slices/CNPLVideoSlice';
+import { useSelector } from 'react-redux';
 
 
-interface ClientProps {
-    headers: Headers;
-}
 const HomePage = ({isMounted}: any) => {
     const dispatch = useAppDispatch();
 
@@ -34,14 +32,14 @@ const HomePage = ({isMounted}: any) => {
     const { blogs, loading, error } = useAppSelector((state) => state.blogs)
     const homeVideo = useAppSelector((state) => state.homeVideo)
 
-    //  useEffect(() => {
-    //     if(blogs.data.length === 0)
-    //         dispatch(fetchBlogs());
-    //     if(homeVideo.homeVideo.data.length === 0)
-    //         dispatch(fetchHomeVideo());
-    //     if(cnpl.CNPLVideo.data.length === 0)
-    //         dispatch(fetchCNPLVideo());
-    //  }, []);
+     useEffect(() => {
+        if(blogs.data.length === 0)
+            dispatch(fetchBlogs());
+        if(homeVideo.homeVideo.data.length === 0)
+            dispatch(fetchHomeVideo());
+        if(cnpl.CNPLVideo.data.length === 0)
+            dispatch(fetchCNPLVideo());
+     }, []);
    
   return (
      <div>
@@ -246,7 +244,7 @@ const HomePage = ({isMounted}: any) => {
                 <div className='px-10 py-10 homeservices'>
                     <SubHeading style="text-center" subHeading="Latest Blog Post" />
                     <div className='flex justify-center flex-wrap my-10'>
-                        {blogs?.data?.length > 0 ? blogs?.data?.slice(0, 4).map((ele: any, index: number) =>
+                        { !loading ? blogs?.data?.slice(0, 4).map((ele: any, index: number) =>
                             <Suspense key={index} fallback={<div>Loading banner...</div>}>
                                 <CommonBlog
                                     href={`/article/${ele.slug}`}
