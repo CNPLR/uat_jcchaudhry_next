@@ -48,7 +48,7 @@ export default function Mybookings() {
     /*                             DATA FETCH                             */
     /* ------------------------------------------------------------------ */
 
-    if(loading && userAppointment.data.length === 0 && reportByNumber.reports.length === 0 && doneReport.data.length === 0){
+    if(loading && userAppointment?.data?.length === 0 && reportByNumber?.reports?.length === 0 && doneReport?.data?.length === 0){
         dispatch(fetchMyBooking());
     }
 
