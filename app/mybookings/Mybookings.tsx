@@ -5,6 +5,8 @@ import axios from "axios";
 import SubHeading from "../components/ui/SubHeading";
 import { useRouter } from "next/navigation";
 import { useAlert } from "@/lib/AlertBox";
+import { useAppDispatch, useAppSelector } from "@/lib/hooks";
+import { fetchMyBooking } from "@/lib/slices/myBooking";
 
 const API_URL = process.env.NEXT_PUBLIC_URI;
 let token ="";
@@ -17,7 +19,7 @@ let token ="";
 //     }
 //     : {};
 
-   function getHeaders(token: string) {
+  export function getHeaders(token: string) {
         return {
             "Content-Type": "application/json",
             Authorization: `Bearer ${token}`,
@@ -27,11 +29,17 @@ let token ="";
 
 
 export default function Mybookings() {
-    const [bookings, setBookings] = useState([]);
-    const [reqBookings, setReqBookings] = useState([]);
-    const [doneBookings, setDoneBookings] = useState([]);
-    const [user, setUser] = useState<any>(null);
-    const [loading, setLoading] = useState(true);
+
+    const dispatch = useAppDispatch();
+    const userBookings = useAppSelector((state) => state.myBookings);
+    const {userAppointment, reportByNumber, doneReport} = userBookings;
+
+
+    const [bookings, setBookings] = useState(userBookings.userAppointment.data);
+    const [reqBookings, setReqBookings] = useState(userBookings.reportByNumber.reports);
+    const [doneBookings, setDoneBookings] = useState(userBookings.doneReport.data);
+    const [user, setUser] = useState<any>(userBookings.userAppointment?.userDetails);
+    const [loading, setLoading] = useState(userBookings.loading);
     const [selectedBooking, setSelectedBooking] = useState<any>(null);
     const modalRef = useRef<any>(null);
     const navigate = useRouter();
@@ -40,6 +48,10 @@ export default function Mybookings() {
     /*                             DATA FETCH                             */
     /* ------------------------------------------------------------------ */
 
+    if(loading && userAppointment.data.length === 0 && reportByNumber.reports.length === 0 && doneReport.data.length === 0){
+        dispatch(fetchMyBooking());
+    }
+
     useEffect(() => {
          const Token = localStorage.getItem("token");
         if (Token) {
@@ -47,45 +59,45 @@ export default function Mybookings() {
         }
         if (!Token) navigate.push("/numerology/login");
 
-        const fetchData = async () => {
-            const storedNumber = localStorage.getItem("number");
-            if (!storedNumber) return;
-            const headers =  getHeaders(token) ;
-            try {
-                const [userRes, reportRes, doneRep] = await Promise.all([
-                    axios.get(
-                        `${API_URL}userAppointment/user/${JSON.parse(storedNumber)}`,
-                        { headers }
-                    ),
-                    axios.get(
-                        `${API_URL}report/getreportsbynum/${JSON.parse(storedNumber)}`
-                    ),
-                    axios.get(
-                        `${API_URL}report/donereport/${JSON.parse(storedNumber)}`
-                    ),
-                ]);
+        // const fetchData = async () => {
+        //     const storedNumber = localStorage.getItem("number");
+        //     if (!storedNumber) return;
+        //     const headers =  getHeaders(token) ;
+        //     try {
+        //         const [userRes, reportRes, doneRep] = await Promise.all([
+        //             axios.get(
+        //                 `${API_URL}userAppointment/user/${JSON.parse(storedNumber)}`,
+        //                 { headers }
+        //             ),
+        //             axios.get(
+        //                 `${API_URL}report/getreportsbynum/${JSON.parse(storedNumber)}`
+        //             ),
+        //             axios.get(
+        //                 `${API_URL}report/donereport/${JSON.parse(storedNumber)}`
+        //             ),
+        //         ]);
 
-                if (userRes?.data?.success) {
-                    setUser(userRes.data.userDetails);
-                    setBookings(userRes.data.data);
-                }
+        //         if (userRes?.data?.success) {
+        //             setUser(userRes.data.userDetails);
+        //             setBookings(userRes.data.data);
+        //         }
 
-                if (reportRes?.data?.success) {
-                    setReqBookings(reportRes.data.reports);
-                }
+        //         if (reportRes?.data?.success) {
+        //             setReqBookings(reportRes.data.reports);
+        //         }
 
-                if (doneRep?.data?.success) {
-                    setDoneBookings(doneRep.data.data)
-                }
+        //         if (doneRep?.data?.success) {
+        //             setDoneBookings(doneRep.data.data)
+        //         }
 
-            } catch (error) {
-                console.error("Error fetching data:", error);
-            } finally {
-                setLoading(false);
-            }
-        };
+        //     } catch (error) {
+        //         console.error("Error fetching data:", error);
+        //     } finally {
+        //         setLoading(false);
+        //     }
+        // };
 
-        fetchData();
+        // fetchData();
 
         
     }, []);

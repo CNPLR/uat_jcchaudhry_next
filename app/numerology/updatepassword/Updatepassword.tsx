@@ -104,7 +104,7 @@ const UpdatePassword = () => {
             return alert("Please Enter Valid OTP")
         }
         else {
-            const res = await axios.put(path + "websiteuser/update", { pass, nationalNumber })
+            const res = await axios.put(path + "websiteuser/update/password", { pass, nationalNumber, otp })
             if (res.data.success === true) {
                 redirect("/numerology/login")
             }

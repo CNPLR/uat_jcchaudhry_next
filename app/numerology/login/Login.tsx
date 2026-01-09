@@ -28,14 +28,14 @@ export default function Login() {
 
     let headers = { "content-Type": "application/json", "accept": "*/*" };
 
-    async function validUser(userToken: string) {
-        let url = path + "validateUser"
-        await fetch(url, {
-            method: "POST",
-            headers: headers,
-            body: JSON.stringify({ token: userToken })
-        })
-    }
+    // async function validUser(userToken: string) {
+    //     let url = path + "validateUser"
+    //     await fetch(url, {
+    //         method: "POST",
+    //         headers: headers,
+    //         body: JSON.stringify({ token: userToken })
+    //     })
+    // }
 
     const handleSubmit = async (event: any) => {
         event.preventDefault();
@@ -58,7 +58,7 @@ export default function Login() {
                 localStorage.setItem('token', data.token)
                 const lastLoginDate = new Date(data.lastLogin)
                 localStorage.setItem('lastLogin', lastLoginDate?.toString())
-                validUser(data.token)
+                // validUser(data.token)
                 // await apiFetch<any>(path + "websiteuser/"+Number(mob), { revalidate: 3600, tags: [`${mob}-user-details`] }); //api/websiteuser/9669507012
                 dispatch(fetchUser());
                 dispatchCustomEvent('userLoggedIn', { user: data.user });
