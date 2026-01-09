@@ -59,45 +59,46 @@ export default function Mybookings() {
         }
         if (!Token) navigate.push("/numerology/login");
 
-        // const fetchData = async () => {
-        //     const storedNumber = localStorage.getItem("number");
-        //     if (!storedNumber) return;
-        //     const headers =  getHeaders(token) ;
-        //     try {
-        //         const [userRes, reportRes, doneRep] = await Promise.all([
-        //             axios.get(
-        //                 `${API_URL}userAppointment/user/${JSON.parse(storedNumber)}`,
-        //                 { headers }
-        //             ),
-        //             axios.get(
-        //                 `${API_URL}report/getreportsbynum/${JSON.parse(storedNumber)}`
-        //             ),
-        //             axios.get(
-        //                 `${API_URL}report/donereport/${JSON.parse(storedNumber)}`
-        //             ),
-        //         ]);
+        const fetchData = async () => {
+            const storedNumber = localStorage.getItem("number");
+            if (!storedNumber) return;
+            const headers =  getHeaders(token) ;
+            try {
+                const [userRes, reportRes, doneRep] = await Promise.all([
+                    axios.get(
+                        `${API_URL}userAppointment/user/${JSON.parse(storedNumber)}`,
+                        { headers }
+                    ),
+                    axios.get(
+                        `${API_URL}report/getreportsbynum/${JSON.parse(storedNumber)}`
+                    ),
+                    axios.get(
+                        `${API_URL}report/donereport/${JSON.parse(storedNumber)}`
+                    ),
+                ]);
 
-        //         if (userRes?.data?.success) {
-        //             setUser(userRes.data.userDetails);
-        //             setBookings(userRes.data.data);
-        //         }
+                if (userRes?.data?.success) {
+                    setUser(userRes.data.userDetails);
+                    setBookings(userRes.data.data);
+                }
 
-        //         if (reportRes?.data?.success) {
-        //             setReqBookings(reportRes.data.reports);
-        //         }
+                if (reportRes?.data?.success) {
+                    setReqBookings(reportRes.data.reports);
+                }
 
-        //         if (doneRep?.data?.success) {
-        //             setDoneBookings(doneRep.data.data)
-        //         }
+                if (doneRep?.data?.success) {
+                    setDoneBookings(doneRep.data.data)
+                }
 
-        //     } catch (error) {
-        //         console.error("Error fetching data:", error);
-        //     } finally {
-        //         setLoading(false);
-        //     }
-        // };
+            } catch (error) {
+                console.error("Error fetching data:", error);
+            } finally {
+                setLoading(false);
+            }
+        };
 
-        // fetchData();
+        if(userAppointment.data.length === 0)
+            fetchData();
 
         
     }, []);
@@ -266,6 +267,7 @@ const Modal = React.forwardRef(({ closeModal, name, id, number, email, country }
             if (res.data.success) {
                 closeModal();
                 showAlert({ title: "Success", message: res.data.message, type: "success" });
+                setTimeout(() => { window.location.reload(); }, 2000)
             } else {
                 alert("Something went wrong");
                 showAlert({ title: "Error", message: "Something went wrong", type: "error" });

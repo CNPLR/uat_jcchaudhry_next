@@ -71,9 +71,7 @@ export default function AuthGuard({
     const { user, loading, error } = useAppSelector((state) => state.user);
     const bookings = useAppSelector((state) => state.myBookings);
 
-    // if(isValidToken === false){
-    //     router.push('/numerology/login');
-    // }
+    
 
     if(isValidToken){
          if (!loading && !user.user)
@@ -97,7 +95,7 @@ export default function AuthGuard({
             const res = await validate()
             setLoading(false);
             setIsValidToken(res);
-            window.scrollTo(0, 0);
+            // window.scrollTo(0, 0);
             if (!res) router.push('/numerology/login');
         })()
     }, [!bookings.loading])

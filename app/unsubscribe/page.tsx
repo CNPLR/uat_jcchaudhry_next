@@ -1,7 +1,8 @@
 'use client';
 import axios from "axios";
 import Para from "../components/ui/Para";
-import { useSearchParams } from "next/navigation";
+import { useRouter, useSearchParams } from "next/navigation";
+import { useAlert } from "@/lib/AlertBox";
 
 export default  function  page(){ 
 
@@ -9,6 +10,8 @@ export default  function  page(){
     const searchParams = useSearchParams()
     const email = searchParams.get('email')
     const id = searchParams.get('id');
+    const {showAlert} = useAlert();
+    const router = useRouter();
     
     const submit = async (e: any) => {
         e.preventDefault();
@@ -18,13 +21,30 @@ export default  function  page(){
                 try {
                     const res = await axios.post(`${path}subscribe/delete`, { email, id });
                     if (res.data.success) {
-                        alert(res.data.message);
+                        // alert(res.data.message);
+                        showAlert({
+                            title: "Success",
+                            message: res.data.message,
+                            type: "success"
+                        })
+                       router.push('/blogs');
+
                     } else {
-                        alert("Subscription failed. Please try again.");
+                        // alert("Subscription failed. Please try again.");
+                         showAlert({
+                            title: "Error",
+                            message: "Subscription failed. Please try again.",
+                            type: "error"
+                        })
                     }
                 } catch (error) {
                     console.error("Error subscribing:", error);
-                    alert("An error occurred. Please try again later.");
+                    // alert("An error occurred. Please try again later.");
+                     showAlert({
+                            title: "Error",
+                            message: "An error occurred. Please try again later.",
+                            type: "error"
+                        })
                 }
             } else {
                 alert("Please enter a valid email address.");
