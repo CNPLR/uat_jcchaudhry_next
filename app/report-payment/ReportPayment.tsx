@@ -2,7 +2,7 @@
 import axios from "axios";
 import { useState, useEffect, use } from "react";
 import NormalButton from "../components/ui/NormalButton";
-import { useParams, useSearchParams } from "next/navigation";
+import { useParams, useRouter, useSearchParams } from "next/navigation";
 
 const API_URL = process.env.NEXT_PUBLIC_URI;
 
@@ -25,6 +25,8 @@ export default function ReportPayment() {
     // let country = query[0]?.split("=")[1]
     let currency = country === 'India' ? "INR" : "USD"
     let amount = country === 'India' ? "20000" : "230"
+
+    const router = useRouter();
 
     // let currency = "USD";
     // let amount = "230";
@@ -85,9 +87,11 @@ export default function ReportPayment() {
 
     useEffect(() => {
         const token = localStorage.getItem("token");
-        if (token) {
-            setToken(token);
+        if (!token) {
+            router.push("/numerology/login");
+            return;
         }
+        setToken(token);
         get()
     }, [id])
 

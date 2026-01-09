@@ -5,6 +5,8 @@ import axios from "axios";
 import SubHeading from "../components/ui/SubHeading";
 import { useRouter } from "next/navigation";
 import { useAlert } from "@/lib/AlertBox";
+import { useAppDispatch, useAppSelector } from "@/lib/hooks";
+import { fetchMyBooking } from "@/lib/slices/myBooking";
 
 const API_URL = process.env.NEXT_PUBLIC_URI;
 let token ="";
@@ -17,7 +19,7 @@ let token ="";
 //     }
 //     : {};
 
-   function getHeaders(token: string) {
+  export function getHeaders(token: string) {
         return {
             "Content-Type": "application/json",
             Authorization: `Bearer ${token}`,
@@ -27,11 +29,17 @@ let token ="";
 
 
 export default function Mybookings() {
-    const [bookings, setBookings] = useState([]);
-    const [reqBookings, setReqBookings] = useState([]);
-    const [doneBookings, setDoneBookings] = useState([]);
-    const [user, setUser] = useState<any>(null);
-    const [loading, setLoading] = useState(true);
+
+    const dispatch = useAppDispatch();
+    const userBookings = useAppSelector((state) => state.myBookings);
+    const {userAppointment, reportByNumber, doneReport} = userBookings;
+
+
+    const [bookings, setBookings] = useState(userBookings.userAppointment.data);
+    const [reqBookings, setReqBookings] = useState(userBookings.reportByNumber.reports);
+    const [doneBookings, setDoneBookings] = useState(userBookings.doneReport.data);
+    const [user, setUser] = useState<any>(userBookings.userAppointment?.userDetails);
+    const [loading, setLoading] = useState(userBookings.loading);
     const [selectedBooking, setSelectedBooking] = useState<any>(null);
     const modalRef = useRef<any>(null);
     const navigate = useRouter();
@@ -39,6 +47,10 @@ export default function Mybookings() {
     /* ------------------------------------------------------------------ */
     /*                             DATA FETCH                             */
     /* ------------------------------------------------------------------ */
+
+    if(loading && userAppointment.data.length === 0 && reportByNumber.reports.length === 0 && doneReport.data.length === 0){
+        dispatch(fetchMyBooking());
+    }
 
     useEffect(() => {
          const Token = localStorage.getItem("token");
@@ -85,7 +97,8 @@ export default function Mybookings() {
             }
         };
 
-        fetchData();
+        if(userAppointment.data.length === 0)
+            fetchData();
 
         
     }, []);
@@ -254,6 +267,7 @@ const Modal = React.forwardRef(({ closeModal, name, id, number, email, country }
             if (res.data.success) {
                 closeModal();
                 showAlert({ title: "Success", message: res.data.message, type: "success" });
+                setTimeout(() => { window.location.reload(); }, 2000)
             } else {
                 alert("Something went wrong");
                 showAlert({ title: "Error", message: "Something went wrong", type: "error" });

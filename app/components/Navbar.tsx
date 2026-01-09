@@ -10,6 +10,7 @@ import ImgLink from './ui/ImgLink'
 import { FaUserCircle, FaUserAlt } from "react-icons/fa";
 import { dispatchCustomEvent } from '@/lib/customEvents'
 import { checkTokenExpiry, validate } from './AuthGuard'
+import { useAppSelector } from '@/lib/hooks'
 
 export default function NavBar() {
 
@@ -18,6 +19,7 @@ export default function NavBar() {
   const [token, setToken] = useState<string | null>(null)
   const [lastLogin, setLastLogin] = useState<string | null>(null)
   const [isValidToken, setIsValidToken] = useState<boolean>(false)
+  const userDetails = useAppSelector((state) => state.user);
 
 
   // ✅ Safe localStorage access
@@ -47,7 +49,7 @@ export default function NavBar() {
         });
       };      
     // }
-  }, [isValidToken])
+  }, [isValidToken, userDetails.loading]);
 
   // ✅ Logout handler
   const logout = () => {
