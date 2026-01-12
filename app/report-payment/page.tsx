@@ -3,8 +3,8 @@ import AuthGuard from '../components/AuthGuard'
 
 export default function page() {
   return (
-    <AuthGuard>
+    // <AuthGuard>
       <ReportPayment/>
-    </AuthGuard>
+    // </AuthGuard>
   )
 }

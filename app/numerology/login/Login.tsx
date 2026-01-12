@@ -45,7 +45,7 @@ export default function Login() {
             return alert("Invalid Field")
         }
         try {
-            const res = await fetch(path + "websiteuser/login", {
+            const res = await fetch('/api/auth/login', {
                 method: "POST",
                 headers,
                 body: JSON.stringify({  mob, pass })

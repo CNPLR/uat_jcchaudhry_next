@@ -17,9 +17,9 @@ const page = async ({ params }: { params: { country: string, id: string } }) => 
       const { country, id } = await params;
       
   return (
-    <AuthGuard>
+    // <AuthGuard>
       <MakeAskPayment country={country} id={id}/>
-    </AuthGuard>
+    // </AuthGuard>
   )
 }
 

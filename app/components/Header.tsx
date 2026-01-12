@@ -20,6 +20,8 @@ export default function Header() {
   const logout = async () => {
     const person = confirm("You want to log out");
     if (person) {
+      const res = await fetch('/api/auth/logout', { method: "POST", headers : { "content-Type": "application/json", "accept": "*/*" }});
+      const data = await res.json();
       localStorage.removeItem("token");
       localStorage.removeItem("number");
       localStorage.removeItem("lastLogin");
@@ -119,7 +121,7 @@ export default function Header() {
           <div className="flex items-center space-x-2">
             {token ? (
               <>
-                <button type="button" className="text-sm" onClick={logout}>
+                <button type="button" className="cursor-pointer text-sm" onClick={logout}>
                   <FaUserAlt className="m-auto" size={20} />
                   LogOut
                 </button>
