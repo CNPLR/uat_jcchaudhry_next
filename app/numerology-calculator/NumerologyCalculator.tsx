@@ -20,6 +20,8 @@ import { nameRegex, calculateDestiny, calculateNameNumber, calculateSoulurgeNumb
 import 'react-phone-input-2/lib/style.css'
 import 'react-toastify/dist/ReactToastify.css';
 import "react-datepicker/dist/react-datepicker.css";
+import setDobFn from '@/lib/setDobFn';
+import handleDatePicker from '@/lib/handleDateInputs';
 
 const NumerologyCalculator = () => {
     const [token, setToken] = useState<string>("");
@@ -208,6 +210,10 @@ const NumerologyCalculator = () => {
         }
     },[])
 
+    function handleRawDatePicker(e:any){
+       setDob(handleDatePicker(e) as string);
+    }
+
     return (
         <div>
             <ToastContainer />
@@ -229,7 +235,8 @@ const NumerologyCalculator = () => {
                                     <DatePicker
                                         id="date-picker"
                                         selected={dob as Date}
-                                        onChange={date => setDob(date?.toISOString().split("T")[0] as string)}
+                                        onChange={date => setDob(setDobFn(date as Date))}
+                                        onChangeRaw={handleDatePicker}
                                         dateFormat="dd/MM/yyyy"
                                         maxDate={new Date()} // Disable previous dates
                                         placeholderText="DD-MM-YYYY"
@@ -267,7 +274,8 @@ const NumerologyCalculator = () => {
                                 <DatePicker
                                     id="date-picker"
                                     selected={dob as Date}
-                                    onChange={date => setDob(date?.toISOString().split("T")[0] as string)}
+                                    onChange={date => setDob(setDobFn(date as Date))}
+                                    onChangeRaw={handleDatePicker}
                                     dateFormat="dd/MM/yyyy"
                                     maxDate={new Date()} // Disable previous dates
                                     placeholderText="DD-MM-YYYY"

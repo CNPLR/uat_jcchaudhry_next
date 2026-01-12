@@ -18,6 +18,8 @@ import { nameRegex, calculateDestiny, reduceToSingleDigit, specialNumbers, calcu
 import "react-datepicker/dist/react-datepicker.css"
 import 'react-phone-input-2/lib/style.css';
 import '../styles/common.css';
+import setDobFn from '@/lib/setDobFn';
+import handleDatePicker from '@/lib/handleDateInputs';
 
 const CompatibilityNumerologyTool = () => {
  const path = process.env.NEXT_PUBLIC_URI;
@@ -163,50 +165,13 @@ const CompatibilityNumerologyTool = () => {
 
     const countryIP = CountryIPaddress();
 
-    function handleDatePicker(e:any){
-        const value = e.target.value;
-        if (!value) return null;
-        value.replace('-', '/');
-        const parts = value.split("/"); // ["dd","MM","yyyy"]
-        if (parts.length !== 3) return null;
-
-        const [ddStr, mmStr, yyyyStr] = parts;
-        const day = Number(ddStr);
-        const month = Number(mmStr);
-        const year = Number(yyyyStr);
-
-        // basic validation
-        if (!day || !month || !year) return null;
-        if (month < 1 || month > 12) return null;
-        if (day < 1 || day > 31) return null;
-
-
-
-        const date = new Date(year, month - 1, day); // month is 0-based
-
-        if (
-            date.getFullYear() !== year ||
-            date.getMonth() !== month - 1 ||
-            date.getDate() !== day
-        ) {
-            return null;
-        }
-
-        return date
-    }
 
    function handleDatePicker1(e: any){
-        const value = handleDatePicker(e);
-        console.log(value)
-        if (!value) return null;
-        
-        setDob(value?.toISOString().split("T")[0]);
+        setDob( handleDatePicker(e) as string);
    }
-   function handleDatePicker2(e: any){
-        const value = handleDatePicker(e);
-        if (!value) return null;
-        
-        setPdob(value?.toISOString().split("T")[0]);
+
+   function handleDatePicker2(e: any){      
+        setPdob(handleDatePicker(e) as string);
    }
 
     return (
@@ -239,7 +204,7 @@ const CompatibilityNumerologyTool = () => {
                                 <DatePicker
                                     id="date-picker"
                                     selected={dob as Date}
-                                    onChange={date => setDob(date?.toISOString().split("T")[0] as string)}
+                                    onChange={date => setDob(setDobFn(date as Date))}
                                     onChangeRaw={handleDatePicker1}
                                     dateFormat="dd/MM/yyyy"
                                     maxDate={new Date()} // Disable previous dates
@@ -255,7 +220,7 @@ const CompatibilityNumerologyTool = () => {
                                 <DatePicker
                                     id="date-picker"
                                     selected={pdob as Date}
-                                    onChange={date => setPdob(date?.toISOString().split("T")[0])}
+                                    onChange={date => setPdob(setDobFn(date as Date))}
                                     onChangeRaw={handleDatePicker2}
                                     dateFormat="dd/MM/yyyy"
                                     maxDate={new Date()} // Disable previous dates
@@ -303,7 +268,7 @@ const CompatibilityNumerologyTool = () => {
                             <DatePicker
                                 id="date-picker"
                                 selected={dob as Date}
-                                onChange={date => setDob(date?.toISOString().split("T")[0] as string)}
+                                onChange={date => setDob(setDobFn(date as Date))}
                                 onChangeRaw={handleDatePicker1}
                                 dateFormat="dd/MM/yyyy"
                                 maxDate={new Date()} // Disable previous dates
@@ -322,7 +287,7 @@ const CompatibilityNumerologyTool = () => {
                             <DatePicker
                                 id="date-picker2"
                                 selected={pdob as Date}
-                                onChange={date => setPdob(date?.toISOString().split("T")[0])}
+                                onChange={date => setPdob(setDobFn(date as Date))}
                                 onChangeRaw={handleDatePicker2}
                                 dateFormat="dd/MM/yyyy"
                                 maxDate={new Date()} // Disable previous dates

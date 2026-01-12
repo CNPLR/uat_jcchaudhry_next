@@ -20,6 +20,8 @@ import 'react-phone-input-2/lib/style.css';
 import "react-datepicker/dist/react-datepicker.css";
 import 'react-toastify/dist/ReactToastify.css';
 import { charValues, nameRegex, reduceToSingleDigit, calculateDestiny, calculateNameNumber, specialNumbers, enemy, housechar } from '../numerology-calculator-name-number/AlllCharectersticks';
+import setDobFn from '@/lib/setDobFn';
+import handleDatePicker from '@/lib/handleDateInputs';
 
 export const NumerologyHouseCalculator = () => {
   const path = process.env.NEXT_PUBLIC_URI;
@@ -207,6 +209,10 @@ export const NumerologyHouseCalculator = () => {
 
    const countryIP = CountryIPaddress();
 
+   function handleRawDatePicker(e:any){
+       setDob(handleDatePicker(e) as string);
+    }
+
     return (
         <div className='relative'>
             <ToastContainer />
@@ -239,7 +245,8 @@ export const NumerologyHouseCalculator = () => {
                                 <DatePicker
                                     id="date-picker"
                                     selected={dob as Date}
-                                    onChange={date => setDob(date?.toISOString().split("T")[0] as string)}
+                                    onChange={date => setDob(setDobFn(date as Date))}
+                                    onChangeRaw={handleRawDatePicker}
                                     dateFormat="dd/MM/yyyy"
                                     maxDate={new Date()} // Disable previous dates
                                     placeholderText="DD-MM-YYYY"
@@ -297,7 +304,8 @@ export const NumerologyHouseCalculator = () => {
                             <DatePicker
                                 id="date-picker"
                                 selected={dob as Date}
-                                onChange={date => setDob(date?.toISOString().split("T")[0] as string)}
+                                onChange={date => setDob(setDobFn(date as Date))}
+                                onChangeRaw={handleRawDatePicker}
                                 dateFormat="dd/MM/yyyy"
                                 maxDate={new Date()} // Disable previous dates
                                 placeholderText="DD-MM-YYYY"

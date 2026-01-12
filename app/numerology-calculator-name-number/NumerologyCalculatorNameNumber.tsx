@@ -21,6 +21,8 @@ import 'react-phone-input-2/lib/style.css';
 // import "react-datepicker/dist/re";
 // import "../styles/react-datepicker.css";
 import '../styles/common.css';
+import setDobFn from '@/lib/setDobFn';
+import handleDatePicker from '@/lib/handleDateInputs';
 
 // import 'react-datepicker/dist/react-datepicker-cssmodules.css';
 
@@ -179,51 +181,8 @@ const NumerologyCalculatorNameNumber = () => {
             setToken(token);
         }
     })
-function handleDatePicker(e: any) {
-         let value = e.target.value;
-        if (!value) return null;
-
-        const digitsOnly = value.replace(/\D/g, "");
-
-        let normalized = value;
-
-        if (digitsOnly.length === 8) {
-            const dd = digitsOnly.slice(0, 2);
-            const mm = digitsOnly.slice(2, 4);
-            const yyyy = digitsOnly.slice(4, 8);
-            normalized = `${dd}/${mm}/${yyyy}`;
-        }
-
-        const parts = normalized.split("/"); 
-        if (parts.length !== 3) return null;
-
-        const [ddStr, mmStr, yyyyStr] = parts;
-        const day = Number(ddStr);
-        const month = Number(mmStr);
-        const year = Number(yyyyStr);
-
-        if (!day || !month || !year) return null;
-        if (month < 1 || month > 12) return null;
-        if (day < 1 || day > 31) return null;
-
-        const date = new Date(year, month - 1, day);
-
-        if (
-            date.getFullYear() !== year ||
-            date.getMonth() !== month - 1 ||
-            date.getDate() !== day
-        ) {
-            return null;
-        }
-
-        setTimeout(() => { 
-          
-            if (!value.includes("/") && value.length >= 8) {
-                e.target.blur();
-            }
-         })
-
-        setDob(date.toISOString().split("T")[0]);
+function handleRawDatePicker(e:any){
+       setDob(handleDatePicker(e) as string);
     }
     
 return (
@@ -246,8 +205,8 @@ return (
                             <DatePicker
                                 id="date-picker1"
                                 selected={dob as Date}
-                                onChange={date => setDob(date?.toISOString().split("T")[0] as string)}
-                                onChangeRaw={ handleDatePicker }
+                                onChange={date => setDob(setDobFn(date as Date))}
+                                onChangeRaw={ handleRawDatePicker }
                                 dateFormat="dd/MM/yyyy"
                                 // dateFormat="I/R"
                                 // showMonthDropdown
@@ -287,8 +246,8 @@ return (
                         <DatePicker
                             id="date-picker"
                             selected={dob as Date}
-                            onChange={date => setDob(date?.toISOString().split("T")[0] as string)}
-                            onChangeRaw={handleDatePicker}
+                            onChange={date =>  setDob(setDobFn(date as Date))}
+                            onChangeRaw={handleRawDatePicker}
                             dateFormat="dd/MM/yyyy"
                             maxDate={new Date()} // Disable previous dates
                             placeholderText="DD-MM-YY"

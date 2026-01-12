@@ -1,5 +1,5 @@
-export default function handleDatePicker(e: any) {
-         const value = e.target.value;
+export default function handleDatePicker(e: any): string | null {
+         let value = e.target.value;
         if (!value) return null;
 
         const digitsOnly = value.replace(/\D/g, "");
@@ -42,5 +42,5 @@ export default function handleDatePicker(e: any) {
             }
          })
 
-        return date;
+        return date.toLocaleDateString();
     }
