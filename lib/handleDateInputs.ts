@@ -1,46 +1,52 @@
-export default function handleDatePicker(e: any) {
-         const value = e.target.value;
-        if (!value) return null;
+export default function handleDatePicker(e: any): string | null {
+  let raw = e.target.value;
+  if (!raw) return null;
 
-        const digitsOnly = value.replace(/\D/g, "");
+  // Keep only digits
+  const digits = raw.replace(/\D/g, "");
 
-        let normalized = value;
+  // Limit input to DDMMYYYY
+  if (digits.length > 8) return null;
 
-        if (digitsOnly.length === 8) {
-            const dd = digitsOnly.slice(0, 2);
-            const mm = digitsOnly.slice(2, 4);
-            const yyyy = digitsOnly.slice(4, 8);
-            normalized = `${dd}/${mm}/${yyyy}`;
-        }
+  let formatted = "";
 
-        const parts = normalized.split("/"); 
-        if (parts.length !== 3) return null;
+  // Auto add '/' after DD and MM
+  if (digits.length <= 2) {
+    formatted = digits;
+  } else if (digits.length <= 4) {
+    formatted = `${digits.slice(0, 2)}/${digits.slice(2)}`;
+  } else {
+    formatted = `${digits.slice(0, 2)}/${digits.slice(2, 4)}/${digits.slice(4)}`;
+  }
 
-        const [ddStr, mmStr, yyyyStr] = parts;
-        const day = Number(ddStr);
-        const month = Number(mmStr);
-        const year = Number(yyyyStr);
+  e.target.value = formatted;
 
-        if (!day || !month || !year) return null;
-        if (month < 1 || month > 12) return null;
-        if (day < 1 || day > 31) return null;
+  // Not complete yet
+  if (digits.length < 8) return null;
 
-        const date = new Date(year, month - 1, day);
+  const day = Number(digits.slice(0, 2));
+  const month = Number(digits.slice(2, 4));
+  const year = Number(digits.slice(4, 8));
 
-        if (
-            date.getFullYear() !== year ||
-            date.getMonth() !== month - 1 ||
-            date.getDate() !== day
-        ) {
-            return null;
-        }
+  // Basic validation
+  if (month < 1 || month > 12) return null;
+  if (day < 1 || day > 31) return null;
 
-        setTimeout(() => { 
-          
-            if (!value.includes("/") && value.length >= 8) {
-                e.target.blur();
-            }
-         })
+  const date = new Date(year, month - 1, day);
 
-        return date;
-    }
+  // Strict calendar validation
+  if (
+    date.getFullYear() !== year ||
+    date.getMonth() !== month - 1 ||
+    date.getDate() !== day
+  ) {
+    return null;
+  }
+
+  // Auto blur when valid
+  setTimeout(() => e.target.blur());
+
+  // Return YYYY-MM-DD
+  const pad = (n: number) => String(n).padStart(2, "0");
+  return `${year}-${pad(month)}-${pad(day)}`;
+}

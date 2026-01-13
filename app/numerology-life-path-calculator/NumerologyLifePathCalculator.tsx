@@ -20,6 +20,8 @@ import 'react-phone-input-2/lib/style.css';
 import "react-datepicker/dist/react-datepicker.css";
 import 'react-toastify/dist/ReactToastify.css';
 import { nameRegex, calculateDestiny, calculateNameNumber, specialNumbers, reduceToSingleDigit, life } from '../numerology-calculator-name-number/AlllCharectersticks';
+import setDobFn from '@/lib/setDobFn';
+import handleDatePicker from '@/lib/handleDateInputs';
 
 const NumerologyLifePathCalculator = () => {
     const [token , setToken] = useState<string | null>(null);
@@ -150,34 +152,8 @@ const NumerologyLifePathCalculator = () => {
 
     const countryIP = CountryIPaddress();
 
-    function handleDatePicker(e:any){
-        const value = e.target.value;
-        if (!value) return null;
-
-        const parts = value.split("/"); // ["dd","MM","yyyy"]
-        if (parts.length !== 3) return null;
-
-        const [ddStr, mmStr, yyyyStr] = parts;
-        const day = Number(ddStr);
-        const month = Number(mmStr);
-        const year = Number(yyyyStr);
-
-        // basic validation
-        if (!day || !month || !year) return null;
-        if (month < 1 || month > 12) return null;
-        if (day < 1 || day > 31) return null;
-
-        const date = new Date(year, month - 1, day); // month is 0-based
-
-        if (
-            date.getFullYear() !== year ||
-            date.getMonth() !== month - 1 ||
-            date.getDate() !== day
-        ) {
-            return null;
-        }
-
-        setDob(date?.toISOString().split("T")[0] );
+   function handleRawDatePicker(e:any){
+       setDob(handleDatePicker(e) as string);
     }
 
     useEffect(() => {
@@ -207,8 +183,7 @@ const NumerologyLifePathCalculator = () => {
                                 <DatePicker
                                     id="date-picker"
                                     selected={dob as Date}
-                                    onChange={(date: any) =>  setDob(date?.toISOString().split("T")[0] as string)}
-                                    onChangeRaw={handleDatePicker}
+                                    onChange={(date: any) =>  setDob(setDobFn(date as Date))}
                                     dateFormat="dd/MM/yyyy"
                                     maxDate={new Date()} // Disable previous dates
                                     placeholderText="DD-MM-YYYY"
@@ -247,8 +222,7 @@ const NumerologyLifePathCalculator = () => {
                             <DatePicker
                                 id="date-picker"
                                 selected={dob as Date}
-                                onChange={date => setDob(date?.toISOString().split("T")[0] as string)}
-                                onChangeRaw={handleDatePicker}
+                                onChange={date =>  setDob(setDobFn(date as Date))}
                                 dateFormat="dd/MM/yyyy"
                                 maxDate={new Date()} // Disable previous dates
                                 placeholderText="DD-MM-YYYY"

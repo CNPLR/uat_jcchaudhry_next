@@ -4,8 +4,8 @@ import Mybookings from './Mybookings'
 
 export default function page() {
   return (
-    <AuthGuard>
+    // <AuthGuard>
          <Mybookings />
-     </AuthGuard>
+    //  </AuthGuard>
   )
 }

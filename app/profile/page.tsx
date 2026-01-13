@@ -20,8 +20,10 @@ export async function getUserData(mobNumber: string, token: string): Promise<any
         
 export default function page() {
   return (
-    <AuthGuard>
+    // <AuthGuard>
       <Profile />
-    </AuthGuard>
+    // </AuthGuard>
   )
 }
+
+// 'askQuestions', 'dashboard', 'mybookings', 'profile', 'report-payment'
