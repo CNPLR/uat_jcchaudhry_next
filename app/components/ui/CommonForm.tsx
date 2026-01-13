@@ -18,6 +18,7 @@ import { CountryIPaddress } from "./GetCountryCode";
 import Img from "./Img";
 import Para from "./Para";
 import SubHeading1 from "./SubHeading1";
+import setDobFn from "@/lib/setDobFn";
 
 interface CommonFormProps {
   style?: string;
@@ -209,7 +210,7 @@ export default function CommonForm({ style }: CommonFormProps) {
                             <DatePicker
                                 id="date-picker"
                                 selected={dob as Date}
-                                onChange={date => setDob(date?.toISOString().split("T")[0])}
+                                onChange={date => setDob(setDobFn(date as Date))}
                                 dateFormat="dd/MM/yyyy"
                                 maxDate={new Date()} // Disable previous dates
                                 placeholderText="DD-MM-YYYY"
