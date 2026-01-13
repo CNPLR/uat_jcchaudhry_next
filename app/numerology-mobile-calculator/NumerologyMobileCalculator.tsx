@@ -183,7 +183,6 @@ const NumerologyMobileCalculator = () => {
                                     id="date-picker"
                                     selected={dob as Date}
                                     onChange={date => setDob(setDobFn(date as Date))}
-                                    onChangeRaw={handleRawDatePicker}
                                     // dateFormat="yyyy/MM/dd"
                                     // dateFormat="mm/dd/yyyy"
                                     dateFormat="dd/MM/yyyy"
@@ -224,7 +223,6 @@ const NumerologyMobileCalculator = () => {
                                 id="date-picker"
                                 selected={dob as Date}
                                 onChange={date => setDob(setDobFn(date as Date))}
-                                onChangeRaw={handleRawDatePicker}
                                 // dateFormat="yyyy/MM/dd"
                                 // dateFormat="mm/dd/yyyy"
                                 dateFormat="dd/MM/yyyy"

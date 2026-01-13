@@ -206,7 +206,6 @@ return (
                                 id="date-picker1"
                                 selected={dob as Date}
                                 onChange={date => setDob(setDobFn(date as Date))}
-                                onChangeRaw={ handleRawDatePicker }
                                 dateFormat="dd/MM/yyyy"
                                 // dateFormat="I/R"
                                 // showMonthDropdown
@@ -247,7 +246,6 @@ return (
                             id="date-picker"
                             selected={dob as Date}
                             onChange={date =>  setDob(setDobFn(date as Date))}
-                            onChangeRaw={handleRawDatePicker}
                             dateFormat="dd/MM/yyyy"
                             maxDate={new Date()} // Disable previous dates
                             placeholderText="DD-MM-YY"

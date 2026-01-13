@@ -246,7 +246,6 @@ export const NumerologyHouseCalculator = () => {
                                     id="date-picker"
                                     selected={dob as Date}
                                     onChange={date => setDob(setDobFn(date as Date))}
-                                    onChangeRaw={handleRawDatePicker}
                                     dateFormat="dd/MM/yyyy"
                                     maxDate={new Date()} // Disable previous dates
                                     placeholderText="DD-MM-YYYY"
@@ -305,7 +304,6 @@ export const NumerologyHouseCalculator = () => {
                                 id="date-picker"
                                 selected={dob as Date}
                                 onChange={date => setDob(setDobFn(date as Date))}
-                                onChangeRaw={handleRawDatePicker}
                                 dateFormat="dd/MM/yyyy"
                                 maxDate={new Date()} // Disable previous dates
                                 placeholderText="DD-MM-YYYY"

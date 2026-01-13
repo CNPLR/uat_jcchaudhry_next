@@ -236,7 +236,6 @@ const NumerologyCalculator = () => {
                                         id="date-picker"
                                         selected={dob as Date}
                                         onChange={date => setDob(setDobFn(date as Date))}
-                                        onChangeRaw={handleDatePicker}
                                         dateFormat="dd/MM/yyyy"
                                         maxDate={new Date()} // Disable previous dates
                                         placeholderText="DD-MM-YYYY"
