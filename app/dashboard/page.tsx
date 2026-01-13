@@ -13,9 +13,9 @@ export const metadata = GenerateMetadata({
 })
 const page = () => {
    return (
-    <AuthGuard>
+   //  <AuthGuard>
        <Dashboard />
-   </AuthGuard>
+   // </AuthGuard>
 )
 }
 

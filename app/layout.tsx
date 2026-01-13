@@ -81,6 +81,19 @@ export const metadata: Metadata = {
   },
 };
 
+const Organization =  {
+            "@context": "https://schema.org",
+            "@type": "Organization",
+            "name": "Dr. J C Chaudhry",
+            "url": "https://www.jcchaudhry.com/",
+            "logo": "https://www.jcchaudhry.com/logos/jclogo.png",
+            "sameAs": [
+              "https://www.facebook.com/NumerologistAndMotivator/",
+              "https://x.com/jc_chaudhry",
+              "https://www.instagram.com/jc_chaudhrynumerology/",
+              "https://www.youtube.com/@drjcchaudhry"
+            ]
+          }
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -107,28 +120,17 @@ export default function RootLayout({
        <Script src="https://www.googletagmanager.com" security="lazyOnload"></Script>
        <Script src="https://connect.facebook.net" security="lazyOnload"></Script>
 
-        {/* ✅ Organization Schema */}
-        <Script
-          id="organization-schema"
-          type="application/ld+json"
-          strategy="afterInteractive"
-        >
-          {`
-          {
-            "@context": "https://schema.org",
-            "@type": "Organization",
-            "name": "Dr. J C Chaudhry",
-            "url": "https://www.jcchaudhry.com/",
-            "logo": "https://www.jcchaudhry.com/logos/jclogo.png",
-            "sameAs": [
-              "https://www.facebook.com/NumerologistAndMotivator/",
-              "https://x.com/jc_chaudhry",
-              "https://www.instagram.com/jc_chaudhrynumerology/",
-              "https://www.youtube.com/@drjcchaudhry"
-            ]
-          }
-          `}
-        </Script>
+          {/* ✅ Organization JSON-LD */}
+          {Organization && (
+          <script
+            type="application/ld+json"
+            dangerouslySetInnerHTML={{
+              __html: JSON.stringify(Organization)
+            }}
+            key="faq-schema"
+          />
+        )}
+
         {/* ✅ Google Analytics (UA) */}
         <Script
           id="google-analytics"
@@ -207,6 +209,9 @@ export default function RootLayout({
             <Footer />
           </AuthProvider >
         </StoreProvider>
+        <div className="hidden">
+          <a href="/sitemap.html"></a>
+        </div>
       </body>
     </html>
   );

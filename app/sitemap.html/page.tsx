@@ -29,11 +29,11 @@ export default async function Page() {
   const res: any = await getBlogs();
   const pages: any = await getPages();
   const staticPages = route.map((route) => ({
-    slug: `${route}`
+    slug: `${route.slug}`,
+    updatedAt: route.updatedAt
 
   }))
   const blogs = await [...route , ...res?.data , ...pages?.data] || [];
-
   return (
     <main className="max-w-9/12 mx-auto px-5 py-10">
       <h1 className="text-3xl font-bold mb-6">XML Sitemap</h1>
@@ -54,30 +54,49 @@ export default async function Page() {
           <div className="[&>*:nth-child(odd)]:bg-white
               [&>*:nth-child(even)]:bg-gray-100">
             {
-              blogs.map((item: any, i: number) => {
-                if (item.slug !== undefined && !item.slug.includes("/")) {
+              staticPages.map((item: any, i: number) => {
+                
                   return (
                     <div key={i} className="grid grid-cols-[80px_1fr_220px] px-5 py-3 border-b">
                       <div>{i + 1}.</div>
-                      <div className="break-all hover:text-blue-500 hover:underline"><Link href={`/article/${item.slug}`}>{item.slug}</Link></div>
+                      <div className="break-all hover:text-blue-500 hover:underline">
+                        <Link href={`${item.slug}`}>{item.slug}</Link>
+                      </div>
                       <div>{item && new Date(item?.updatedAt ).toLocaleString('en-GB')}</div>
                     </div>
                   )
                 }
-                else if(item?.slug?.includes("/") && item.slug !== "/") {
-                  return (
-                    <div key={i} className="grid grid-cols-[80px_1fr_220px] px-5 py-3 border-b">
-                      <p>{i + 1}.</p>
-                      <p className="break-all hover:text-blue-500 hover:underline"><Link href={`/${item.slug}`}>{item.slug.replace("/", "")}</Link></p>
-                      <p>{item && new Date(item?.updatedAt ).toLocaleString('en-GB')}</p>
+              )
+            }
+            
+
+            {
+              pages?.data.map((item: any, i: number) => {
+                return (
+                  <div key={i} className="grid grid-cols-[80px_1fr_220px] px-5 py-3 border-b">
+                    <div>{i + staticPages.length}.</div>
+                    <div className="break-all hover:text-blue-500 hover:underline">
+                      <Link href={`/${item.slug}`}>/{item.slug}</Link>
                     </div>
-                  )
-                }
+                    <div>{item && new Date(item?.updatedAt ).toLocaleString('en-GB')}</div>
+                  </div>
+                )                
               })
             }
 
-
-
+            {
+              res?.data.map((item: any, i: number) => {
+                
+                  return (
+                    <div key={i} className="grid grid-cols-[80px_1fr_220px] px-5 py-3 border-b">
+                      <div>{i +  staticPages.length + pages?.data.length}.</div>
+                      <div className="break-all hover:text-blue-500 hover:underline"><Link href={`/article/${item.slug}`}>/article/{item.slug}</Link></div>
+                      <div>{item && new Date(item?.updatedAt ).toLocaleString('en-GB')}</div>
+                    </div>
+                  )
+                }
+              )
+            }
           </div>
         </div>
       </section>

@@ -5,25 +5,26 @@ import { Blog } from "@/app/models/blog";
 import GenerateMetadata, { buildArticleJsonLd } from "@/app/components/MetaGenerator";
 import { headers } from "next/headers";
 import { apiFetch } from "@/lib/api";
+import { Metadata, ResolvingMetadata } from "next";
 
 const DOMAIN = process.env.NEXT_PUBLIC_DOMAIN || '';
 
-export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }) {
+export async function generateMetadata({ params }: { params: Promise<{ slug: string }>, parent: ResolvingMetadata }): Promise<Metadata>  {
   const { slug } = await params;
 
   const BACKEND = process.env.URI;
-  const blogRes = await fetch(`${BACKEND}blog/slug/${slug}`, { cache: "no-store" });
+  const blogRes = await fetch(`${BACKEND}blog/slug/${slug}`, { next: { revalidate: 3600 }, });
   const blogJson = await blogRes.json();
   const blog: Blog = blogJson?.data?.[0];
 
   if (!blog) return {};
 
-  return GenerateMetadata({
-    pagePath: `/article/${blog?.slug}`,
-    banner: `https://newcnpl.s3.ap-south-1.amazonaws.com/public/blogs/banners/${blog.headerBanner}`,
+  return await GenerateMetadata({
     title: blog?.metaTitle,
     description: blog?.metaDescription,
     keywords: blog?.keywords,
+    banner: `https://newcnpl.s3.ap-south-1.amazonaws.com/public/blogs/banners/${blog.headerBanner}`,
+    pagePath: `/article/${blog?.slug}`,
     // headers: headers,
   });
 }
