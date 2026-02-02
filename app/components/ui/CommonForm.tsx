@@ -243,7 +243,7 @@ export default function CommonForm({ style }: CommonFormProps) {
                     </div>
                     <div className="flex items-start my-3 justify-between">
                         <input type="checkbox" ref={statusRef} name="checkbox" defaultChecked />
-                        <p className='text-xs w-[250px] font-semibold'>
+                        {/* <p className='text-xs w-[250px] font-semibold'>
                             By clicking, I agree to receive SMS & emails. I have read the
                             <span className='cursor-pointer underline text-[#490099]'>
                                 <Link href="/privacy-policy"> Privacy Policy </Link>
@@ -251,6 +251,21 @@ export default function CommonForm({ style }: CommonFormProps) {
                             <span className='cursor-pointer underline text-[#490099]'>
                                 <Link href="/terms-and-conditions"> Terms of Service</Link>
                             </span>
+                        </p> */}
+
+                         <p className='text-xs w-[250px] font-semibold'>
+                            I agree to receive communication from Chaudhry Nummero Pvt. Ltd. via text messaging. Communication will be occasional as required and no spam will be sent. Message & data rates may apply if applicable on your network. Message frequency varies. Text HELP for help. At any time, you may reply STOP to cancel. View 
+                            
+                            <span className='cursor-pointer underline text-[#490099]'>
+                                <Link href="/terms-and-conditions"> Terms & conditions </Link>
+                            </span>
+
+                             and 
+                            
+                            <span className='cursor-pointer underline text-[#490099]'>
+                                <Link href="/privacy-policy"> Privacy Policy </Link>
+                            </span> 
+                            
                         </p>
                     </div>
                     {loading ?
