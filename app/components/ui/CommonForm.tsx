@@ -19,6 +19,7 @@ import Img from "./Img";
 import Para from "./Para";
 import SubHeading1 from "./SubHeading1";
 import setDobFn from "@/lib/setDobFn";
+import { useAlert } from "@/lib/AlertBox";
 
 interface CommonFormProps {
   style?: string;
@@ -28,6 +29,7 @@ export default function CommonForm({ style }: CommonFormProps) {
    let [loading, setLoading] = useState(false);
     let path = process.env.NEXT_PUBLIC_URI;
     const redirect = useRouter();
+    const alertBox = useAlert();
 
     const [nationalNumber, setNationalNumber] = useState('');
     const [code, setCode] = useState('')
@@ -147,8 +149,9 @@ export default function CommonForm({ style }: CommonFormProps) {
                     return alert(res.data.message)
                 }
             }
-        } catch (error) {
+        } catch (error: any) {
             console.log(error)
+            alertBox.showAlert({title:"Error", message: `${error?.response?.data?.message}`, type:"error"});
         } finally {
             setLoading(false)
         }
