@@ -245,7 +245,7 @@ export default function CommonForm({ style }: CommonFormProps) {
 
                     </div>
                     <div className="flex items-start my-3 justify-between">
-                        <input type="checkbox" ref={statusRef} name="checkbox" defaultChecked />
+                        <input type="checkbox" ref={statusRef} name="checkbox"  />
                         {/* <p className='text-xs w-[250px] font-semibold'>
                             By clicking, I agree to receive SMS & emails. I have read the
                             <span className='cursor-pointer underline text-[#490099]'>
