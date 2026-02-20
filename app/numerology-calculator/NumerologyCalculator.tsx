@@ -85,7 +85,7 @@ const NumerologyCalculator = () => {
         }
 
         // 3. Repeated blocks like 1111122222, 2222233333, 1231231231
-        if (/(\d)\1{4,}/.test(nationalNumber)) {
+        if (/(\d)\1{6,}/.test(nationalNumber)) {
             return toast("Please provide a valid phone number");
         }
 
@@ -247,7 +247,7 @@ const NumerologyCalculator = () => {
                                     />
                                 </div>
                                 <div className='nameNumber'>
-                                    <PhoneInput country={countryIP} value={mobileNumber1} onChange={inputChange} countryCodeEditable={false} />
+                                    <PhoneInput country={countryIP} value={mobileNumber1} onChange={inputChange} countryCodeEditable={false} enableSearch />
                                 </div>
                             </div>
                         </div>
@@ -289,7 +289,7 @@ const NumerologyCalculator = () => {
                         <div className='space-y-2'>
                             <label htmlFor="subject" className="font-medium text-[#07074D] text-left" >Mobile Number:</label>
                             <div className='phoneInput'>
-                                <PhoneInput country={countryIP} value={mobileNumber1} onChange={inputChange} countryCodeEditable={false} />
+                                <PhoneInput country={countryIP} value={mobileNumber1} onChange={inputChange} countryCodeEditable={false} enableSearch/>
                             </div>
                         </div>
                         <div className=''>
