@@ -13,6 +13,7 @@ import Para from '../components/ui/Para';
 import SmallButton from '../components/ui/SmallButton';
 import SubHeading from '../components/ui/SubHeading';
 import { useRouter } from 'next/navigation';
+import 'react-phone-input-2/lib/style.css'
 
 const Contact = () => {
    let path = process.env.NEXT_PUBLIC_URI;
