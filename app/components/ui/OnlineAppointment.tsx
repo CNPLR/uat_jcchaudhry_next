@@ -268,9 +268,9 @@ export default function OnlineAppointment() {
                     <Para style="my-1 lg:text-left text-center" para="Ask anything about you, your career, marriage, family etc." />
                     <Para style="my-1 lg:text-left text-center font-bold" para="Book your Appointment for" />
                     <div className='flex justify-center lg:justify-start'>
-                        <div onClick={(e) => showModal('Online', '15 Minutes')} className='cursor-pointer'>
+                        {/* <div onClick={(e) => showModal('Online', '15 Minutes')} className='cursor-pointer'>
                             <Img style="w-20" path="/logos/15.webp" alt="15-Minutes" />
-                        </div>
+                        </div> */}
                         <div onClick={(e) => showModal('Online', '30 Minutes')} className='cursor-pointer'>
                             <Img style="w-20" path="/logos/30.webp" alt="30-Minutes" />
                         </div>
