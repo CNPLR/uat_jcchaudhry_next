@@ -183,7 +183,7 @@ export default function Footer() {
           </div>
         </div>
         <div>
-          <Para style="text-center mt-5 md:mt-0" para="© 2025 All Rights Reserved by jcchaudhry.com" />
+          <Para style="text-center mt-5 md:mt-0" para="© 2026 All Rights Reserved by jcchaudhry.com" />
         </div>
       </div>
     </div>
