@@ -9,6 +9,11 @@ const page = () => {
             <Banner path="/allbanners/annual_returns.png" alttag={''} />
             <div className='my-5 space-y-3 ml-10 inline-block'>
                 <div>
+                    <Link href="/investor/Annual Return 2025.pdf" target='_blank'>
+                        <LinkText para="Annual Return - 2024 - 2025" />
+                    </Link>
+                </div>
+                <div>
                     <Link href="/investor/AnnualReturn2023-24.pdf" target='_blank'>
                         <LinkText para="Annual Return - 2023 - 2024" />
                     </Link>
