@@ -70,10 +70,10 @@ export default function CommonForm({ style }: CommonFormProps) {
 
         let res = await axios.get(`${path}otp/signup-otp?code=${code}&number=${nationalNumber}&name=${name}&platform_type=Desktop`);
         
-        console.log(res)
         if (res.data.success) {
             setOtpStatus("Enter Sent OTP.")
             setOtpEnable(!otpEnable)
+            setVerificationId(res?.data?.data?.data?.verificationId || 0)
         }
         else {
             alert(res.data.message)
