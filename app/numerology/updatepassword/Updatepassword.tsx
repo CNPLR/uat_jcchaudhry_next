@@ -54,9 +54,7 @@ const UpdatePassword = () => {
             if (res.data.success === true) {
                 setOtpStatus("Enter Sent OTP.")
                 setOtpEnable(!otpEnable)
-                console.log(res)
                 setVerificationId(res?.data?.data?.data?.verificationId || 0)
-                console.log(verificationId)
             }
             else {
                 return alert("Something went wrong")
