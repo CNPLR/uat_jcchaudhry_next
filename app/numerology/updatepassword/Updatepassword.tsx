@@ -13,19 +13,25 @@ import { RxCross2 } from 'react-icons/rx';
 import PhoneInput from 'react-phone-input-2';
 import 'react-phone-input-2/lib/style.css'
 import 'react-toastify/dist/ReactToastify.css';
+
+export const countryCodesList = ["44", "61", "1", "65", "60", "62", "91", "971"];
 const UpdatePassword = () => {
     let path = process.env.NEXT_PUBLIC_URI;
     const statusRef = useRef<any>(null);
     let [loading, setLoading] = useState(false);
     const [nationalNumber, setNationalNumber] = useState('');
     const [number, setNumber] = useState()
-    const [code, setCode] = useState()
+    const [code, setCode] = useState('')
     const [otp, setOtp] = useState<string >("")
     const [pass, setPass] = useState<string>("")
     const [cpass, setCpass] = useState<string>()
     const [otpEnable, setOtpEnable] = useState(true)
     const [otpStatus, setOtpStatus] = useState('')
     const [showPassword, setShowPassword] = useState(false)
+
+        const [verificationId, setVerificationId] = useState('')
+
+
 
     const inputChange = (value: any, data: any) => {
         setNumber(value)
@@ -48,6 +54,9 @@ const UpdatePassword = () => {
             if (res.data.success === true) {
                 setOtpStatus("Enter Sent OTP.")
                 setOtpEnable(!otpEnable)
+                console.log(res)
+                setVerificationId(res?.data?.data?.data?.verificationId || 0)
+                console.log(verificationId)
             }
             else {
                 return alert("Something went wrong")
@@ -61,6 +70,20 @@ const UpdatePassword = () => {
             return alert("Please Enter OTP")
         }
         let res = await axios.get(`${path}otp/verified-otp?number=${nationalNumber}&otp=${otp}`)
+        if (res.data.success === true) {
+            setOtpStatus("OTP Verified")
+        }
+        else {
+            setOtpStatus("Invalid OTP")
+        }
+    }
+
+    const verify_global = async (e: any) => {
+        e.preventDefault();
+        if (!otp) {
+            return alert("Please Enter OTP")
+        }
+        let res = await axios.get(`${path}otp/verification-otp-global?number=${nationalNumber}&otp=${otp}&verificationId=${verificationId}`)
         if (res.data.success === true) {
             setOtpStatus("OTP Verified")
         }
@@ -150,7 +173,7 @@ const UpdatePassword = () => {
                                 <input type="password"
                                     value={otp}
                                     onChange={(e) => setOtp(e.target.value)}
-                                    onBlur={verify}
+                                    onBlur={countryCodesList.includes(code) ? verify : verify_global}
                                     name="otp"
                                     disabled={otpEnable}
                                     placeholder="Enter OTP"

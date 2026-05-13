@@ -1,7 +1,7 @@
 "use client";
 
 import { useRef, useState } from "react";
-import {  useRouter } from "next/navigation";
+import { useRouter } from "next/navigation";
 import Link from "next/link";
 import { FaCheck } from "react-icons/fa6";
 import { RxCross2 } from "react-icons/rx";
@@ -20,13 +20,14 @@ import Para from "./Para";
 import SubHeading1 from "./SubHeading1";
 import setDobFn from "@/lib/setDobFn";
 import { useAlert } from "@/lib/AlertBox";
+import { countryCodesList } from "@/app/numerology/updatepassword/Updatepassword";
 
 interface CommonFormProps {
-  style?: string;
+    style?: string;
 }
 
 export default function CommonForm({ style }: CommonFormProps) {
-   let [loading, setLoading] = useState(false);
+    let [loading, setLoading] = useState(false);
     let path = process.env.NEXT_PUBLIC_URI;
     const redirect = useRouter();
     const alertBox = useAlert();
@@ -48,6 +49,7 @@ export default function CommonForm({ style }: CommonFormProps) {
     const [name, setName] = useState<string>('')
     const [email, setEmail] = useState<string>('')
     const [dob, setDob] = useState<string | Date>()
+    const [verificationId, setVerificationId] = useState('')
 
     const inputChange = (value: any, data: any) => {
         setNumber(value)
@@ -67,7 +69,8 @@ export default function CommonForm({ style }: CommonFormProps) {
         }
 
         let res = await axios.get(`${path}otp/signup-otp?code=${code}&number=${nationalNumber}&name=${name}&platform_type=Desktop`);
-
+        
+        console.log(res)
         if (res.data.success) {
             setOtpStatus("Enter Sent OTP.")
             setOtpEnable(!otpEnable)
@@ -85,6 +88,19 @@ export default function CommonForm({ style }: CommonFormProps) {
             return alert("Please Enter OTP")
         }
         let res = await axios.get(`${path}otp/verified-otp?number=${nationalNumber}&otp=${otp}`)
+        if (res.data.success === true) {
+            setOtpStatus("OTP Verified")
+        }
+        else {
+            setOtpStatus("Invalid OTP")
+        }
+    }
+    const verify_global = async (e: any) => {
+        e.preventDefault();
+        if (!otp) {
+            return alert("Please Enter OTP")
+        }
+        let res = await axios.get(`${path}otp/verification-otp-global?number=${nationalNumber}&otp=${otp}&verificationId=${verificationId}`)
         if (res.data.success === true) {
             setOtpStatus("OTP Verified")
         }
@@ -151,7 +167,7 @@ export default function CommonForm({ style }: CommonFormProps) {
             }
         } catch (error: any) {
             console.log(error)
-            alertBox.showAlert({title:"Error", message: `${error?.response?.data?.message}`, type:"error"});
+            alertBox.showAlert({ title: "Error", message: `${error?.response?.data?.message}`, type: "error" });
         } finally {
             setLoading(false)
         }
@@ -160,8 +176,8 @@ export default function CommonForm({ style }: CommonFormProps) {
     const country = CountryIPaddress();
 
 
-  return (
-    <>
+    return (
+        <>
             <div className={`${style} px-5 py-3 w-[320px] bg-white rounded-md`}>
                 <SubHeading1 subHeading="Register Now" style="text-center" />
                 <Para para="To book an appointment" style="text-center mb-2" />
@@ -171,7 +187,7 @@ export default function CommonForm({ style }: CommonFormProps) {
                     </div>
                     <div className="flex mb-5">
                         <PhoneInput
-                            country={country||"IN"}
+                            country={country || "IN"}
                             value={number}
                             onChange={inputChange}
                             onBlur={sendOtp}
@@ -187,7 +203,7 @@ export default function CommonForm({ style }: CommonFormProps) {
                             type="password"
                             value={otp}
                             onChange={(e) => setOtp(e.target.value)}
-                            onBlur={verify}
+                            onBlur={countryCodesList.includes(code) ? verify : verify_global}
                             name="otp"
                             disabled={otpEnable}
                             placeholder="Enter OTP"
@@ -245,7 +261,7 @@ export default function CommonForm({ style }: CommonFormProps) {
 
                     </div>
                     <div className="flex items-start my-3 justify-between">
-                        <input type="checkbox" ref={statusRef} name="checkbox"  />
+                        <input type="checkbox" ref={statusRef} name="checkbox" />
                         {/* <p className='text-xs w-[250px] font-semibold'>
                             By clicking, I agree to receive SMS & emails. I have read the
                             <span className='cursor-pointer underline text-[#490099]'>
@@ -256,26 +272,26 @@ export default function CommonForm({ style }: CommonFormProps) {
                             </span>
                         </p> */}
 
-                         <p className='text-xs w-[250px] font-semibold'>
-                            I agree to receive communication from Chaudhry Nummero Pvt. Ltd. via text messaging. Communication will be occasional as required and no spam will be sent. Message & data rates may apply if applicable on your network. Message frequency varies. Text HELP for help. At any time, you may reply STOP to cancel. View 
-                            
+                        <p className='text-xs w-[250px] font-semibold'>
+                            I agree to receive communication from Chaudhry Nummero Pvt. Ltd. via text messaging. Communication will be occasional as required and no spam will be sent. Message & data rates may apply if applicable on your network. Message frequency varies. Text HELP for help. At any time, you may reply STOP to cancel. View
+
                             <span className='cursor-pointer underline text-[#490099]'>
                                 <Link href="/terms-and-conditions"> Terms & conditions </Link>
                             </span>
 
-                             and 
-                            
+                            and
+
                             <span className='cursor-pointer underline text-[#490099]'>
                                 <Link href="/privacy-policy"> Privacy Policy </Link>
-                            </span> 
-                            
+                            </span>
+
                         </p>
                     </div>
                     {loading ?
                         <div className='w-28 mx-auto rounded-md font-bold text-center bg-[#fd7e14] py-2 shadow-2xl'>
                             <Img style="mx-auto w-7" path="/logos/loader_gif.gif" alt="" />
                         </div>
-                        : <SmallButton text="Submit" style="m-auto" onClick={handleSubmit}/>
+                        : <SmallButton text="Submit" style="m-auto" onClick={handleSubmit} />
                     }
                 </form>
                 <p className='text-xs mt-2 text-center font-semibold'>
@@ -286,5 +302,5 @@ export default function CommonForm({ style }: CommonFormProps) {
                 </p>
             </div>
         </>
-  );
+    );
 }
