@@ -13,6 +13,7 @@ type ImgHeadingBoxProps = {
   link: string;
   alt?: string;
   style?: string;
+  headTag?: string
 };
 
 export default function ImgHeadingBox({
@@ -23,6 +24,7 @@ export default function ImgHeadingBox({
   link,
   alt = '',
   style= '',
+  headTag
 
 }: ImgHeadingBoxProps) {
   // console.log(style)
@@ -31,7 +33,7 @@ export default function ImgHeadingBox({
       <Link href={link}>
         <Img style={style + " m-auto"} path={path as string} alt={alt as string} />
       </Link>
-      <SubHeading2 subHeading={heading} />
+      <SubHeading2 subHeading={heading} headTag={headTag}/>
       <Para style={ps} para={para} />
     </div>
   );

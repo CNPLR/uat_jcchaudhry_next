@@ -24,8 +24,8 @@ const geistMono = Geist_Mono({
 const DOMAIN = process.env.NEXT_PUBLIC_DOMAIN || "https://www.jcchaudhry.com";
 const API_URL = process.env.NEXT_PUBLIC_URI || "https://api.jcchaudhry.com";
 export const metadata: Metadata = {
-  title: "Dr. J C Chaudhry",
-  description: "Official website of Dr. J.C. Chaudhry",
+  title: "Dr. J C Chaudhry – Best Numerologist in India | 40+ Years Experience",
+  description: "Dr. J C Chaudhry is a renowned numerologist and Vastu expert in India with 40+ years of experience. Get accurate numerology insights for career, business, and relationships with online consultation available worldwide.",
   robots: "index, follow",
 
   keywords: [
@@ -117,8 +117,8 @@ export default function RootLayout({
         <link rel="preconnect" href="https://connect.facebook.net" /> */}
 
 
-       <Script src="https://www.googletagmanager.com" security="lazyOnload"></Script>
-       <Script src="https://connect.facebook.net" security="lazyOnload"></Script>
+       <Script src="https://www.googletagmanager.com" strategy="afterInteractive"></Script>
+       <Script src="https://connect.facebook.net" strategy="afterInteractive"></Script>
 
           {/* ✅ Organization JSON-LD */}
           {Organization && (
@@ -134,11 +134,11 @@ export default function RootLayout({
         {/* ✅ Google Analytics (UA) */}
         <Script
           id="google-analytics"
-          strategy="afterInteractive"
+          strategy="lazyOnload"
           src="https://www.google-analytics.com/analytics.js"
         />
 
-        <Script id="google-analytics-init" strategy="afterInteractive">
+        <Script id="google-analytics-init" strategy="lazyOnload">
           {`
             window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};
             ga.l=+new Date;
@@ -149,7 +149,7 @@ export default function RootLayout({
         </Script>
 
         {/* ✅ OLD ga.js support (legacy) */}
-        <Script id="gaq-support" strategy="afterInteractive">
+        <Script id="gaq-support" strategy="lazyOnload">
           {`
             var _gaq = _gaq || [];
             _gaq.push(['_setAccount', 'UA-130885643-1']);
@@ -167,7 +167,7 @@ export default function RootLayout({
         </Script>
 
         {/* ✅ Facebook Pixel */}
-        <Script id="facebook-pixel" strategy="afterInteractive">
+        <Script id="facebook-pixel" strategy="lazyOnload">
           {`
             !function(f,b,e,v,n,t,s)
             {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
@@ -203,7 +203,7 @@ export default function RootLayout({
                 <LastRouteTracker />
               </Suspense>
               <AlertProvider>
-                {children}
+                <main>{children}</main>
               </AlertProvider>
             <div className="md:hidden"><PhoneViewButton/></div>
             <Footer />

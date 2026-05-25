@@ -5,7 +5,7 @@ import { PageDataResult, usePageData } from '../components/numerology/UsePageDat
 import { Metadata, ResolvingMetadata } from 'next';
 
 type Props = {
-  params: { slug: string };
+  params: Promise<{ slug: string }>;
 };
 
 

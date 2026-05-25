@@ -13,18 +13,18 @@ export default function Footer() {
       <div className='lg:flex justify-between py-3 mx-auto max-w-[1440px] space-y-5 md:space-y-0'>
         <div className='w-72 mx-auto lg:mx-0'>
           <div className='mb-2'>
-            <Img path="/logos/logo_white.png" style="w-[75px] h-[76px]" alt="logo" />
+            <Img path="/logos/logo_white.png" style="w-[75px] h-[76px]" alt="logo" width={100} height={111} />
           </div>
           <Para style="pb-2 text-justify" para="Dr. J C Chaudhry is a first-ever Guinness World Record-winning numerologist with 40 years of experience. He provides services such as lo shu grid reading, business numerology, name correction, marriage numerology, and remedies for lifestyle betterment." />
           <div className='flex items-center justify-center lg:justify-start space-x-3'>
-            <ImgLink style="hover:scale-[1.1] w-7" to="https://twitter.com/jc_chaudhry" path="/socialmedia/06.png" alt="twitter" />
-            <ImgLink style="hover:scale-[1.1] w-7" to="https://www.facebook.com/NumerologistAndMotivator/" path="/socialmedia/02.png" alt="facebook" />
-            <ImgLink style="hover:scale-[1.1] w-7" to="https://www.instagram.com/jc_chaudhrynumerology/" path="/socialmedia/03.png" alt="instagram" />
-            <ImgLink style="hover:scale-[1.1] w-7" to="https://www.youtube.com/channel/UCkGRccoFIazt6GZUcdq6Byg/" path="/socialmedia/01.png" alt="youtube" />
+            <ImgLink style="hover:scale-[1.1] w-7" to="https://twitter.com/jc_chaudhry" path="/socialmedia/06.png" alt="twitter"  width={199} height={199}/>
+            <ImgLink style="hover:scale-[1.1] w-7" to="https://www.facebook.com/NumerologistAndMotivator/" path="/socialmedia/02.png" alt="facebook" width={200} height={200} />
+            <ImgLink style="hover:scale-[1.1] w-7" to="https://www.instagram.com/jc_chaudhrynumerology/" path="/socialmedia/03.png" alt="instagram" width={200} height={199} />
+            <ImgLink style="hover:scale-[1.1] w-7" to="https://www.youtube.com/channel/UCkGRccoFIazt6GZUcdq6Byg/" path="/socialmedia/01.png" alt="youtube" width={199} height={199} />
           </div>
         </div>
         <div className='text-center lg:text-left space-y-2'>
-          <SubHeading2 subHeading="Quick Links" />
+          <SubHeading2 subHeading="Quick Links" headTag="h3"/>
           <div>
             <Link href="/about">
               <Para para="About" style="hover:underline underline-offset-8" />
@@ -62,7 +62,7 @@ export default function Footer() {
           </div>
         </div>
         <div className='text-center lg:text-left space-y-2'>
-          <SubHeading2 subHeading="Our Presence" />
+          <SubHeading2 subHeading="Our Presence" headTag="h3" />
           {/* <div>
             <Link href="/top-numerologist-of-the-world" className='hover:underline underline-offset-8'>
               <Para para="World Numerologist" style="" />
@@ -116,7 +116,7 @@ export default function Footer() {
           </div> */}
         </div>
         <div className='text-center lg:text-left space-y-2'>
-          <SubHeading2 subHeading="Services" />
+          <SubHeading2 subHeading="Services"  headTag="h3"/>
           <div>
             <Link href="/business-numerology-reading">
               <Para para="Business Numerology" style="hover:underline underline-offset-8" />

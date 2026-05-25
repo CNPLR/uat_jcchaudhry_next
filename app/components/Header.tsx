@@ -69,7 +69,7 @@ export default function Header() {
 
         <Link href="/" className="hidden xl:block">
           <div className="md:flex flex-shrink-0 items-center justify-center my-3 md:my-0 hidden space-x-2">
-            <Img style="w-12 h-12" path="/logos/jclogo.png" alt="logo" loading="eager" />
+            <Img path="/logos/jclogo.png" alt="logo"  width={48} height={53} />
             <Para para="Dr. J C Chaudhry" style="para text-xl font-bold" />
           </div>
         </Link>
@@ -104,15 +104,15 @@ export default function Header() {
 
             {lastLogin !== null ? (<div>||</div>): null}
 
-            <ImgLink style="hover:scale-[1.1] w-7" to="https://twitter.com/jc_chaudhry" path="/socialmedia/06.png" alt="twitter" />
-            <ImgLink style="hover:scale-[1.1] w-7" to="https://www.facebook.com/NumerologistAndMotivator/" path="/socialmedia/02.png" alt="facebook" />
-            <ImgLink style="hover:scale-[1.1] w-7" to="https://www.instagram.com/jc_chaudhrynumerology/" path="/socialmedia/03.png" alt="instagram" />
-            <ImgLink style="hover:scale-[1.1] w-7" to="https://www.youtube.com/channel/UCkGRccoFIazt6GZUcdq6Byg/" path="/socialmedia/01.png" alt="youtube" />
+            <ImgLink style="hover:scale-[1.1] w-7" to="https://twitter.com/jc_chaudhry" path="/socialmedia/06.png" alt="twitter" width={199} height={199}/>
+            <ImgLink style="hover:scale-[1.1] w-7" to="https://www.facebook.com/NumerologistAndMotivator/" path="/socialmedia/02.png" alt="facebook" width={200} height={200} />
+            <ImgLink style="hover:scale-[1.1] w-7" to="https://www.instagram.com/jc_chaudhrynumerology/" path="/socialmedia/03.png" alt="instagram"  width={200} height={199} />
+            <ImgLink style="hover:scale-[1.1] w-7" to="https://www.youtube.com/channel/UCkGRccoFIazt6GZUcdq6Byg/" path="/socialmedia/01.png" alt="youtube" width={199} height={199}  />
 
             <div>||</div>
 
-            <ImgLink style="hover:scale-[1.1] w-7" path="/logos/android.png" to="https://play.google.com/store/apps/details?id=jc.nummerro.app" alt="play-store" />
-            <ImgLink style="hover:scale-[1.1] w-7" path="/logos/apple-logo.png" to="https://apps.apple.com/us/app/jc-nummerro-app/id1529437444" alt="app-store" />
+            <ImgLink style="hover:scale-[1.1] w-7" path="/logos/android.png" to="https://play.google.com/store/apps/details?id=jc.nummerro.app" alt="play-store" width={50} height={50}  />
+            <ImgLink style="hover:scale-[1.1] w-7" path="/logos/apple-logo.png" to="https://apps.apple.com/us/app/jc-nummerro-app/id1529437444" alt="app-store" width={50} height={50} />
 
           </div>
 
