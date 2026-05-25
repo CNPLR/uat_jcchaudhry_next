@@ -25,6 +25,9 @@ type ImgHeadingContentProps = {
   nomore?: string;
   alt?: string;
   target?: string;
+  headTag?: string
+  w?: number
+  h?: number
 };
 
 export default function ImgHeadingContent({
@@ -43,6 +46,9 @@ export default function ImgHeadingContent({
   nomore,
   alt = '',
   target,
+  headTag,
+  w,
+  h
 }: ImgHeadingContentProps) {
 
   const [token, setToken] = useState<string | null>(null);
@@ -53,12 +59,12 @@ export default function ImgHeadingContent({
 
   return (
     <div className={`${style} flex flex-col lg:flex-row justify-start items-start my-10`}>
-      <Img style={`${styleimg ? styleimg : 'w-96'}`} path={path as string} alt={alt as string} />
+      <Img style={`${styleimg ? styleimg : 'w-96'}`} path={path as string} alt={alt as string} priority width={w} height={h} />
 
       <div className='lg:ml-10 space-y-5'>
 
         {subHeading && (
-          <SubHeading style={subhs} subHeading={subHeading} />
+          <SubHeading style={subhs} subHeading={subHeading} headTag={headTag} />
         )}
 
         {subHeading2 && (

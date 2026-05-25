@@ -91,9 +91,10 @@ export function CommonVideos({ para, path, url }: CommonVideosProps) {
           <Img style="" path={path} alt={para} />
 
           {/* Centered Play Button */}
-          <button
+          <button type="button"
             className="absolute inset-0 flex items-center justify-center"
             onClick={showModal}
+            aria-label="Play Video"
           >
             <FaRegPlayCircle color="#fd7e14" size={40} />
           </button>
@@ -186,6 +187,7 @@ export function HomeVideos({
         <button
           className="absolute inset-0 flex items-center justify-center"
           onClick={() => setShowModal(true)}
+          aria-label="Play Video"
         >
           <FaRegPlayCircle size={40} color="#fd7e14" />
         </button>
@@ -242,6 +244,7 @@ export function CNPL({ url, path, itemKey }: CNPLProps) {
         <button
           className="absolute inset-0 flex items-center justify-center"
           onClick={() => setShowModal(true)}
+          aria-label="Play Video"
         >
           <FaRegPlayCircle size={40} color="#fd7e14" />
         </button>

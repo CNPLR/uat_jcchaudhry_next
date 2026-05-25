@@ -252,10 +252,10 @@ const Numerology = ({slug, pagesData}: {slug: string, pagesData: PageDataResult}
                     <h2 className='mb-5 social'>Follow us on Social Media</h2>
                     <div className='flex space-x-2 justify-center items-center'>
                         <Suspense fallback={<ComponentLoader height="40px" />}>
-                            <ImgLink style="hover:scale-[1.1] w-10 shadow-xl rounded-full" alt="twitter" to="https://twitter.com/jc_chaudhry" path="/socialmedia/06.png" />
-                            <ImgLink style="hover:scale-[1.1] w-10 shadow-xl rounded-full" alt="facebook" to="https://www.facebook.com/NumerologistAndMotivator/" path="/socialmedia/02.png" />
-                            <ImgLink style="hover:scale-[1.1] w-10 shadow-xl rounded-full" alt="instagram" to="https://www.instagram.com/jc_chaudhrynumerology/" path="/socialmedia/03.png" />
-                            <ImgLink style="hover:scale-[1.1] w-10 shadow-xl rounded-full" alt="youtube" to="https://www.youtube.com/channel/UCkGRccoFIazt6GZUcdq6Byg/" path="/socialmedia/01.png" />
+                            <ImgLink style="hover:scale-[1.1] w-10 shadow-xl rounded-full" alt="twitter" to="https://twitter.com/jc_chaudhry" path="/socialmedia/06.png" width={200} height={200}  />
+                            <ImgLink style="hover:scale-[1.1] w-10 shadow-xl rounded-full" alt="facebook" to="https://www.facebook.com/NumerologistAndMotivator/" path="/socialmedia/02.png" width={200} height={199} />
+                            <ImgLink style="hover:scale-[1.1] w-10 shadow-xl rounded-full" alt="instagram" to="https://www.instagram.com/jc_chaudhrynumerology/" path="/socialmedia/03.png" width={200} height={199} />
+                            <ImgLink style="hover:scale-[1.1] w-10 shadow-xl rounded-full" alt="youtube" to="https://www.youtube.com/channel/UCkGRccoFIazt6GZUcdq6Byg/" path="/socialmedia/01.png" width={199} height={199} />
                         </Suspense>
                     </div>
                 </div>

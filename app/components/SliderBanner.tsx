@@ -45,7 +45,7 @@ export default function SliderBanner() {
         pagination={{ clickable: true }}
         autoplay={{ delay: 3000, disableOnInteraction: false }}
       >
-        <SwiperSlide>
+        {/* <SwiperSlide>
           <ImgLink
             style="w-full"
             to="/top-numerologist-india"
@@ -56,7 +56,7 @@ export default function SliderBanner() {
             path2="/allbanners/Dr-J-C-Chaudhrys-Guinness-World-Record-achievement-in-Numerology-and-his-exceptional-contribution-to-the-field-1024.webp"
             path3="/allbanners/Dr-J-C-Chaudhrys-Guinness-World-Record-achievement-in-Numerology-and-his-exceptional-contribution-to-the-field-768.webp"
           />
-        </SwiperSlide>
+        </SwiperSlide> */}
 
         <SwiperSlide>
           <ImgLink

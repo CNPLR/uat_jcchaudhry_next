@@ -23,6 +23,7 @@ interface CommonBgImageProps {
   path2?: string;
   condition?: boolean;
   alt?: string;
+  headTag?: string
 }
 
 export default function CommonBgImage({
@@ -38,6 +39,7 @@ export default function CommonBgImage({
   path2,
   condition,
   alt,
+  headTag
 }: CommonBgImageProps) {
   const token =
     typeof window !== "undefined" ? localStorage.getItem("token") : null;
@@ -58,6 +60,7 @@ export default function CommonBgImage({
           <MainHeading
             style="text-center text-[#fd7e14]"
             mainHeading={mainHeading}
+            headTag={headTag}
           />
         )}
 

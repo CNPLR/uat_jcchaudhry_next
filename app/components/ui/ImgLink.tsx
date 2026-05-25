@@ -10,9 +10,11 @@ type ImgLinkProps = {
   style?: string;
   alt: string;
   loading?: "lazy" | "eager";
+  width?: number;
+  height?: number;
 };
 
-export default function ImgLink({ to, path, path1, path2, path3, style, alt, loading = 'lazy', }: ImgLinkProps) {
+export default function ImgLink({ to, path, path1, path2, path3, style, alt, loading = 'lazy', width, height }: ImgLinkProps) {
     return (
         <Link href={to} target="blank">
             {path1 ?
@@ -23,8 +25,8 @@ export default function ImgLink({ to, path, path1, path2, path3, style, alt, loa
                     alt={alt}
                     loading={loading}
                     fetchPriority='high'
-                    width={1500}
-                    height={500}
+                    width={width || 1500}
+                    height={ height || 500}
                 />
                 :
                 <Image
@@ -33,8 +35,8 @@ export default function ImgLink({ to, path, path1, path2, path3, style, alt, loa
                     alt={alt}
                     loading={loading}
                     fetchPriority='high'
-                    width={1500}
-                    height={500}
+                    width={width || 1500}
+                    height={height || 500}
                 />
             }
 
