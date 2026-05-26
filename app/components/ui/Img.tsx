@@ -1,3 +1,4 @@
+"use client";
 import Image from "next/image";
 
 type ImgProps = {
@@ -16,7 +17,7 @@ export default function Img({ alt, style, path, width, height, priority= false }
   return (
     <Image
       title={alt || ""}
-      src={path}
+      src={path || ""}
       alt={alt || ""}
       width={width ?? 1200}
       height={ height ?? 560}

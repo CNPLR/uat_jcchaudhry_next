@@ -26,6 +26,7 @@ type ImgHeadingContentProps = {
   alt?: string;
   target?: string;
   headTag?: string
+  headTag2?: string
   w?: number
   h?: number
 };
@@ -47,6 +48,7 @@ export default function ImgHeadingContent({
   alt = '',
   target,
   headTag,
+  headTag2,
   w,
   h
 }: ImgHeadingContentProps) {
@@ -68,7 +70,7 @@ export default function ImgHeadingContent({
         )}
 
         {subHeading2 && (
-          <SubHeading2 subHeading={subHeading2} />
+          <SubHeading2 subHeading={subHeading2} headTag={headTag2} />
         )}
 
         <Para para={para} style="text-justify mt-5 lg:mt-0" />

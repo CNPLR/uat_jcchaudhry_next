@@ -1,7 +1,7 @@
 'use client';
 
 import Link from "next/link";
-import { redirect, usePathname } from "next/navigation";
+import { usePathname } from "next/navigation";
 import { Suspense, useEffect, useMemo, useState } from "react";
 import Banner from "../components/ui/Banner";
 import Para from "../components/ui/Para";
@@ -12,8 +12,7 @@ import { CN } from "../components/numerology/CN";
 import ImgLink from "../components/ui/ImgLink";
 import NumerologyServicesCard from "../components/ui/NumerologyServicesCard";
 import { ConsultationCard } from "../components/numerology/ConsultationCard";
-import { useRouter } from "next/router";
-import { PageDataResult, usePageData } from "../components/numerology/UsePageData";
+import { PageDataResult } from "../components/numerology/UsePageData";
 import { ErrorFallback } from "../components/numerology/ErrorFallback";
 import { FooterSection } from "../components/numerology/FooterSection";
 import { ComponentLoader } from "../components/numerology/ComponentLoader";
