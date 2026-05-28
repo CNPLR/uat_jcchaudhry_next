@@ -25,7 +25,7 @@ const VastuMeditationOthers = () => {
             <Link href="/contact-us">
                 <Banner alttag="Vastu consultancy of Home/Office by Dr. J C Chaudhry" path="/allbanners/Vastu-consultancy-of-Home-and-Office-by-Dr-J-C-Chaudhry.webp" />
             </Link>
-            <SubHeading style="text-center my-10" subHeading="Vastu Shastra Expert" />
+            <SubHeading style="text-center my-10" subHeading="Vastu Shastra Expert" headTag='h1'/>
             <div className='lg:px-10 px-5'>
                 <ImgHeadingContent
                     alt="Vastu meditation techniques for peace and harmony"
@@ -58,6 +58,7 @@ const VastuMeditationOthers = () => {
                     subHeading2="Contact one of the well-known Vastu Consultants in Delhi India."
                     styleimg="w-60 mx-auto"
                     subhs="text-center lg:text-left"
+                    headTag2="h3"
                 />
             </div>
 

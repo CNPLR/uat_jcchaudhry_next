@@ -1,4 +1,3 @@
-import React, { use } from 'react'
 import Numerology from './Numerology'
 import GenerateMetadata from '../components/MetaGenerator';
 import { PageDataResult, usePageData } from '../components/numerology/UsePageData';

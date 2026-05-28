@@ -22,6 +22,7 @@ const CommonVideos = ({ para, path, url }: any) => {
           <button
             className="absolute inset-0 flex items-center justify-center"
             onClick={showModal}
+            aria-label="Play Video"
           >
             <FaRegPlayCircle color="#fd7e14" size={40} />
           </button>
