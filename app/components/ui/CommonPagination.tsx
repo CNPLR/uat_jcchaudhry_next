@@ -50,7 +50,7 @@ export default function CommonPagination({
         <button
           key={1}
           className={`mx-2 text-black px-3 py-2 border border-slate-300 text-xs rounded-sm font-semibold ${
-            currentPage === 1 ? "text_over" : ""
+            currentPage === 1 ? "text_over bg-[#fd7e14] text-white" : ""
           }`}
           onClick={() => handleChangePage(1)}
         >
@@ -71,8 +71,8 @@ export default function CommonPagination({
           pageNumbers.push(
             <button
               key={i}
-              className={`mx-2 text-black px-3 py-2 border border-slate-300 text-xs rounded-sm font-semibold ${
-                currentPage === i ? "text_over" : ""
+              className={`mx-2 text-black px-3 py-2 border border-slate-300 text-xs rounded-sm font-semibold cursor-pointer ${
+                currentPage === i ? "text_over bg-[#fd7e14] text-white" : ""
               }`}
               onClick={() => handleChangePage(i)}
             >
@@ -94,7 +94,7 @@ export default function CommonPagination({
         <button
           key={totalPages}
           className={`mx-2 text-black px-3 py-2 border border-slate-300 text-xs rounded-sm font-semibold ${
-            currentPage === totalPages ? "text_over" : ""
+            currentPage === totalPages ? "text_over bg-[#fd7e14] text-white" : ""
           }`}
           onClick={() => handleChangePage(totalPages)}
         >
@@ -112,7 +112,7 @@ export default function CommonPagination({
   );
 
   return (
-    <div className="mb-10">
+    <div className="my-10">
       <ul className="flex justify-center flex-wrap">
         {visibleData.map((item, index) => (
           <li key={index}>{item}</li>

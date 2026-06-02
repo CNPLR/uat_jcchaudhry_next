@@ -1,5 +1,6 @@
 "use client";
 import Image from "next/image";
+import { useMemo } from "react";
 
 type BannerProps = {
   alttag: string;
@@ -12,11 +13,16 @@ type BannerProps = {
 };
 
 export default function Banner({ alttag, path, path1, path2, path3,w,h }: BannerProps) {
+  
+  const cacheBuster = useMemo(() => Date.now(), []);
+  const imageSrc = path.startsWith("http")
+  ? `${path}?v=${cacheBuster}`
+  : path;
   return (
     <div className="w-full">
       <Image
         title={alttag}
-        src={path}
+        src={imageSrc}
         alt={alttag}
         width={w || 1200}
         height={h || 560}
