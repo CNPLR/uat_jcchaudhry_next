@@ -28,7 +28,7 @@ export default function Banner({ alttag, path, path1, path2, path3,w,h }: Banner
         height={h || 560}
         priority
         fetchPriority="high"
-        quality={65}
+        quality={85}
         sizes="(max-width: 640px) 100vw, (max-width: 1024px) 100vw, 1200px"
         className="w-full h-auto object-contain"
       />
