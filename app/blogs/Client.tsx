@@ -52,7 +52,7 @@ const BlogItem = memo(({ blog }: any) => (
     <Suspense fallback={<ComponentLoader height="150px" />}>
         <CommonBlog
             href={`/article/${blog.slug}`}
-            path={`https://newcnpl.s3.ap-south-1.amazonaws.com/public/blogs/thumbnails/${blog.thumbnail}`}
+            path={`https://newcnpl.s3.ap-south-1.amazonaws.com/public/blogs/banners/${blog.headerBanner}`}
             para={blog.pageTitle}
             predictions={blog.tag}
             date={blog.updatedAt}
@@ -144,9 +144,10 @@ const Client = () => {
 
     // Memoized blog components
     const blogComponents = useMemo(() =>
-        processedBlogs.map((blog: any) => (
-            <BlogItem key={blog.id} blog={blog} />
-        )), [processedBlogs]
+        processedBlogs.map((blog: any) => {
+            console.log(blog)
+          return  <BlogItem key={blog.id} blog={blog} />
+}), [processedBlogs]
     );
 
    useEffect(() => {

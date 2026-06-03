@@ -1,5 +1,6 @@
 "use client";
 import Image from "next/image";
+import { useMemo } from "react";
 
 type ImgProps = {
   alt: string;
@@ -14,10 +15,14 @@ export default function Img({ alt, style, path, width, height, priority= false }
   if(!path){
     // console.log(path);
   }
+  const cacheBuster = useMemo(() => Date.now(), []);
+  const imageSrc = path.startsWith("http")
+  ? `${path}?v=${cacheBuster}`
+  : path;
   return (
     <Image
       title={alt || ""}
-      src={path || ""}
+      src={imageSrc || ""}
       alt={alt || ""}
       width={width ?? 1200}
       height={ height ?? 560}

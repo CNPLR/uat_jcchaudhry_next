@@ -34,7 +34,16 @@ const nextConfig: NextConfig = {
     ],
   },
   images: {
-    remotePatterns: [new URL('https://newcnpl.s3.ap-south-1.amazonaws.com/**')],
+    localPatterns: [
+     {
+      pathname: '/**',
+    },
+    ],
+    remotePatterns: [{
+        protocol: 'https',
+        hostname: 'newcnpl.s3.ap-south-1.amazonaws.com',
+        pathname: '/**',
+      },],
     formats: ["image/avif", "image/webp"],
     minimumCacheTTL: 60 * 60 * 24 * 30,
     deviceSizes: [640, 750, 828, 1080, 1200, 1920],
