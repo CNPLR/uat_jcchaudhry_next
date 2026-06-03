@@ -144,10 +144,9 @@ const Client = () => {
 
     // Memoized blog components
     const blogComponents = useMemo(() =>
-        processedBlogs.map((blog: any) => {
-            console.log(blog)
-          return  <BlogItem key={blog.id} blog={blog} />
-}), [processedBlogs]
+            processedBlogs.map((blog: any) => (
+                <BlogItem key={blog.id} blog={blog} />
+            )), [processedBlogs]
     );
 
    useEffect(() => {
