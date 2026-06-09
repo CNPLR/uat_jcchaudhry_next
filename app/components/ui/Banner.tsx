@@ -10,9 +10,10 @@ type BannerProps = {
   path3?: string; // 769w
   w?: number;
   h?: number;
+  priority?: boolean;
 };
 
-export default function Banner({ alttag, path, path1, path2, path3,w,h }: BannerProps) {
+export default function Banner({ alttag, path, path1, path2, path3,w,h, priority= false }: BannerProps) {
   
   const cacheBuster = useMemo(() => Date.now(), []);
   const imageSrc = path.startsWith("http")
@@ -26,8 +27,8 @@ export default function Banner({ alttag, path, path1, path2, path3,w,h }: Banner
         alt={alttag}
         width={w || 1200}
         height={h || 560}
-        priority
-        fetchPriority="high"
+        priority={priority}
+        fetchPriority={priority ? "high" : "auto"}
         quality={85}
         sizes="(max-width: 640px) 100vw, (max-width: 1024px) 100vw, 1200px"
         className="w-full h-auto object-contain"

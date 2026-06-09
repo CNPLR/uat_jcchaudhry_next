@@ -11,6 +11,7 @@ import SmallButton from "../components/ui/SmallButton";
 import SubHeading from "../components/ui/SubHeading";
 import SubHeading2 from "../components/ui/SubHeading2";
 import CommonVideos from "../components/ui/CommonVideos";
+import MainHeading from "../components/ui/MainHeading";
 
 const Motivation = () => {
   const [videos, setVideos] = useState<any[]>()
@@ -25,8 +26,9 @@ const Motivation = () => {
     return (
         <div className=''>
             <Link href='/contact-us'>
-                <Banner alttag="Motivational speaker Dr. J C Chaudhry" path="/allbanners/Motivational-speaker-Dr-J-C-Chaudhry.webp" />
+                <Banner alttag="Motivational speaker Dr. J C Chaudhry" path="/allbanners/Motivational-speaker-Dr-J-C-Chaudhry.webp" w={515} h={196} priority />
             </Link>
+            <MainHeading style="hidden" mainHeading="Motivational speaker by Dr. J C Chaudhry"  headTag="h1"/>
             <div className='flex items-center justify-center lg:space-x-10 bg-gray-100 lg:flex-row flex-col'>
                 <div className='lg:w-96 w-80 space-y-5 text-center lg:text-left'>
                     <SubHeading subHeading="Recent Awards" />
@@ -69,7 +71,7 @@ const Motivation = () => {
                             <Img alt="" path="/images_folder/Icons.png" style="w-[38px]" />
                         </div>
                         <div className='ml-5'>
-                            <SubHeading2 subHeading="Motivational Seminars" />
+                            <SubHeading2 subHeading="Motivational Seminars" headTag="h3" />
                             <Para para="Addressing students for a career path" />
                         </div>
                     </div>
@@ -78,7 +80,7 @@ const Motivation = () => {
                             <Img alt="" path="/images_folder/ability.png" style="w-[38px]"/>
                         </div>
                         <div className='ml-5'>
-                            <SubHeading2 subHeading="Life Mantras" />
+                            <SubHeading2 subHeading="Life Mantras" headTag="h3" />
                             <Para para="Life motivation and inspiration videos" />
                         </div>
                     </div>
@@ -87,7 +89,7 @@ const Motivation = () => {
                             <Img alt="" path="/images_folder/success.png" style="w-[38px]"/>
                         </div>
                         <div className='ml-5'>
-                            <SubHeading2 subHeading="Motivation for Success" />
+                            <SubHeading2 subHeading="Motivation for Success" headTag="h3" />
                             <Para para="Life changing success mantras" />
                         </div>
                     </div>
