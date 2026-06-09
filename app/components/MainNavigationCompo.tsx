@@ -77,7 +77,7 @@ export default function MainNavigationCompo() {
                 {/* ✅ Mobile Header */}
                 <div className='relative flex xl:hidden py-3'>
                     <Link href="/" className="xl:hidden flex flex-shrink-0 items-center pl-5 xl:pl-0 space-x-2">
-                        <Img style="w-12 h-12" path="/logos/jclogo.png" alt="mainlogo" width={100} height={111} />
+                        <Img style="w-12" path="/logos/jclogo.png" alt="mainlogo" width={48} height={48} />
                         <Para para="Dr. J C Chaudhry" style="para text-xl font-bold" />
                     </Link>
 

@@ -1,5 +1,5 @@
 // slices/blogSlice.ts
-import { createSlice, createAsyncThunk, PayloadAction, createAction } from '@reduxjs/toolkit'
+import { createSlice, createAsyncThunk, PayloadAction } from '@reduxjs/toolkit'
 import apiPath from '../apiPath'
 import { IBlog } from '../stores/types/blog'
 

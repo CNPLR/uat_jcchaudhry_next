@@ -37,7 +37,7 @@ const LoShuGrid = () => {
             <Link href={token ? '/dashboard' : '/numerology/signup'}>
                 <Banner alttag="Lo Shu Grid numerology" path="/allbanners/Lo-Shu-Grid-numerology.webp" />
             </Link>
-            <SubHeading style="text-center my-10" subHeading="Lo Shu Grid Numerology" />
+            <SubHeading style="text-center my-10" subHeading="Lo Shu Grid Numerology" headTag="h1" />
             <div className='lg:px-10 px-5 bg-gray-100 py-5'>
                 <ImgHeadingContent
                     path="/images_folder/Lo-Shu-grid-for-numerology-calculations-and-placement.png"
@@ -48,17 +48,18 @@ const LoShuGrid = () => {
                     nstyle="w-52"
                     subHeading2="Placements of Digits in Birth Chart"
                     subhs="lg:mt-0 mt-5"
+                    headTag2="h2"
                 />
             </div>
             <div className='my-10 bg-gray-100 py-5 px-5 lg:px-10 space-y-5'>
-                <SubHeading style="text-center" subHeading="Horizontal lines or Planes in Lo Shu Grid" />
+                <SubHeading style="text-center" subHeading="Horizontal lines or Planes in Lo Shu Grid" headTag="h2" />
 
                 <Img alt="Horizontal Lo Shu grid layout for numerology" style="w-[510px]  m-auto" path="/images_folder/Horizontal-Lo-Shu-grid-layout-for-numerology.png" />
 
                 <div className='my-5 flex justify-center flex-wrap'>
-                    <ImgHeadingBox  style={"w-[252px]"} alt="Numerology Lo Shu grid for personal growth" path="/images_folder/Numerology-Lo-Shu-grid-for-personal-growth.webp" heading="Mind (Intellectual Plane)" para="The first horizontal line of the grid is the mind plane. It represents the thinking capabilities of an individual. It is concerned with psychological factors such as memory, concentration and analyzing power." link={pathName} />
-                    <ImgHeadingBox  style={"w-[252px]"} alt="Lo Shu grid analysis for balanced life" path="/images_folder/Lo-Shu-grid-analysis-for-balanced-life.webp" heading="Soul or (Spiritual or Emotional Plane)" para="The second horizontal line of the grid is the soul plane. It denotes feelings, love, emotions, and spiritual inclination. The plane also represents intuitive powers of a person." link={pathName} />
-                    <ImgHeadingBox  style={"w-[252px]"} alt="Achieving balance in life with Lo Shu grid" path="/images_folder/Achieving-balance-in-life-with-Lo-Shu-grid.webp" heading="Practical (or Physical Plane)" para="The third horizontal line of the grid is the practical plane. It represents practical abilities and mindset. It denotes a person’s verbal expression or the ability to do physical tasks." link={pathName} />
+                    <ImgHeadingBox  style={"w-[252px]"} alt="Numerology Lo Shu grid for personal growth" path="/images_folder/Numerology-Lo-Shu-grid-for-personal-growth.webp" heading="Mind (Intellectual Plane)" para="The first horizontal line of the grid is the mind plane. It represents the thinking capabilities of an individual. It is concerned with psychological factors such as memory, concentration and analyzing power." link={pathName} headTag="h3" />
+                    <ImgHeadingBox  style={"w-[252px]"} alt="Lo Shu grid analysis for balanced life" path="/images_folder/Lo-Shu-grid-analysis-for-balanced-life.webp" heading="Soul or (Spiritual or Emotional Plane)" para="The second horizontal line of the grid is the soul plane. It denotes feelings, love, emotions, and spiritual inclination. The plane also represents intuitive powers of a person." link={pathName} headTag="h3" />
+                    <ImgHeadingBox  style={"w-[252px]"} alt="Achieving balance in life with Lo Shu grid" path="/images_folder/Achieving-balance-in-life-with-Lo-Shu-grid.webp" heading="Practical (or Physical Plane)" para="The third horizontal line of the grid is the practical plane. It represents practical abilities and mindset. It denotes a person’s verbal expression or the ability to do physical tasks." link={pathName}  headTag="h3" />
                 </div>
             </div>
             <div className='my-10 bg-gray-100 py-5 px-5 lg:px-10 space-y-5'>
@@ -74,9 +75,9 @@ const LoShuGrid = () => {
                 <Para style="text-center" para="The higher the numbers in square, the stronger and positive impact it makes on the person." />
 
                 <div className='my-5 flex justify-center flex-wrap '>
-                    <ImgHeadingBox style='w-[252px]' alt="Lo Shu grid for aligning life path energies" path="/images_folder/Lo-Shu-grid-for-aligning-life-path-energies.webp" heading="Plane of Thought" para="The left line of the grid is known as the plane of thought. It reflects the person’s ability to think about new ideas and orderly habits. Therefore, it is also referred to as the Planner Plane." link={pathName} />
-                    <ImgHeadingBox style='w-[252px]' alt="Numerology Lo Shu grid with personalized placements" path="/images_folder/Numerology-Lo-Shu-grid-with-personalized-placements.webp" heading="Plane of Determination or Will" para="The middle line of the grid is known as the plane of determination. It reflects the person’s will to achieve goals. It represents the individual’s persistence or determination to succeed." link={''} />
-                    <ImgHeadingBox style='w-[252px]' alt="Numerology insights and placements using Lo Shu grid" path="/images_folder/Numerology-insights-and-placements-using-Lo-Shu-grid.webp" heading="Plane of Action" para="The right line of the grid is known as the plane of action. The plane refers to a person’s ability to take action and effectively execute one’s thoughts. Therefore, the plane is also referred to as the plane of action or activity." link={''} />
+                    <ImgHeadingBox style='w-[252px]' alt="Lo Shu grid for aligning life path energies" path="/images_folder/Lo-Shu-grid-for-aligning-life-path-energies.webp" heading="Plane of Thought" para="The left line of the grid is known as the plane of thought. It reflects the person’s ability to think about new ideas and orderly habits. Therefore, it is also referred to as the Planner Plane." link={pathName} headTag='h3' />
+                    <ImgHeadingBox style='w-[252px]' alt="Numerology Lo Shu grid with personalized placements" path="/images_folder/Numerology-Lo-Shu-grid-with-personalized-placements.webp" heading="Plane of Determination or Will" para="The middle line of the grid is known as the plane of determination. It reflects the person’s will to achieve goals. It represents the individual’s persistence or determination to succeed." link={''} headTag='h3' />
+                    <ImgHeadingBox style='w-[252px]' alt="Numerology insights and placements using Lo Shu grid" path="/images_folder/Numerology-insights-and-placements-using-Lo-Shu-grid.webp" heading="Plane of Action" para="The right line of the grid is known as the plane of action. The plane refers to a person’s ability to take action and effectively execute one’s thoughts. Therefore, the plane is also referred to as the plane of action or activity." link={''} headTag='h3' />
                 </div>
 
             </div>
@@ -105,10 +106,10 @@ const LoShuGrid = () => {
                 </div>
             </div>
             <div className=''>
-                <CommonBookAppointSolution subHeading="Lo shu grid Consultation" subHeading2="Consult Dr. J C Chaudhry for Lo shu grid missing and repeat number remedies." />
+                <CommonBookAppointSolution subHeading="Lo shu grid Consultation" subHeading2="Consult Dr. J C Chaudhry for Lo shu grid missing and repeat number remedies." headTag2='h3'/>
             </div>
             <div className='lg:px-10 px-5 pb-10 mt-10'>
-                <SubHeading style="text-center" subHeading="Learn Lo-Shu Grid Numerology" />
+                <SubHeading style="text-center" subHeading="Learn Lo-Shu Grid Numerology" headTag='h3' />
                 <Para style="text-center" para="Videos by Dr. J C Chaudhry - Lo shu grid specialist" />
                 <div className='flex justify-center flex-wrap my-10'>
                     {videos && videos?.map((ele, index) =>
