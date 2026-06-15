@@ -49,7 +49,7 @@ const VastuMeditationOthers = () => {
             <div className='lg:px-10 px-5 my-10'>
                 <ImgHeadingContent
                     alt="Vastu Shastra for harmonious living and spaces"
-                    path="/images_folder/Vastu-Shastra-for-harmonious-living-and-spaces.png"
+                    path="/images_folder/Vastu-Shastra-for-harmonious-living-and-spaces.webp"
                     para="Dr. J C Chaudhry, a Vastu specialist is there to help you plan the Vastu for your plot, residential project, and office space."
                     nstyle="w-52"
                     sbutton="Contact Us"

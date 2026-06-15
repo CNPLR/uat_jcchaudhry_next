@@ -95,7 +95,7 @@ const NewBornNumerologyReading = () => {
             <div className='px-10'>
                 <ImageContent
                     alt="baby name change"
-                    path="/images_folder/baby-name-change.png"
+                    path="/images_folder/baby-name-change.webp"
                     subHeading="Name Change of the Child"
                     para="Changing your child’s name doesn’t mean, we will change the complete name of the child. If your child’s name is Aryan for example and after his numerology check, we find it’s not suitable for him. We might change it to Aaryan by adding an extra “A” in the name to match the suitability with the date of birth."
                     about="So, don’t worry if you have already given a name to your child without his numerology check. By doing a minor spelling change in the name, we can create a positive impact of numbers in his life."

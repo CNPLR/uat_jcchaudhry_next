@@ -11,7 +11,7 @@ const VideoMetaData : VideoPageMetaCollectionType= {
     },
 
     "motivational-podcasts":{
-        banner: "/allbanners/Numerology-video-lessons-by-Dr-J-C-Chaudhry.webp",
+        banner: "/allbanners/motivational-podcasts.webp",
         title: "Motivational Podcasts by Dr Dr. J C Chaudhry | Best Advice for Life",
         description: "Motivational videos by Dr. J C Chaudhry motivating students, entrepreneurs, and people about life and success. Podcasts for self-development.",
         keywords: "nnumerologist in india, numerology by jc chaudhry, vaastu shastra expert, motivational speaker, motivational speakers in india",

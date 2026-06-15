@@ -21,7 +21,7 @@ const page = () => {
   return (
     <div>
 
-            <Banner alttag="Biography of Dr. J C Chaudhry" path="/allbanners/Biography-of-Dr-J-C-Chaudhry.webp" />
+            <Banner alttag="Biography of Dr. J C Chaudhry" path="/allbanners/About-Dr.-J.C.-Chaudhry’s-educational-journey.webp" />
             <CommonAbout
                 mainHeading="Biography Dr. J C Chaudhry"
                 subHeading2="The Incredible Aakash Story - Journey from an educator to one of India’s most successful academic entrepreneurs"

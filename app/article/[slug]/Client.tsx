@@ -51,7 +51,7 @@ export default function ClientBlog({ slug, initialBlog, bannerUrl, blogData } : 
     );
 
     const updateDate : any = useMemo(() =>
-        blogPost ? new Date(blogPost.blogUpdateDate).toDateString() : '',
+        blogPost ? new Date(blogPost.updatedAt).toDateString() : '',
         [blogPost]
     );
 

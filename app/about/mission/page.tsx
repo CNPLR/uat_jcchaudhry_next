@@ -23,7 +23,7 @@ const page = () => {
                 <MainHeading style="text-center my-5" mainHeading="Mission" />
                 <SubHeading1 style="text-center hidden lg:block" subHeading="To impart quality education to aspiring students beyond geographical barriers with the help of dedicated systems and technology" />
                 <SubHeading2 style="text-center lg:hidden" subHeading="To impart quality education to aspiring students beyond geographical barriers with the help of dedicated systems and technology" />
-                <Img path="/images_folder/mission.jpg" style="m-auto" alt='' />
+                <Img path="/images_folder/mission.png" style="m-auto p-5" alt='' />
             </div>
         </div>
   )

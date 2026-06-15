@@ -98,7 +98,7 @@ const BusinessNumerologyReading = () => {
                 <CommonNumberSolutionsIcon alt="Lucky Name and Numbers for your Shop" para="Lucky Name and Numbers for your Shop" path="/images_folder/Lucky-Name-and-Numbers-for-your-Shop.webp" />
                 <CommonNumberSolutionsIcon alt="Business Name Compatibility with Date of Birth" para="Business Name Compatibility with Date of Birth" path="/images_folder/Business-Name-Compatibility-with-Date-of-Birth.webp" />
                 <CommonNumberSolutionsIcon alt="Numerology for Business Success" para="Numerology for Business Success" path="/images_folder/Numerology-for-Business-Success.webp" />
-                <CommonNumberSolutionsIcon alt="Business Partner Compatibility" para="Business Partner Compatibility" path="/images_folder/Business-Partner-Compatibility-.webp" />
+                <CommonNumberSolutionsIcon alt="Business Partner Compatibility" para="Business Partner Compatibility" path="/images_folder/Business-Partner-Compatibility.webp" />
                 <CommonNumberSolutionsIcon alt="Business Numerology Audit" para="Business Numerology Audit" path="/images_folder/Business-Numerology-Audit.webp" />
             </div>
 

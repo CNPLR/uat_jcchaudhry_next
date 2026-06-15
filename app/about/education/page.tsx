@@ -22,11 +22,11 @@ const education = () => {
 
             <Banner alttag="Learn about Dr. J C Chaudhry’s educational journey" path="/allbanners/Learn-about-Dr-J-C-Chaudhry’s-educational-journey.webp" />
             <MainHeading style="text-center my-10" mainHeading="Education" />
-            <div className='lg:px-10 px-5'>
+            <div className='lg:px-10 px-5 mt-10'>
                 <div className=' flex justify-center flex-col md:flex-row space-x-10 [&>div]:w-full md:[&>div]:w-[30%]'>
                     <ImgHeadingBox
                       alt="About Dr. J.C. Chaudhry’s educational journey"
-                      path="/images_folder/About-Dr.-J.C.-Chaudhry’s-educational-journey.webp"
+                      path="/images_folder/About-Dr.-J.C.-Chaudhry’s-educational-journey_Bits_Pilani.webp"
                       para="Dr. J C Chaudhry holds a Master's degree in Science (Botany) from the Birla Institute of Technology and Science (BITS), Pilani, Rajasthan (1972)." heading={''} link={''}                    />
                     <ImgHeadingBox
                         alt="Dr. J.C. Chaudhry’s educational journey"

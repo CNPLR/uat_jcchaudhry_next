@@ -96,7 +96,7 @@ const Motivation = () => {
                 </div>
                 <div className='mt-5 lg:mt-0'>
                     <Link href="https://www.youtube.com/channel/UCkGRccoFIazt6GZUcdq6Byg">
-                        <Img alt="Subscribe for Dr. Chaudhry's motivational insights" style="w-96 " path="/images_folder/Subscribe-for-Dr.-Chaudhrys-motivational-insights.png" />
+                        <Img alt="Subscribe for Dr. Chaudhry's motivational insights" style="w-96 " path="/images_folder/Subscribe-for-Dr.-Chaudhrys-motivational-insights.webp" />
                     </Link>
                 </div>
             </div>
