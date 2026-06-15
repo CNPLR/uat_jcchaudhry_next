@@ -60,23 +60,30 @@ export default function CommonForm({ style }: CommonFormProps) {
     }
 
     const sendOtp = async (e: any) => {
-        e.preventDefault();
-        if (name.length < 4 || name.length > 250) {
-            return alert("Please Enter Minimum 8 and Maximum 250 Characters in Name Field")
-        }
-        if (nationalNumber.length < 7 || nationalNumber.length > 15) {
-            return alert("Please enter your valid number")
-        }
+        try {
+            e.preventDefault();
+            if (name.length < 4 || name.length > 250) {
+                return alert("Please Enter Minimum 8 and Maximum 250 Characters in Name Field")
+            }
+            if (nationalNumber.length < 7 || nationalNumber.length > 15) {
+                return alert("Please enter your valid number")
+            }
 
-        let res = await axios.get(`${path}otp/signup-otp?code=${code}&number=${nationalNumber}&name=${name}&platform_type=Desktop`);
-        
-        if (res.data.success) {
-            setOtpStatus("Enter Sent OTP.")
-            setOtpEnable(!otpEnable)
-            setVerificationId(res?.data?.data?.data?.verificationId || 0)
-        }
-        else {
-            alert(res.data.message)
+            let res = await axios.get(`${path}otp/signup-otp?code=${code}&number=${nationalNumber}&name=${name}&platform_type=Desktop`);
+
+            if (res.data.success) {
+                setOtpStatus("Enter Sent OTP.")
+                setOtpEnable(!otpEnable)
+                setVerificationId(res?.data?.data?.data?.verificationId || 0)
+            }
+            else {
+                alertBox.showAlert({ title: "Alert", message: res.data.message, type: "info" });
+                // alert(res.data.message)
+                return redirect.push('/numerology/login')
+            }
+        } catch (error: any) {
+
+            alertBox.showAlert({ title: "Alert", message: error?.response?.data?.message, type: "info" });
             return redirect.push('/numerology/login')
         }
 
