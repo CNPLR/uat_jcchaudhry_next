@@ -50,8 +50,9 @@ export default function ClientBlog({ slug, initialBlog, bannerUrl, blogData } : 
         [blogPost]
     );
 
+    const lastUpdate = new Date(blogPost.blogPublishDate).getTime() > new Date(blogPost.updatedAt).getTime()? publishDate : blogPost.updatedAt
     const updateDate : any = useMemo(() =>
-        blogPost ? new Date(blogPost.updatedAt).toDateString() : '',
+        blogPost ? new Date(lastUpdate).toDateString() : '',
         [blogPost]
     );
 
