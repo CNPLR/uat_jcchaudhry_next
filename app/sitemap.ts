@@ -4,18 +4,18 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const baseUrl = "https://api.jcchaudhry.com";
 
   type RouteItem = {
-  slug: string;
-  updatedAt: string;
-};
+    slug: string;
+    updatedAt: string;
+  };
 
   // Static routes as fallback
- const staticRoutes: MetadataRoute.Sitemap = routes.map((route: RouteItem) => ({
+  const staticRoutes: MetadataRoute.Sitemap = routes.map((route: RouteItem) => ({
     url: `${process.env.NEXT_PUBLIC_DOMAIN}${route.slug === "/" ? "" : route.slug}`,
-    lastModified:route.updatedAt,
+    lastModified: route.updatedAt,
     changeFrequency: "weekly",
     priority: route.slug === "/" ? 1.00 : 0.80,
   }));
-   
+
 
   try {
     const [blogRes, pageRes] = await Promise.all([
@@ -30,14 +30,14 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
 
     const blogsData = await blogRes.json();
     const pageResponse = await pageRes.json();
-    
+
     // Validate that blogs is an array
     const blogs: any[] = Array.isArray(blogsData) ? blogsData : blogsData.data || [];
 
     // Validate that pages is an array
     const pages: any[] = Array.isArray(pageResponse) ? pageResponse : pageResponse.data || [];
-    
-    
+
+
     if (blogs.length === 0 || pages.length === 0) {
       console.warn("No blogs or pages found for sitemap");
       return staticRoutes;
@@ -51,7 +51,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       priority: 0.80,
     }));
 
-     const pageRoutes: MetadataRoute.Sitemap = pages.map((page) => ({
+    const pageRoutes: MetadataRoute.Sitemap = pages.map((page) => ({
       url: `${process.env.NEXT_PUBLIC_DOMAIN}/${page.slug}`,
       lastModified: page?.updatedAt,
       changeFrequency: "weekly",
@@ -64,4 +64,3 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     return staticRoutes;
   }
 }
-
