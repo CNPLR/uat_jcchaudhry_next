@@ -26,7 +26,7 @@ const BusinessNumerologyReading = () => {
     }, []);
 
     let bgImg = {
-        backgroundImage: 'url(../../images_folder/business_numerology_bg.webp)',
+        backgroundImage: 'url(../../images_folder/business_numerology_bg.png)',
         backgroundPosition: 'center',
         backgroundRepeat: 'noRepeat',
         backgroundSize: 'cover',
@@ -38,7 +38,7 @@ const BusinessNumerologyReading = () => {
             <Link href={token ? '/dashboard' : '/numerology/signup'}>
                 <Banner alttag="Numerology readings for new borns by Dr. J C Chaudhry." path="/allbanners/Numerology-readings-for-new-borns-by-Dr-J-C-Chaudhry.webp" />
             </Link>
-            <MainHeading style="text-center my-5" mainHeading="Business Name Numerology" />
+            <MainHeading style="text-center my-5" mainHeading="Business Name Numerology" headTag="h1" />
             <div className='mx-10 space-y-5'>
                 <Para style='text-justify' para="The rapid escalation of startups and novel brands, highlight the increasing popularity of entrepreneurship as a career option. With budding companies in every niche, establishing their brand’s name and identity is of paramount importance for business owners. Business numerology facilitates business people with solutions focused on increasing business popularity, growth, and profitability." />
                 <Para style='text-justify' para="One of the business numerology solutions is business name numerology, which suggests a lucky business name that resonates harmoniously with the date of birth (destiny number) of the owners or partners. Other company numerology factors include the selection of lucky dates to launch the business or project, numerology compatibility between partners, and favourable business numbers, all of which help maximise profits. An increase in profits assists entrepreneurs unlock the secret to success." />
