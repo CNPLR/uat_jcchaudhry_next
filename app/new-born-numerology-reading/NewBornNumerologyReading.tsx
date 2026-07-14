@@ -13,6 +13,7 @@ import Para from '../components/ui/Para'
 import Question from '../components/ui/Question'
 import SubHeading from '../components/ui/SubHeading'
 import SubHeading2 from '../components/ui/SubHeading2'
+import Img from '../components/ui/Img';
 
 const NewBornNumerologyReading = () => {
 
@@ -38,9 +39,9 @@ const NewBornNumerologyReading = () => {
      <div>
 
             <Link href={token ? '/dashboard' : '/numerology/signup'}>
-                <Banner alttag="Baby Name Numerology Baby Names Starting with any Alphabet Numerology" path="/allbanners/Baby-Name-Numerology-Baby-Names-Starting-with-any-Alphabet-Numerology.webp" />
+                <Banner priority alttag="Baby Name Numerology Baby Names Starting with any Alphabet Numerology" path="/allbanners/Baby-Name-Numerology-Baby-Names-Starting-with-any-Alphabet-Numerology.webp" />
             </Link>
-            <MainHeading style="text-center my-10" mainHeading="New Born Numerology Reading by Dr. J C Chaudhry" />
+            <MainHeading style="text-center my-10" mainHeading="New Born Numerology Reading by Dr. J C Chaudhry" headTag='h1' />
             <div className='mx-10 space-y-5'>
                 <Para style='text-justify' para="For parents, their new born is like a treasure for them. Any why not? God has given you a precious gift of life which they must value. When it comes to naming a new born baby, parents prefer to have a famous or a celebrity’s name for their child. That famous name can be good for that celebrity as per his/her date of birth but may not be for your child." />
                 <Para style='text-justify' para="It is important to select a lucky name which will be compatible with the date of the birth of your child. So, there should be harmony between the name and date of birth. Baby name numerology calculation is the solution to it. Dr. J C Chaudhry with his 40 years of Numerology experience provides the best advice for naming new born." />
@@ -49,7 +50,8 @@ const NewBornNumerologyReading = () => {
                     <NormalButton style="w-52 m-auto lg:ml-auto" text="Book Appointment" />
                 </Link>
             </div>
-            <div style={bgImg} className='flex py-10 items-start justify-evenly my-10'>
+            <div className='relative flex py-10 items-start justify-evenly my-10'>
+                <Img alt="New Born Numerology Reading by Dr. J C Chaudhry" path="/images_folder/newborl_numerology_bg.webp" fill style=' absolute inset-0 object-cover' />
                 <div className='z-40 lg:w-[50%] w-full px-10 lg:px-0'>
                     <SubHeading style="text-white" subHeading="Common Questions & Queries" />
                     <div className='space-y-5 mt-5'>

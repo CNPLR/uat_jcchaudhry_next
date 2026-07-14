@@ -13,7 +13,7 @@ export async function  generateMetadata({params}: Props, parent: ResolvingMetada
   const { slug } = await params;
 
   const response = await fetch(`${process.env.NEXT_PUBLIC_URI}page/slug/${slug}`, {
-    next: { revalidate: 3600 },
+    next: { revalidate: 60 },
   });
 
   const data  = await response.json();

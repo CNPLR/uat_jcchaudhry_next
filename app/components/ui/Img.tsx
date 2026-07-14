@@ -9,9 +9,10 @@ type ImgProps = {
   width?: number;
   height?: number;
   priority?: boolean;  
+  fill? : boolean;
 };
 
-export default function Img({ alt, style, path, width, height, priority= false }: ImgProps) {
+export default function Img({ alt, style, path, width=1200, height=560, priority= false, fill = false }: ImgProps) {
   if(!path){
     // console.log(path);
   }
@@ -24,8 +25,7 @@ export default function Img({ alt, style, path, width, height, priority= false }
       title={alt || ""}
       src={imageSrc || ""}
       alt={alt || ""}
-      width={width ?? 1200}
-      height={ height ?? 560}
+      {...(fill ? { fill: true } : { width, height })}
       priority={priority}
       fetchPriority={priority ? "high" : "auto"}
       loading={priority ? "eager" : "lazy"}      

@@ -29,6 +29,12 @@ export default function MainHeading({ mainHeading, style, headTag }: MainHeading
       )
     case 'h4':
       return (
+        <h4 className={`heading font_bold ${style || ""}`}>
+          {mainHeading}
+        </h4>
+      );
+    default:
+      return (
         <h1 className={`heading font_bold ${style || ""}`}>
           {mainHeading}
         </h1>

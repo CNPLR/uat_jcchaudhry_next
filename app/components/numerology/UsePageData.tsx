@@ -20,7 +20,7 @@ export async function usePageData(slug: string, path: string): Promise<PageDataR
 
   // ✅ Fetch page data
   const response = await fetch(`${path}page/slug/${slug}`, {
-    cache: "no-store",
+    next: { revalidate: 60 },
   });
 
   if (!response.ok) {
@@ -41,7 +41,7 @@ export async function usePageData(slug: string, path: string): Promise<PageDataR
   // ✅ Fetch footer data if category exists
   if (firstData.category) {
     const footerRes = await fetch(`${path}footers/category/${firstData.category}`, {
-      cache: "no-store",
+      next: { revalidate: 60 },
     });
 
     if (footerRes.ok) {

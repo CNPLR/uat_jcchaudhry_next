@@ -102,7 +102,7 @@ const Numerology = ({slug, pagesData}: {slug: string, pagesData: PageDataResult}
                     <div className='px-10'>
                         <div className='mt-5 titleData'>
                             <Suspense fallback={<ComponentLoader height="80px" />}>
-                                <MainHeading mainHeading={ele.pageTitle} style="text-center" />
+                                <MainHeading mainHeading={ele.pageTitle} style="text-center" headTag="h1"/>
                                 <Para style="text-center" para={ele.description} />
                             </Suspense>
                         </div>

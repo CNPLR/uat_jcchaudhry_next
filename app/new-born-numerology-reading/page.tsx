@@ -5,8 +5,8 @@ import { headers } from 'next/headers'
 
 export const metadata = GenerateMetadata({
     banner: "/allbanners/Baby-Name-Numerology-Baby-Names-Starting-with-any-Alphabet-Numerology.webp",
-    title: "Baby Name Numerology | Baby Names Starting with any Alphabet Numerology",
-    description: "Find the best compatible baby name as per numerology. Girl and boys baby name numerology compatibility check by Dr. J C Chaudhry Numerologist based on name and date of birth and numerology name starting with any alphabet.",
+    title: "Baby Name Numerology | Find Lucky Names for Your Newborn",
+    description: "Find the perfect baby name with numerology. Get lucky, compatible name suggestions for your newborn based on date of birth and numerology principles.",
     keywords: "Numerology for baby name, new born numerology reading, lucky name for new born numerology, baby boy name numerology, baby girl name numerology, name by numerology, lucky name as per date of birth",
     pagePath: "/new-born-numerology-reading",
 })

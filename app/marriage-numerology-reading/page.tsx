@@ -5,8 +5,8 @@ import { headers } from 'next/headers'
 
 export const metadata = GenerateMetadata({
     banner: "/allbanners/Marriage-numerology-reading-by-Dr-J-C-Chaudhry.webp",
-    title: "Marriage Compatibility Test by Name &amp; Date of Birth | Marriage Numerology",
-    description: "Get your marriage compatibility checked by Dr. J C Chaudhry, 40 years’ experienced numerologist. Birthday compatibility for marriage and boy &amp; girl compatibility check by name for a happy married life.",
+    title: "Marriage Numerology | Compatibility by Date of Birth & Name",
+    description: "Find your ideal life partner with numerology. Check compatibility, marriage timing, and avoid mismatched relationships for long-term happiness.",
     keywords: "date of birth matching for marriage, marriage compatibility, marriage numerology reading, marriage compatibility numerology, marriage compatibility by date of birth, birth date compatibility for marriage, date match for marriage, how to know about marriag",
     pagePath: "/marriage-numerology-reading",
 })

@@ -1,6 +1,7 @@
 'use client';
 import CommonForm from '@/app/components/ui/CommonForm'
 import ImageContent from '@/app/components/ui/ImageContent'
+import Img from '@/app/components/ui/Img';
 import SubHeading from '@/app/components/ui/SubHeading'
 import { redirect } from 'next/navigation'
 import React, { useEffect } from 'react'
@@ -23,13 +24,14 @@ const BookAppointment = () => {
   return (
     <div className=''>
 
-      <div className='relative xl:flex hidden xl:h-[105vh] 2xl:h-[80vh]' style={bgImg}>
+      <div className='relative xl:flex hidden  min-h-182.5 max-h-182.5' >
+        <Img path="/allbanners/Book-Appointment-Dr.J-C-Chaudhry-Numerology-Register.webp" alt="Book Appointment Dr. J C Chaudhry Numerology Register" priority  fill style="absolute inset-0 object-cover -z-1"/>
         <div className='ml-auto my-auto'>
           <CommonForm style="mr-14 border " />
         </div>
       </div>
       <div className='xl:hidden'>
-        <img className='' src="/allbanners/Book-Appointment-Dr.J-C-Chaudhry-Numerology-Register.webp" alt="Book Appointment Dr. J C Chaudhry Numerology Register" />
+        <Img style="w-full h-full" priority path="/allbanners/Book-Appointment-Dr.J-C-Chaudhry-Numerology-Register.webp" alt="Book Appointment Dr. J C Chaudhry Numerology Register" />
       </div>
       <div className='xl:hidden'>
         <CommonForm style="mx-auto border my-10" />

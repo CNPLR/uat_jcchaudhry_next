@@ -26,7 +26,7 @@ export default function ImageContent({
   return (
     <div className={`${style} flex flex-col lg:flex-row w-full justify-start items-start lg:p-10 p-3 mb-5`}>
       <div className={ path.includes("transparent") ? 'hidden' :'w-full lg:w-[30%]'}>
-        <Img path={path as string} alt={alt as string} style='w-[100%] lg:w-[100%] rounded-lg' />
+        <Img path={path as string} alt={alt as string} priority style='w-[100%] lg:w-[100%] rounded-lg' />
       </div>
 
       <div className={ path.includes("transparent") ? 'w-full lg:ml-10 mt-2 lg:mt-0' :'w-full lg:w-[65%] lg:ml-10 mt-2 lg:mt-0'}>
