@@ -108,14 +108,14 @@ p {
     font-family: myFirstFont;
 }
 
-.dynemicCardSoul h1 {
+.dynemicCardSoul h1, .dynemicCardSoul h2 {
     font-size: 29px;
     margin: 1rem 0px;
     font-family: myFirstFont;
     font-weight: 500;
 }
 
-.dynemicCardList h1 {
+.dynemicCardList h1, .dynemicCardList h2 {
     font-size: 50px;
     font-weight: 500;
     font-family: myFirstFont;
