@@ -17,7 +17,7 @@ const nextConfig: NextConfig = {
 
   experimental: {
     inlineCss: true,
-    cssChunking: 'strict', // or 'strict' for more aggressive chunking
+    // cssChunking: 'strict', // or 'strict' for more aggressive chunking
     optimizePackageImports: [
       'react-icons',        // Huge icon library - biggest win
       'lucide-react',
