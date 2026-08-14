@@ -5,8 +5,8 @@ import { headers } from 'next/headers'
 
 export const metadata = GenerateMetadata({
     banner: "/allbanners/Motivational-speaker-Dr-J-C-Chaudhry.webp",
-    title: "Motivational Speaker in India | Dr. J C Chaudhry",
-    description: "Get daily motivation and success insights from Dr. J C Chaudhry, a leading motivational speaker in India. Explore powerful talks on mindset, confidence, and growth.",
+    title: "Success Motivation, Career Guidance | Dr. JC Chaudhry",
+    description: "Discover motivational programs by Dr. JC Chaudhry designed to inspire students, professionals and business leaders to achieve success and personal growth.",
     keywords: "motivational speaker in delhi, motivational trainer, best motivational speaker in delhi, motivation india, motivational speech india, motivation speak, motivational speaker, best motivational speaker on youtube in india, best motivational in india",
     pagePath: "/motivation",
 })
