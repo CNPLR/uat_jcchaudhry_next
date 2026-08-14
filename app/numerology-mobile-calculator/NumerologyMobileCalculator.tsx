@@ -22,6 +22,8 @@ import "react-datepicker/dist/react-datepicker.css";
 import 'react-toastify/dist/ReactToastify.css';
 import setDobFn from '@/lib/setDobFn';
 import handleDatePicker from '@/lib/handleDateInputs';
+import FAQs from './Faq';
+import FaqComponent from '../components/FaqComponent';
 
 const NumerologyMobileCalculator = () => {
     const path = process.env.NEXT_PUBLIC_URI;
@@ -283,7 +285,7 @@ const NumerologyMobileCalculator = () => {
 
                 <div className='mt-5 space-y-2'>
                     <Para para="Consult:" style="text-center text-[#490099] font-bold" />
-                    <SubHeading2 subHeading="Dr. J C Chaudhry" style="text-center" />
+                    <SubHeading2 subHeading="Dr. J C Chaudhry" style="text-center" headTag='h2' />
                     <Para para="India’s Famous Numerologist" style="text-center text-[#490099] font-bold" />
                 </div>
 
@@ -323,7 +325,7 @@ export const Content1 = ({token}: any) => {
     return (
         <div>
             <div className='bg-slate-100 lg:w-3/4 m-auto space-y-5 text-center md:p-10 p-5 rounded-lg '>
-                <h4 className='subheading2'>Discover in detail the characteristics of your numbers and <br /> how they impact your life through a numerology reading <br /> by Dr. J C Chaudhry.</h4>
+                <h2 className='subheading2'>Discover in detail the characteristics of your numbers and <br /> how they impact your life through a numerology reading <br /> by Dr. J C Chaudhry.</h2>
                 <div>
                     <Link href={token ? '/dashboard' : '/numerology/signup'}>
                         <NormalButton style="w-40 m-auto" text="Book Appointment" />
@@ -332,7 +334,7 @@ export const Content1 = ({token}: any) => {
             </div>
 
             <div className='bg-slate-100 lg:w-3/4 m-auto space-y-5 text-center md:p-10 p-5 rounded-lg my-10'>
-                <SubHeading style="text-center" subHeading="JC Nummerro App" />
+                <SubHeading style="text-center" subHeading="JC Nummerro App" headTag='h2'/>
                 <Para style="text-center" para="For more details, download the JC Nummerro app available on both Android and iOS. Get it now to find all the information you need." />
                 <div className='flex justify-center items-center space-x-5'>
                     <ImgLink style="w-[140px] h-[50px] lg:w-auto" alt="google-play" to="https://play.google.com/store/apps/details?id=jc.nummerro.app" path="/images_folder/google-play.png" />
@@ -341,39 +343,43 @@ export const Content1 = ({token}: any) => {
             </div>
 
             <div className='bg-slate-100 lg:w-3/4 m-auto space-y-5 text-center md:p-10 p-5 rounded-lg my-10'>
-                <SubHeading style="text-center" subHeading="What is Name Number Calculator?" />
-                <Para style="text-justify" para="A name number calculator is an online tool that helps you calculate the numerical value of your name by Chaldean system of nomenclature. By entering your name, this calculator computes your unique name number. This number serves as a window into your personality, illuminating aspects of your character, potential life paths, and even obstacles you might face. It’s an engaging tool for anyone interested in personal growth and self-discovery." />
+                <SubHeading style="text-center" subHeading="What is a Mobile Number Calculator?" headTag='h2'/>
+
+                <Para style="text-justify" para={
+                    <>
+                        A <strong>Mobile Number Calculator</strong> is a free online numerology tool that calculates the <strong>Mobile Number</strong> using the digits of a mobile number. Based on <strong>Chaldean Numerology</strong>, each digit carries a unique vibration, and together they reveal the overall energy associated with the number.
+                    </>
+                } />
+
+                <Para style="text-justify" para={
+                    <>
+                        The calculator adds all the digits of the mobile number and reduces them to a single digit between <strong>1 and 9</strong>. This <strong>Mobile Number</strong> is believed to reflect communication style, opportunities, confidence, relationships, and the energy connected with everyday interactions. Whether choosing a new mobile number or understanding an existing one, the <strong>Mobile Number</strong> Calculator provides an easy way to explore its numerological meaning.
+                    </>
+                   }
+                />
             </div>
 
             <div className='bg-slate-100 lg:w-3/4 m-auto space-y-5 text-center md:p-10 p-5 rounded-lg my-10'>
-                <SubHeading style="text-center" subHeading="Importance of Name Number Calculator" />
-                <Para style="text-justify" para="Your name number, calculated using Chaldean numerology, can impact different areas of your life, including your relationships, career choices, and overall success. By exploring your name number, you can gain valuable insights into your personality, your life’s purpose, and the challenges you might face along the way." />
 
-                <Para style="text-justify" para="Knowing your name number can also help you make important decisions, like picking the right career or business name, recognize your strengths and identify areas where you can improve. This kind of self-awareness can lead to personal growth and a deeper understanding of yourself." />
+                <SubHeading style="text-center" subHeading="Why is the Mobile Number Calculator Important?" headTag="h2" />
+
+                <Para style="text-justify" para={
+                    <>
+                        A mobile number is used every day for calls, messages, business, banking, and online communication. According to <strong>Chaldean Numerology</strong>, the repeated use of a number is believed to strengthen its numerical vibration and influence everyday experiences.
+                    </>
+                } />
+
+                <Para style="text-justify" para={
+                    <>
+                        The <strong>Mobile Number Calculator</strong> helps identify the energy associated with a mobile number and understand how it may relate to communication, opportunities, personal growth, and overall life experiences. Many people also use the calculator before selecting a new mobile number to choose one that aligns with their numerology profile and personal goals.
+                    </>
+                } />
             </div>
 
             <div className='bg-slate-100 lg:w-3/4 m-auto space-y-5 md:p-10 p-5 rounded-lg my-10'>
-                <SubHeading style="" subHeading="FAQs" />
+                <SubHeading style="" subHeading="Frequently Asked Questions" />
 
-                <div>
-                    <SubHeading2 style="" subHeading="Can I use the Name Number Calculator for any name?" />
-                    <Para para="Yes! You can enter any name, but be sure to include the full name for the most accurate result." />
-                </div>
-
-                <div>
-                    <SubHeading2 style="" subHeading="How does the Name Number Calculator work?" />
-                    <Para para="The name number calculator converts the letters of your name into numbers using the Chaldean numerology chart, then adds those numbers together and reduces the sum to a single digit." />
-                </div>
-
-                <div>
-                    <SubHeading2 style="" subHeading="How often should I check my name number?" />
-                    <Para para="You can check your name number anytime you feel the need for guidance or self- reflection. Simply enter your name and the Name Number Calculator will provide you with your name number and its insights." />
-                </div>
-
-                <div>
-                    <SubHeading2 style="" subHeading="Can I change my name to align with a more favorable number?" />
-                    <Para para="Yes, some people choose to change their names to align with a more favorable numerology number. However, it is essential to consult a numerologist to ensure that the new name is in alignment with your life path number and has a positive impact on your overall well-being." />
-                </div>
+                <FaqComponent faqs={FAQs} />
             </div>
         </div>
     )

@@ -22,6 +22,8 @@ import 'react-toastify/dist/ReactToastify.css';
 import { nameRegex, calculateDestiny, calculateNameNumber, specialNumbers, reduceToSingleDigit, life } from '../numerology-calculator-name-number/AlllCharectersticks';
 import setDobFn from '@/lib/setDobFn';
 import handleDatePicker from '@/lib/handleDateInputs';
+import FAQS from './Faq';
+import FaqComponent from '../components/FaqComponent';
 
 const NumerologyLifePathCalculator = () => {
     const [token , setToken] = useState<string | null>(null);
@@ -349,38 +351,40 @@ export const Content = ({token}: any) => {
 
             <div className='bg-slate-100 lg:w-3/4 m-auto space-y-5 text-center md:p-10 p-5 rounded-lg my-10'>
                 <SubHeading style="text-center" subHeading="What is a Life Path Number Calculator?" />
-                <Para style="text-justify" para="A Life Path Number Calculator is an online tool designed to help you discover your life path number based on your date of birth. This calculator uses numerology, a belief system that suggests numbers can reveal insights about your personality, life purpose, and destiny. By entering your information, you’ll receive your life path number, which serves as a guide to understanding your strengths, challenges, and overall direction in life." />
+                <Para style="text-justify" para={
+                    <>
+                        A <strong>Life Path Number Calculator</strong> is a free online numerology tool that calculates the <strong>Life Path Number</strong> using a person's complete date of birth. In numerology, the Life Path Number is considered one of the most significant numbers because it reflects core personality traits, natural abilities, life lessons, and overall life purpose.
+                    </>
+                } />
+
+                <Para style="text-justify" para={
+                    <>
+                        The calculator adds and reduces the numbers in the birth date to determine the <strong>Life Path Number</strong>, helping users understand their strengths, potential challenges, career tendencies, relationships, and personal growth. Whether beginning a numerology journey or seeking deeper self-awareness, a <strong>Life Path Number Calculator</strong> provides an easy way to explore the meaning behind the birth date.
+                    </>
+                } />
             </div>
 
             <div className='bg-slate-100 lg:w-3/4 m-auto space-y-5 text-center md:p-10 p-5 rounded-lg my-10'>
-                <SubHeading style="text-center" subHeading="Importance of the Life Path Number Calculator" />
-                <Para style="text-justify" para="The Life Path Number Calculator is important because it offers valuable insights into who you are and the path you’re meant to follow. Your life path number, calculated using your date of birth, reveals fundamental traits and life lessons you may encounter. Understanding this number can help you align your decisions with your true self, leading to personal growth and fulfillment." />
+                <SubHeading style="text-center" subHeading="Why is the Life Path Number Calculator Important?" />
 
-                <Para style="text-justify" para="Life path number shed light on your relationships, career choices, and personal development, guiding you toward a more harmonious existence. By exploring your life path number and its implications, you can better understand your unique purpose and take steps to achieve your goals." />
+                <Para style="text-justify" para={
+                    <>
+                        The <strong>Life Path Number Calculator</strong> provides valuable insights into the qualities and opportunities associated with a person's Life Path Number. According to numerology, this number serves as a guide to understanding natural talents, personality characteristics, decision-making patterns, and long-term life direction.
+                    </>
+                } />
+
+                <Para style="text-justify" para={
+                    <>
+                        Understanding the <strong>Life Path Number</strong> can support greater self-awareness and help in evaluating career paths, personal relationships, strengths, and areas for growth. Many people also use the calculator as a starting point for a more detailed numerology analysis. By exploring the meaning of the <strong>Life Path Number</strong>, individuals can gain a deeper understanding of their potential and make more informed life decisions.
+                    </>
+                } />
             </div>
 
             <div className='bg-slate-100 lg:w-3/4 m-auto space-y-5 md:p-10 p-5 rounded-lg my-10'>
-                <SubHeading style="" subHeading="FAQs" />
+                <SubHeading style="" subHeading="Frequently Asked Questions" />
 
-                <div>
-                    <SubHeading2 style="" subHeading="Is the Life Path Number Calculator free?" />
-                    <Para para="Yes, our Life Path Number Calculator is completely free and user-friendly. Simply enter your date of birth and the calculator will provide you with your life path number along with valuable insights related to your journey." />
-                </div>
-
-                <div>
-                    <SubHeading2 style="" subHeading="Can the Life Path Number Calculator be used by anyone?" />
-                    <Para para="Yes, the Life Path Number Calculator can be used by anyone. You simply need to enter the date of birth to calculate the life path number." />
-                </div>
-
-                <div>
-                    <SubHeading2 style="" subHeading="What does my life path number mean?" />
-                    <Para para="Your life path number represents key characteristics and traits that shape your life experiences. It reveals your strengths, challenges, and potential life lessons, helping you understand your journey." />
-                </div>
-
-                <div>
-                    <SubHeading2 style="" subHeading="How can I learn more about my life path number?" />
-                    <Para para="After calculating your life path number, you can explore its meaning and significance through various resources. For deeper insights, consider consulting Dr. Dr. J C Chaudhry, a Guinness World Record holder in numerology with over 40 years of experience." />
-                </div>
+                <FaqComponent faqs={FAQS} />
+                
             </div>
         </div>
     )

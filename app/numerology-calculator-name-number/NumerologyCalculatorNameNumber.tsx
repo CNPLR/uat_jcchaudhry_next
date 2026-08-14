@@ -23,6 +23,8 @@ import 'react-phone-input-2/lib/style.css';
 import '../styles/common.css';
 import setDobFn from '@/lib/setDobFn';
 import handleDatePicker from '@/lib/handleDateInputs';
+import FAQ from './Faq';
+import FaqComponent from '../components/FaqComponent';
 
 // import 'react-datepicker/dist/react-datepicker-cssmodules.css';
 
@@ -374,39 +376,34 @@ export const Content = ({ token }: any) => {
             </div>
 
             <div className='bg-slate-100 lg:w-3/4 m-auto space-y-5 text-center md:p-10 p-5 rounded-lg my-10'>
-                <SubHeading style="text-center" subHeading="What is Name Number Calculator?" />
-                <Para style="text-justify" para="A name number calculator is an online tool that helps you calculate the numerical value of your name by Chaldean system of nomenclature. By entering your name, this calculator computes your unique name number. This number serves as a window into your personality, illuminating aspects of your character, potential life paths, and even obstacles you might face. It’s an engaging tool for anyone interested in personal growth and self-discovery." />
+                <SubHeading style="text-center" subHeading="What is a Name Number Calculator?" />
+                <Para style="text-justify" para={<>A <strong>Name Number Calculator</strong> is a free online numerology tool that calculates the numerical value of a name using the <strong>Chaldean Numerology</strong> system. Each letter is assigned a specific number, and these values are combined to determine the Name Number, which represents the vibrational energy associated with the name.</>} />
+               
+                <Para style="text-justify" para={<>In <strong>Name Numerology</strong>, the Name Number is believed to influence personality, communication style, public image, strengths, and opportunities. It is widely used to understand the energy of personal names, business names, brand names, and even baby names. Whether exploring numerology for personal insight or considering a name correction, a Name Number Calculator offers a simple way to discover the significance of a name.</>} />
             </div>
 
             <div className='bg-slate-100 lg:w-3/4 m-auto space-y-5 text-center md:p-10 p-5 rounded-lg my-10'>
-                <SubHeading style="text-center" subHeading="Importance of Name Number Calculator" />
-                <Para style="text-justify" para="Your name number, calculated using Chaldean numerology, can impact different areas of your life, including your relationships, career choices, and overall success. By exploring your name number, you can gain valuable insights into your personality, your life’s purpose, and the challenges you might face along the way." />
 
-                <Para style="text-justify" para="Knowing your name number can also help you make important decisions, like picking the right career or business name, recognize your strengths and identify areas where you can improve. This kind of self-awareness can lead to personal growth and a deeper understanding of yourself." />
+                <SubHeading style="text-center" subHeading="Why is the Name Number Calculator Important?" />
+
+                <Para style="text-justify" para={
+                    <>
+                        A <strong>Name Number Calculator</strong> helps reveal the unique vibration carried by a name according to <strong>Chaldean Numerology</strong>. Understanding the <strong>Name Number</strong> can provide valuable insights into personality traits, natural abilities, communication patterns, career potential, relationships, and overall life direction.
+                    </>
+                } />
+
+                <Para style="text-justify" para={
+                    <>
+                        The calculator is also useful when evaluating a personal name, selecting a baby name, choosing a business or brand name, or considering a numerology-based name correction. Since a name is used throughout life, its numerical vibration is considered an important aspect of numerological analysis. Exploring the Name Number can support informed decisions and encourage greater self-awareness, making it a valuable tool for anyone interested in <strong>Name Numerology</strong> and personal growth.
+                    </>
+                } />
             </div>
 
             <div className='bg-slate-100 lg:w-3/4 m-auto space-y-5 md:p-10 p-5 rounded-lg my-10'>
-                <SubHeading style="" subHeading="FAQs" />
+                <SubHeading style="" subHeading="Frequently Asked Questions" />
 
-                <div>
-                    <SubHeading2 style="" subHeading="Can I use the Name Number Calculator for any name?" />
-                    <Para para="Yes! You can enter any name, but be sure to include the full name for the most accurate result." />
-                </div>
-
-                <div>
-                    <SubHeading2 style="" subHeading="How does the Name Number Calculator work?" />
-                    <Para para="The name number calculator converts the letters of your name into numbers using the Chaldean numerology chart, then adds those numbers together and reduces the sum to a single digit." />
-                </div>
-
-                <div>
-                    <SubHeading2 style="" subHeading="How often should I check my name number?" />
-                    <Para para="You can check your name number anytime you feel the need for guidance or self- reflection. Simply enter your name and the Name Number Calculator will provide you with your name number and its insights." />
-                </div>
-
-                <div>
-                    <SubHeading2 style="" subHeading="Can I change my name to align with a more favorable number?" />
-                    <Para para="Yes, some people choose to change their names to align with a more favorable numerology number. However, it is essential to consult a numerologist to ensure that the new name is in alignment with your life path number and has a positive impact on your overall well-being." />
-                </div>
+                <FaqComponent faqs={FAQ} />
+                
             </div>
         </div>
     )
