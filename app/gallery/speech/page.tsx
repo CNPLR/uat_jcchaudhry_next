@@ -5,8 +5,8 @@ import MainHeading from '@/app/components/ui/MainHeading'
 import { getImages } from '@/app/services/getImages'
 
 export const metadata =  GenerateMetadata({
-            title: "Numerology Awards to Dr Dr. J C Chaudhry | Best Numerologist Award",
-            description: "Dr. J C Chaudhry has been honored with national and international awards for his work in numerology, education, motivation, and other fields.",
+            title: "Dr. JC Chaudhry Speech Gallery: Motivational Talks, Seminars",
+            description: "Explore Dr. JC Chaudhry's motivational speeches, student seminars and talks on learning, time management, education and personal growth.",
             keywords: "numerologist in india, numerology by jc chaudhry, vaastu shastra expert, motivational speaker, motivational speakers in india",
             pagePath: '/gallery/speech',
             banner: "/allbanners/Gallery-of-Dr-J-C-Chaudhry’s-awards.webp",

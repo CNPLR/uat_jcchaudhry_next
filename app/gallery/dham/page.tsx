@@ -7,8 +7,8 @@ import { headers } from 'next/headers';
 export const metadata = GenerateMetadata({
     pagePath: "/gallery/dham",
     banner: "/allbanners/Gallery-of-Dr-Chaudhry’s-Dham-ceremonies.webp",
-    title: "Maa Vaishno Devi Dham Vrindavan Photos | View of Temple &amp; Gufa",
-    description: "Under construction photos of Maa Vaishno Devi Dham Vrindavan; Temple view, Gufa, Bahuprayojan Hall, Maa Vaishno Devi Jagran Sthal, Langar Hall, Yagshala &amp; Gaushala, Shri Tolaram Chaudhry Dharamshala, Shrimati Bhagwani Devi Chaudhry Dharamshala and many more.",
+    title: "Maa Vaishno Devi Dham Vrindavan: Photos, Temple Gallery",
+    description: "Explore Maa Vaishno Devi Dham Vrindavan through photos of the temple, gufa, Mata idols, ashram, lawns and ongoing construction work.",
     keywords: "numerologist in india, numerology by jc chaudhry, vaastu shastra expert, motivational speaker, motivational speakers in india",
     // headers: headers,
 });

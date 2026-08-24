@@ -7,8 +7,8 @@ import { headers } from 'next/headers';
 
 
 export const metadata = GenerateMetadata({
-            title: "Numerology Awards to Dr Dr. J C Chaudhry | Best Numerologist Award",
-            description: "Dr. J C Chaudhry has been honored with national and international awards for his work in numerology, education, motivation, and other fields.",
+            title: "Dr. JC Chaudhry Awards Gallery: Achievements, Honors",
+            description: "Explore Dr. JC Chaudhry's awards gallery featuring major honours, achievements, Lifetime Achievement Award, Guinness World Record and more.",
             keywords: "numerologist in india, numerology by jc chaudhry, vaastu shastra expert, motivational speaker, motivational speakers in india",
             pagePath: '/gallery/awards',
             banner: "/allbanners/Gallery-of-Dr-J-C-Chaudhry’s-awards.webp",

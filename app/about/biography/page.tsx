@@ -11,8 +11,8 @@ import { headers } from 'next/headers';
 export const metadata = GenerateMetadata({
     pagePath: "/about/biography",
     banner: "/allbanners/Biography-of-Dr-J-C-Chaudhry.webp",
-    title: "Dr. J C Chaudhry Biography | The Incredible Aakash Story",
-    description: "Biography of Dr. J C Chaudhry, the Chairman of Aakash Educational Services Limited (AESL) and a renowned Numerologist of India.",
+    title: "Dr. JC Chaudhry Biography : Education, Career,  Life Journey",
+    description: "Discover Dr. J C Chaudhry's biography, from educator to entrepreneur, his Aakash journey, numerology career and inspiring life story.",
     keywords: "Jc chaudhry, biography of JC chaudhry, aakash institute story, book about aakash education",
     // headers: headers,
 });

@@ -7,8 +7,8 @@ import { headers } from "next/headers";
 export const metadata = GenerateMetadata({
         pagePath: "/awards/international",
         banner: "/allbanners/National-awards-and-recognition-for-Dr-J-C-Chaudhry.webp",
-        title: "Static National Awards Page | JC Chaudhry",
-        description: "National Awards",
+        title: "Dr. JC Chaudhry International Awards: Global Achievements",
+        description: "Explore Dr. JC Chaudhry's international awards, global honours and achievements in education, numerology, leadership and business.",
         keywords: "numerologist in india, numerology by jc chaudhry, vaastu shastra expert, motivational speaker, motivational speakers in india",
         // headers: headers,
 });

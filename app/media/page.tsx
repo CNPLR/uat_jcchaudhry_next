@@ -8,8 +8,8 @@ import { getImages } from '../services/getImages'
 export const metadata = GenerateMetadata({
         pagePath: "/media",
         banner: "/allbanners/Dr-Chaudhry-featured-in-media.webp",
-        title: "Media Coverage | News &amp; Recognition | Dr. J C Chaudhry",
-        description: "Latest news about Dr. J C Chaudhry in education and numerology field.",
+        title: "Dr. JC Chaudhry Media Coverage: News, Features, Recognition",
+        description: "Explore Dr. JC Chaudhry's media coverage, newspaper features, events and recognition, including Guinness World Record coverage in numerology.",
         keywords: "numerologist in india, numerology by jc chaudhry, vaastu shastra expert, motivational speaker, motivational speakers in india",
         
     });
