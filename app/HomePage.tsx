@@ -90,7 +90,8 @@ const HomePage = ({isMounted}: any) => {
                     <Para style="text-center mt-5 mb-10" para="Share your problem with Dr. J C Chaudhry and get the end to end solution." />
                     <div className='flex flex-wrap max-w-[1200px] mx-auto'>
                         <CardBox
-                            alt1="numerology"
+                            title="Numerology Services"
+                            alt1="Dr. JC Chaudhry Numerology Services"
                             alt2="numerology"
                             hoverPath="/images_folder/services_Numerology.webp"
                             path="/images_folder/services_Numerology_1.webp"
@@ -99,8 +100,9 @@ const HomePage = ({isMounted}: any) => {
                             link="/numerology"
                         />
                         <CardBox
-                            alt1="lo-shu-grid"
-                            alt2="lo-shu-grid"
+                            title="Numerology Services"
+                            alt1="Dr. J.C. Chaudhry numerology services"
+                            alt2="Dr. J.C. Chaudhry numerology services"
                             hoverPath="/images_folder/services_losu_grid_1.webp"
                             path="/images_folder/services_losu_grid.webp"
                             para="Lo Shu Grid Numerology solutions for missing numbers in date of birth"
@@ -108,8 +110,9 @@ const HomePage = ({isMounted}: any) => {
                             link="/lo-shu-grid"
                         />
                         <CardBox
-                            alt1="vastu"
-                            alt2="vastu"
+                            title="Vastu Services"
+                            alt1="Dr. J.C. Chaudhry Vastu services"
+                            alt2="Dr. J.C. Chaudhry Vastu services"
                             hoverPath="/images_folder/services_Vastu.webp"
                             path="/images_folder/services_Vastu_1.webp"
                             para="Vastu for Home, Plot, Office, Shop, Hotel, Restaurant, Commercial Complex and Movie Halls"
@@ -117,8 +120,9 @@ const HomePage = ({isMounted}: any) => {
                             link="/vastu-meditation-others"
                         />
                         <CardBox
-                            alt1="motivation"
-                            alt2="motivation"
+                            title="Dr. J.C. Chaudhry Motivation"
+                            alt1="Dr. J.C. Chaudhry motivation "
+                            alt2="Dr. J.C. Chaudhry motivation "
                             hoverPath="/images_folder/services_Motivation1.webp"
                             path="/images_folder/services_motivation.webp"
                             para="Career path and guidance, Motivation for College students, Business Motivation and Seminars"
@@ -168,7 +172,8 @@ const HomePage = ({isMounted}: any) => {
                     <div className='flex flex-wrap justify-center mx-10 mb-10 mt-10'>
                         <Suspense fallback={<div>Loading banner...</div>}>
                             <OurSolutionCard
-                                alt="personal numerology reading"
+                                title="Face-to-Face Consultation"
+                                alt="Dr. JC Chaudhry Face-to-Face Consultation"
                                 link="/personal-numerology-reading"
                                 path="/images_folder/personal-numerology-reading.webp"
                                 subHeading="​Personal Numerology"
@@ -184,7 +189,8 @@ const HomePage = ({isMounted}: any) => {
                             />
 
                             <OurSolutionCard
-                                alt="relationship numerology reading"
+                                title="Career Numerology Reading"
+                                alt="Dr. JC Chaudhry Relationship Numerology Service "
                                 link="/relationship-numerology-reading"
                                 path="/images_folder/relationship-numerology-reading.webp"
                                 subHeading="Relationship Numerology"
@@ -192,21 +198,24 @@ const HomePage = ({isMounted}: any) => {
                             />
 
                             <OurSolutionCard
-                                alt="business numerology reading"
+                                title="Business Numerology Reading"
+                                alt="Dr. JC Chaudhry Business Numerology Reading"
                                 link="/business-numerology-reading"
                                 path="/images_folder/business-numerology-reading.webp"
                                 subHeading="Business Numerology"
                                 para="To give suitable name to a Brand for luck and success"
                             />
                             <OurSolutionCard
-                                alt="marriage numerology reading"
+                                title="Marriage Numerology Reading"
+                                alt="Dr. JC Chaudhry Marriage Numerology Reading"
                                 link="marriage-numerology-reading"
                                 path="/images_folder/marriage-numerology-reading.webp"
                                 subHeading="​Marriage Numerology"
                                 para="To find out compatibility between a boy and a girl for Marriage"
                             />
                             <OurSolutionCard
-                                alt="new-born-numerology-reading"
+                                title="Newborn Numerology Reading"
+                                alt="Dr. JC Chaudhry Newborn Numerology Reading"
                                 link="/new-born-numerology-reading"
                                 path="/images_folder/new-born-numerology-reading.webp"
                                 subHeading="New Born Numerology"

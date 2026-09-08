@@ -236,7 +236,8 @@ export default function OflineAppointment() {
       <div className="flex flex-col lg:flex-row">
         <div>
           <Img
-            alt=""
+            title="Online Numerology Consultation"
+            alt="Dr. JC Chaudhry Online Consultation"
             style="w-72 mx-auto lg:mx-0 shadow-2xl rounded-md"
             path="/images_folder/face-to-face-consultation.webp"
           />

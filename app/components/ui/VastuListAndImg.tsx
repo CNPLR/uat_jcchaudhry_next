@@ -11,6 +11,7 @@ import Link from "next/link";
 interface VastuListAndImgProps {
   path: string;
   alt?: string;
+  title?: string;
   subHeading: string;
   content: string;
 
@@ -56,13 +57,14 @@ export default function VastuListAndImg({
   nstyle,
   style,
   alt,
+  title
 }: VastuListAndImgProps) {
   const token =
     typeof window !== "undefined" ? localStorage.getItem("token") : null;
 
   return (
     <div className={`${style} flex flex-col lg:flex-row justify-start items-start my-10`}>
-      <Img alt={alt as string} style="w-96 mx-auto lg:mx-0" path={path as string} />
+      <Img title={title as string} alt={alt as string} style="w-96 mx-auto lg:mx-0" path={path as string} />
       <div className="lg:ml-10 space-y-1">
         <SubHeading style="my-5 lg:my-0" subHeading={subHeading} />
         <Para para={content} />

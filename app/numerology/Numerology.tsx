@@ -35,7 +35,8 @@ const Numerology = () => {
 
             <Link href={token ? '/dashboard' : '/numerology/signup'}>
                 <Banner
-                    alttag="Comprehensive numerology services by Dr. J C Chaudhry Book Now"
+                    title="Numerology Services"
+                    alttag="Dr. JC Chaudhry Numerology Services"
                     path="/allbanners/Comprehensive-numerology-services-by-Dr-J-C-Chaudhry-Book-Now.webp"
                     w={515}
                     h={188}
@@ -44,7 +45,8 @@ const Numerology = () => {
 
             <div className='lg:px-10 px-5'>
                 <ImgHeadingContent
-                    alt="Dr. J C Chaudhry, expert in numerology"
+                    title="Dr. JC Chaudhry Numerology Expert"
+                    alt="Dr. JC Chaudhry Numerology Expert"
                     path="/images_folder/Dr.-J-C-Chaudhry-expert-in-numerology.webp"
                     para="Dr. Dr. J C Chaudhry, a numerology expert with more than three decades of experience (40 years), provides numerology services and solutions worldwide. He has done name correction for thousands of people and has offered numerology guidance to people facing downfalls in business, compatibility issues, or poor health. Many of his predictions have come true, such as the 2023 numerology predictions, etc. You can consult Dr. Chaudhry for a detailed numerology reading and report."
                     nbutton="Book Appointment"
@@ -62,7 +64,8 @@ const Numerology = () => {
                 <SubHeading style="text-center" subHeading="Numerology Report, by Famous Numerologist Dr. J C Chaudhry" />
                 <div className='my-5 flex justify-center flex-wrap'>
                     <ImgHeadingBox
-                        alt="Business Company Name Numerology"
+                        title="Business Name Numerology"
+                        alt="Business Name Numerology"
                         path="/images_folder/Business-Company-Name-Numerology.webp"
                         heading="Business Company Name Numerology"
                         para="To conduct a numerology audit of the company or corporation to determine the percentage of lucky and unlucky employees."
@@ -71,6 +74,7 @@ const Numerology = () => {
                         headTag="h2"
                     />
                     <ImgHeadingBox
+                        title='Business Partner Compatibility'
                         alt="Business Partner Compatibility"
                         path="/images_folder/Business-Partner-Compatibility.webp"
                         heading="Business Partner Compatibility"
@@ -80,7 +84,8 @@ const Numerology = () => {
                          headTag="h2"
                     />
                     <ImgHeadingBox
-                        alt="Right Time of Investment"
+                        title="Investment Timing Numerology"
+                        alt="Numerology for Investment Timing"
                         path="/images_folder/Right-Time-of-Investment.webp"
                         heading="Right Time of Investment"
                         para="To find out the best dates, period, and time for investment for greater ROI."
@@ -89,7 +94,8 @@ const Numerology = () => {
                          headTag="h2"
                     />
                     <ImgHeadingBox
-                        alt="Business Name Compatibility"
+                        title="Business Name Compatibility"
+                        alt="Business Name Compatibility Numerology"
                         path="/images_folder/Business-Name-Compatibility.webp"
                         heading="Business Name Compatibility"
                         para="To check the compatibility of the name and to suggest the lucky name of the brand that benefits the owner and other people."
@@ -98,7 +104,8 @@ const Numerology = () => {
                          headTag="h2"
                     />
                     <ImgHeadingBox
-                        alt="Marriage Love Compatibility Service by Dr J C Chaudhry"
+                        title="Marriage Love Compatibility"
+                        alt="Marriage Love Compatibility Numerology"
                         path="/images_folder/Marriage-Love-Compatibility-Service-by-Dr-J-C-Chaudhry.webp"
                         heading="Marriage Love Compatibility"
                         para="To find out the compatibility between two people for a harmonious relationship or marriage."
@@ -107,6 +114,7 @@ const Numerology = () => {
                          headTag="h2"
                     />
                     <ImgHeadingBox
+                        title="Name Change Numerology"
                         alt="Numerology for Name Change"
                         path="/images_folder/Numerology-for-Name-Change.webp"
                         heading="Change of Name Numerology"
@@ -116,7 +124,8 @@ const Numerology = () => {
                          headTag="h3"
                     />
                     <ImgHeadingBox
-                        alt="Numerology Guide for Choosing a Baby's Name"
+                        title="Baby Name Numerology"
+                        alt="Baby Name Numerology Guide"
                         path="/images_folder/Numerology-Guide-for-Choosing-a-Baby's-Name.webp"
                         heading="Naming Newly Born Baby"
                         para="To suggest initial letters and names for a newborn baby in harmony with the date of birth to attract luck in the future."
@@ -125,7 +134,8 @@ const Numerology = () => {
                         headTag="h3"
                     />
                     <ImgHeadingBox
-                        alt="Numerology for House and Office Compatibility"
+                        title="House and Office Numerology"
+                        alt="House and Office Numerology"
                         path="/images_folder/Numerology-for-House-and-Office-Compatibility.webp"
                         heading="House/Office Compatibility"
                         para="To tell whether the house or office number is compatible with the owners or people who wish to rent it out."
@@ -134,7 +144,8 @@ const Numerology = () => {
                         headTag="h3"
                     />
                     <ImgHeadingBox
-                        alt="Numerology for Calculating Engagement and Marriage Dates"
+                        title="Marriage Date Numerology"
+                        alt="Numerology for Marriage Dates"
                         path="/images_folder/Numerology-for-Calculating-Engagement-and-Marriage-Dates.webp"
                         heading="Engagement/Marriage Dates Calculation"
                         para="To identify the best dates for engagement and marriage that are lucky for both partners."

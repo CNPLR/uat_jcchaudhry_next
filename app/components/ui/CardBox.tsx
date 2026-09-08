@@ -14,6 +14,7 @@ type CardBoxProps = {
   link: string;
   alt1?: string;
   alt2?: string;
+  title?: string;
 };
 
 export default function CardBox({
@@ -24,6 +25,7 @@ export default function CardBox({
   link,
   alt1,
   alt2,
+  title
 }: CardBoxProps) {
   return (
     <div className="work opacity-100 w-[270px] h-[360px] shadow-lg border border-gray-200 m-auto mb-10 bg-white rounded-md">

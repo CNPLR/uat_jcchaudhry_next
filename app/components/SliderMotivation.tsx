@@ -25,7 +25,8 @@ export default function SliderMotivation() {
           <div>
             <div className="text-white border">
               <Img
-                alt="Dr. J C Chaudhry’s motivational quote for success"
+                title="Motivational Quote for Success"
+                alt="Dr. JC Chaudhry Motivational Quote"
                 path="/images_folder/Dr.-J-C-Chaudhry’s-motivational-quote-for-success.png"
                 style="m-auto"
                 width={1500}

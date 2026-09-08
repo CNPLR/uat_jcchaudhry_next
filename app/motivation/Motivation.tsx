@@ -26,7 +26,7 @@ const Motivation = () => {
     return (
         <div className=''>
             <Link href='/contact-us'>
-                <Banner alttag="Motivational speaker Dr. J C Chaudhry" path="/allbanners/Motivational-speaker-Dr-J-C-Chaudhry.webp" w={515} h={196} priority />
+                <Banner title="Dr. JC Chaudhry Motivational Speaker" alttag="Dr. JC Chaudhry Motivational Speaker" path="/allbanners/Motivational-speaker-Dr-J-C-Chaudhry.webp" w={515} h={196} priority />
             </Link>
             <MainHeading style="hidden" mainHeading="Motivational speaker by Dr. J C Chaudhry"  headTag="h1"/>
             <div className='flex items-center justify-center lg:space-x-10 bg-gray-100 lg:flex-row flex-col'>
@@ -96,7 +96,7 @@ const Motivation = () => {
                 </div>
                 <div className='mt-5 lg:mt-0'>
                     <Link href="https://www.youtube.com/channel/UCkGRccoFIazt6GZUcdq6Byg">
-                        <Img alt="Subscribe for Dr. Chaudhry's motivational insights" style="w-96 " path="/images_folder/Subscribe-for-Dr.-Chaudhrys-motivational-insights.webp" />
+                        <Img title="Motivational Insights by Dr. JC Chaudhry" alt="Dr. JC Chaudhry Motivational Insights" style="w-96 " path="/images_folder/Subscribe-for-Dr.-Chaudhrys-motivational-insights.webp" />
                     </Link>
                 </div>
             </div>

@@ -12,6 +12,7 @@ interface OurSolutionCardProps {
   link: string;
   alt: string;
   style?: string;
+  title?: string;
 }
 
 export default function OurSolutionCard({
@@ -21,13 +22,14 @@ export default function OurSolutionCard({
   style,
   link,
   alt,
+  title
 }: OurSolutionCardProps) {
   return (
     <div
       className={`${style} mb-10 w-72 text-center shadow-md hover:shadow-xl md:mr-12 transition bg-white p-5 rounded-md`}
     >
       <Link href={link} className="">
-        <Img alt={alt as string} path={path as string} />
+        <Img title={title as string} alt={alt as string} path={path as string} />
         <div className="">
           <SubHeading2 style="mt-4" subHeading={subHeading} />
           <Para style="mt-4" para={para} />

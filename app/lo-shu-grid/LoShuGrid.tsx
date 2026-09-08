@@ -35,7 +35,7 @@ const LoShuGrid = () => {
     return (
         <div className=''>
             <Link href={token ? '/dashboard' : '/numerology/signup'}>
-                <Banner alttag="Lo Shu Grid numerology" path="/allbanners/Lo-Shu-Grid-numerology.webp" />
+                <Banner title="Lo Shu Grid Numerology" alttag="Lo Shu Grid Numerology" path="/allbanners/Lo-Shu-Grid-numerology.webp" />
             </Link>
             <SubHeading style="text-center my-10" subHeading="Lo Shu Grid Numerology" headTag="h1" />
             <div className='lg:px-10 px-5 bg-gray-100 py-5'>
@@ -44,7 +44,8 @@ const LoShuGrid = () => {
                     para1="To find your missing or repeat numbers in the Lo shu grid, consult Dr. J C Chaudhry."
                     para="Lo shu grid numerology has its origin in China. Lo shu grid is also referred to as a magic square. The date of birth numbers is analysed in the Lo shu grid to find out active planes, missing and repeat numbers."
                     nbutton="Book Appointment"
-                    alt="Lo Shu grid for numerology calculations and placement"
+                    alt="Lo Shu Grid Numerology Calculations"
+                    title="Lo Shu Grid Calculations"
                     nstyle="w-52"
                     subHeading2="Placements of Digits in Birth Chart"
                     subhs="lg:mt-0 mt-5"
@@ -54,12 +55,12 @@ const LoShuGrid = () => {
             <div className='my-10 bg-gray-100 py-5 px-5 lg:px-10 space-y-5'>
                 <SubHeading style="text-center" subHeading="Horizontal lines or Planes in Lo Shu Grid" headTag="h2" />
 
-                <Img alt="Horizontal Lo Shu grid layout for numerology" style="w-[510px]  m-auto" path="/images_folder/Horizontal-Lo-Shu-grid-layout-for-numerology.png" />
+                <Img title="Lo Shu Grid Layout" alt="Horizontal Lo Shu Grid Layout" style="w-[510px]  m-auto" path="/images_folder/Horizontal-Lo-Shu-grid-layout-for-numerology.png" />
 
                 <div className='my-5 flex justify-center flex-wrap'>
-                    <ImgHeadingBox  style={"w-[252px]"} alt="Numerology Lo Shu grid for personal growth" path="/images_folder/Numerology-Lo-Shu-grid-for-personal-growth.webp" heading="Mind (Intellectual Plane)" para="The first horizontal line of the grid is the mind plane. It represents the thinking capabilities of an individual. It is concerned with psychological factors such as memory, concentration and analyzing power." link={pathName} headTag="h3" />
-                    <ImgHeadingBox  style={"w-[252px]"} alt="Lo Shu grid analysis for balanced life" path="/images_folder/Lo-Shu-grid-analysis-for-balanced-life.webp" heading="Soul or (Spiritual or Emotional Plane)" para="The second horizontal line of the grid is the soul plane. It denotes feelings, love, emotions, and spiritual inclination. The plane also represents intuitive powers of a person." link={pathName} headTag="h3" />
-                    <ImgHeadingBox  style={"w-[252px]"} alt="Achieving balance in life with Lo Shu grid" path="/images_folder/Achieving-balance-in-life-with-Lo-Shu-grid.webp" heading="Practical (or Physical Plane)" para="The third horizontal line of the grid is the practical plane. It represents practical abilities and mindset. It denotes a person’s verbal expression or the ability to do physical tasks." link={pathName}  headTag="h3" />
+                    <ImgHeadingBox  style={"w-[252px]"} title="Lo Shu Grid Personal Growth" alt="Lo Shu Grid for Personal Growth" path="/images_folder/Numerology-Lo-Shu-grid-for-personal-growth.webp" heading="Mind (Intellectual Plane)" para="The first horizontal line of the grid is the mind plane. It represents the thinking capabilities of an individual. It is concerned with psychological factors such as memory, concentration and analyzing power." link={pathName} headTag="h3" />
+                    <ImgHeadingBox  style={"w-[252px]"} title="Lo Shu Grid Analysis" alt="Lo Shu Grid Analysis for Balance" path="/images_folder/Lo-Shu-grid-analysis-for-balanced-life.webp" heading="Soul or (Spiritual or Emotional Plane)" para="The second horizontal line of the grid is the soul plane. It denotes feelings, love, emotions, and spiritual inclination. The plane also represents intuitive powers of a person." link={pathName} headTag="h3" />
+                    <ImgHeadingBox  style={"w-[252px]"} title="Lo Shu Grid for Balance" alt="Achieving Balance with Lo Shu Grid" path="/images_folder/Achieving-balance-in-life-with-Lo-Shu-grid.webp" heading="Practical (or Physical Plane)" para="The third horizontal line of the grid is the practical plane. It represents practical abilities and mindset. It denotes a person’s verbal expression or the ability to do physical tasks." link={pathName}  headTag="h3" />
                 </div>
             </div>
             <div className='my-10 bg-gray-100 py-5 px-5 lg:px-10 space-y-5'>
@@ -75,20 +76,20 @@ const LoShuGrid = () => {
                 <Para style="text-center" para="The higher the numbers in square, the stronger and positive impact it makes on the person." />
 
                 <div className='my-5 flex justify-center flex-wrap '>
-                    <ImgHeadingBox style='w-[252px]' alt="Lo Shu grid for aligning life path energies" path="/images_folder/Lo-Shu-grid-for-aligning-life-path-energies.webp" heading="Plane of Thought" para="The left line of the grid is known as the plane of thought. It reflects the person’s ability to think about new ideas and orderly habits. Therefore, it is also referred to as the Planner Plane." link={pathName} headTag='h3' />
-                    <ImgHeadingBox style='w-[252px]' alt="Numerology Lo Shu grid with personalized placements" path="/images_folder/Numerology-Lo-Shu-grid-with-personalized-placements.webp" heading="Plane of Determination or Will" para="The middle line of the grid is known as the plane of determination. It reflects the person’s will to achieve goals. It represents the individual’s persistence or determination to succeed." link={''} headTag='h3' />
-                    <ImgHeadingBox style='w-[252px]' alt="Numerology insights and placements using Lo Shu grid" path="/images_folder/Numerology-insights-and-placements-using-Lo-Shu-grid.webp" heading="Plane of Action" para="The right line of the grid is known as the plane of action. The plane refers to a person’s ability to take action and effectively execute one’s thoughts. Therefore, the plane is also referred to as the plane of action or activity." link={''} headTag='h3' />
+                    <ImgHeadingBox style='w-[252px]' title="Lo Shu Grid Life Path Energy" alt="Lo Shu Grid for Life Path Energy" path="/images_folder/Lo-Shu-grid-for-aligning-life-path-energies.webp" heading="Plane of Thought" para="The left line of the grid is known as the plane of thought. It reflects the person’s ability to think about new ideas and orderly habits. Therefore, it is also referred to as the Planner Plane." link={pathName} headTag='h3' />
+                    <ImgHeadingBox style='w-[252px]' title="Personalized Lo Shu Grid" alt="Lo Shu Grid Personalized Placements" path="/images_folder/Numerology-Lo-Shu-grid-with-personalized-placements.webp" heading="Plane of Determination or Will" para="The middle line of the grid is known as the plane of determination. It reflects the person’s will to achieve goals. It represents the individual’s persistence or determination to succeed." link={''} headTag='h3' />
+                    <ImgHeadingBox style='w-[252px]' title="Lo Shu Grid Insights" alt="Lo Shu Grid Numerology Insights" path="/images_folder/Numerology-insights-and-placements-using-Lo-Shu-grid.webp" heading="Plane of Action" para="The right line of the grid is known as the plane of action. The plane refers to a person’s ability to take action and effectively execute one’s thoughts. Therefore, the plane is also referred to as the plane of action or activity." link={''} headTag='h3' />
                 </div>
 
             </div>
             <div className='text-white luck-business p-10 my-10'>
                 <SubHeading style="my-5 text-center" subHeading="Elements of 9 Numbers in Lo shu grid" />
                 <div className='flex justify-center items-start flex-wrap'>
-                    <CommonNumberSolutionsIcon alt="Lo Shu grid for aligning life path energies" para="Number 1 represents the Water Element" path="/images_folder/Lo-Shu-grid-for-aligning-life-path-energies-.webp" />
-                    <CommonNumberSolutionsIcon alt="Balancing life through Lo Shu grid analysis" para="Number 2,5,8 represent the Earth Element" path="/images_folder/Balancing-life-through-Lo-Shu-grid-analysis.webp" />
-                    <CommonNumberSolutionsIcon alt="Lo Shu grid for precise numerology placement and analysis" para="Number 3,4 represent the Wood Element" path="/images_folder/Lo-Shu-grid-for-precise-numerology-placement-and-analysis.webp" />
-                    <CommonNumberSolutionsIcon alt="Lo Shu grid wisdom by JC Chaudhry for harmony" para="Number 6,7 represent the Metal Element" path="/images_folder/Lo-Shu-grid-wisdom-by-JC-Chaudhry-for-harmony.webp" />
-                    <CommonNumberSolutionsIcon alt="Lo Shu grid analysis for a harmonious life" para="Number 9 represents the FIre Element" path="/images_folder/Lo-Shu-grid-analysis-for-a-harmonious-life.webp" />
+                    <CommonNumberSolutionsIcon title="Lo Shu Grid Life Path Energy" alt="Lo Shu Grid for Life Path Energy" para="Number 1 represents the Water Element" path="/images_folder/Lo-Shu-grid-for-aligning-life-path-energies-.webp" />
+                    <CommonNumberSolutionsIcon title="Lo Shu Grid Life Balance" alt="Lo Shu Grid Analysis for Life Balance" para="Number 2,5,8 represent the Earth Element" path="/images_folder/Balancing-life-through-Lo-Shu-grid-analysis.webp" />
+                    <CommonNumberSolutionsIcon title="Lo Shu Grid Placement Analysis" alt="Lo Shu Grid Placement and Analysis" para="Number 3,4 represent the Wood Element" path="/images_folder/Lo-Shu-grid-for-precise-numerology-placement-and-analysis.webp" />
+                    <CommonNumberSolutionsIcon title="Dr. JC Chaudhry Lo Shu Grid" alt="Lo Shu Grid Wisdom by Dr. JC Chaudhry" para="Number 6,7 represent the Metal Element" path="/images_folder/Lo-Shu-grid-wisdom-by-JC-Chaudhry-for-harmony.webp" />
+                    <CommonNumberSolutionsIcon title="Lo Shu Grid for Harmony" alt="Lo Shu Grid Analysis for Harmony" para="Number 9 represents the FIre Element" path="/images_folder/Lo-Shu-grid-analysis-for-a-harmonious-life.webp" />
                 </div>
             </div>
             <div className='text-white luck-business p-10 my-10'>

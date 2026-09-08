@@ -31,7 +31,7 @@ const page = async ({params}: Props) => {
   const { slug } = await params;
 
  const data: PageDataResult = await usePageData(slug, process.env.NEXT_PUBLIC_URI || "")
-
+console.log(data)
   return (
     <Numerology slug={slug} pagesData={data} />
   )

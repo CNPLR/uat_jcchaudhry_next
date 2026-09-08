@@ -94,6 +94,7 @@ const Numerology = ({slug, pagesData}: {slug: string, pagesData: PageDataResult}
                     <Link href={token ? '/dashboard' : '/numerology/signup'}>
                         <Suspense fallback={<ComponentLoader height="300px" />}>
                             <Banner
+                                title={ele?.bannerTitle}
                                 alttag={ele?.alttag}
                                 path={`https://newcnpl.s3.ap-south-1.amazonaws.com/public/pages/banners/${ele?.headerBanner}`}
                             />
@@ -116,7 +117,8 @@ const Numerology = ({slug, pagesData}: {slug: string, pagesData: PageDataResult}
                         <ImageContent
                             style=""
                             path={`https://newcnpl.s3.ap-south-1.amazonaws.com/public/pages/planetnumbers/${ele.imageKey}`}
-                            alt={ele.heading}
+                            alt={ele?.imageAlt || ele?.heading}
+                            title={ele?.imageTitle || ele?.heading}
                             subHeading={ele.heading}
                             para={ele.content} about={""}                        
                         />

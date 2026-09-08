@@ -17,7 +17,8 @@ export default function NumerologyServicesCard({
 
       <div className="flex flex-wrap justify-center mb-10 mt-10">
         <OurSolutionCard
-          alt="​Personal Numerology"
+          title="Personal Numerology"
+          alt="​Personal Numerology Reading"
           path="/images_folder/Personal--Numerology.webp"
           subHeading="​Personal Numerology"
           para="To find out the personal compatibility by name and date of birth"
@@ -25,7 +26,8 @@ export default function NumerologyServicesCard({
         />
 
         <OurSolutionCard
-          alt="Career Numerology"
+          title="Career Numerology"
+          alt="Career Numerology Reading"
           path="/images_folder/Career--Numerology.webp"
           subHeading="Career Numerology"
           para="To predict the best career and growth for a successful future"
@@ -33,7 +35,8 @@ export default function NumerologyServicesCard({
         />
 
         <OurSolutionCard
-          alt="Relationship Numerology"
+          title="Relationship Numerology"
+          alt="Relationship Numerology Reading"
           path="/images_folder/Relationship--Numerology.webp"
           subHeading="Relationship Numerology"
           para="To check the relationship compatibility between any two persons"
@@ -41,7 +44,8 @@ export default function NumerologyServicesCard({
         />
 
         <OurSolutionCard
-          alt="Business Numerology"
+          title="Business Numerology"
+          alt="Business Numerology Reading"
           path="/images_folder/Business--Numerology.webp"
           subHeading="Business Numerology"
           para="To give suitable name to a Brand for luck and success"
@@ -49,7 +53,8 @@ export default function NumerologyServicesCard({
         />
 
         <OurSolutionCard
-          alt="​Marriage Numerology"
+          title="Business Numerology"
+          alt="​Business Numerology"
           path="/images_folder/Marriage--Numerology.webp"
           subHeading="​Marriage Numerology"
           para="To find out compatibility between a boy and a girl for Marriage"
@@ -57,7 +62,8 @@ export default function NumerologyServicesCard({
         />
 
         <OurSolutionCard
-          alt="New Born Numerology"
+          title="New-born Numerology"
+          alt="New-born Numerology Reading"
           path="/images_folder/New Born--Numerology.webp"
           subHeading="New Born Numerology"
           para="Naming of a Newly Born Child in harmony with date of birth"

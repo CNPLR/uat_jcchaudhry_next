@@ -12,9 +12,10 @@ type BannerProps = {
   h?: number;
   priority?: boolean;
   sizes?: string;
+  title?: string;
 };
 
-export default function Banner({ alttag, path, path1, path2, path3,w,h, priority= false, sizes }: BannerProps) {
+export default function Banner({ title, alttag, path, path1, path2, path3,w,h, priority= false, sizes }: BannerProps) {
   
   // const cacheBuster = useMemo(() => Date.now(), []);
   const imageSrc = path.startsWith("http")
@@ -23,7 +24,7 @@ export default function Banner({ alttag, path, path1, path2, path3,w,h, priority
   return (
     <div className="w-full">
       <Image
-        title={alttag}
+        title={title || alttag}
         src={imageSrc}
         alt={alttag}
         width={w || 1200}
