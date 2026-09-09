@@ -66,7 +66,7 @@ jobs:
           username: ${{ secrets.EC2_USER }}
           key: ${{ secrets.EC2_SSH_KEY }}
 
-          source: ".next,public,package.json,package-lock.json,next.config.ts,ecosystem.config.cjs,scripts"
+          source: ".next,public,package.json,package-lock.json,next.config.ts,ecosystem.config.cjs"
           target: "/var/www/cnpl/"
 
 
@@ -132,11 +132,17 @@ jobs:
 
             echo "✅ .env.production exists"
 
+
+            echo "======================================"
+            echo "Installing production dependencies"
+            echo "======================================"
+
+            npm ci --omit=dev
+
+
             echo "======================================"
             echo "Starting / Restarting PM2"
             echo "======================================"
-
-            npm i
 
             pm2 startOrRestart ecosystem.config.cjs
 

@@ -24,10 +24,6 @@ module.exports = {
 
       // Restart if memory exceeds 1GB
       max_memory_restart: "1G",
-
-      // Logs
-      error_file: "/var/log/pm2/jcchaudhry-error.log",
-      out_file: "/var/log/pm2/jcchaudhry-out.log",
       time: true
     }
   ]
