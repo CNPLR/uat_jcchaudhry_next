@@ -1,6 +1,4 @@
-# ==========================================
-# CI/CD - Deploy Live CNPL Website
-# ==========================================
+# CI/CD
 
 name: Deploy live CNPL Website
 
@@ -91,12 +89,7 @@ jobs:
 
             export NVM_DIR="$HOME/.nvm"
 
-            if [ -s "$NVM_DIR/nvm.sh" ]; then
-              . "$NVM_DIR/nvm.sh"
-            else
-              echo "❌ NVM not found"
-              exit 1
-            fi
+            [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"
 
             nvm use 24.13
 
@@ -120,46 +113,19 @@ jobs:
 
 
             echo "======================================"
-            echo "Checking required files"
+            echo "Checking Next.js build"
             echo "======================================"
 
-            if [ ! -d ".next" ]; then
-              echo "❌ .next directory not found"
-              exit 1
-            fi
+            test -d .next
 
             echo "✅ .next directory exists"
-
-
-            if [ ! -f "package.json" ]; then
-              echo "❌ package.json not found"
-              exit 1
-            fi
-
-            echo "✅ package.json exists"
-
-
-            if [ ! -f "package-lock.json" ]; then
-              echo "❌ package-lock.json not found"
-              exit 1
-            fi
-
-            echo "✅ package-lock.json exists"
-
-
-            if [ ! -f "ecosystem.config.cjs" ]; then
-              echo "❌ ecosystem.config.cjs not found"
-              exit 1
-            fi
-
-            echo "✅ ecosystem.config.cjs exists"
 
 
             echo "======================================"
             echo "Checking production environment"
             echo "======================================"
 
-            if [ ! -f ".env.production" ]; then
+            if [ ! -f .env.production ]; then
               echo "❌ .env.production not found"
               exit 1
             fi
@@ -168,19 +134,10 @@ jobs:
 
 
             echo "======================================"
-            echo "Installing dependencies"
+            echo "Installing production dependencies"
             echo "======================================"
 
-            npm ci
-
-            echo "✅ Dependencies installed"
-
-
-            echo "======================================"
-            echo "Checking Next.js installation"
-            echo "======================================"
-
-            npx next --version
+            npm ci --omit=dev
 
 
             echo "======================================"
@@ -189,16 +146,12 @@ jobs:
 
             pm2 startOrRestart ecosystem.config.cjs
 
-            echo "✅ PM2 application started/restarted"
-
 
             echo "======================================"
             echo "Saving PM2"
             echo "======================================"
 
             pm2 save
-
-            echo "✅ PM2 process list saved"
 
 
             echo "======================================"
@@ -216,5 +169,5 @@ jobs:
 
 
             echo "======================================"
-            echo "Deployment completed successfully!"
+            echo "Deployment completed!"
             echo "======================================"
