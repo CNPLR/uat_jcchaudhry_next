@@ -1,30 +1,34 @@
 module.exports = {
-  apps: [{
-    name: "jcchaudhry",
-    script: "node_modules/next/dist/bin/next",
-    args: "start",
-    cwd: "./",
-    instances: 1,
-    exec_mode: "fork",
-    watch: false,
-    autorestart: true,
-    max_memory_restart: "1G",
+  apps: [
+    {
+      name: "jcchaudhry",
 
-    env: {
-      NODE_ENV: "development",
-      PORT: 3000
-    },
+      // Next.js production server
+      script: "node_modules/next/dist/bin/next",
+      args: "start -p 3000",
 
-    env_uat: {
-      NODE_ENV: "production",
-      PORT: 3000,
-      NEXT_PUBLIC_API_URL: "https://uat5.jcchaudhry.com"
-    },
+      // EC2 application directory
+      cwd: "/var/www/cnpl",
 
-    env_production: {
-      NODE_ENV: "production",
-      PORT: 3000,
-      NEXT_PUBLIC_API_URL: "https://www.jcchaudhry.com"
+      // Production environment
+      env: {
+        NODE_ENV: "production",
+        PORT: 3000
+      },
+
+      // PM2
+      instances: 1,
+      exec_mode: "fork",
+      watch: false,
+      autorestart: true,
+
+      // Restart if memory exceeds 1GB
+      max_memory_restart: "1G",
+
+      // Logs
+      error_file: "/var/log/pm2/jcchaudhry-error.log",
+      out_file: "/var/log/pm2/jcchaudhry-out.log",
+      time: true
     }
-  }]
+  ]
 };

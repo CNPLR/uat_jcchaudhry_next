@@ -15,14 +15,16 @@ jobs:
     environment: production
 
     steps:
+
       # ==========================================
       # Checkout
       # ==========================================
       - name: Checkout code
         uses: actions/checkout@v5
 
+
       # ==========================================
-      # Node.js
+      # Setup Node.js
       # ==========================================
       - name: Setup Node.js
         uses: actions/setup-node@v5
@@ -30,28 +32,32 @@ jobs:
           node-version: 24.13.0
           cache: npm
 
+
       # ==========================================
       # Install dependencies
       # ==========================================
       - name: Install dependencies
         run: npm ci
 
+
       # ==========================================
       # Build Next.js
       # ==========================================
       - name: Build Project
-        run: npm run pm2:prod
+        run: npm run build
+
 
       # ==========================================
-      # Verify build
+      # Verify Next.js build
       # ==========================================
       - name: Verify build
         run: |
           test -d .next
           echo "✅ Next.js build verified"
 
+
       # ==========================================
-      # Copy application to EC2
+      # Copy build/application to EC2
       # ==========================================
       - name: Copy application to EC2
         uses: appleboy/scp-action@v1
@@ -63,8 +69,9 @@ jobs:
           source: ".next,public,package.json,package-lock.json,next.config.ts,ecosystem.config.cjs"
           target: "/var/www/cnpl/"
 
+
       # ==========================================
-      # Restart application
+      # Restart application on EC2
       # ==========================================
       - name: Restart site
         uses: appleboy/ssh-action@v1.2.0
@@ -95,6 +102,7 @@ jobs:
             echo "PM2:"
             pm2 --version
 
+
             echo "======================================"
             echo "Application directory"
             echo "======================================"
@@ -102,6 +110,7 @@ jobs:
             cd /var/www/cnpl
 
             pwd
+
 
             echo "======================================"
             echo "Checking Next.js build"
@@ -111,17 +120,32 @@ jobs:
 
             echo "✅ .next directory exists"
 
+
+            echo "======================================"
+            echo "Checking production environment"
+            echo "======================================"
+
+            if [ ! -f .env.production ]; then
+              echo "❌ .env.production not found"
+              exit 1
+            fi
+
+            echo "✅ .env.production exists"
+
+
             echo "======================================"
             echo "Installing production dependencies"
             echo "======================================"
 
             npm ci --omit=dev
 
+
             echo "======================================"
-            echo "Restarting PM2"
+            echo "Starting / Restarting PM2"
             echo "======================================"
 
             pm2 startOrRestart ecosystem.config.cjs
+
 
             echo "======================================"
             echo "Saving PM2"
@@ -129,11 +153,20 @@ jobs:
 
             pm2 save
 
+
             echo "======================================"
             echo "PM2 Status"
             echo "======================================"
 
             pm2 status
+
+
+            echo "======================================"
+            echo "Application logs"
+            echo "======================================"
+
+            pm2 logs jcchaudhry --lines 20 --nostream
+
 
             echo "======================================"
             echo "Deployment completed!"
