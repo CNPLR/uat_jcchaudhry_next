@@ -36,7 +36,7 @@ const MarriageNumerologyReading = () => {
     <div>
 
             <Link href={token ? '/dashboard' : '/numerology/signup'}>
-                <Banner alttag="Marriage numerology reading by Dr. J C Chaudhry" path="/allbanners/Marriage-numerology-reading-by-Dr-J-C-Chaudhry.webp" priority />
+                <Banner title="Marriage Numerology Reading" alttag="Dr. JC Chaudhry Marriage Numerology" path="/allbanners/Marriage-numerology-reading-by-Dr-J-C-Chaudhry.webp" priority />
             </Link>
             <MainHeading style="text-center my-10" mainHeading="Marriage Compatibility Check by Dr. J C Chaudhry" headTag='h1' />
             <div className='mx-10 space-y-5'>
@@ -96,13 +96,13 @@ const MarriageNumerologyReading = () => {
             </div>
             <SubHeading style="text-center my-10" subHeading="Our Marriage Numerology Solutions" />
             <div className='flex flex-wrap justify-center px-10'>
-                <CommonNumberSolutionsIcon alt="Lucky date for marriage" para="Lucky date for marriage" path="/images_folder/Lucky-date-for-marriage.webp" />
-                <CommonNumberSolutionsIcon alt="Timing of marriage through numerology" para="Timing of marriage through numerology" path="/images_folder/Timing-of-marriage-through-numerology.webp" />
-                <CommonNumberSolutionsIcon alt="Marriage compatibility with date of birth" para="Marriage compatibility with date of birth" path="/images_folder/Marriage-compatibility-with-date-of-birth.webp" />
-                <CommonNumberSolutionsIcon alt="Marriage compatibility by name" para="Marriage compatibility by name" path="/images_folder/Marriage-compatibility-by-name.webp" />
-                <CommonNumberSolutionsIcon alt="Marriage compatibility by Destiny Number" para="Marriage compatibility by Destiny Number" path="/images_folder/Marriage-compatibility-by-Destiny-Number.webp" />
-                <CommonNumberSolutionsIcon alt="Marriage compatibility by Psychic Number" para="Marriage compatibility by Psychic Number" path="/images_folder/Marriage-compatibility-by-Psychic-Number.webp" />
-                <CommonNumberSolutionsIcon alt="Marriage match compatibility" para="Marriage match compatibility" path="/images_folder/Marriage-match-compatibility.webp" />
+                <CommonNumberSolutionsIcon title="Lucky Marriage Date" alt="Lucky Marriage Date Numerology" para="Lucky date for marriage" path="/images_folder/Lucky-date-for-marriage.webp" />
+                <CommonNumberSolutionsIcon title="Marriage Timing Numerology" alt="Marriage Timing Through Numerology" para="Timing of marriage through numerology" path="/images_folder/Timing-of-marriage-through-numerology.webp" />
+                <CommonNumberSolutionsIcon title="Marriage Compatibility by DOB" alt="Marriage Compatibility by Date of Birth" para="Marriage compatibility with date of birth" path="/images_folder/Marriage-compatibility-with-date-of-birth.webp" />
+                <CommonNumberSolutionsIcon title="Name Compatibility for Marriage" alt="Marriage Compatibility by Name" para="Marriage compatibility by name" path="/images_folder/Marriage-compatibility-by-name.webp" />
+                <CommonNumberSolutionsIcon title="Destiny Number Compatibility" alt="Marriage Compatibility by Destiny Number" para="Marriage compatibility by Destiny Number" path="/images_folder/Marriage-compatibility-by-Destiny-Number.webp" />
+                <CommonNumberSolutionsIcon title="Psychic Number Compatibility" alt="Marriage Compatibility by Psychic Number" para="Marriage compatibility by Psychic Number" path="/images_folder/Marriage-compatibility-by-Psychic-Number.webp" />
+                <CommonNumberSolutionsIcon title="Marriage Match Compatibility" alt="Marriage Match Compatibility Numerology" para="Marriage match compatibility" path="/images_folder/Marriage-match-compatibility.webp" />
             </div>
 
             <CommonBookAppointSolution

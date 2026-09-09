@@ -18,12 +18,12 @@ const page = () => {
   return (
     <div className=''>
 
-            <Banner alttag="Our mission in numerology and vastu" path="/allbanners/Our-mission-in-numerology-and-vastu.jpg" />
+            <Banner title="Our Mission" alttag="Numerology and Vastu Mission" path="/allbanners/Our-mission-in-numerology-and-vastu.jpg" />
             <div className='px-10'>
                 <MainHeading style="text-center my-5" mainHeading="Mission" />
                 <SubHeading1 style="text-center hidden lg:block" subHeading="To impart quality education to aspiring students beyond geographical barriers with the help of dedicated systems and technology" />
                 <SubHeading2 style="text-center lg:hidden" subHeading="To impart quality education to aspiring students beyond geographical barriers with the help of dedicated systems and technology" />
-                <Img path="/images_folder/mission.png" style="m-auto p-5" alt='' />
+                <Img path="/images_folder/mission.png" style="m-auto p-5" title="Mission" alt='Numerology and Vastu Mission' />
             </div>
         </div>
   )

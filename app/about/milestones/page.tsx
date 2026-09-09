@@ -19,7 +19,7 @@ const page = () => {
   return (
     <div className='bg-white'>
 
-            <Banner alttag="Key milestones in Dr. Chaudhry’s career" path="/allbanners/Key-milestones-in-Dr-Chaudhry’s-career.jpg" />
+            <Banner title="Career Milestones" alttag="Dr. JC Chaudhry Career Milestones" path="/allbanners/Key-milestones-in-Dr-Chaudhry’s-career.jpg" />
             <div className=''>
                 <MainHeading style="text-center my-5" mainHeading="Milestones" />
                 <div className='relative'>
