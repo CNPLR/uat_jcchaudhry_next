@@ -6,15 +6,10 @@
   "scripts": {
     "dev": "next dev",
     "build": "cross-env NODE_OPTIONS=--max-old-space-size=2048 ts-node scripts/getStaticRoutes.ts && next build",
-    "build:uat": "cross-env NODE_OPTIONS=--max-old-space-size=2048 dotenv -e .env.development -- ts-node scripts/getStaticRoutes.ts && dotenv -e .env.development -- next build",
     "start": "next start",
     "lint": "eslint",
     "staticSitemap": "ts-node scripts/getStaticRoutes.ts",
-    "bs": "cross-env NODE_OPTIONS=--max-old-space-size=2048 ts-node scripts/getStaticRoutes.ts && next build && next start",
-    "start:uat": "dotenv -e .env.development -- next start",
-    "pm2:uat": "pm2 start ecosystem.config.cjs --env uat",
-    "pm2:prod": "pm2 start ecosystem.config.cjs --env production",
-    "deploy:uat": "npm run build:uat && pm2 restart jcchaudhry --env uat || npm run pm2:uat"
+    "bs": "cross-env NODE_OPTIONS=--max-old-space-size=2048 ts-node scripts/getStaticRoutes.ts && next build && next start"
   },
   "browserslist": [
     "last 2 Chrome versions",
