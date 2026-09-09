@@ -132,14 +132,6 @@ jobs:
 
             echo "✅ .env.production exists"
 
-
-            echo "======================================"
-            echo "Installing production dependencies"
-            echo "======================================"
-
-            npm ci --omit=dev
-
-
             echo "======================================"
             echo "Starting / Restarting PM2"
             echo "======================================"
