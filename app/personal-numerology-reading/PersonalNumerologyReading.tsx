@@ -35,7 +35,7 @@ const PersonalNumerologyReading = () => {
      <div>
 
             <Link href={token ? '/dashboard' : '/numerology/signup'}>
-                <Banner alttag="Personal numerology reading by Dr. J C Chaudhry" priority path="/allbanners/Personal-numerology-reading-by-Dr-J-C-Chaudhry.webp" />
+                <Banner title='Personal Numerology' alttag="Dr. JC Chaudhry Personal Numerology Reading" priority path="/allbanners/Personal-numerology-reading-by-Dr-J-C-Chaudhry.webp" />
             </Link>
             <MainHeading style="text-center my-10 px-4" mainHeading="Numerology Reading for You" />
             <div className='mx-10 space-y-5'>

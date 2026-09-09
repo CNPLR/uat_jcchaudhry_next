@@ -20,16 +20,18 @@ const education = () => {
      <div>
             {/* <HeadHelmet {...pageMetaData} /> */}
 
-            <Banner alttag="Learn about Dr. J C Chaudhry’s educational journey" path="/allbanners/Learn-about-Dr-J-C-Chaudhry’s-educational-journey.webp" />
+            <Banner title="Educational Journey" alttag="Dr. JC Chaudhry Education" path="/allbanners/Learn-about-Dr-J-C-Chaudhry’s-educational-journey.webp" />
             <MainHeading style="text-center my-10" mainHeading="Education" />
             <div className='lg:px-10 px-5 mt-10'>
                 <div className=' flex justify-center flex-col md:flex-row space-x-10 [&>div]:w-full md:[&>div]:w-[30%]'>
                     <ImgHeadingBox
-                      alt="About Dr. J.C. Chaudhry’s educational journey"
-                      path="/images_folder/About-Dr.-J.C.-Chaudhry’s-educational-journey_Bits_Pilani.webp"
-                      para="Dr. J C Chaudhry holds a Master's degree in Science (Botany) from the Birla Institute of Technology and Science (BITS), Pilani, Rajasthan (1972)." heading={''} link={''}                    />
+                        title='BITS Pilani Education'
+                        alt="Dr. JC Chaudhry BITS Pilani"
+                        path="/images_folder/About-Dr.-J.C.-Chaudhry’s-educational-journey_Bits_Pilani.webp"
+                        para="Dr. J C Chaudhry holds a Master's degree in Science (Botany) from the Birla Institute of Technology and Science (BITS), Pilani, Rajasthan (1972)." heading={''} link={''}                    />
                     <ImgHeadingBox
-                        alt="Dr. J.C. Chaudhry’s educational journey"
+                        title="Academic Journey"
+                        alt="Dr. JC Chaudhry Academic Journey"
                         path="/images_folder/Dr.-J.C.-Chaudhry’s-educational-journey.webp"
                         para="He has been very closely associated with the teaching field for 48 years extending his services across schools & colleges."
                         heading={''} link={''}
@@ -37,13 +39,15 @@ const education = () => {
                 </div>
                 <div className='flex justify-center flex-col md:flex-row  space-x-10 [&>div]:w-full md:[&>div]:w-[30%]'>
                     <ImgHeadingBox
-                        alt="To impart quality education to aspiring students"
+                        title="Quality Education"
+                        alt="Quality Education by Dr. JC Chaudhry"
                         path="/images_folder/To-impart-quality-education-to-aspiring-students-.webp"
                         para="Dr. J C Chaudhry has been instrumental in motivating lakhs of students and shaping their future careers. With an aim to infuse confidence in students, Dr. J C Chaudhry has been delivering motivational lectures through seminars and also through his YouTube channel."
                         heading={''} link={''}
                     />
                     <ImgHeadingBox
-                        alt="Dr. J.C. Chaudhry's Academic Journey"
+                        title="Academic Journey"
+                        alt="Dr. JC Chaudhry Academic Journey"
                         path="/images_folder/Dr.-J.C.-Chaudhry's-Academic-Journey.webp"
                         para="His journey from a teacher to establishing AESL and the way he ushered innovation in the coaching industry making 'Aakash'- a standalone brand, is indeed praiseworthy and worth imitating."
                         heading={''} link={''}

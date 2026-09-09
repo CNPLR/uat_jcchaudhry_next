@@ -1,0 +1,140 @@
+# CI/CD
+
+name: Deploy live CNPL Website
+
+on:
+  push:
+    branches:
+      - main
+
+  workflow_dispatch:
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    environment: production
+
+    steps:
+      # ==========================================
+      # Checkout
+      # ==========================================
+      - name: Checkout code
+        uses: actions/checkout@v5
+
+      # ==========================================
+      # Node.js
+      # ==========================================
+      - name: Setup Node.js
+        uses: actions/setup-node@v5
+        with:
+          node-version: 24.13.0
+          cache: npm
+
+      # ==========================================
+      # Install dependencies
+      # ==========================================
+      - name: Install dependencies
+        run: npm ci
+
+      # ==========================================
+      # Build Next.js
+      # ==========================================
+      - name: Build Project
+        run: npm run pm2:prod
+
+      # ==========================================
+      # Verify build
+      # ==========================================
+      - name: Verify build
+        run: |
+          test -d .next
+          echo "✅ Next.js build verified"
+
+      # ==========================================
+      # Copy application to EC2
+      # ==========================================
+      - name: Copy application to EC2
+        uses: appleboy/scp-action@v1
+        with:
+          host: ${{ secrets.EC2_HOST }}
+          username: ${{ secrets.EC2_USER }}
+          key: ${{ secrets.EC2_SSH_KEY }}
+
+          source: ".next,public,package.json,package-lock.json,next.config.ts,ecosystem.config.cjs"
+          target: "/var/www/cnpl/"
+
+      # ==========================================
+      # Restart application
+      # ==========================================
+      - name: Restart site
+        uses: appleboy/ssh-action@v1.2.0
+        with:
+          host: ${{ secrets.EC2_HOST }}
+          username: ${{ secrets.EC2_USER }}
+          key: ${{ secrets.EC2_SSH_KEY }}
+
+          script: |
+            set -e
+
+            echo "======================================"
+            echo "Loading Node.js"
+            echo "======================================"
+
+            export NVM_DIR="$HOME/.nvm"
+
+            [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"
+
+            nvm use 24.13
+
+            echo "Node:"
+            node -v
+
+            echo "NPM:"
+            npm -v
+
+            echo "PM2:"
+            pm2 --version
+
+            echo "======================================"
+            echo "Application directory"
+            echo "======================================"
+
+            cd /var/www/cnpl
+
+            pwd
+
+            echo "======================================"
+            echo "Checking Next.js build"
+            echo "======================================"
+
+            test -d .next
+
+            echo "✅ .next directory exists"
+
+            echo "======================================"
+            echo "Installing production dependencies"
+            echo "======================================"
+
+            npm ci --omit=dev
+
+            echo "======================================"
+            echo "Restarting PM2"
+            echo "======================================"
+
+            pm2 startOrRestart ecosystem.config.cjs
+
+            echo "======================================"
+            echo "Saving PM2"
+            echo "======================================"
+
+            pm2 save
+
+            echo "======================================"
+            echo "PM2 Status"
+            echo "======================================"
+
+            pm2 status
+
+            echo "======================================"
+            echo "Deployment completed!"
+            echo "======================================"

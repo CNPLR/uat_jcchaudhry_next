@@ -34,7 +34,7 @@ const RelationshipNumerologyReading = () => {
     <div>
 
             <Link href={token ? '/dashboard' : '/numerology/signup'}>
-                <Banner alttag="Relationship numerology consultation with Dr. J C Chaudhry" priority path="/allbanners/Relationship-numerology-consultation-with-Dr-J-C-Chaudhry.webp" />
+                <Banner title="Relationship Numerology Consultation" alttag="Dr. JC Chaudhry Relationship Numerology" priority path="/allbanners/Relationship-numerology-consultation-with-Dr-J-C-Chaudhry.webp" />
             </Link>
             <MainHeading style="text-center my-10 px-4" mainHeading="Relationship Compatibility Test by Dr. J C Chaudhry" headTag='h1' />
             <div className='mx-10 space-y-5'>
@@ -72,14 +72,14 @@ const RelationshipNumerologyReading = () => {
             <SubHeading style="text-center" subHeading="Our Relationship Compatibility Numerology Solutions" />
             <Para style="text-center my-5" para="Consult Dr. J C Chaudhry, 40 years experienced Numerologist to resolve your compatibility issues with others." />
             <div className='flex flex-wrap justify-center px-10'>
-                <CommonNumberSolutionsIcon alt="Husband Wife Compatibility Check" para="Husband Wife Compatibility Check" path="/images_folder/Husband-Wife-Compatibility-Check.webp" />
-                <CommonNumberSolutionsIcon alt="Compatibility Check for Boyfriend Girlfriend" para="Compatibility Check for Boyfriend Girlfriend" path="/images_folder/Compatibility-Check-for-Boyfriend-Girlfriend.webp" />
-                <CommonNumberSolutionsIcon alt="Parent Child Compatibility Test" para="Parent Child Compatibility Test" path="/images_folder/Parent-Child-Compatibility-Test.webp" />
-                <CommonNumberSolutionsIcon alt="Compatibility with Business Partner" para="Compatibility with Business Partner" path="/images_folder/Compatibility-with-Business-Partner.webp" />
-                <CommonNumberSolutionsIcon alt="Compatibility with In-Laws" para="Compatibility with In-Laws" path="/images_folder/Compatibility-with-In-Laws.webp" />
-                <CommonNumberSolutionsIcon alt="Compatibility with Company or Boss" para="Compatibility with Company or Boss" path="/images_folder/Compatibility-with-Company-or-Boss.webp" />
-                <CommonNumberSolutionsIcon alt="Compatibility with Employees" para="Compatibility with Employees" path="/images_folder/Compatibility-with-Employees.webp" />
-                <CommonNumberSolutionsIcon alt="Compatibility with Co-workers" para="Compatibility with Co-workers" path="/images_folder/Compatibility-with-Co-workers.webp" />
+                <CommonNumberSolutionsIcon title="Husband Wife Compatibility" alt="Husband Wife Compatibility Numerology" para="Husband Wife Compatibility Check" path="/images_folder/Husband-Wife-Compatibility-Check.webp" />
+                <CommonNumberSolutionsIcon title="Boyfriend Girlfriend Compatibility" alt="Boyfriend Girlfriend Compatibility Numerology" para="Compatibility Check for Boyfriend Girlfriend" path="/images_folder/Compatibility-Check-for-Boyfriend-Girlfriend.webp" />
+                <CommonNumberSolutionsIcon title="Parent Child Compatibility" alt="Parent Child Compatibility Numerology" para="Parent Child Compatibility Test" path="/images_folder/Parent-Child-Compatibility-Test.webp" />
+                <CommonNumberSolutionsIcon title="Business Partner Compatibility" alt="Business Partner Compatibility Numerology" para="Compatibility with Business Partner" path="/images_folder/Compatibility-with-Business-Partner.webp" />
+                <CommonNumberSolutionsIcon title="In-Law Compatibility" alt="In-Law Compatibility Numerology" para="Compatibility with In-Laws" path="/images_folder/Compatibility-with-In-Laws.webp" />
+                <CommonNumberSolutionsIcon title="Company and Boss Compatibility" alt="Company and Boss Compatibility Numerology" para="Compatibility with Company or Boss" path="/images_folder/Compatibility-with-Company-or-Boss.webp" />
+                <CommonNumberSolutionsIcon title="Employee Compatibility" alt="Employee Compatibility Numerology" para="Compatibility with Employees" path="/images_folder/Compatibility-with-Employees.webp" />
+                <CommonNumberSolutionsIcon title="Co-worker Compatibility" alt="Co-worker Compatibility Numerology" para="Compatibility with Co-workers" path="/images_folder/Compatibility-with-Co-workers.webp" />
             </div>
 
             <CommonBookAppointSolution

@@ -39,7 +39,7 @@ const NewBornNumerologyReading = () => {
      <div>
 
             <Link href={token ? '/dashboard' : '/numerology/signup'}>
-                <Banner priority alttag="Baby Name Numerology Baby Names Starting with any Alphabet Numerology" path="/allbanners/Baby-Name-Numerology-Baby-Names-Starting-with-any-Alphabet-Numerology.webp" />
+                <Banner priority title="Baby Name Numerology" alttag="Baby Name Numerology by Dr. JC Chaudhry" path="/allbanners/Baby-Name-Numerology-Baby-Names-Starting-with-any-Alphabet-Numerology.webp" />
             </Link>
             <MainHeading style="text-center my-10" mainHeading="New Born Numerology Reading by Dr. J C Chaudhry" headTag='h1' />
             <div className='mx-10 space-y-5'>
@@ -51,7 +51,7 @@ const NewBornNumerologyReading = () => {
                 </Link>
             </div>
             <div className='relative flex py-10 items-start justify-evenly my-10'>
-                <Img alt="New Born Numerology Reading by Dr. J C Chaudhry" path="/images_folder/newborl_numerology_bg.webp" fill style=' absolute inset-0 object-cover' />
+                <Img title="Newborn Numerology" alt="New-born Numerology by Dr. JC Chaudhry" path="/images_folder/newborl_numerology_bg.webp" fill style=' absolute inset-0 object-cover' />
                 <div className='z-40 lg:w-[50%] w-full px-10 lg:px-0'>
                     <SubHeading style="text-white" subHeading="Common Questions & Queries" />
                     <div className='space-y-5 mt-5'>
@@ -96,7 +96,8 @@ const NewBornNumerologyReading = () => {
             </div>
             <div className='px-10'>
                 <ImageContent
-                    alt="baby name change"
+                    title="Baby Name Change"
+                    alt="Baby Name Change Numerology"
                     path="/images_folder/baby-name-change.webp"
                     subHeading="Name Change of the Child"
                     para="Changing your child’s name doesn’t mean, we will change the complete name of the child. If your child’s name is Aryan for example and after his numerology check, we find it’s not suitable for him. We might change it to Aaryan by adding an extra “A” in the name to match the suitability with the date of birth."
