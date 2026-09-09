@@ -136,6 +136,8 @@ jobs:
             echo "Starting / Restarting PM2"
             echo "======================================"
 
+            npm i
+
             pm2 startOrRestart ecosystem.config.cjs
 
 
