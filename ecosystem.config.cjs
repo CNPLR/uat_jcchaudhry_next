@@ -8,7 +8,7 @@ module.exports = {
       args: "start -p 3000",
 
       // EC2 application directory
-      cwd: "/var/www/cnpl",
+      cwd: "./",
 
       // Production environment
       env: {
