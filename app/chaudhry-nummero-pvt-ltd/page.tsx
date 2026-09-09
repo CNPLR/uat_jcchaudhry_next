@@ -14,8 +14,8 @@ import Link from 'next/link'
 
 export const metadata = GenerateMetadata({
     banner: "/allbanners/Chaudhry-Numerology-Pvt-Ltd-services.webp",
-    title: "Chaudhry Nummero Pvt. Ltd | Dr. J C Chaudhry | Numerology Auditing Firm",
-    description: "Chaudhry Nummero Pvt. Ltd (CNPL) is a Numerology Auditing company by top numerologist Dr. J C Chaudhry. Contact us for business and personal numerology reading.",
+    title: "Chaudhry Nummero Pvt. Ltd. | Numerology Consulting Solution",
+    description: "Discover Chaudhry Nummero Pvt. Ltd. for business numerology audits, personal solutions, consultations and expert guidance for success.",
     keywords: "numerology company, best numerology company in India, numerology auditing company, jc chaudhry, famous numerology firm in India, top numerology company, world famous numerology, numerology in India, India numerology company, numerology audit firm",
     pagePath: "/chaudhry-nummero-pvt-ltd",
 });

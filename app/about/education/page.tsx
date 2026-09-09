@@ -9,8 +9,8 @@ import GenerateMetadata from '../../components/MetaGenerator'
 export const metadata = GenerateMetadata({
     pagePath: "/about/education",
     banner: "/allbanners/Learn-about-Dr-J-C-Chaudhry’s-educational-journey.webp",
-    title: "Dr. J C Chaudhry Education | Chairman Aakash Education Study, College, Teaching Experience",
-    description: "Dr. J C Chaudhry Chairman &amp; Managing Director of AESL did his Master degree in Science (Botany) from the Birla Institute of Technology and Science from BITS Pilani in the year 1972.",
+    title: "Dr. JC Chaudhry Education: Academic Journey, Achievements",
+    description: "Dr. JC Chaudhry holds a Master's degree in Science and has 48 years of teaching experience, inspiring students and shaping careers.",
     keywords: "jc Chaudhry education, 	Dr. J C Chaudhry studies, Dr. J C Chaudhry knowledge, jc Chaudhry aakash chairman, Dr. J C Chaudhry aakash owner, jc Chaudhry college degree, Dr. J C Chaudhry science, jc Chaudhry from bits pilani",
     // headers: headers,
 });
@@ -22,11 +22,11 @@ const education = () => {
 
             <Banner alttag="Learn about Dr. J C Chaudhry’s educational journey" path="/allbanners/Learn-about-Dr-J-C-Chaudhry’s-educational-journey.webp" />
             <MainHeading style="text-center my-10" mainHeading="Education" />
-            <div className='lg:px-10 px-5'>
+            <div className='lg:px-10 px-5 mt-10'>
                 <div className=' flex justify-center flex-col md:flex-row space-x-10 [&>div]:w-full md:[&>div]:w-[30%]'>
                     <ImgHeadingBox
                       alt="About Dr. J.C. Chaudhry’s educational journey"
-                      path="/images_folder/About-Dr.-J.C.-Chaudhry’s-educational-journey.webp"
+                      path="/images_folder/About-Dr.-J.C.-Chaudhry’s-educational-journey_Bits_Pilani.webp"
                       para="Dr. J C Chaudhry holds a Master's degree in Science (Botany) from the Birla Institute of Technology and Science (BITS), Pilani, Rajasthan (1972)." heading={''} link={''}                    />
                     <ImgHeadingBox
                         alt="Dr. J.C. Chaudhry’s educational journey"

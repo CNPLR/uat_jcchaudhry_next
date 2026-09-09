@@ -26,7 +26,7 @@ const BusinessNumerologyReading = () => {
     }, []);
 
     let bgImg = {
-        backgroundImage: 'url(../../images_folder/business_numerology_bg.webp)',
+        backgroundImage: 'url(../../images_folder/business_numerology_bg.png)',
         backgroundPosition: 'center',
         backgroundRepeat: 'noRepeat',
         backgroundSize: 'cover',
@@ -36,9 +36,9 @@ const BusinessNumerologyReading = () => {
      <div>
 
             <Link href={token ? '/dashboard' : '/numerology/signup'}>
-                <Banner alttag="Numerology readings for new borns by Dr. J C Chaudhry." path="/allbanners/Numerology-readings-for-new-borns-by-Dr-J-C-Chaudhry.webp" />
+                <Banner title='Newborn Numerology' alttag="Dr. JC Chaudhry Newborn Numerology" path="/allbanners/Numerology-readings-for-new-borns-by-Dr-J-C-Chaudhry.webp" />
             </Link>
-            <MainHeading style="text-center my-5" mainHeading="Business Name Numerology" />
+            <MainHeading style="text-center my-5" mainHeading="Business Name Numerology" headTag="h1" />
             <div className='mx-10 space-y-5'>
                 <Para style='text-justify' para="The rapid escalation of startups and novel brands, highlight the increasing popularity of entrepreneurship as a career option. With budding companies in every niche, establishing their brand’s name and identity is of paramount importance for business owners. Business numerology facilitates business people with solutions focused on increasing business popularity, growth, and profitability." />
                 <Para style='text-justify' para="One of the business numerology solutions is business name numerology, which suggests a lucky business name that resonates harmoniously with the date of birth (destiny number) of the owners or partners. Other company numerology factors include the selection of lucky dates to launch the business or project, numerology compatibility between partners, and favourable business numbers, all of which help maximise profits. An increase in profits assists entrepreneurs unlock the secret to success." />
@@ -93,13 +93,13 @@ const BusinessNumerologyReading = () => {
             </div>
             <SubHeading style="text-center my-10" subHeading="Numerology Solutions for Business" />
             <div className='flex flex-wrap justify-center px-10'>
-                <CommonNumberSolutionsIcon alt="Lucky Name for your Business" para="Lucky Name for your Business" path="/images_folder/Lucky-Name-for-your-Business.webp" />
-                <CommonNumberSolutionsIcon alt="Lucky Numbers for your Business" para="Lucky Numbers for your Business" path="/images_folder/Lucky-Numbers-for-your-Business.webp" />
-                <CommonNumberSolutionsIcon alt="Lucky Name and Numbers for your Shop" para="Lucky Name and Numbers for your Shop" path="/images_folder/Lucky-Name-and-Numbers-for-your-Shop.webp" />
-                <CommonNumberSolutionsIcon alt="Business Name Compatibility with Date of Birth" para="Business Name Compatibility with Date of Birth" path="/images_folder/Business-Name-Compatibility-with-Date-of-Birth.webp" />
-                <CommonNumberSolutionsIcon alt="Numerology for Business Success" para="Numerology for Business Success" path="/images_folder/Numerology-for-Business-Success.webp" />
-                <CommonNumberSolutionsIcon alt="Business Partner Compatibility" para="Business Partner Compatibility" path="/images_folder/Business-Partner-Compatibility-.webp" />
-                <CommonNumberSolutionsIcon alt="Business Numerology Audit" para="Business Numerology Audit" path="/images_folder/Business-Numerology-Audit.webp" />
+                <CommonNumberSolutionsIcon title="Lucky Business Name" alt="Lucky Business Name Numerology" para="Lucky Name for your Business" path="/images_folder/Lucky-Name-for-your-Business.webp" />
+                <CommonNumberSolutionsIcon title="Lucky Business Numbers" alt="Lucky Business Numbers Numerology" para="Lucky Numbers for your Business" path="/images_folder/Lucky-Numbers-for-your-Business.webp" />
+                <CommonNumberSolutionsIcon title="Lucky Shop Name and Numbers" alt="Lucky Shop Name and Numbers" para="Lucky Name and Numbers for your Shop" path="/images_folder/Lucky-Name-and-Numbers-for-your-Shop.webp" />
+                <CommonNumberSolutionsIcon title="Business Name Compatibility" alt="Business Name Compatibility by DOB" para="Business Name Compatibility with Date of Birth" path="/images_folder/Business-Name-Compatibility-with-Date-of-Birth.webp" />
+                <CommonNumberSolutionsIcon title="Business Success Numerology" alt="Numerology for Business Success" para="Numerology for Business Success" path="/images_folder/Numerology-for-Business-Success.webp" />
+                <CommonNumberSolutionsIcon title="Business Partner Compatibility" alt="Business Partner Compatibility Numerology" para="Business Partner Compatibility" path="/images_folder/Business-Partner-Compatibility-.webp" />
+                <CommonNumberSolutionsIcon title="Business Numerology Audit" alt="Business Numerology Audit" para="Business Numerology Audit" path="/images_folder/Business-Numerology-Audit.webp" />
             </div>
 
             <CommonBookAppointSolution

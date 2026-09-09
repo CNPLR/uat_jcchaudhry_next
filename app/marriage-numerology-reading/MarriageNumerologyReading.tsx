@@ -13,6 +13,7 @@ import Question from "../components/ui/Question"
 import SubHeading from "../components/ui/SubHeading"
 import SubHeading2 from "../components/ui/SubHeading2"
 import { useEffect, useState } from "react"
+import Img from "../components/ui/Img"
 
 const MarriageNumerologyReading = () => {
      let bgImg = {
@@ -35,9 +36,9 @@ const MarriageNumerologyReading = () => {
     <div>
 
             <Link href={token ? '/dashboard' : '/numerology/signup'}>
-                <Banner alttag="Marriage numerology reading by Dr. J C Chaudhry" path="/allbanners/Marriage-numerology-reading-by-Dr-J-C-Chaudhry.webp" />
+                <Banner alttag="Marriage numerology reading by Dr. J C Chaudhry" path="/allbanners/Marriage-numerology-reading-by-Dr-J-C-Chaudhry.webp" priority />
             </Link>
-            <MainHeading style="text-center my-10" mainHeading="Marriage Compatibility Check by Dr. J C Chaudhry" />
+            <MainHeading style="text-center my-10" mainHeading="Marriage Compatibility Check by Dr. J C Chaudhry" headTag='h1' />
             <div className='mx-10 space-y-5'>
                 <Para style='text-justify' para="Marriage is a beautiful union. However, constant problems in a marriage give rise to the question: How do you make a marriage work? The answer to this question lies in numerology. For a happy marriage, the couples need to check number compatibility before marriage for a harmonious relationship." />
                 <Para style='text-justify' para="Many times, boys and girls get married without checking their numbers and select a marriage date that is unfriendly to their numbers, all of which become the reason for unhappy marriages. Numerology guidance can help couples check number compatibility, select a lucky marriage date, an auspicious time for marriage, etc. for a successful marriage." />
@@ -46,7 +47,8 @@ const MarriageNumerologyReading = () => {
                     <NormalButton style="w-52 m-auto lg:ml-auto" text="Book Appointment" />
                 </Link>
             </div>
-            <div style={bgImg} className='flex py-10 items-start justify-evenly my-10'>
+            <div className='flex py-10 items-start justify-evenly my-10 relative'>
+                <Img alt="Marriage Numerology Reading by Dr. J C Chaudhry" path="/images_folder/marriage_numerology_bg.webp" priority fill style=' absolute inset-0 object-cover' />
                 <div className='z-40 lg:w-[50%] w-full px-10 lg:px-0'>
                     <SubHeading style="text-white" subHeading="Common Questions & Queries" />
                     <div className='space-y-5 mt-5'>

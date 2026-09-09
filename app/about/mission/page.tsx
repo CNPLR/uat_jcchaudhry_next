@@ -9,8 +9,8 @@ import { headers } from 'next/headers'
 export const metadata = GenerateMetadata({
     pagePath: "/about/mission",
     banner: "/allbanners/Our-mission-in-numerology-and-vastu.jpg",
-    title: "Motivation, Teaching, Numerology by Dr. J C Chaudhry",
-    description: "Dr. J C Chaudhry is working on his mission to educate students to build better doctors and engineers in India. Also, helping thousands of people to resolve their family, business and career problems with his numerology experience.",
+    title: "Dr. JC Chaudhry Mission: Education, Technology, Learning",
+    description: "Discover Dr. JC Chaudhry's mission to provide quality education through technology, helping aspiring students learn beyond geographical barriers.",
     keywords: "numerologist in india, numerology by jc chaudhry, vaastu shastra expert, motivational speaker, motivational speakers in india",
     // headers: headers,
 });
@@ -23,7 +23,7 @@ const page = () => {
                 <MainHeading style="text-center my-5" mainHeading="Mission" />
                 <SubHeading1 style="text-center hidden lg:block" subHeading="To impart quality education to aspiring students beyond geographical barriers with the help of dedicated systems and technology" />
                 <SubHeading2 style="text-center lg:hidden" subHeading="To impart quality education to aspiring students beyond geographical barriers with the help of dedicated systems and technology" />
-                <Img path="/images_folder/mission.jpg" style="m-auto" alt='' />
+                <Img path="/images_folder/mission.png" style="m-auto p-5" alt='' />
             </div>
         </div>
   )

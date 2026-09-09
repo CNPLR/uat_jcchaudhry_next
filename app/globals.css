@@ -338,9 +338,9 @@ td {
   margin: 20px 0px;
 }
 
-::-webkit-scrollbar {
+/* ::-webkit-scrollbar {
   display: none;
-}
+} */
 
 /* ========================= hamburger =========================== */
 :root {

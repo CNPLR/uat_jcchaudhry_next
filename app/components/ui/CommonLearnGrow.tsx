@@ -7,6 +7,7 @@ interface CommonLearnGrowProps {
   subHeading: string;
   link: string;
   alt?: string;
+  title?: string;
 }
 
 export default function CommonLearnGrow({
@@ -14,12 +15,13 @@ export default function CommonLearnGrow({
   subHeading,
   link,
   alt = "",
+  title
 }: CommonLearnGrowProps) {
   return (
     <Link href={link}>
       <div className="border border-gray-200 shadow-md p-5 bg-white rounded-lg w-[180px] h-[220px] hover:shadow-2xl transition md:mr-5 mb-5">
         <div className="w-28 h-28 m-auto">
-          <Img alt={alt} style="m-auto" path={path  as string} />
+          <Img title={title || alt} alt={alt} style="m-auto" path={path  as string} />
         </div>
 
         <div className="h-[2px] w-full bg-gray-100 my-2"></div>

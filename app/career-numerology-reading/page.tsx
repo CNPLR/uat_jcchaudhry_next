@@ -5,8 +5,8 @@ import { headers } from 'next/headers'
 
 export const metadata = GenerateMetadata({
     banner: "/allbanners/Career-numerology-reading-services-by-Dr-J-C-Chaudhry.webp",
-    title: "Career Prediction by Date of Birth: Career Numerology",
-    description: "Career Numerology:  Career prediction by Date of Birth for your life path number 1 to 9. Get your detailed numerology reading to know the right career path.",
+    title: "Career Numerology by Name, DOB | Dr. JC Chaudhry",
+    description: "Find the best career with numerology based on your name and date of birth. Get expert career guidance and future insights from Dr. J C Chaudhry.",
     keywords: "Career numerology reading, numerology for career, numerology for job, which career to choose numerology, career selection by numerology, career by life path number, best career for number 1 2 3 4 5 6 7 8 9",
     pagePath: "/career-numerology-reading",
 })

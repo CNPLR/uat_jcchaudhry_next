@@ -55,7 +55,7 @@ const BlogItem = memo(({ blog }: any) => (
             path={`https://newcnpl.s3.ap-south-1.amazonaws.com/public/blogs/banners/${blog.headerBanner}`}
             para={blog.pageTitle}
             predictions={blog.tag}
-            date={blog.updatedAt}
+            date={blog.createdAt} // Use createdAt instead of updatedAt
             alt={blog.alttag}
         />
     </Suspense>
@@ -139,7 +139,7 @@ const Client = () => {
                 // Pre-process any data transformations here
                 id: blog._id || blog.slug,
             }))
-            .sort((a: any, b: any) =>   new Date(b.updatedAt).getTime() - new Date(a.updatedAt).getTime()); // Sort by most recent
+            .sort((a: any, b: any) =>   new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime()); // Sort by most recent
     }, [blogs]);
 
     // Memoized blog components

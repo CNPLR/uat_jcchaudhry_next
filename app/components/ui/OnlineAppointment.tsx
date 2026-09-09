@@ -260,7 +260,7 @@ export default function OnlineAppointment() {
         <>
             <div className='flex flex-col lg:flex-row'>
                 <div className=''>
-                    <Img alt="Online consultation" style="w-72 mx-auto lg:mx-0 shadow-2xl rounded-md" path="/images_folder/Online-consultation.webp" />
+                    <Img title="Online Consultation Services" alt="Dr. J.C. Chaudhry online consultation services" style="w-72 mx-auto lg:mx-0 shadow-2xl rounded-md" path="/images_folder/Online-consultation.webp" />
                 </div>
                 <div className='lg:w-60 w-80 lg:ml-10 m-auto'>
                     <SubHeading2 style="mt-3 lg:mt-0 lg:text-left text-center" subHeading="Online Appointment" />

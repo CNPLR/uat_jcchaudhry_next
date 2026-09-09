@@ -11,8 +11,8 @@ import { headers } from 'next/headers';
 export const metadata = GenerateMetadata({
     pagePath: "/about/biography",
     banner: "/allbanners/Biography-of-Dr-J-C-Chaudhry.webp",
-    title: "Dr. J C Chaudhry Biography | The Incredible Aakash Story",
-    description: "Biography of Dr. J C Chaudhry, the Chairman of Aakash Educational Services Limited (AESL) and a renowned Numerologist of India.",
+    title: "Dr. JC Chaudhry Biography : Education, Career,  Life Journey",
+    description: "Discover Dr. J C Chaudhry's biography, from educator to entrepreneur, his Aakash journey, numerology career and inspiring life story.",
     keywords: "Jc chaudhry, biography of JC chaudhry, aakash institute story, book about aakash education",
     // headers: headers,
 });
@@ -21,7 +21,7 @@ const page = () => {
   return (
     <div>
 
-            <Banner alttag="Biography of Dr. J C Chaudhry" path="/allbanners/Biography-of-Dr-J-C-Chaudhry.webp" />
+            <Banner alttag="Biography of Dr. J C Chaudhry" path="/allbanners/About-Dr.-J.C.-Chaudhry’s-educational-journey.webp" />
             <CommonAbout
                 mainHeading="Biography Dr. J C Chaudhry"
                 subHeading2="The Incredible Aakash Story - Journey from an educator to one of India’s most successful academic entrepreneurs"

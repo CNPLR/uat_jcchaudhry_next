@@ -20,6 +20,7 @@
     "not dead"
   ],
   "dependencies": {
+    "@next/env": "^16.2.7",
     "@paypal/react-paypal-js": "^8.9.2",
     "@reduxjs/toolkit": "^2.11.2",
     "axios": "^1.13.2",

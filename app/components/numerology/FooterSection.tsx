@@ -13,6 +13,7 @@ export const FooterSection = memo(({ category, footerData, footerHeading }: any)
                         link={item.link}
                         path={`https://newcnpl.s3.ap-south-1.amazonaws.com/public/pages/footers/${item.footerImageKey}`}
                         alt={item.alt}
+                        imgTitle={item?.imageTitle}
                     />
                 </Suspense>
             ));
@@ -26,6 +27,7 @@ export const FooterSection = memo(({ category, footerData, footerHeading }: any)
                         link={item.link}
                         path={`https://newcnpl.s3.ap-south-1.amazonaws.com/public/pages/footers/${item.footerImageKey}`}
                         alt={item.alt}
+                        imgTitle={item?.imageTitle}
                     />
                 </Suspense>
             ));
@@ -41,6 +43,7 @@ export const FooterSection = memo(({ category, footerData, footerHeading }: any)
                             link={item.link}
                             path={`https://newcnpl.s3.ap-south-1.amazonaws.com/public/pages/footers/${item.footerImageKey}`}
                             alt={item.alt}
+                            imgTitle={item?.imageTitle}
                         />
                     </Suspense>
                 </div>

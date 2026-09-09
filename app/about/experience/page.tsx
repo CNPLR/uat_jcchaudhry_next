@@ -10,8 +10,8 @@ import { headers } from 'next/headers'
 export const metadata = GenerateMetadata({
     pagePath: "/about/experience",
     banner: "/allbanners/Dr-J-C-Chaudhry’s-extensive-numerology-experience.webp",
-    title: "Teaching Experience | Experience as a Motivational Speaker | Dr. J C Chaudhry",
-    description: "Dr. J C Chaudhry with more than 48 years of teaching experience has motivated lakhs of students as a teacher and motivational speaker. He is also experiencing numerology for the last 40 years and helping many people with his predictions.",
+    title: "Dr. JC Chaudhry Experience: Career, Teaching,  Achievements",
+    description: "Explore Dr. JC Chaudhry's experience in teaching, numerology and motivational speaking, from his early career to inspiring millions.",
     keywords: "numerologist in india, numerology by jc chaudhry, vaastu shastra expert, motivational speaker, motivational speakers in india",
     // headers: headers,
 });

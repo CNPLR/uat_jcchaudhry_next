@@ -11,6 +11,7 @@ import Para from '../components/ui/Para'
 import Question from '../components/ui/Question'
 import SubHeading from '../components/ui/SubHeading'
 import { useEffect, useState } from 'react';
+import Img from '../components/ui/Img';
 
 const PersonalNumerologyReading = () => {
 
@@ -34,7 +35,7 @@ const PersonalNumerologyReading = () => {
      <div>
 
             <Link href={token ? '/dashboard' : '/numerology/signup'}>
-                <Banner alttag="Personal numerology reading by Dr. J C Chaudhry" path="/allbanners/Personal-numerology-reading-by-Dr-J-C-Chaudhry.webp" />
+                <Banner alttag="Personal numerology reading by Dr. J C Chaudhry" priority path="/allbanners/Personal-numerology-reading-by-Dr-J-C-Chaudhry.webp" />
             </Link>
             <MainHeading style="text-center my-10 px-4" mainHeading="Numerology Reading for You" />
             <div className='mx-10 space-y-5'>
@@ -46,7 +47,8 @@ const PersonalNumerologyReading = () => {
                     <NormalButton style="w-52 m-auto lg:ml-auto" text="Book Appointment" />
                 </Link>
             </div>
-            <div style={bgImg} className='flex py-10 items-start justify-evenly my-10'>
+            <div className='flex py-10 items-start justify-evenly my-10 relative'>
+                <Img style="absolute inset-0 object-cover" path="/images_folder/personal_numerology_bg.webp" fill alt="Personal numerology reading by Dr. J C Chaudhry" />
                 <div className='z-40 lg:w-[50%] w-full px-10 lg:px-0'>
                     <SubHeading style="text-white" subHeading="Common Questions & Queries" />
                     <div className='space-y-5 mt-5'>

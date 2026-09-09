@@ -23,12 +23,13 @@ const VastuMeditationOthers = () => {
         <div className=''>
 
             <Link href="/contact-us">
-                <Banner alttag="Vastu consultancy of Home/Office by Dr. J C Chaudhry" path="/allbanners/Vastu-consultancy-of-Home-and-Office-by-Dr-J-C-Chaudhry.webp" />
+                <Banner title="Home and Office Vastu" alttag="Dr. JC Chaudhry Home and Office Vastu" path="/allbanners/Vastu-consultancy-of-Home-and-Office-by-Dr-J-C-Chaudhry.webp" />
             </Link>
             <SubHeading style="text-center my-10" subHeading="Vastu Shastra Expert" headTag='h1'/>
             <div className='lg:px-10 px-5'>
                 <ImgHeadingContent
-                    alt="Vastu meditation techniques for peace and harmony"
+                    title="Vastu Meditation Techniques"
+                    alt="Vastu Meditation for Peace and Harmony"
                     path="/images_folder/Vastu-meditation-techniques-for-peace-and-harmony.webp"
                     para="Vastu Shastra is an ancient science that helps people to live harmoniously with their surroundings. The basic principle of Vastu lies in the free flow of energy throughout the home and creates good vibrations and positive feelings among the inhabitant of the home. It is a scientific theory based on the principles and laws of nature. If followed correctly, people can definitely derive benefits and lead a well-balanced and comfortable life in their homes."
                     para1="It is often noticed that while purchasing a house, people are lured by the interiors, flooring, modular kitchen, beautiful bathroom fittings, and other facilities. They do not take into account the principles of Vastu. As a result, in spite of having a huge and beautiful house, they do not feel very comfortable or peaceful."
@@ -37,7 +38,8 @@ const VastuMeditationOthers = () => {
                     style="bg-gray-100 lg:p-10 p-5 rounded-md"
                 />
                 <ImgHeadingContent
-                    alt="Vastu for health and peaceful living spaces"
+                    title="Vastu for Health and Peace"
+                    alt="Vastu for Health and Peaceful Living"
                     path="/images_folder/Vastu-for-health-and-peaceful-living-spaces.webp"
                     para="On the contrary, a person with the knowledge of Vastu can live very happily in a home that may be a low-cost budget house but is beaming with better energy flow. It is therefore essential that while a person is planning for a home, he/she should at least know the basics of Vastu Shastra to make life comfortable and pleasant."
                     para1="Dr. J C Chaudhry with years of experience in Vastu Shastra & Numerology helps you easily plan the Vastu for your home and office. Vastu consultation by Dr. Chaudhry doesn’t need any reconstruction, even he advises the best Vastu remedies to bring luck and positivity in your home and business."
@@ -48,8 +50,9 @@ const VastuMeditationOthers = () => {
             </div>
             <div className='lg:px-10 px-5 my-10'>
                 <ImgHeadingContent
-                    alt="Vastu Shastra for harmonious living and spaces"
-                    path="/images_folder/Vastu-Shastra-for-harmonious-living-and-spaces.png"
+                    title="Vastu Shastra for Harmony"
+                    alt="Vastu Shastra for Harmonious Living"
+                    path="/images_folder/Vastu-Shastra-for-harmonious-living-and-spaces.webp"
                     para="Dr. J C Chaudhry, a Vastu specialist is there to help you plan the Vastu for your plot, residential project, and office space."
                     nstyle="w-52"
                     sbutton="Contact Us"
@@ -69,7 +72,8 @@ const VastuMeditationOthers = () => {
 
             <div className='my-10 lg:px-10 px-5'>
                 <VastuListAndImg
-                    alt="Vastu principles for a balanced, healthy home"
+                    title="Vastu for a Balanced Home"
+                    alt="Vastu Principles for a Healthy Home"
                     subHeading="Vastu for Home / Residential Vastu"
                     path="/images_folder/Vastu-principles-for-a-balanced-healthy-home.webp"
                     para="Vastu for Bedroom"
@@ -86,7 +90,8 @@ const VastuMeditationOthers = () => {
                     nbutton="Book Appointment"
                     style="bg-gray-100 lg:p-10 p-5 rounded-md" content={''}                />
                 <VastuListAndImg
-                    alt="Personalized vastu solutions for work"
+                    title="Personalized Vastu Solutions"
+                    alt="Personalized Vastu Solutions for Work"
                     subHeading="Commercial Vastu / Business Vastu"
                     path="/images_folder/Personalized-vastu-solutions-for-work.webp"
                     para="Vastu for Office"
@@ -97,7 +102,8 @@ const VastuMeditationOthers = () => {
                     nbutton="Book Appointment"
                     style="bg-gray-100 lg:p-10 p-5 rounded-md" content={''}                />
                 <VastuListAndImg
-                    alt="Vastu expert consultation for growth"
+                    title="Vastu Consultation for Growth"
+                    alt="Vastu Expert Consultation for Growth"
                     subHeading="Vastu Advice"
                     path="/images_folder/Vastu-expert-consultation-for-growth.webp"
                     para="Vastu for Wealth"

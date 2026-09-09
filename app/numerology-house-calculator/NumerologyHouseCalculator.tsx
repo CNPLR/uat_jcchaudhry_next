@@ -22,6 +22,8 @@ import 'react-toastify/dist/ReactToastify.css';
 import { charValues, nameRegex, reduceToSingleDigit, calculateDestiny, calculateNameNumber, specialNumbers, enemy, housechar } from '../numerology-calculator-name-number/AlllCharectersticks';
 import setDobFn from '@/lib/setDobFn';
 import handleDatePicker from '@/lib/handleDateInputs';
+import FAQs from './Faq';
+import FaqComponent from '../components/FaqComponent';
 
 export const NumerologyHouseCalculator = () => {
   const path = process.env.NEXT_PUBLIC_URI;
@@ -427,39 +429,38 @@ export const Content = ({token}: {token: string}) => {
             </div>
 
             <div className='bg-slate-100 lg:w-3/4 m-auto space-y-5 text-center md:p-10 p-5 rounded-lg my-10'>
-                <SubHeading style="text-center" subHeading="What is a House number Calculator?" />
-                <Para style="text-justify" para="A House Number Calculator is a free tool that determines the single digit of your house number based on your input. Rooted in numerology, it highlights the significance of numbers and their impact on our lives. By discovering your lucky house number, you can gain insights into the energy of your living space, deepen your understanding of your personality traits, and explore how your home environment aligns with your goals and aspirations." />
+                <SubHeading style="text-center" subHeading="What is a House Number Calculator?" />
+                <Para style="text-justify" para={
+                    <>
+                        A <strong>House Number Calculator</strong> is a free online numerology tool that calculates the numerological value of a house, apartment, office, or property number. Based on <strong>Chaldean Numerology</strong>, the calculator reduces the house number to a single digit between <strong>1 and 9</strong>, revealing the unique vibration associated with that property.
+                    </>
+                } />
+
+                <Para style="text-justify" para={
+                   <>
+                        According to numerology, every house number carries a specific energy that may influence the atmosphere, relationships, opportunities, and experiences within that space. Whether moving into a new home, purchasing a property, or choosing an office, the <strong>House Number Calculator</strong> helps understand the numerological significance of the address.
+                   </> 
+                }/>
             </div>
 
             <div className='bg-slate-100 lg:w-3/4 m-auto space-y-5 text-center md:p-10 p-5 rounded-lg my-10'>
-                <SubHeading style="text-center" subHeading="Importance of the House Number Calculator" />
-                <Para style="text-justify" para="The House Number Calculator plays a crucial role in helping individuals understand the unique energy of their home. By revealing your lucky house number, the calculator provides insights into the characteristics and vibrations associated with that number. This knowledge can empower you to create an environment that aligns with your personal goals, fosters creativity, and enhances overall well-being." />
+                <SubHeading style="text-center" subHeading="Why is the House Number Calculator Important?" />
+                <Para style="text-justify" para={
+                    <>
+                        A house is more than just a place to live—it's where daily life unfolds. According to <strong>Chaldean Numerology</strong>, the vibration of a house number can influence the energy of the people living or working there.
+                    </>
+                }/>
 
-                <Para style="text-justify" para="Additionally, knowing your house number&#39;s significance allows you to make informed decisions about your living space. Whether you&#39;re moving into a new home or simply seeking to improve your current environment, understanding the house number meaning can help you cultivate positive energy and harmony in your surroundings." />
+                <Para style="text-justify" para={
+                    <>
+                        The <strong>House Number Calculator</strong> helps identify the characteristics associated with a property number and understand whether its energy aligns with personal goals and lifestyle. Many people use the calculator before buying a home, renting a property, selecting an office, or choosing a business location to gain additional numerological insights.
+                    </>
+                } />
             </div>
 
             <div className='bg-slate-100 lg:w-3/4 m-auto space-y-5 md:p-10 p-5 rounded-lg my-10'>
-                <SubHeading style="" subHeading="FAQs" />
-
-                <div>
-                    <SubHeading2 style="" subHeading="How does the House Number Calculator work?" />
-                    <Para para="The House Number Calculator requires you to enter your house number. After clicking the submit button, the calculator will generate and display your lucky house number, along with its significance." />
-                </div>
-
-                <div>
-                    <SubHeading2 style="" subHeading="What if my house number is a double-digit number?" />
-                    <Para para="Double-digit numbers can be reduced to a single-digit number by adding the digits together. For example, if your house number is 23, you would add 2 + 3 to get a lucky total of 5. However, master numbers like 11, 22, and 33 should not be reduced, as they possess special significance and power in numerology." />
-                </div>
-
-                <div>
-                    <SubHeading2 style="" subHeading="Can the House Number Calculator help me choose a new home?" />
-                    <Para para="Yes! By using the House Number Calculator, you can evaluate potential house numbers to find one that aligns with your personality and aspirations, helping you make a more informed decision when choosing a new home." />
-                </div>
-
-                <div>
-                    <SubHeading2 style="" subHeading="Can I consult the House Number Calculator for temporary residences, like vacation homes?" />
-                    <Para para="Absolutely! The House Number Calculator can be used for any residence, including temporary ones like vacation homes. It can help you understand the energy of your stay and enhance your experience while you’re there." />
-                </div>
+                <SubHeading style="" subHeading="Frequently Asked Questions" />
+                <FaqComponent faqs={FAQs} />                
             </div>
         </div>
     )

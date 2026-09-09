@@ -10,26 +10,29 @@ type BannerProps = {
   path3?: string; // 769w
   w?: number;
   h?: number;
+  priority?: boolean;
+  sizes?: string;
+  title?: string;
 };
 
-export default function Banner({ alttag, path, path1, path2, path3,w,h }: BannerProps) {
+export default function Banner({ title, alttag, path, path1, path2, path3,w,h, priority= false, sizes }: BannerProps) {
   
-  const cacheBuster = useMemo(() => Date.now(), []);
+  // const cacheBuster = useMemo(() => Date.now(), []);
   const imageSrc = path.startsWith("http")
-  ? `${path}?v=${cacheBuster}`
+  ? `${path}`
   : path;
   return (
     <div className="w-full">
       <Image
-        title={alttag}
+        title={title || alttag}
         src={imageSrc}
         alt={alttag}
         width={w || 1200}
         height={h || 560}
-        priority
-        fetchPriority="high"
+        priority={priority}
+        fetchPriority={priority ? "high" : "auto"}
         quality={85}
-        sizes="(max-width: 640px) 100vw, (max-width: 1024px) 100vw, 1200px"
+        sizes={sizes || "(max-width: 640px) 100vw, (max-width: 1024px) 100vw, 1200px"}
         className="w-full h-auto object-contain"
       />
     </div>

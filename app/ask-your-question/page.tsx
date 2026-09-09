@@ -7,8 +7,8 @@ import { apiFetch } from '@/lib/api'
 export const metadata = GenerateMetadata({
   pagePath: "/ask-your-question",
     banner: "/allbanners/Ask-your-question-for-personalized-numerology-insights.webp",
-    title: "Numerology – Ask any Question from Numerologist Dr. J C Chaudhry || Ask your Question | Dr. J C Chaudhry Numerologist",
-    description: "Ask your Question for any of your problems of marriage, career, business, house, children, divorce, court case from famous Numerologist Dr. J C Chaudhry. Numerology Questions answered here. || sk personal numerology questions related to your name &amp; date of birth compatibility, your lucky numbers and dates in life, best years in life, gemstones for you.",
+    title: "Ask Your Question: Personalized Numerology Answer, Guidance",
+    description: "Ask your numerology question and get a personalized answer. Check Name and Date of Birth compatibility and discover solutions to your concerns.",
     keywords: "Numerology advice, numerology consultation, numerology exert, numerology specialist, numerology  guidance, numerology report, numerology problems || numerologist in india, numerology by jc chaudhry, vaastu shastra expert, motivational speaker, motivational speakers in india",
     // headers: headers
 })

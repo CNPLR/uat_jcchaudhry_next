@@ -1,7 +1,7 @@
 import "../../styles/common.css";
 
 type ParaProps = {
-  para: string;
+  para: string | React.ReactNode;
   style?: string;
 };
 

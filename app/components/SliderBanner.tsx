@@ -74,7 +74,8 @@ export default function SliderBanner() {
           <ImgLink
             style="w-full"
             to={token ? "/dashboard" : "/numerology/signup"}
-            alt="Numerology services and consultations by Dr. J C Chaudhry."
+            alt="Numerology services and consultations by Dr. JC Chaudhry"
+            title="Numerology Services by Dr. JC Chaudhry"
             path="/allbanners/Numerology-services-and-consultations-by-Dr-J-C-Chaudhry-1920.webp"
             path1="/allbanners/Numerology-services-and-consultations-by-Dr-J-C-Chaudhry-1440.webp"
             path2="/allbanners/Numerology-services-and-consultations-by-Dr-J-C-Chaudhry-1024.webp"

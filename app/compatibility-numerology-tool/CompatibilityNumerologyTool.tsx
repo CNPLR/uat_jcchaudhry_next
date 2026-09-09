@@ -20,6 +20,8 @@ import 'react-phone-input-2/lib/style.css';
 import '../styles/common.css';
 import setDobFn from '@/lib/setDobFn';
 import handleDatePicker from '@/lib/handleDateInputs';
+import FAQs from './Faq';
+import FaqComponent from '../components/FaqComponent';
 
 const CompatibilityNumerologyTool = () => {
  const path = process.env.NEXT_PUBLIC_URI;
@@ -41,6 +43,7 @@ const CompatibilityNumerologyTool = () => {
     // const [psychicContent, setPsychicContent] = useState(false)
     // const [nameContent, setNameContent] = useState(false)
     const [status, setStatus] = useState(false)
+    const [status1, setStatus1] = useState(false)
 
     const inputChange = (value: any, data: any) => {
         setCountry(data.name);
@@ -114,10 +117,12 @@ const CompatibilityNumerologyTool = () => {
 
         if (checkWithDestiny?.includes(PartnerDestinyTotal)) {
             setStatus(true)
-            setDestinyContent("Not Compatible")
+            setDestinyContent("Not Compatible, This result indicates that the numerological combination may present differences or challenges in the relationship.")
+            setStatus1(false)
         } else {
             setStatus(true)
-            setDestinyContent("Is Compatible")
+            setDestinyContent("Is Compatible, This result indicates that the two individuals share a favourable numerological connection.")
+            setStatus1(true)
         }
 
         let data = {
@@ -313,7 +318,7 @@ const CompatibilityNumerologyTool = () => {
                         (
                             <>
                                 <div>
-                                    <p className={`${status ? "text-green-500" : "text-red-500"} text-center`}>{destinyContent}</p>
+                                    <p className={`${status1 ? "text-green-500" : "text-red-500"} text-center`}>{destinyContent}</p>
                                     <div className='flex justify-center items-center mb-10'>
                                         <div className='flex-col flex md:flex-row justify-center items-center shadow-md p-5 rounded-md'>
                                             <p className='text-lg'>Need Detailed Analysis click</p>
@@ -357,8 +362,33 @@ export const Content = ({token}: any) => {
             </div>
 
             <div className='bg-slate-100 lg:w-3/4 m-auto space-y-5 text-center md:p-10 p-5 rounded-lg my-10'>
-                <SubHeading style="text-center" subHeading="What is a Relationship Compatibility Number Calculator?" />
-                <Para style="text-justify" para="A Relationship Compatibility Number Calculator is an online tool designed to assess the compatibility between two individuals. By inputting you and your partner’s date of birth, the calculator generates compatibility results that reveal the strengths and challenges of your relationship. This analysis is rooted in numerology, which suggests that numbers associated with your date of birth carry specific meanings that can influence your relationships.These numbers, when analyzed together, provide insights into how compatible you and your partner are, highlighting both harmonious and challenging aspects of your relationship." />
+                <SubHeading style="text-center" subHeading="What is a Relationship Compatibility Calculator?" headTag='h2'/>
+                <Para style="text-justify" para={
+                    <>
+                        A <strong>Relationship Compatibility Calculator</strong> is a free online numerology tool that helps determine whether two people are compatible based on their dates of birth. Using <strong>Chaldean Numerology</strong>, the calculator analyzes the numerological relationship between two individuals and indicates whether they are <strong> compatible</strong> or <strong>not compatible</strong>.
+                    </>
+                } />
+                <Para style="text-justify" para={
+                    <>
+                        It offers a quick and easy way to explore compatibility for romantic relationships, marriage, friendships, or business partnerships through numerological analysis.
+                    </>
+                }/>
+            </div>
+
+            <div className='bg-slate-100 lg:w-3/4 m-auto space-y-5 text-center md:p-10 p-5 rounded-lg my-10'>
+                <SubHeading style="text-center" subHeading="Why is the Relationship Compatibility Calculator Important?" headTag='h2'/>
+                <Para style="text-justify" para={
+                    <>
+                        Understanding compatibility can help build stronger relationships and improve mutual understanding. According to <strong>Chaldean Numerology</strong>, the relationship between two birth dates can provide insights into how individuals connect, communicate, and support each other.                        
+                    </>
+                } />
+
+                <Para style="text-justify" para={
+                   <>
+                        The <strong>Relationship Compatibility Calculator</strong> helps identify whether two people are numerologically compatible, making it a useful tool for anyone looking to understand the potential strengths and challenges of a relationship.
+                   </> 
+                }/>
+                
             </div>
 
             <div className='bg-slate-100 lg:w-3/4 m-auto space-y-5 text-center md:p-10 p-5 rounded-lg '>
@@ -380,27 +410,10 @@ export const Content = ({token}: any) => {
             </div>
 
             <div className='bg-slate-100 lg:w-3/4 m-auto space-y-5 md:p-10 p-5 rounded-lg my-10'>
-                <SubHeading style="" subHeading="FAQs" />
+                <SubHeading style="" subHeading="Frequently Asked Questions" />
 
-                <div>
-                    <SubHeading2 style="" subHeading="Can I use this calculator for friendships or family relationships?" />
-                    <Para para="Yes, the calculator can be used to assess compatibility in any relationship, including friendships and family connections." />
-                </div>
-
-                <div>
-                    <SubHeading2 style="" subHeading="Can this calculator help me improve my relationship?" />
-                    <Para para="Yes, by understanding your compatibility and the challenges you may face, you can take proactive steps to strengthen your relationship through better communication and mutual understanding." />
-                </div>
-
-                <div>
-                    <SubHeading2 style="" subHeading="Is there a limit to how many times I can use the calculator?" />
-                    <Para para="No, there’s no limit! You can use the Relationship Compatibility Number Calculator as many times as you wish." />
-                </div>
-
-                <div>
-                    <SubHeading2 style="" subHeading="Can I use the Relationship Compatibility Number Calculator to check compatibility before starting a new relationship?" />
-                    <Para para="Yes, many people use the calculator as a tool to gauge potential compatibility before committing to a new relationship." />
-                </div>
+                <FaqComponent faqs={FAQs} />
+                
             </div>
         </div>
     )

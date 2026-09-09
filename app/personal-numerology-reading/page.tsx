@@ -5,8 +5,8 @@ import { headers } from 'next/headers'
 
 export const metadata = GenerateMetadata({
     banner: "/allbanners/Personal-numerology-reading-by-Dr-J-C-Chaudhry.webp",
-    title: "Numerology Chart Reading | Personalized Numerology Report by Name &amp; Date of Birth",
-    description: "Get your numerology report by name and date of birth. Consult Dr. J C Chaudhry Numerologist for your future numerology reading chart.",
+    title: "Personal Numerology by Name, DOB | Dr. JC Chaudhry",
+    description: "Get a personalized Personal Numerology Reading by name and date of birth. Discover your strengths, life path, personality, and future guidance.",
     keywords: "Numerology reading, personalized numerology report, numerology report for life, future numerology reading, personalized numerology report, numerology report by numerologist, numerology chart reading, name numerology compatibility test,",
     pagePath: "/personal-numerology-reading",
 })

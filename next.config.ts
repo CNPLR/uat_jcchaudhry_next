@@ -17,7 +17,7 @@ const nextConfig: NextConfig = {
 
   experimental: {
     inlineCss: true,
-    cssChunking: 'strict', // or 'strict' for more aggressive chunking
+    // cssChunking: 'strict', // or 'strict' for more aggressive chunking
     optimizePackageImports: [
       'react-icons',        // Huge icon library - biggest win
       'lucide-react',
@@ -44,10 +44,10 @@ const nextConfig: NextConfig = {
         hostname: 'newcnpl.s3.ap-south-1.amazonaws.com',
         pathname: '/**',
       },],
-    formats: ["image/avif", "image/webp"],
+    formats: ["image/webp"],
     minimumCacheTTL: 60 * 60 * 24 * 30,
-    deviceSizes: [640, 750, 828, 1080, 1200, 1920],
-    imageSizes: [16, 32, 48, 64, 96, 128, 256],
+    deviceSizes: [640, 750, 828, 1080, 1200, 1920, 2048, 3840],
+    imageSizes: [16, 32, 48, 64, 96, 128, 256, 384]
   },
   productionBrowserSourceMaps: false,
   compress: true,

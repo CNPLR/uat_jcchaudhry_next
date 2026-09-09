@@ -10,24 +10,25 @@ type BaseProps = {
   para: string;
   link: string;
   alt?: string;
+  imgTitle?: string;
 };
 
-export function ImageNumber({ path, para, link, alt = '' }: BaseProps) {
+export function ImageNumber({ path, para, link, alt = '', imgTitle }: BaseProps) {
   return (
     <Link href={`/${link}`}>
       <div className='border border-gray-200 py-2 px-1 rounded-lg transition hover:shadow-lg bg-white mb-2 mr-2 text-center w-28'>
-        <Img style="m-auto transition hover:scale-[1.1] w-[65px]" alt={alt as string} path={path as string} />
+        <Img style="m-auto transition hover:scale-[1.1] w-[65px]" alt={alt as string} path={path as string} title={imgTitle} />
         <Para style="mt-2" para={para} />
       </div>
     </Link>
   );
 }
 
-export function ImageLife({ path, para, link, alt = '' }: BaseProps) {
+export function ImageLife({ path, para, link, alt = '', imgTitle }: BaseProps) {
   return (
     <Link href={`/${link}`}>
       <div className='border border-gray-200 my-2 p-2 rounded-md transition shadow-md mr-3 hover:shadow-xl bg-white text-center w-48'>
-        <Img style="m-auto rounded-md transition hover:scale-[1.1]" alt={alt as string} path={path as string} />
+        <Img style="m-auto rounded-md transition hover:scale-[1.1]" alt={alt as string} path={path as string} title={imgTitle} />
         <hr className='mt-1 border-gray-200' />
         <Para style="mt-1" para={para} />
       </div>
@@ -35,11 +36,11 @@ export function ImageLife({ path, para, link, alt = '' }: BaseProps) {
   );
 }
 
-export function OurPresenceImage({ path, para, link, alt = '' }: BaseProps) {
+export function OurPresenceImage({ path, para, link, alt = '', imgTitle }: BaseProps) {
   return (
     <Link href={`/${link}`}>
       <div className='rounded-lg transition hover:shadow-lg bg-white mb-2 mr-2 text-center w-28'>
-        <Img style="m-auto transition hover:scale-[1.1]" alt={alt as string} path={path as string} />
+        <Img style="m-auto transition hover:scale-[1.1]" alt={alt as string} path={path as string} title={imgTitle} />
         <Para style="mt-2" para={para} />
       </div>
     </Link>
