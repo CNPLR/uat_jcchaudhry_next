@@ -1,16 +1,30 @@
 module.exports = {
   apps: [
     {
-      name: 'jcchudary',
-      script: 'node_modules/next/dist/bin/next',
-      args: 'start',
-      instances: '1', // Utilizes all available CPU cores (cluster mode)
-      exec_mode: 'cluster', // Enables load balancing across cores
-      cwd: './', // Points to the root of your application
+      name: "jcchaudhry",
+
+      // Next.js production server
+      script: "node_modules/next/dist/bin/next",
+      args: "start -p 3000",
+
+      // EC2 application directory
+      cwd: "./",
+
+      // Production environment
       env: {
-        NODE_ENV: 'production',
-        PORT: 3000 // Change this if you want to run on a different port
-      }
+        NODE_ENV: "production",
+        PORT: 3000
+      },
+
+      // PM2
+      instances: 1,
+      exec_mode: "fork",
+      watch: false,
+      autorestart: true,
+
+      // Restart if memory exceeds 1GB
+      max_memory_restart: "1G",
+      time: true
     }
   ]
 };
