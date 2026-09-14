@@ -108,8 +108,8 @@ export default async function Page({ params }: { params: Promise<{ slug: string 
 export async function getBlogData(slug: string, path: string) {
 
   const [blogRes, commentsRes] = await Promise.all([
-    apiFetch<any>(`${path}blog/slug/${slug}`, {next: { revalidate: 3600, tags: [slug] } }),
-    apiFetch<any>(`${path}comment/approvedComments/${slug}`, {revalidate: 3600, tags: [`${slug}-comments`] }),
+    apiFetch<any>(`${path}blog/slug/${slug}`, {next: { revalidate: 0, tags: [slug] } }),
+    apiFetch<any>(`${path}comment/approvedComments/${slug}`, {revalidate: 0, tags: [`${slug}-comments`] }),
   ]);
 
   if (!blogRes || !commentsRes) {

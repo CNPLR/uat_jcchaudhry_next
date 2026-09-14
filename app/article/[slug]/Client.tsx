@@ -113,7 +113,8 @@ export default function ClientBlog({ slug, initialBlog, bannerUrl, blogData } : 
 
             {/* <Suspense fallback={<ComponentLoader height="300px" />}> */}
                 <Banner
-                    alttag={blogPost.alttag}
+                    title={blogPost?.imageTitle || blogPost?.alttag}
+                    alttag={blogPost?.alttag}
                     path={`https://newcnpl.s3.ap-south-1.amazonaws.com/public/blogs/banners/${blogPost.headerBanner}`}
                 />
             {/* </Suspense> */}
