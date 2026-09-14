@@ -5,6 +5,7 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
+    "dev:prod":"dotenv -e .env.production -- next dev",
     "build": "cross-env NODE_OPTIONS=--max-old-space-size=2048 ts-node scripts/getStaticRoutes.ts && next build",
     "start": "next start",
     "lint": "eslint",

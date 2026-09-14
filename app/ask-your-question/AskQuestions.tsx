@@ -42,7 +42,7 @@ import { apiFetch } from '@/lib/api';
 
     return (
         <div>
-            <Banner alttag="Ask your question for personalized numerology insights" path="/allbanners/Ask-your-question-for-personalized-numerology-insights.webp" />
+            <Banner title="Personalized Numerology Insights" alttag="Dr. J.C. Chaudhry personalized numerology insights" path="/allbanners/Ask-your-question-for-personalized-numerology-insights.webp" />
             <div className='lg:px-10 px-5 mb-10'>
                 <div className='space-y-5'>
                     <MainHeading mainHeading="Ask Your Questions" style="text-center mt-5" />

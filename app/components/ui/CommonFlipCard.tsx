@@ -12,6 +12,7 @@ interface CommonFlipCardProps {
   path1: string;
   alt?: string;
   alt1?: string;
+  title?: string;
 }
 
 export default function CommonFlipCard({
@@ -22,6 +23,7 @@ export default function CommonFlipCard({
   path1,
   alt = "Front Image",
   alt1 = "Back Image",
+  title
 }: CommonFlipCardProps) {
   return (
     <div className="lg:my-28 lg:h-[350px] w-full mb-96">
@@ -39,11 +41,11 @@ export default function CommonFlipCard({
           <div className="flip-card-inner">
 
             <div className="flip-card-front">
-              <Img alt={alt as string} style="h-[300px]" path={path  as string} />
+              <Img title={title as string} alt={alt as string} style="h-[300px]" path={path  as string} />
             </div>
 
             <div className="flip-card-back">
-              <Img alt={alt1 as string} style="h-[300px]" path={path1  as string} />
+              <Img title={title as string} alt={alt1 as string} style="h-[300px]" path={path1  as string} />
             </div>
 
           </div>

@@ -21,12 +21,13 @@ const page = () => {
   return (
     <div>
 
-            <Banner title="Academic Journey" alttag="Dr. JC Chaudhry Academic Journey" path="/allbanners/About-Dr.-J.C.-Chaudhry’s-educational-journey.webp" />
+            <Banner title="Dr. JC Chaudhry Biography" alttag="Dr. JC Chaudhry Biography" path="/allbanners/About-Dr.-J.C.-Chaudhry’s-educational-journey.webp" />
             <CommonAbout
                 mainHeading="Biography Dr. J C Chaudhry"
                 subHeading2="The Incredible Aakash Story - Journey from an educator to one of India’s most successful academic entrepreneurs"
                 path="/images_folder/Biography-Dr.-J-C-Chaudhry.webp"
-                alt="Biography Dr. J C Chaudhry"
+                alt="Biography of Dr. JC Chaudhry"
+                title="Dr. JC Chaudhry Biography"
                 subHeading="The Incredible Aakash Story"
                 para="Dr. J C Chaudhry has been closely associated with the field of teaching and education for 48 years, motivating lakhs of students and shaping their future careers. Dr. J C Chaudhry: The Incredible Aakash Story traces his journey from an educator to one of India’s most successful academic entrepreneurs. He established Aakash Educational Services Limited (AESL) in 1988 and redefined the Indian test-preparatory coaching industry. Aakash excels as a standalone brand today."
                 para1="With more than 33 years of operational experience, a strong selection track record in Medical and Engineering entrance exams and Foundation level exams, a pan-India network of over 200 Aakash Centres, and a student count of more than 2,50,000, Aakash has become the most trusted name in the country for focused learning. This book is a fascinating account of Dr. J C Chaudhry’s life story. It highlights his determination and grit, and his abiding commitment to students, which helped him turn his dream into reality."
@@ -36,12 +37,13 @@ const page = () => {
                 para3=''
             />
 
-            <Img style="mx-auto" alt="Table of contents" path="/images_folder/Table-of-contents.png" />
+            <Img style="mx-auto" title="Table of Contents" alt="Dr. JC Chaudhry Book Contents" path="/images_folder/Table-of-contents.png" />
 
             <SubHeading style="text-center" subHeading="Dr. J C Chaudhry's Village and School" />
             <div className='flex flex-wrap md:space-x-5 my-5 justify-center bg-gray-100 py-10'>
                 <ImgHeadingBox
-                    alt="Dr. J C Chaudhry spent his boyhood in a forgotten village in the heart of Haryana"
+                    title="Dr. JC Chaudhry House"
+                    alt="Dr. JC Chaudhry House"
                     ps="text-justify"
                     heading=''
                     link=''
@@ -49,7 +51,8 @@ const page = () => {
                     para="Dr. J C Chaudhry spent his boyhood in a forgotten village in the heart of Haryana. His father ran a small grocery store and the family lived in a small, one-room house in sevli. Every member of the family including his mother and sister worked hard to contribute to the family kitty. @Dr. J C Chaudhry"
                 />
                 <ImgHeadingBox
-                    alt="n 1996 Dr. J C Chaudhry completed his matriculation in Hathin and moved to Palwal to complete"
+                    title="Dr. JC Chaudhry Collage"
+                    alt="Dr. JC Chaudhry Collage"
                     path="/images_folder/Dr.-J-C-Chaudhry-collage.webp"
                     ps="text-justify"
                     heading=''
@@ -57,7 +60,8 @@ const page = () => {
                     para="In 1996 Dr. J C Chaudhry completed his matriculation in Hathin and moved to Palwal to complete his pre-university and pre-medical at G.G.D.S.D. Collage. He was very excited about living in a bigger city with a cinema hall. @Dr. J C Chaudhry"
                 />
                 <ImgHeadingBox
-                    alt="The primary school in hathin where Dr. J C Chaudhry studied up to class"
+                    title='Dr. JC Chaudhry School'
+                    alt="Dr. JC Chaudhry School"
                     path="/images_folder/Dr.-J-C-Chaudhry-school.webp"
                     ps="text-justify"
                     heading=''
@@ -70,7 +74,8 @@ const page = () => {
             <div className='flex flex-wrap my-5 justify-center bg-gray-100 py-10 md:space-x-5'>
                 <ImgHeadingBox
                     path="/images_folder/Dr.-J-C-Chaudhry-sons.webp"
-                    alt="Jagdish Chand Chaudhry, founder of Aakash Educational Services"
+                    alt="Dr. JC Chaudhry Sons"
+                    title="Dr. JC Chaudhry Sons"
                     ps="text-justify"
                     heading=''
                     link=''
@@ -78,7 +83,8 @@ const page = () => {
                 />
                 <ImgHeadingBox
                     path="/images_folder/Dr.-J-C-Chaudhry-sons-.webp"
-                    alt="Dr. J C Chaudhry and his sons, Aashish (Left) and Aakash (Right), speak in one voice."
+                    title="Dr. JC Chaudhry Family"
+                    alt="Dr. JC Chaudhry Family"
                     ps="text-justify"
                     heading=''
                     link=''
@@ -90,7 +96,8 @@ const page = () => {
             <div className='flex flex-wrap my-5 justify-center bg-gray-100 py-10 md:space-x-5'>
                 <ImgHeadingBox
                     path="/images_folder/Dr.-J-C-Chaudhry-vision.webp"
-                    alt="A techer at heart, Dr. J C Chaudhry has the brain and brawn of an entrepreneur."
+                    alt="Dr. JC Chaudhry Vision"
+                    title="Dr. JC Chaudhry Vision"
                     ps="text-justify"
                     heading=''
                     link=''
@@ -98,7 +105,8 @@ const page = () => {
                 />
                 <ImgHeadingBox
                     path="/images_folder/Dr.-J-C-Chaudhry-vision-.webp"
-                    alt="The motto 'no guts no glory' exemplifies Dr. J C Chaudhry"
+                    alt="Dr. JC Chaudhry Future Vision"
+                    title="Future Vision"
                     ps="text-justify"
                     heading=''
                     link=''

@@ -20,6 +20,7 @@ type CommonAboutProps = {
   text: string;
   link: string;
   alt: string;
+  title?: string;
 };
 
 export default function CommonAbout({
@@ -34,6 +35,7 @@ export default function CommonAbout({
   text,
   link,
   alt,
+  title
 }: CommonAboutProps) {
   return (
     <div>
@@ -43,7 +45,7 @@ export default function CommonAbout({
       </div>
 
       <div className="flex md:flex-row flex-col px-10">
-        <Img alt={alt as string} style="w-96" path={path  as string} />
+        <Img title={title as string} alt={alt as string} style="w-96" path={path  as string} />
 
         <div className="lg:ml-10">
           <SubHeading
