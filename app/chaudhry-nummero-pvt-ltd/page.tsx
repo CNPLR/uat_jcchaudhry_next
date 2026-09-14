@@ -29,12 +29,13 @@ const page = async () => {
   return (
     <div>
 
-            <Banner alttag="Chaudhry Numerology Pvt Ltd services" path="/allbanners/Chaudhry-Numerology-Pvt-Ltd-services.webp" />
+            <Banner title="Numerology Services" alttag="Chaudhry Numerology Services" path="/allbanners/Chaudhry-Numerology-Pvt-Ltd-services.webp" />
             <CommonAbout
                 mainHeading="Chaudhry Nummero Pvt. Ltd."
                 subHeading2="Top Numerology Consultation and Auditing Firm of India, offers Business and Personal Numerology Solutions"
                 path="/images_folder/Numerology-services-by-Chaudhry-Numerology-Pvt-Ltd.jpg"
-                alt="Numerology services by Chaudhry Numerology Pvt Ltd"
+                alt="Numerology Services"
+                title="Numerology Services"
                 subHeading="About CNPL"
                 para="Chaudhry Nummero Pvt. Ltd. (CNPL) is a Numerology Auditing firm providing businessmen/entrepreneurs with Business Numerology Auditing services. Chaudhry Nummero Pvt. Ltd. came into existence on 20th September 2018. Dr. J C Chaudhry, one of the famous Numerologists of India is the founder of CNPL."
                 para1="Numerology believes that there is a divine, mystical relationship between numbers and the projection of life and all life events. Everything in the universe has an energy and vibration- and numbers are no different. In fact, in Numerology, all numbers and letters have their own unique vibrations that influence our life stories."
@@ -72,6 +73,7 @@ const page = async () => {
                           <div key={index} className=' bg-slate-100 shadow-md p-5 rounded-md m-4 flex flex-col justify-between'>
                               <Image
                                   src={ele.imagePath}
+                                  title={ele.title as string}
                                   alt={ele.alt}
                                   width={1200} height={560}
                                   className='w-full'
@@ -137,31 +139,36 @@ const page = async () => {
                 <CN
                     subHeading="Guinness World Record"
                     path="/images_folder/Explore-numerology-services-with-Dr.-Chaudhry.jpg"
-                    alt="Explore numerology services with Dr. Chaudhry"
+                    alt="Numerology Services by Dr. JC Chaudhry"
+                    title="Dr. JC Chaudhry Numerology"
                     para="Dr. J C Chaudhry is the first-ever Numerologist to get a Guinness World Record in Numerology for the most viewers on his YouTube LIVE Session on Numerology on 1st January 2022."
                 />
                 <CN
                     subHeading="Numerology Day"
                     path="/images_folder/Numerology-consultation-for-life-guidance.jpg"
-                    alt="Numerology consultation for life guidance"
+                    alt="Numerology Consultation for Life"
+                    title="Numerology Life Guidance"
                     para="Dr. J C Chaudhry has also proposed the celebration of International Numerology Day on 18th November every year. It is a global initiative by him to spread the awareness of Numerology worldwide."
                 />
                 <CN
                     subHeading="Presence in Dubai"
                     path="/images_folder/Locate-our-numerology-services-in-Dubai.jpg"
-                    alt="Locate our numerology services in Dubai"
+                    alt="Numerology Services in Dubai"
+                    title="Dubai Numerology Services"
                     para="Dr. J C Chaudhry, Chairman of CNPL, is expanding wings on the international frontiers to spread the Numerology wisdom globally. He has opened the first office - Chaudhry Nummero Management Consultancies LLC, in Dubai, UAE. Now, residents of Dubai and neighboring countries can seek and benefit from his Numerology expertise and guidance."
                 />
                 <CN
                     subHeading="Founded IIN and INF"
                     path="/images_folder/Consult-Dr.-Chaudhry-for-personalized-numerology.jpg"
-                    alt="Consult Dr. Chaudhry for personalized numerology"
+                    alt="Personalized Numerology Consultation"
+                    title="Personalized Numerology"
                     para="Dr. J C Chaudhry founded the Indian Institute of Numerology (IIN) and International Numerology Forum (INF) under the umbrella of Chaudhry Nummero Pvt. Ltd. (CNPL). Indian Institute of Numerology will be the first International level of Numerology Institute. INF will bring the worldwide Numerologists on a single platform."
                 />
                 <CN
                     subHeading="JC Nummerro App"
                     path="/images_folder/Numerology-solutions-for-personal-and-business-growth.jpg"
-                    alt="Numerology solutions for personal and business growth"
+                    alt="Numerology for Personal Growth"
+                    title="Personalized Numerology"
                     para="Chaudhry Nummerro Pvt. Ltd. launched the JC Nummerro App in 2020 under the guidance of Dr. J C Chaudhry. This App is FREE to download on both Play Store and App Store. The app lets you check your compatibility with yourself, your company, relationships, house, etc. You can also Ask your Question or Book Appointment for Numerology Auditing Services via the App."
                 />
             </div>
@@ -171,12 +178,12 @@ const page = async () => {
 
 export default page
 
-export function CN({ subHeading, path, para, alt }: any) {
+export function CN({ subHeading, path, para, alt, title }: any) {
     return (
         <>
             <div className='lg:w-[30%] shadow-md p-5 rounded-md bg-slate-100 mb-10 lg:mr-10'>
                 <SubHeading style="text-center" subHeading={subHeading} />
-                <Img alt={alt} style="mx-auto my-5 rounded-md" path={path} />
+                <Img title={title as string} alt={alt} style="mx-auto my-5 rounded-md" path={path} />
                 <Para style="text-justify" para={para} />
             </div>
         </>
@@ -190,11 +197,13 @@ interface IData {
     para: string
     buttonHeading: string
     link: string
+    title?: string
 }
 
 const data = [{
     imagePath: "/images_folder/--JC-Nummerro-Calculator-by-chaudhry-nummero.jpg",
-    alt: "JC Nummerro Calculator by chaudhry nummero",
+    alt: "JC Nummerro Calculator",
+    title:"JC Nummerro Calculator",
     subHeading: "JC Nummerro Calculator",
     para: "You can use the JC Nummero Calculator for calculating your Psychic Number, Destiny Number, Name Number and Friendly Mobile Number.",
     buttonHeading: "JC Nummerro Calculator",
@@ -202,7 +211,8 @@ const data = [{
 },
 {
     imagePath: "/images_folder/Ask-Your-2002-min.jpg",
-    alt: "Ask Your 2002 min",
+    alt: "Ask Your Numerologist",
+    title:"Ask Your Numerologist",
     subHeading: "Ask Your Question",
     para: "Ask Questions from Dr. J C Chaudhry and get personalised answers from him. Use the Ask Your Question feature on the website.",
     buttonHeading: "Ask Your Question",
@@ -210,7 +220,8 @@ const data = [{
 },
 {
     imagePath: "/images_folder/Book-your-numerology-consultation-appointment-now.jpg",
-    alt: "Book your numerology consultation appointment now",
+    alt: "Numerology Consultation",
+    title:"Numerology Consultation",
     subHeading: "Book Appointment",
     para: "Book an Appointment with Dr. J C Chaudhry for Numerology solutions, you can use the Book Appointment feature on the website.",
     buttonHeading: "Book Appointment",
@@ -218,7 +229,8 @@ const data = [{
 },
 {
     imagePath: "/images_folder/Get-a-detailed-numerology-audit-today.jpg",
-    alt: "Get a detailed numerology audit today",
+    alt: "Numerology Audit",
+    title:"Numerology Audit",
     subHeading: "Numerology Audit",
     para: "Business Audit of companies by Dr. J C Chaudhry to realize the aim of growth and success.",
     buttonHeading: "Book Appointment",

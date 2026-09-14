@@ -18,6 +18,7 @@ type CommonBlogProps = {
   path: string;
   href: string;
   alt: string;
+  title?: string;
 };
 
 export function CommonBlog({
@@ -27,6 +28,7 @@ export function CommonBlog({
   path,
   href,
   alt,
+  title
 }: CommonBlogProps) {
   const options: Intl.DateTimeFormatOptions = {
     day: "2-digit",
@@ -37,10 +39,10 @@ export function CommonBlog({
   const upDate = new Date(date);
 
   return (
-    <Link href={href} className="block">
+    <Link href={href} className="block" prefetch={false}>
       <div className="border border-gray-200 w-[270px] pb-2 bg-white md:mr-7 mb-6 shadow-md rounded-md overflow-hidden transition hover:shadow-lg cursor-pointer">
         
-        <Img path={path as string} alt={alt as string} height={468} />
+        <Img title={title as string} path={path as string} alt={alt as string} height={468} />
         
         <div className="mx-3">
 

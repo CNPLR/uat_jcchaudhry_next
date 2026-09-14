@@ -6,6 +6,7 @@ interface CommonGalleryProps {
   para: string;
   style?: string;
   alt?: string;
+  title?: string
 }
 
 export default function CommonGallery({
@@ -13,10 +14,11 @@ export default function CommonGallery({
   para,
   style = "",
   alt = "",
+  title
 }: CommonGalleryProps) {
   return (
      <div className={`${style} border border-slate-200 shadow-md rounded-md md:mr-8 mb-8 p-2 w-52`}>
-            <Img style="m-auto rounded-md w-52 " path={path} alt={alt} />
+            <Img title={title} style="m-auto rounded-md w-52 " path={path} alt={alt} />
             <div className='w-full h-0.5 bg-white mt-2'></div>
             <Para style="text-center" para={para} />
         </div>

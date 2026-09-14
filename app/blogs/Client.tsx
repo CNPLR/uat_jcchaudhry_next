@@ -1,14 +1,12 @@
 'use client'
 import React, { lazy, memo, Suspense, useCallback, useEffect, useMemo, useState } from 'react'
-import CommonPagination from '../components/ui/CommonPagination'
 import Banner from '../components/ui/Banner'
 import MainHeading from '../components/ui/MainHeading'
 
-import { useParams, usePathname } from 'next/navigation'
+import {useRouter , useSearchParams } from 'next/navigation'
 
 import { CommonBlog } from '../components/ui/BlogVideos'
-import { useAppDispatch, useAppSelector } from '@/lib/hooks'
-import { fetchBlogs } from '@/lib/slices/blogSlice'
+import Pagination from '../components/Pagination'
 
 
 // Loading components for better UX
@@ -48,114 +46,144 @@ const ErrorFallback = memo(({ error, resetError }: any) => (
 ));
 
 // Memoized blog item component
-const BlogItem = memo(({ blog }: any) => (
-    <Suspense fallback={<ComponentLoader height="150px" />}>
-        <CommonBlog
-            href={`/article/${blog.slug}`}
-            path={`https://newcnpl.s3.ap-south-1.amazonaws.com/public/blogs/banners/${blog.headerBanner}`}
-            para={blog.pageTitle}
-            predictions={blog.tag}
-            date={blog.createdAt} // Use createdAt instead of updatedAt
-            alt={blog.alttag}
-        />
-    </Suspense>
-));
+// const BlogItem = memo(({ blog }: any) => (
+//     <Suspense fallback={<ComponentLoader height="150px" />}>
+//         <CommonBlog
+//             href={`/article/${blog.slug}`}
+//             path={`https://newcnpl.s3.ap-south-1.amazonaws.com/public/blogs/banners/${blog.headerBanner}`}
+//             para={blog.pageTitle}
+//             predictions={blog.tag}
+//             date={blog.createdAt} // Use createdAt instead of updatedAt
+//             alt={blog.alttag}
+//         />
+//     </Suspense>
+// ));
 
 // Custom hook for blog data fetching
-const useBlogData = () => {
-    const [posts, setPosts] = useState(null);
-    const [loading, setLoading] = useState(true);
-    const [error, setError] = useState(null);
-    const path = process.env.NEXT_PUBLIC_URI;
+// const useBlogData = () => {
+//     const [posts, setPosts] = useState(null);
+//     const [loading, setLoading] = useState(true);
+//     const [error, setError] = useState(null);
+//     const path = process.env.NEXT_PUBLIC_URI;
 
-    const fetchBlogs = useCallback(async () => {
-        try {
-            setLoading(true);
-            setError(null);
+//     const fetchBlogs = useCallback(async () => {
+//         try {
+//             setLoading(true);
+//             setError(null);
 
-            const response = await fetch(`${path}blog/`);
+//             const response = await fetch(`${path}blog/`);
 
-            if (!response.ok) {
-                throw new Error(`HTTP error! status: ${response.status}`);
-            }
+//             if (!response.ok) {
+//                 throw new Error(`HTTP error! status: ${response.status}`);
+//             }
 
-            const data = await response.json();
-            setPosts(data);
-        } catch (err: any) {
-            setError(err);
-            console.error('Error fetching blogs:', err);
-        } finally {
-            setLoading(false);
-        }
-    }, [path]);
+//             const data = await response.json();
+//             setPosts(data);
+//         } catch (err: any) {
+//             setError(err);
+//             console.error('Error fetching blogs:', err);
+//         } finally {
+//             setLoading(false);
+//         }
+//     }, [path]);
 
-    const retryFetch = useCallback(() => {
-        fetchBlogs();
-    }, [fetchBlogs]);
+//     const retryFetch = useCallback(() => {
+//         fetchBlogs();
+//     }, [fetchBlogs]);
 
-    useEffect(() => {
-        fetchBlogs();
-    }, [fetchBlogs]);
+//     useEffect(() => {
+//         fetchBlogs();
+//     }, [fetchBlogs]);
 
-    return { posts, loading, error, retryFetch };
-};
+//     return { posts, loading, error, retryFetch };
+// };
 
-// Custom hook for intersection observer (for future lazy loading of images)
-const useIntersectionObserver = (options = {}) => {
-    const [isIntersecting, setIsIntersecting] = useState(false);
-    const [node, setNode] = useState(null);
+// // Custom hook for intersection observer (for future lazy loading of images)
+// const useIntersectionObserver = (options = {}) => {
+//     const [isIntersecting, setIsIntersecting] = useState(false);
+//     const [node, setNode] = useState(null);
 
-    const observer = useMemo(() => {
-        if (typeof window === 'undefined') return null;
+//     const observer = useMemo(() => {
+//         if (typeof window === 'undefined') return null;
 
-        return new IntersectionObserver(([entry]) => {
-            setIsIntersecting(entry.isIntersecting);
-        }, options);
-    }, [options]);
+//         return new IntersectionObserver(([entry]) => {
+//             setIsIntersecting(entry.isIntersecting);
+//         }, options);
+//     }, [options]);
 
-    useEffect(() => {
-        if (!observer || !node) return;
+//     useEffect(() => {
+//         if (!observer || !node) return;
 
-        observer.observe(node);
-        return () => observer.disconnect();
-    }, [observer, node]);
+//         observer.observe(node);
+//         return () => observer.disconnect();
+//     }, [observer, node]);
 
-    return [setNode, isIntersecting];
-};
+//     return [setNode, isIntersecting];
+// };
 
 
 const Client = () => {
-    const dispatch = useAppDispatch();
-    const { blogs, loading, error } = useAppSelector((state) => state.blogs);
 
-    // Memoized filtered and processed blog data
-    const processedBlogs = useMemo(() => {
-        if (!blogs?.data) return [];
 
-        return blogs.data
-            .filter((blog: any) => blog.blogIsActive !== false)
-            .map((blog:any) => ({
-                ...blog,
-                // Pre-process any data transformations here
-                id: blog._id || blog.slug,
-            }))
-            .sort((a: any, b: any) =>   new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime()); // Sort by most recent
-    }, [blogs]);
+    const [blog, setBlog] = useState<IBlogList>({} as IBlogList);
+    const [loading, setLoading] = useState(true);
 
-    // Memoized blog components
-    const blogComponents = useMemo(() =>
-            processedBlogs.map((blog: any) => (
-                <BlogItem key={blog.id} blog={blog} />
-            )), [processedBlogs]
-    );
+    const searchParams = useSearchParams();
+    const router = useRouter();
 
-   useEffect(() => {
-    if(blogs.data.length === 0)
-       dispatch(fetchBlogs());
-    
-   },[])
-  return (
-    <div>
+    const limit = 8;
+
+    const page: number = Math.max(1, Number(searchParams.get("page")) || 1);
+
+
+    // const blogComponents = useMemo(() =>
+    //     blog.data?.map((blog: any) => (
+    //         <BlogItem key={blog.id} blog={blog} />
+    //     )), [blog.data]
+    // );
+
+    useEffect(() => {
+        const urlPage = Number(searchParams.get("page"));
+        if (!urlPage || urlPage < 1) {
+            router.replace("/blogs?page=1");
+        }
+    }, [searchParams, router]);
+
+    useEffect(() => {
+        let cancelled = false;
+        const controller = new AbortController();
+
+        async function fetchBlogs() {
+            try {
+                setLoading(true);
+                const response = await fetch(
+                    `${process.env.NEXT_PUBLIC_URI}blog/list?pg=${page}&limit=${limit}`,
+                    { signal: controller.signal }
+                );
+                const data = await response.json();
+                if (!cancelled) setBlog(data);
+            } catch (error: any) {
+                if (!cancelled && error.name !== "AbortError") {
+                    console.error("Error fetching blogs:", error);
+                }
+            } finally {
+                if (!cancelled) setLoading(false);
+            }
+        }
+
+        fetchBlogs();
+        return () => {
+            cancelled = true;
+            controller.abort();
+        };
+    }, [page]);
+
+
+    const handlePageChange = (newPage: number) => {
+        router.push(`/blogs?page=${newPage}`);
+    };
+    return (
+        <div>
             {/* <Suspense fallback={<ComponentLoader height="60px" />}>
                 <HeadHelmet {...pageMetaData} />
             </Suspense> */}
@@ -173,10 +201,29 @@ const Client = () => {
 
             {loading ? (
                 <BlogSkeleton />
-            ) : blogComponents.length > 0 ? (
-                <Suspense fallback={<BlogSkeleton />}>
-                    <CommonPagination data={blogComponents} />
-                </Suspense>
+            ) : blog?.data?.length > 0 ? (
+                    <Suspense fallback={<BlogSkeleton />}>
+                        <div className="my-10">
+                            <ul className="flex justify-center flex-wrap">
+                                {blog?.data?.map((item, index) => (
+                                    <CommonBlog
+                                        key={index}
+                                        href={`/article/${item.slug}`}
+                                        path={`https://newcnpl.s3.ap-south-1.amazonaws.com/public/blogs/banners/${item.headerBanner}`}
+                                        para={item.pageTitle}
+                                        predictions={item.tag}
+                                        date={item.createdAt} // Use createdAt instead of updatedAt
+                                        alt={item.alttag}
+                                    />
+                                ))}
+                            </ul>
+                        </div>
+                        <Pagination
+                             currentPage={page || blog.pagination.currentPage}
+                        totalPages={blog.pagination.totalPages}
+                        onPageChange={handlePageChange}
+                        />
+                    </Suspense>
             ) : (
                 <div className="text-center py-10">
                     <h3 className="text-xl font-semibold text-gray-600 mb-2">No Blogs Available</h3>
@@ -184,7 +231,20 @@ const Client = () => {
                 </div>
             )}
         </div>
-  )
+    )
 }
 
 export default Client
+
+interface IBlogList {
+    data: any[];
+    pagination: IPagination
+}
+
+export interface IPagination {
+    currentPage: number;
+    totalPages: number;
+    totalRecords: number;
+    hasNext: boolean;
+    hasPrev: boolean;
+}

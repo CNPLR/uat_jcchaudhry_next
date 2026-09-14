@@ -21,14 +21,15 @@ const  page = async () => {
     
   return (
      <div>
-            <Banner alttag="Gallery of Dr. J C Chaudhry’s public speeches" path="/allbanners/Gallery-of-Dr-J-C-Chaudhry’s-public-speeches.webp" />
+            <Banner title="Dr. JC Chaudhry Speeches" alttag="Dr. JC Chaudhry Public Speeches" path="/allbanners/Gallery-of-Dr-J-C-Chaudhry’s-public-speeches.webp" />
             <MainHeading style="text-center my-10" mainHeading="Speech" />
             <div className='px-10 flex flex-wrap justify-center bg-white'>
                 {images && images?.map((ele: any, index: number) =>
                     <CommonGallery key={index}
                         path={`https://newcnpl.s3.ap-south-1.amazonaws.com/public/gallery/Speach/${ele.image}`}
                         para={ele.title}
-                        alt={ele.alttag}
+                        alt={ele.imageAlt}
+                        title={ele?.imageTitle}
                     />
                 )}
             </div>
