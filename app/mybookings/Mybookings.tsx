@@ -129,7 +129,7 @@ export default function Mybookings() {
     /* ------------------------------------------------------------------ */
 
     const isDateTimePast = (date: string, time: string) => {
-        const HHMM = time.split("-")[1].trim();
+        const HHMM = time?.split("-")?.[1]?.trim();
         return new Date(`${date}T${HHMM}:00`).getTime() > new Date().getTime()
     };
 
