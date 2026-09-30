@@ -127,6 +127,12 @@ export default function Mybookings() {
     /* ------------------------------------------------------------------ */
     /*                              RENDER                                */
     /* ------------------------------------------------------------------ */
+
+    const isDateTimePast = (date: string, time: string) => {
+        const HHMM = time.split("-")[1].trim();
+        return new Date(`${date}T${HHMM}:00`).getTime() > new Date().getTime()
+    };
+
     return (
         <div className="w-full px-4">
             <SubHeading style="text-center my-10" subHeading="My Bookings" />
@@ -178,14 +184,12 @@ export default function Mybookings() {
 
                                 const hasPaidReport = reportPayments.some((payment: any) => payment?.payment === true);
                                 const hasUnpaidReport = reportPayments.some((payment: any) => payment?.payment === false);
-
+                                const isDisable = isDateTimePast(booking.appointment_date, booking.appointment_time_slot_master_id);
+                                const disabledClass = isDisable ? "hover:!bg-[#fd7e14] disabled:bg-gray-400 disabled:hover:bg-gray-400 disabled:opacity-50 disabled:cursor-not-allowed" : "";
                                 // Determine button state with clearer logic
                                 const getButtonProps = () => {
                                     if (!hasReport) {
-                                        return { text: "Get Report", onClick: () => handleShowModal(booking) };
-                                    }
-                                    if (hasPaidReport) {
-                                        return { text: "Done" };
+                                        return { text: "Get Report", onClick: () => handleShowModal(booking), isDisabled: isDisable, style: disabledClass };
                                     }
                                     if (hasUnpaidReport) {
                                         return { text: "Pending Pay" };

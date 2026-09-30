@@ -9,6 +9,7 @@ import Calendar from "react-calendar";
 import "react-calendar/dist/Calendar.css";
 import SmallButton from "./SmallButton";
 import CountriesName from "./CountriesName";
+import { useAlert } from "@/lib/AlertBox";
 import "react-toastify/dist/ReactToastify.css";
 
 interface SlotData {
@@ -35,7 +36,7 @@ export default function OflineAppointment() {
     Authorization: `Bearer ${token}`,
     Accept: "*/*",
   };
-
+  const alertBox = useAlert();
   const [showModalForBook, setShowModalForBook] = useState(false);
   const [apd, setApd] = useState<AppointmentDetails>({});
   const [category, setCategory] = useState<string | undefined>();
@@ -48,6 +49,7 @@ export default function OflineAppointment() {
   const [slot, setSlot] = useState<string | undefined>();
   const [userDate, setUserDate] = useState<string | undefined>();
   const [loading, setLoading] = useState(false);
+  const [isAgree, setIsAgree] = useState<boolean>(false);
 
   const [evalue, setEvalue] = useState<Date>(new Date());
 
@@ -73,7 +75,7 @@ export default function OflineAppointment() {
   // ---------------------- HANDLE DATE ----------------------
   const handleDate = async (date: any) => {
     if (!date) return;
-    const isoDate = date.toISOString().split("T")[0];
+    const isoDate = `${date.getFullYear()}-${String(date.getMonth() + 1).padStart(2, "0")}-${String(date.getDate()).padStart(2, "0")}`;
     setUserDate(isoDate);
 
     const slotUrl = `${path}timeslot/available?appointment_date=${isoDate}&appointment_time=${slotTime}`;
@@ -131,19 +133,29 @@ export default function OflineAppointment() {
   // ---------------------- PAYMENT SUBMIT ----------------------
   const paySubmit = async (e: any) => {
     e.preventDefault();
+
+    if (country !=="IN" && !isAgree) {
+       alertBox.showAlert({ title: "Alert", message: "Please select the “I agree” checkbox to continue.", type: "info" });
+       return;
+    }
+
     setLoading(true);
 
     if (!userDate) {
-      alert("Please Select Your Appointment Date");
+      // alert("Please Select Your Appointment Date");
+      alertBox.showAlert({ title: "Alert", message: "Please Select Your Appointment Date.", type: "info" });
       setLoading(false);
       return;
     }
 
     if (!slot) {
-      alert("Please Select Your Appointment Time Slot");
+      // alert("Please Select Your Appointment Time Slot");
+      alertBox.showAlert({ title: "Alert", message: "Please Select Your Appointment Time Slot.", type: "info" });
       setLoading(false);
       return;
     }
+
+    const currency = country === "IN" ? {} : {"currency": "USD"};
 
     const req = await fetch(userUrl, {
       method: "POST",
@@ -156,45 +168,67 @@ export default function OflineAppointment() {
         slot,
         userDate,
         slotTime,
+        ...currency,
+        isAgree,
         platform: "Desktop",
       }),
     });
 
     const res = await req.json();
-
-    if (res.success) {
-      const paymentForm = document.createElement("form");
-      paymentForm.method = "POST";
-      paymentForm.action = "https://api.razorpay.com/v1/checkout/embedded";
-
-      const add = (name: string, value: any) => {
-        const input = document.createElement("input");
-        input.type = "hidden";
-        input.name = name;
-        input.value = value;
-        paymentForm.appendChild(input);
-      };
-
-      add("key_id", process.env.NEXT_PUBLIC_KEY_ID);
-      add("amount", res.data.amount);
-      add("currency", res.data.currency);
-      add("order_id", res.data.id);
-      add("name", "Chaudhry Nummero Pvt. Ltd.");
-      add("description", "Test Transaction");
-      add("image", "https://cdn.razorpay.com/logos/BUVwvgaqVByGp2_large.jpg");
-      add("prefill[name]", res?.info?.userData.user.full_name);
-      add("prefill[contact]", res?.info?.userData.userAccount.mobile_number);
-      add("prefill[email]", res?.info?.userData.userAccount.email_id);
-      add("callback_url", path + "userAppointment/book-appointment/rezorpay/success");
-
-      document.body.appendChild(paymentForm);
-      paymentForm.submit();
-
-      setLoading(false);
-    } else {
-      alert(res.message || "Something Went Wrong");
-      setLoading(false);
+   try {
+     if (country !== "IN") {
+      if (apd.category == res.info.appointment_type_id && apd.time == res.info.appointment_time && apd?.total_price?.split(" ")[0] == res.data.transactions[0].amount.total.split(".")[0] && apd?.total_price?.split(" ")[1] == res.data.transactions[0].amount.currency) {
+        if (res.success === true) {
+          window.location = res.data.links[1].href
+        }
+      }
+      else if (res.success == false) {
+        setLoading(false)
+        return alert(res.message)
+      }
+      else {
+        setLoading(false)
+        return alert("Somthing Went Wrong")
+      }
     }
+    else {
+      if (res.success) {
+        const paymentForm = document.createElement("form");
+        paymentForm.method = "POST";
+        paymentForm.action = "https://api.razorpay.com/v1/checkout/embedded";
+
+        const add = (name: string, value: any) => {
+          const input = document.createElement("input");
+          input.type = "hidden";
+          input.name = name;
+          input.value = value;
+          paymentForm.appendChild(input);
+        };
+
+        add("key_id", process.env.NEXT_PUBLIC_KEY_ID);
+        add("amount", res.data.amount);
+        add("currency", res.data.currency);
+        add("order_id", res.data.id);
+        add("name", "Chaudhry Nummero Pvt. Ltd.");
+        add("description", "Test Transaction");
+        add("image", "https://cdn.razorpay.com/logos/BUVwvgaqVByGp2_large.jpg");
+        add("prefill[name]", res?.info?.userData.user.full_name);
+        add("prefill[contact]", res?.info?.userData.userAccount.mobile_number);
+        add("prefill[email]", res?.info?.userData.userAccount.email_id);
+        add("callback_url", path + "userAppointment/book-appointment/rezorpay/success");
+
+        document.body.appendChild(paymentForm);
+        paymentForm.submit();
+
+        setLoading(false);
+      } else {
+        alert(res.message || "Something Went Wrong");
+        setLoading(false);
+      }
+    }
+   } catch (error) {
+    
+   }
   };
 
   // ---------------------- GET PAYMENT SLOTS ----------------------
@@ -369,9 +403,23 @@ export default function OflineAppointment() {
 
                 {/* COUNTRY CHECK */}
                 {country !== "IN" ? (
-                  <div className="text-center p-5 bg-red-700 text-white">
-                    <p>Face To Face Consultation Only Available For India</p>
-                  </div>
+                  <>
+                    <div className="flex justify-between border border-gray-200 p-3 bg-white">
+                      <Para style="font-bold" para="Total Amount" />
+                      <Para style="font-bold" para={apd.total_price} />
+                    </div>
+                    <div className="bg-white p-2 mb-3">
+                      <div className="text-red-600 ">
+                        <p>Note: Face To Face Consultation Only Available at India office.</p>
+                      </div>
+                     <div className="flex items-center">
+                       <input id="checked-checkbox" type="checkbox" onChange={({target})=> setIsAgree(target.checked)} className="w-4 h-4 border border-default-medium rounded-xs bg-neutral-secondary-medium  accent-[#490099]"/>
+                      <label htmlFor="checked-checkbox" className="select-none ms-2 text-sm font-medium text-heading">
+                       I agree.
+                        </label>
+                     </div>
+                    </div>
+                  </>
                 ) : (
                   <>
                     {/* PRICE DETAILS */}
@@ -400,7 +448,8 @@ export default function OflineAppointment() {
                         </div>
                       </div>
                     </div>
-
+                    </>
+                  )}
                     {/* PAY BUTTON */}
                     {loading ? (
                       <div className="w-28 mx-auto rounded-md font-bold text-center bg-[#fd7e14] py-2 shadow-2xl">
@@ -412,13 +461,11 @@ export default function OflineAppointment() {
 
                     <div className="p-2">
                       <p className="text-justify text-sm bg-white p-2">
-                        Note: To obtain written report (soft copy) of consultation a sum of INR
-                        20,000/- will be charged extra and will be available within 4 working days
+                        Note: To obtain written report (soft copy) of consultation a sum of {country === "IN" ? "INR 20,000/-" : "USD 243/-"} will be charged extra and will be available within 4 working days
                         from the date of making payment.
                       </p>
                     </div>
-                  </>
-                )}
+                  
               </div>
             </div>
           </div>
