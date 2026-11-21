@@ -8,9 +8,9 @@ import { headers } from 'next/headers';
 export const metadata = GenerateMetadata({
     pagePath: "/about/milestones",
     banner: "/allbanners/Key-milestones-in-Dr-Chaudhry’s-career.jpg",
-    title: "Dr. JC Chaudhry Milestones: Awards, Career Achievements",
-    description: "Explore Dr. JC Chaudhry's milestones, awards and achievements in education, numerology, business and leadership across the years.",
-    keywords: "numerologist in india, numerology by jc chaudhry, vaastu shastra expert, motivational speaker, motivational speakers in india",
+    title: "Dr. J C Chaudhry Milestones: Awards, Career Achievements",
+    description: "Explore Dr. J C Chaudhry's milestones, awards and achievements in education, numerology, business and leadership across the years.",
+    keywords: "numerologist in india, numerology by Dr. J C Chaudhry, vaastu shastra expert, motivational speaker, motivational speakers in india",
     // headers: headers,
 });
 
@@ -19,7 +19,7 @@ const page = () => {
   return (
     <div className='bg-white'>
 
-            <Banner title="Career Milestones" alttag="Dr. JC Chaudhry Career Milestones" path="/allbanners/Key-milestones-in-Dr-Chaudhry’s-career.jpg" />
+            <Banner title="Career Milestones" alttag="Dr. J C Chaudhry Career Milestones" path="/allbanners/Key-milestones-in-Dr-Chaudhry’s-career.jpg" />
             <div className=''>
                 <MainHeading style="text-center my-5" mainHeading="Milestones" />
                 <div className='relative'>

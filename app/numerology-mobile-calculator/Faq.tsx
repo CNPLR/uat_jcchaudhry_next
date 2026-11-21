@@ -36,9 +36,9 @@ const FAQs = [
         </>
     },
     {
-        question: "Can I consult Dr. JC Chaudhry for Mobile Number Numerology?",
+        question: "Can I consult Dr. J C Chaudhry for Mobile Number Numerology?",
         answer: <>
-            Yes. If you want a detailed analysis of your <strong>Mobile Number</strong>, you can consult <strong>Dr. JC Chaudhry</strong>, a Guinness World Record holder in numerology with over <strong>40+ years of experience</strong>. A personalized consultation provides expert guidance on choosing a suitable mobile number based on your complete numerology chart.
+            Yes. If you want a detailed analysis of your <strong>Mobile Number</strong>, you can consult <strong>Dr. J C Chaudhry</strong>, a Guinness World Record holder in numerology with over <strong>40+ years of experience</strong>. A personalized consultation provides expert guidance on choosing a suitable mobile number based on your complete numerology chart.
         </>
     },
     {

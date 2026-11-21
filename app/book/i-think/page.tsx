@@ -3,9 +3,9 @@ import { Books } from '@/app/components/ui/Books';
 
 export const metadata = GenerateMetadata({
     banner: "/allbanners/I-Think-book-by-Dr-J-C-Chaudhry.webp",
-    title: "I Think | Motivational Quotes Book | Dr Dr. J C Chaudhry",
+    title: "I Think | Motivational Quotes Book | Dr. J C Chaudhry",
     description: "I Think- poverty is no bar for success book is a collection of inspirational quotes by Dr. J C Chaudhry for positive thinking and success in life.",
-    keywords: "numerologist in india, numerology by jc chaudhry, vaastu shastra expert, motivational speaker, motivational speakers in india",
+    keywords: "numerologist in india, numerology by Dr. J C Chaudhry, vaastu shastra expert, motivational speaker, motivational speakers in india",
     pagePath: "/book/i-think",
 })
 

@@ -10,9 +10,9 @@ import GenerateMetadata from '../components/MetaGenerator';
 
 export const metadata = GenerateMetadata({
     banner: "/allbanners/Best-Numerology-Books.webp",
-        title: "Best Numerology Books | Vastu Books | Dr Dr. J C Chaudhry",
-        description: "Dr Dr. J C Chaudhry has written books on numerology, vastu, meditation. His numerology books such as Prractical, Advanced numerology etc. are available on Amazon.",
-        keywords: "numerologist in india, numerology by jc chaudhry, vaastu shastra expert, motivational speaker, motivational speakers in india",
+        title: "Best Numerology Books | Vastu Books | Dr. J C Chaudhry",
+        description: "Dr. J C Chaudhry has written books on numerology, vastu, meditation. His numerology books such as Prractical, Advanced numerology etc. are available on Amazon.",
+        keywords: "numerologist in india, numerology by Dr. J C Chaudhry, vaastu shastra expert, motivational speaker, motivational speakers in india",
     pagePath: "/books",
 });
 const page = () => {
@@ -22,7 +22,7 @@ const page = () => {
             <Banner alttag="Best Numerology Books" path="/allbanners/Best-Numerology-Books.webp" />
             <div className='flex lg:flex-row flex-col justify-center items-start my-10 bg-gray-100 py-10'>
                 <div className='mb-5 lg:mb-0 mx-auto lg:mx-0'>
-                    <Img alt="Books by Dr. J.C. Chaudhry on numerology" style="shadow-lg rounded-md w-[267px] h-[444px]" path="/images_folder/Books-by-Dr.-J.C.-Chaudhry-on-numerology.png" />
+                    <Img alt="Books by Dr. J C Chaudhry on numerology" style="shadow-lg rounded-md w-[267px] h-[444px]" path="/images_folder/Books-by-Dr.-J.C.-Chaudhry-on-numerology.png" />
                 </div>
                 <div className='lg:ml-10 lg:w-[50%] w-[100%] px-10 lg:px-0'>
                     <SubHeading style="text-center lg:text-left" subHeading="Eminent Author" />

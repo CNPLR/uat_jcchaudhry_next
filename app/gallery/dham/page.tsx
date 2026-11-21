@@ -9,7 +9,7 @@ export const metadata = GenerateMetadata({
     banner: "/allbanners/Gallery-of-Dr-Chaudhry’s-Dham-ceremonies.webp",
     title: "Maa Vaishno Devi Dham Vrindavan: Photos, Temple Gallery",
     description: "Explore Maa Vaishno Devi Dham Vrindavan through photos of the temple, gufa, Mata idols, ashram, lawns and ongoing construction work.",
-    keywords: "numerologist in india, numerology by jc chaudhry, vaastu shastra expert, motivational speaker, motivational speakers in india",
+    keywords: "numerologist in india, numerology by Dr. J C Chaudhry, vaastu shastra expert, motivational speaker, motivational speakers in india",
     // headers: headers,
 });
 
@@ -19,7 +19,7 @@ const page = async () => {
 
   return (
     <div>
-            <Banner alttag="Gallery of Dr. Chaudhry’s Dham ceremonies" path="/allbanners/Gallery-of-Dr-Chaudhry’s-Dham-ceremonies.webp" />
+            <Banner alttag="Gallery of Dr. J C Chaudhry’s Dham ceremonies" path="/allbanners/Gallery-of-Dr-Chaudhry’s-Dham-ceremonies.webp" />
             <MainHeading style="text-center my-10" mainHeading="Dham" />
             <div className='px-10 flex flex-wrap justify-center bg-white'>
                 {images && images?.map((ele: any, index: number) =>

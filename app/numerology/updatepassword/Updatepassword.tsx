@@ -149,7 +149,7 @@ const UpdatePassword = () => {
             <div className='bg-[#490099] py-10'>
                 <div className='md:flex justify-around'>
                     <div>
-                        <Img style='md:w-[500px] w-[300px] mx-auto' alt="Dr J C Chaudhry for numerology consultation services" path="/images_folder/Dr-J-C-Chaudhry-for-numerology-consultation-services.png" />
+                        <Img style='md:w-[500px] w-[300px] mx-auto' alt="Dr. J C Chaudhry for numerology consultation services" path="/images_folder/Dr-J-C-Chaudhry-for-numerology-consultation-services.png" />
                     </div>
                     <div className='p-5 w-[320px] bg-white rounded-md border mx-auto'>
                         <SubHeading1 subHeading="Update Password" style="text-center mb-5" />

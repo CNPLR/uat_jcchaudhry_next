@@ -9,9 +9,9 @@ import GenerateMetadata from '../../components/MetaGenerator'
 export const metadata = GenerateMetadata({
     pagePath: "/about/education",
     banner: "/allbanners/Learn-about-Dr-J-C-Chaudhry’s-educational-journey.webp",
-    title: "Dr. JC Chaudhry Education: Academic Journey, Achievements",
-    description: "Dr. JC Chaudhry holds a Master's degree in Science and has 48 years of teaching experience, inspiring students and shaping careers.",
-    keywords: "jc Chaudhry education, 	Dr. J C Chaudhry studies, Dr. J C Chaudhry knowledge, jc Chaudhry aakash chairman, Dr. J C Chaudhry aakash owner, jc Chaudhry college degree, Dr. J C Chaudhry science, jc Chaudhry from bits pilani",
+    title: "Dr. J C Chaudhry Education: Academic Journey, Achievements",
+    description: "Dr. J C Chaudhry holds a Master's degree in Science and has 48 years of teaching experience, inspiring students and shaping careers.",
+    keywords: "Dr. j c Chaudhry education, 	Dr. J C Chaudhry studies, Dr. J C Chaudhry knowledge, j c Chaudhry aakash chairman, Dr. J C Chaudhry aakash owner, j c Chaudhry college degree, Dr. J C Chaudhry science, Dr. J C Chaudhry from bits pilani",
     // headers: headers,
 });
 
@@ -20,18 +20,18 @@ const education = () => {
      <div>
             {/* <HeadHelmet {...pageMetaData} /> */}
 
-            <Banner title="Educational Journey" alttag="Dr. JC Chaudhry Education" path="/allbanners/Learn-about-Dr-J-C-Chaudhry’s-educational-journey.webp" />
+            <Banner title="Educational Journey" alttag="Dr. J C Chaudhry Education" path="/allbanners/Learn-about-Dr-J-C-Chaudhry’s-educational-journey.webp" />
             <MainHeading style="text-center my-10" mainHeading="Education" />
             <div className='lg:px-10 px-5 mt-10'>
                 <div className=' flex justify-center flex-col md:flex-row space-x-10 [&>div]:w-full md:[&>div]:w-[30%]'>
                     <ImgHeadingBox
                         title='BITS Pilani Education'
-                        alt="Dr. JC Chaudhry BITS Pilani"
+                        alt="Dr. J C Chaudhry BITS Pilani"
                         path="/images_folder/About-Dr.-J.C.-Chaudhry’s-educational-journey_Bits_Pilani.webp"
                         para="Dr. J C Chaudhry holds a Master's degree in Science (Botany) from the Birla Institute of Technology and Science (BITS), Pilani, Rajasthan (1972)." heading={''} link={''}                    />
                     <ImgHeadingBox
                         title="Academic Journey"
-                        alt="Dr. JC Chaudhry Academic Journey"
+                        alt="Dr. J C Chaudhry Academic Journey"
                         path="/images_folder/Dr.-J.C.-Chaudhry’s-educational-journey.webp"
                         para="He has been very closely associated with the teaching field for 48 years extending his services across schools & colleges."
                         heading={''} link={''}
@@ -40,14 +40,14 @@ const education = () => {
                 <div className='flex justify-center flex-col md:flex-row  space-x-10 [&>div]:w-full md:[&>div]:w-[30%]'>
                     <ImgHeadingBox
                         title="Quality Education"
-                        alt="Quality Education by Dr. JC Chaudhry"
+                        alt="Quality Education by Dr. J C Chaudhry"
                         path="/images_folder/To-impart-quality-education-to-aspiring-students-.webp"
                         para="Dr. J C Chaudhry has been instrumental in motivating lakhs of students and shaping their future careers. With an aim to infuse confidence in students, Dr. J C Chaudhry has been delivering motivational lectures through seminars and also through his YouTube channel."
                         heading={''} link={''}
                     />
                     <ImgHeadingBox
                         title="Academic Journey"
-                        alt="Dr. JC Chaudhry Academic Journey"
+                        alt="Dr. J C Chaudhry Academic Journey"
                         path="/images_folder/Dr.-J.C.-Chaudhry's-Academic-Journey.webp"
                         para="His journey from a teacher to establishing AESL and the way he ushered innovation in the coaching industry making 'Aakash'- a standalone brand, is indeed praiseworthy and worth imitating."
                         heading={''} link={''}

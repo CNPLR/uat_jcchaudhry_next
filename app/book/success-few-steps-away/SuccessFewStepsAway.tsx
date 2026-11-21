@@ -60,7 +60,7 @@ const SuccessFewStepsAway = () => {
             <Books
                 path="/allbanners/Success-Few-Steps-Away-book-by-Dr-J-C-Chaudhry.webp"
                 alttag="Success Few Steps Away book by Dr. J C Chaudhry"
-                alt="Success A Few Steps Away Book by J C Chaudhry" 
+                alt="Success A Few Steps Away Book by Dr. J C Chaudhry" 
                 path1="/images_folder/Success-A-Few-Steps-Away-Book-by-J-C-Chaudhry.webp"
                 para1="The book is a guide for those on the path to achieving goals. At times the goals can be far and the journey can be long. So, the author shares a daily dose of strength and motivation requires at the different stages of life. To have a successful journey, instead of seeing how far is the goal, one should see how much is covered and feel worthy and positive."
                 para2="This book is written by the author’s own experiences and all the hard work he did in his life. His thoughts are full of enthusiasm and motivation. Read the book for more guidance in your daily routine."

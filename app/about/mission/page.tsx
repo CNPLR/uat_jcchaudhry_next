@@ -9,9 +9,9 @@ import { headers } from 'next/headers'
 export const metadata = GenerateMetadata({
     pagePath: "/about/mission",
     banner: "/allbanners/Our-mission-in-numerology-and-vastu.jpg",
-    title: "Dr. JC Chaudhry Mission: Education, Technology, Learning",
-    description: "Discover Dr. JC Chaudhry's mission to provide quality education through technology, helping aspiring students learn beyond geographical barriers.",
-    keywords: "numerologist in india, numerology by jc chaudhry, vaastu shastra expert, motivational speaker, motivational speakers in india",
+    title: "Dr. J C Chaudhry Mission: Education, Technology, Learning",
+    description: "Discover Dr. J C Chaudhry's mission to provide quality education through technology, helping aspiring students learn beyond geographical barriers.",
+    keywords: "numerologist in india, numerology by Dr. J C Chaudhry, vaastu shastra expert, motivational speaker, motivational speakers in india",
     // headers: headers,
 });
 const page = () => {

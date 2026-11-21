@@ -36,7 +36,7 @@ const Numerology = () => {
             <Link href={token ? '/dashboard' : '/numerology/signup'}>
                 <Banner
                     title="Numerology Services"
-                    alttag="Dr. JC Chaudhry Numerology Services"
+                    alttag="Dr. J C Chaudhry Numerology Services"
                     path="/allbanners/Comprehensive-numerology-services-by-Dr-J-C-Chaudhry-Book-Now.webp"
                     w={515}
                     h={188}
@@ -45,10 +45,10 @@ const Numerology = () => {
 
             <div className='lg:px-10 px-5'>
                 <ImgHeadingContent
-                    title="Dr. JC Chaudhry Numerology Expert"
-                    alt="Dr. JC Chaudhry Numerology Expert"
+                    title="Dr. J C Chaudhry Numerology Expert"
+                    alt="Dr. J C Chaudhry Numerology Expert"
                     path="/images_folder/Dr.-J-C-Chaudhry-expert-in-numerology.webp"
-                    para="Dr. Dr. J C Chaudhry, a numerology expert with more than three decades of experience (40 years), provides numerology services and solutions worldwide. He has done name correction for thousands of people and has offered numerology guidance to people facing downfalls in business, compatibility issues, or poor health. Many of his predictions have come true, such as the 2023 numerology predictions, etc. You can consult Dr. Chaudhry for a detailed numerology reading and report."
+                    para="Dr. J C Chaudhry, a numerology expert with more than three decades of experience (40 years), provides numerology services and solutions worldwide. He has done name correction for thousands of people and has offered numerology guidance to people facing downfalls in business, compatibility issues, or poor health. Many of his predictions have come true, such as the 2023 numerology predictions, etc. You can consult Dr. J C Chaudhry for a detailed numerology reading and report."
                     nbutton="Book Appointment"
                     subHeading="Numerology Services"
                     nstyle="w-52"

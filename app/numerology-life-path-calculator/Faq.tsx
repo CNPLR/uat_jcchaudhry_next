@@ -36,9 +36,9 @@ const FAQS = [
         </>
     },
     {
-        question: "Can I consult Dr. JC Chaudhry for a detailed Life Path Number analysis?",
+        question: "Can I consult Dr. J C Chaudhry for a detailed Life Path Number analysis?",
         answer: <>
-            Yes. If you want a deeper understanding of your <strong>Life Path Number</strong>, you can consult <strong>Dr. JC Chaudhry</strong>, a <strong>Guinness World Record holder in numerology</strong> with over <strong>40+ years of experience</strong>. A personalized consultation provides detailed insights into your strengths, challenges, career, relationships, and practical numerology guidance based on your complete numerology chart.
+            Yes. If you want a deeper understanding of your <strong>Life Path Number</strong>, you can consult <strong>Dr. J C Chaudhry</strong>, a <strong>Guinness World Record holder in numerology</strong> with over <strong>40+ years of experience</strong>. A personalized consultation provides detailed insights into your strengths, challenges, career, relationships, and practical numerology guidance based on your complete numerology chart.
         </>
     },
     {

@@ -16,7 +16,7 @@ export const metadata = GenerateMetadata({
     banner: "/allbanners/Chaudhry-Numerology-Pvt-Ltd-services.webp",
     title: "Chaudhry Nummero Pvt. Ltd. | Numerology Consulting Solution",
     description: "Discover Chaudhry Nummero Pvt. Ltd. for business numerology audits, personal solutions, consultations and expert guidance for success.",
-    keywords: "numerology company, best numerology company in India, numerology auditing company, jc chaudhry, famous numerology firm in India, top numerology company, world famous numerology, numerology in India, India numerology company, numerology audit firm",
+    keywords: "numerology company, best numerology company in India, numerology auditing company, Dr. J C Chaudhry, famous numerology firm in India, top numerology company, world famous numerology, numerology in India, India numerology company, numerology audit firm",
     pagePath: "/chaudhry-nummero-pvt-ltd",
 });
 
@@ -139,8 +139,8 @@ const page = async () => {
                 <CN
                     subHeading="Guinness World Record"
                     path="/images_folder/Explore-numerology-services-with-Dr.-Chaudhry.jpg"
-                    alt="Numerology Services by Dr. JC Chaudhry"
-                    title="Dr. JC Chaudhry Numerology"
+                    alt="Numerology Services by Dr. J C Chaudhry"
+                    title="Dr. J C Chaudhry Numerology"
                     para="Dr. J C Chaudhry is the first-ever Numerologist to get a Guinness World Record in Numerology for the most viewers on his YouTube LIVE Session on Numerology on 1st January 2022."
                 />
                 <CN

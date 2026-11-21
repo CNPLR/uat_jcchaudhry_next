@@ -6,7 +6,7 @@ export const metadata = GenerateMetadata({
         banner: "/allbanners/Motivational-Videos-and-Seminars-for-students-entrepreneurs.webp",
         title: "Motivational Videos | Seminars for students &amp; entrepreneurs",
         description: "Learn and grow through motivational seminars and videos by Dr. J C Chaudhry. His motivational videos talks about leadership tips, success mantras for students.",
-        keywords: "numerologist in india, numerology by jc chaudhry, vaastu shastra expert, motivational speaker, motivational speakers in india"
+        keywords: "numerologist in india, numerology by Dr. J C Chaudhry, vaastu shastra expert, motivational speaker, motivational speakers in india"
     
 })
 export default function page() {

@@ -5,9 +5,9 @@ import MainHeading from '@/app/components/ui/MainHeading'
 import { getImages } from '@/app/services/getImages'
 
 export const metadata =  GenerateMetadata({
-            title: "Dr. JC Chaudhry Speech Gallery: Motivational Talks, Seminars",
-            description: "Explore Dr. JC Chaudhry's motivational speeches, student seminars and talks on learning, time management, education and personal growth.",
-            keywords: "numerologist in india, numerology by jc chaudhry, vaastu shastra expert, motivational speaker, motivational speakers in india",
+            title: "Dr. J C Chaudhry Speech Gallery: Motivational Talks, Seminars",
+            description: "Explore Dr. J C Chaudhry's motivational speeches, student seminars and talks on learning, time management, education and personal growth.",
+            keywords: "numerologist in india, numerology by Dr. J C Chaudhry, vaastu shastra expert, motivational speaker, motivational speakers in india",
             pagePath: '/gallery/speech',
             banner: "/allbanners/Gallery-of-Dr-J-C-Chaudhry’s-awards.webp",
             // headers: headers,
@@ -21,7 +21,7 @@ const  page = async () => {
     
   return (
      <div>
-            <Banner title="Dr. JC Chaudhry Speeches" alttag="Dr. JC Chaudhry Public Speeches" path="/allbanners/Gallery-of-Dr-J-C-Chaudhry’s-public-speeches.webp" />
+            <Banner title="Dr. J C Chaudhry Speeches" alttag="Dr. J C Chaudhry Public Speeches" path="/allbanners/Gallery-of-Dr-J-C-Chaudhry’s-public-speeches.webp" />
             <MainHeading style="text-center my-10" mainHeading="Speech" />
             <div className='px-10 flex flex-wrap justify-center bg-white'>
                 {images && images?.map((ele: any, index: number) =>

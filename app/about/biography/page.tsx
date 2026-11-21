@@ -11,9 +11,9 @@ import { headers } from 'next/headers';
 export const metadata = GenerateMetadata({
     pagePath: "/about/biography",
     banner: "/allbanners/Biography-of-Dr-J-C-Chaudhry.webp",
-    title: "Dr. JC Chaudhry Biography : Education, Career,  Life Journey",
+    title: "Dr. J C Chaudhry Biography : Education, Career,  Life Journey",
     description: "Discover Dr. J C Chaudhry's biography, from educator to entrepreneur, his Aakash journey, numerology career and inspiring life story.",
-    keywords: "Jc chaudhry, biography of JC chaudhry, aakash institute story, book about aakash education",
+    keywords: "Dr. J C Chaudhry, biography of Dr. J C Chaudhry, aakash institute story, book about aakash education",
     // headers: headers,
 });
 
@@ -21,13 +21,13 @@ const page = () => {
   return (
     <div>
 
-            <Banner title="Dr. JC Chaudhry Biography" alttag="Dr. JC Chaudhry Biography" path="/allbanners/About-Dr.-J.C.-Chaudhry’s-educational-journey.webp" />
+            <Banner title="Dr. J C Chaudhry Biography" alttag="Dr. J C Chaudhry Biography" path="/allbanners/About-Dr.-J.C.-Chaudhry’s-educational-journey.webp" />
             <CommonAbout
                 mainHeading="Biography Dr. J C Chaudhry"
                 subHeading2="The Incredible Aakash Story - Journey from an educator to one of India’s most successful academic entrepreneurs"
                 path="/images_folder/Biography-Dr.-J-C-Chaudhry.webp"
-                alt="Biography of Dr. JC Chaudhry"
-                title="Dr. JC Chaudhry Biography"
+                alt="Biography of Dr. J C Chaudhry"
+                title="Dr. J C Chaudhry Biography"
                 subHeading="The Incredible Aakash Story"
                 para="Dr. J C Chaudhry has been closely associated with the field of teaching and education for 48 years, motivating lakhs of students and shaping their future careers. Dr. J C Chaudhry: The Incredible Aakash Story traces his journey from an educator to one of India’s most successful academic entrepreneurs. He established Aakash Educational Services Limited (AESL) in 1988 and redefined the Indian test-preparatory coaching industry. Aakash excels as a standalone brand today."
                 para1="With more than 33 years of operational experience, a strong selection track record in Medical and Engineering entrance exams and Foundation level exams, a pan-India network of over 200 Aakash Centres, and a student count of more than 2,50,000, Aakash has become the most trusted name in the country for focused learning. This book is a fascinating account of Dr. J C Chaudhry’s life story. It highlights his determination and grit, and his abiding commitment to students, which helped him turn his dream into reality."
@@ -37,13 +37,13 @@ const page = () => {
                 para3=''
             />
 
-            <Img style="mx-auto" title="Table of Contents" alt="Dr. JC Chaudhry Book Contents" path="/images_folder/Table-of-contents.png" />
+            <Img style="mx-auto" title="Table of Contents" alt="Dr. J C Chaudhry Book Contents" path="/images_folder/Table-of-contents.png" />
 
             <SubHeading style="text-center" subHeading="Dr. J C Chaudhry's Village and School" />
             <div className='flex flex-wrap md:space-x-5 my-5 justify-center bg-gray-100 py-10'>
                 <ImgHeadingBox
-                    title="Dr. JC Chaudhry House"
-                    alt="Dr. JC Chaudhry House"
+                    title="Dr. J C Chaudhry House"
+                    alt="Dr. J C Chaudhry House"
                     ps="text-justify"
                     heading=''
                     link=''
@@ -51,8 +51,8 @@ const page = () => {
                     para="Dr. J C Chaudhry spent his boyhood in a forgotten village in the heart of Haryana. His father ran a small grocery store and the family lived in a small, one-room house in sevli. Every member of the family including his mother and sister worked hard to contribute to the family kitty. @Dr. J C Chaudhry"
                 />
                 <ImgHeadingBox
-                    title="Dr. JC Chaudhry Collage"
-                    alt="Dr. JC Chaudhry Collage"
+                    title="Dr. J C Chaudhry Collage"
+                    alt="Dr. J C Chaudhry Collage"
                     path="/images_folder/Dr.-J-C-Chaudhry-collage.webp"
                     ps="text-justify"
                     heading=''
@@ -60,8 +60,8 @@ const page = () => {
                     para="In 1996 Dr. J C Chaudhry completed his matriculation in Hathin and moved to Palwal to complete his pre-university and pre-medical at G.G.D.S.D. Collage. He was very excited about living in a bigger city with a cinema hall. @Dr. J C Chaudhry"
                 />
                 <ImgHeadingBox
-                    title='Dr. JC Chaudhry School'
-                    alt="Dr. JC Chaudhry School"
+                    title='Dr. J C Chaudhry School'
+                    alt="Dr. J C Chaudhry School"
                     path="/images_folder/Dr.-J-C-Chaudhry-school.webp"
                     ps="text-justify"
                     heading=''
@@ -74,8 +74,8 @@ const page = () => {
             <div className='flex flex-wrap my-5 justify-center bg-gray-100 py-10 md:space-x-5'>
                 <ImgHeadingBox
                     path="/images_folder/Dr.-J-C-Chaudhry-sons.webp"
-                    alt="Dr. JC Chaudhry Sons"
-                    title="Dr. JC Chaudhry Sons"
+                    alt="Dr. J C Chaudhry Sons"
+                    title="Dr. J C Chaudhry Sons"
                     ps="text-justify"
                     heading=''
                     link=''
@@ -83,8 +83,8 @@ const page = () => {
                 />
                 <ImgHeadingBox
                     path="/images_folder/Dr.-J-C-Chaudhry-sons-.webp"
-                    title="Dr. JC Chaudhry Family"
-                    alt="Dr. JC Chaudhry Family"
+                    title="Dr. J C Chaudhry Family"
+                    alt="Dr. J C Chaudhry Family"
                     ps="text-justify"
                     heading=''
                     link=''
@@ -96,8 +96,8 @@ const page = () => {
             <div className='flex flex-wrap my-5 justify-center bg-gray-100 py-10 md:space-x-5'>
                 <ImgHeadingBox
                     path="/images_folder/Dr.-J-C-Chaudhry-vision.webp"
-                    alt="Dr. JC Chaudhry Vision"
-                    title="Dr. JC Chaudhry Vision"
+                    alt="Dr. J C Chaudhry Vision"
+                    title="Dr. J C Chaudhry Vision"
                     ps="text-justify"
                     heading=''
                     link=''
@@ -105,7 +105,7 @@ const page = () => {
                 />
                 <ImgHeadingBox
                     path="/images_folder/Dr.-J-C-Chaudhry-vision-.webp"
-                    alt="Dr. JC Chaudhry Future Vision"
+                    alt="Dr. J C Chaudhry Future Vision"
                     title="Future Vision"
                     ps="text-justify"
                     heading=''
@@ -115,10 +115,10 @@ const page = () => {
             </div>
 
             <div className='flex justify-center flex-wrap items-start my-10'>
-                <Card para="AS A STUDENT, DR CHAUDHRY RAN AWAY FROM MATHEMATICS, YET, NUMBERS WENT ON TO BECOME HIS BEST FRIENDS." />
-                <Card para="THE MAGNIFICENT STATUE AT THE MAA VAISHNO DEVI DHAM EARNED DR JC CHAUDHRY A NAMEIN THE LIMCA BOOK OF RECORDS." />
-                <Card para="DR. CHAUDHRY IS A SELF-CONFESSED MOVIE BUFF AND USED TO WATCH ALL MOVIES" />
-                <Card para="DR. CHAUDHRY HAD STEPPED OUT TO BUY CLOTHES AND ENDED UP BUYING HIMSELF A BUILDING AND THAT’S HOW THE FAMOUS SOUTH EXTENSION AAKASH CENTRE WAS BORN." />
+                <Card para="AS A STUDENT, DR. J C CHAUDHRY RAN AWAY FROM MATHEMATICS, YET, NUMBERS WENT ON TO BECOME HIS BEST FRIENDS." />
+                <Card para="THE MAGNIFICENT STATUE AT THE MAA VAISHNO DEVI DHAM EARNED DR. J C CHAUDHRY A NAMEIN THE LIMCA BOOK OF RECORDS." />
+                <Card para="DR. J C CHAUDHRY IS A SELF-CONFESSED MOVIE BUFF AND USED TO WATCH ALL MOVIES" />
+                <Card para="DR. J C CHAUDHRY HAD STEPPED OUT TO BUY CLOTHES AND ENDED UP BUYING HIMSELF A BUILDING AND THAT’S HOW THE FAMOUS SOUTH EXTENSION AAKASH CENTRE WAS BORN." />
             </div>
         </div>
   )

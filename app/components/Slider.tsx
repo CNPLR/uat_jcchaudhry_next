@@ -70,7 +70,7 @@ export default function Slider({ heading }: SliderProps) {
           <CommonBooks
             link="https://www.amazon.in/dp/8194712629"
             style="text_over"
-            alt="Fundamentals of numerology by Dr. J.C. Chaudhry."
+            alt="Fundamentals of numerology by Dr. J C Chaudhry."
             path="/images_folder/Fundamentals-of-numerology-by-Dr.-J.C.-Chaudhry.webp"
             bookName="Fundamentals Vastu"
           />
@@ -80,7 +80,7 @@ export default function Slider({ heading }: SliderProps) {
           <CommonBooks
             link="https://www.amazon.in/dp/8193953169"
             style="text_over"
-            alt="Meditation and subconscious mind book by Dr. Chaudhry"
+            alt="Meditation and subconscious mind book by Dr. J C Chaudhry"
             path="/images_folder/Meditation-and-subconscious-mind-book-by-Dr.-Chaudhry.webp"
             bookName="Meditation & Subconscious Mind"
           />
@@ -110,7 +110,7 @@ export default function Slider({ heading }: SliderProps) {
           <CommonBooks
             link="https://www.amazon.in/dp/8194712661"
             style="text_over"
-            alt="Success A Few Steps Away Book by J C Chaudhry"
+            alt="Success A Few Steps Away Book by /Dr. J C Chaudhry"
             path="/images_folder/Success-A-Few-Steps-Away-Book-by-J-C-Chaudhry.webp"
             bookName="Success A Few Steps Away"
           />
@@ -120,7 +120,7 @@ export default function Slider({ heading }: SliderProps) {
           <CommonBooks
             link="https://www.amazon.in/dp/8194712688"
             style="text_over"
-            alt="Rungs of the Ladder Book by J C Chaudhry"
+            alt="Rungs of the Ladder Book by Dr. J C Chaudhry"
             path="/images_folder/Rungs-of-the-Ladder-Book-by-J-C-Chaudhry.webp"
             bookName="Rungs of the Ladder"
           />
@@ -140,7 +140,7 @@ export default function Slider({ heading }: SliderProps) {
           <CommonBooks
             link="https://www.amazon.in/dp/B08HN568XZ?ref=myi_title_dp"
             style="text_over"
-            alt="You and Your Gems Book by J C Chaudhry"
+            alt="You and Your Gems Book by Dr. J C Chaudhry"
             path="/images_folder/You-and-Your-Gems-Book-by-J-C-Chaudhry.webp"
             bookName="You & Your Gems"
           />

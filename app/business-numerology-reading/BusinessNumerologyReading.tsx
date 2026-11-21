@@ -36,7 +36,7 @@ const BusinessNumerologyReading = () => {
      <div>
 
             <Link href={token ? '/dashboard' : '/numerology/signup'}>
-                <Banner title='Newborn Numerology' alttag="Dr. JC Chaudhry Newborn Numerology" path="/allbanners/Numerology-readings-for-new-borns-by-Dr-J-C-Chaudhry.webp" />
+                <Banner title='Newborn Numerology' alttag="Dr. J C Chaudhry Newborn Numerology" path="/allbanners/Numerology-readings-for-new-borns-by-Dr-J-C-Chaudhry.webp" />
             </Link>
             <MainHeading style="text-center my-5" mainHeading="Business Name Numerology" headTag="h1" />
             <div className='mx-10 space-y-5'>

@@ -8,9 +8,9 @@ import { headers } from 'next/headers';
 
 export const metadata = GenerateMetadata({
     banner: "/logos/jclogo.png",
-        title: "Terms and Conditions | JC Chaudhry",
+        title: "Terms and Conditions | Dr. J C Chaudhry",
         description: "TERMS AND CONDITIONS The content of this Website/App is for your general information and use only. It is subject to change at our sole discretion without any notice.",
-        keywords: "numerologist in india, numerology by jc chaudhry, vaastu shastra expert, motivational speaker, motivational speakers in india",
+        keywords: "numerologist in india, numerology by Dr. J C Chaudhry, vaastu shastra expert, motivational speaker, motivational speakers in india",
     pagePath: "/terms-and-conditions",
 });
 const page = () => {

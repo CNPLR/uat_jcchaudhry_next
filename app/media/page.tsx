@@ -8,9 +8,9 @@ import { getImages } from '../services/getImages'
 export const metadata = GenerateMetadata({
         pagePath: "/media",
         banner: "/allbanners/Dr-Chaudhry-featured-in-media.webp",
-        title: "Dr. JC Chaudhry Media Coverage: News, Features, Recognition",
-        description: "Explore Dr. JC Chaudhry's media coverage, newspaper features, events and recognition, including Guinness World Record coverage in numerology.",
-        keywords: "numerologist in india, numerology by jc chaudhry, vaastu shastra expert, motivational speaker, motivational speakers in india",
+        title: "Dr. J C Chaudhry Media Coverage: News, Features, Recognition",
+        description: "Explore Dr. J C Chaudhry's media coverage, newspaper features, events and recognition, including Guinness World Record coverage in numerology.",
+        keywords: "numerologist in india, numerology by Dr. J C Chaudhry, vaastu shastra expert, motivational speaker, motivational speakers in india",
         
     });
 
@@ -20,7 +20,7 @@ const page = async () => {
 
   return (
    <div>
-            <Banner alttag="Dr. Chaudhry featured in media" path="/allbanners/Dr-Chaudhry-featured-in-media.webp" />
+            <Banner alttag="Dr. J C Chaudhry featured in media" path="/allbanners/Dr-Chaudhry-featured-in-media.webp" />
             <MainHeading style="text-center my-10" mainHeading="Media" />
             <div className='px-10 flex flex-wrap justify-center bg-white'>
                 {images && images?.map((ele: any, index: number) =>

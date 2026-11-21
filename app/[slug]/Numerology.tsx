@@ -198,7 +198,7 @@ const Numerology = ({slug, pagesData}: {slug: string, pagesData: PageDataResult}
                     <div className='flex justify-center items-start flex-wrap'>
                         <ConsultationCard
                             title="Online Consultation"
-                            description="Online Numerology Consultation by Dr. Chaudhry is a virtual meeting round conducted over Zoom. You can interact with him about your queries and get solutions to them. You can benefit from online numerology reading from any part of the country. There are two available consultation slots: a 30-minute session and a 60-minute session."
+                            description="Online Numerology Consultation by Dr. J C Chaudhry is a virtual meeting round conducted over Zoom. You can interact with him about your queries and get solutions to them. You can benefit from online numerology reading from any part of the country. There are two available consultation slots: a 30-minute session and a 60-minute session."
                             buttonText="Book Appointment"
                             link={token ? '/dashboard' : '/numerology/signup'}
                             token={token}
@@ -206,7 +206,7 @@ const Numerology = ({slug, pagesData}: {slug: string, pagesData: PageDataResult}
                         />
                         <ConsultationCard
                             title="Ask Your Question"
-                            description="Ask Your Question from Dr. Chaudhry related to health, motherhood, child, abroad, relationship, job, etc. via email & get a personalized solution for your problem. The numerology answers by him will be sent directly to your Email Address within a week's time."
+                            description="Ask Your Question from Dr. J C Chaudhry related to health, motherhood, child, abroad, relationship, job, etc. via email & get a personalized solution for your problem. The numerology answers by him will be sent directly to your Email Address within a week's time."
                             buttonText="Ask Your Question"
                             link="/ask-your-question"
                             token={token}

@@ -88,7 +88,7 @@ const LoShuGrid = () => {
                     <CommonNumberSolutionsIcon title="Lo Shu Grid Life Path Energy" alt="Lo Shu Grid for Life Path Energy" para="Number 1 represents the Water Element" path="/images_folder/Lo-Shu-grid-for-aligning-life-path-energies-.webp" />
                     <CommonNumberSolutionsIcon title="Lo Shu Grid Life Balance" alt="Lo Shu Grid Analysis for Life Balance" para="Number 2,5,8 represent the Earth Element" path="/images_folder/Balancing-life-through-Lo-Shu-grid-analysis.webp" />
                     <CommonNumberSolutionsIcon title="Lo Shu Grid Placement Analysis" alt="Lo Shu Grid Placement and Analysis" para="Number 3,4 represent the Wood Element" path="/images_folder/Lo-Shu-grid-for-precise-numerology-placement-and-analysis.webp" />
-                    <CommonNumberSolutionsIcon title="Dr. JC Chaudhry Lo Shu Grid" alt="Lo Shu Grid Wisdom by Dr. JC Chaudhry" para="Number 6,7 represent the Metal Element" path="/images_folder/Lo-Shu-grid-wisdom-by-JC-Chaudhry-for-harmony.webp" />
+                    <CommonNumberSolutionsIcon title="Dr. J C Chaudhry Lo Shu Grid" alt="Lo Shu Grid Wisdom by Dr. J C Chaudhry" para="Number 6,7 represent the Metal Element" path="/images_folder/Lo-Shu-grid-wisdom-by-JC-Chaudhry-for-harmony.webp" />
                     <CommonNumberSolutionsIcon title="Lo Shu Grid for Harmony" alt="Lo Shu Grid Analysis for Harmony" para="Number 9 represents the FIre Element" path="/images_folder/Lo-Shu-grid-analysis-for-a-harmonious-life.webp" />
                 </div>
             </div>
