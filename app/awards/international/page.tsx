@@ -7,9 +7,9 @@ import { headers } from "next/headers";
 export const metadata = GenerateMetadata({
         pagePath: "/awards/international",
         banner: "/allbanners/National-awards-and-recognition-for-Dr-J-C-Chaudhry.webp",
-        title: "Dr. JC Chaudhry International Awards: Global Achievements",
-        description: "Explore Dr. JC Chaudhry's international awards, global honours and achievements in education, numerology, leadership and business.",
-        keywords: "numerologist in india, numerology by jc chaudhry, vaastu shastra expert, motivational speaker, motivational speakers in india",
+        title: "Dr. J C Chaudhry International Awards: Global Achievements",
+        description: "Explore Dr. J C Chaudhry's international awards, global honours and achievements in education, numerology, leadership and business.",
+        keywords: "numerologist in india, numerology by Dr. J C Chaudhry, vaastu shastra expert, motivational speaker, motivational speakers in india",
         // headers: headers,
 });
 
@@ -17,15 +17,15 @@ const page = async () => {
   return (
      <div>
             <div>
-                <Banner title="International Awards" alttag="Dr. JC Chaudhry International Awards" path="/allbanners/Dr-J-C-Chaudhrys-international-awards-and-achievements.webp" />
+                <Banner title="International Awards" alttag="Dr. J C Chaudhry International Awards" path="/allbanners/Dr-J-C-Chaudhrys-international-awards-and-achievements.webp" />
             </div>
             <div className='px-10'>
                 <ImgHeadingContent
                     path="/images_folder/Introduction-to-Dr.-J.C.-Chaudhry's-achievements.png"
-                    alt="Dr. JC Chaudhry Achievements"
-                    title="Dr. JC Chaudhry Achievements"
+                    alt="Dr. J C Chaudhry Achievements"
+                    title="Dr. J C Chaudhry Achievements"
                     para="Dr. J C Chaudhry is a living legend and the man behind India’s leading test preparatory institute. He is the Founder of Aakash Educational Services Limited (AESL). He is also the Founder & Chairman of “Aakash Healthcare Pvt. Ltd”, which is a 230-bed super specialty hospital."
-                    para1="Dr. Chaudhry is also a well-known numerologist with an experience of more than 40 years. His book ‘Advanced Numerology’ is an outcome of his years of experience in Numerology and is a must-read for those who wish to know about the best time/period to plan their future in a better way."
+                    para1="Dr. J C Chaudhry is also a well-known numerologist with an experience of more than 40 years. His book ‘Advanced Numerology’ is an outcome of his years of experience in Numerology and is a must-read for those who wish to know about the best time/period to plan their future in a better way."
                     sbutton="Read More"
                     subHeading="Dr. J C Chaudhry"
                 />
@@ -35,8 +35,8 @@ const page = async () => {
                     para="Dr. J C Chaudhry honoured with the title of Iconic Numerologist of the year 2022-2023 by AsiaOne in Bangkok, Thailand."
                     path="/images_folder/Global-recognition-of-Dr.-Chaudhry's-expertise.jpg"
                     path1="/images_folder/Global-recognition-of-Dr.-Chaudhry's-expertise.jpg"
-                    alt="Dr. JC Chaudhry Global Recognition"
-                    alt1="Dr. JC Chaudhry Global Recognition"
+                    alt="Dr. J C Chaudhry Global Recognition"
+                    alt1="Dr. J C Chaudhry Global Recognition"
                     title="Global Recognition"
                 />
                 <CommonFlipCard
@@ -55,8 +55,8 @@ const page = async () => {
                     para="Felicitated as Key Note Speaker on ‘Role of Numerology in Business Growth and Personal Life’ at the ‘Indo-European Investors Meet - 2018’ at St. James Court, Taj Hotel, London"
                     path="/images_folder/keynoteaward.png"
                     path1="/images_folder/Dr.-Chaudhry-as-a-key-note-speaker.png"
-                    alt="Dr. JC Chaudhry Keynote Speaker"
-                    alt1="Dr. JC Chaudhry Keynote Speaker"
+                    alt="Dr. J C Chaudhry Keynote Speaker"
+                    alt1="Dr. J C Chaudhry Keynote Speaker"
                     title="Keynote Speaker"
                 />
                 <CommonFlipCard
@@ -65,8 +65,8 @@ const page = async () => {
                     para="Honoured with Global Education Leaders Award for ‘Shaping the Dreams of Millions of Medical & Engineering Aspirants’ at India-UAE Partnership Summit (IUPS) 2018 held at Atlantis, The Palm, Dubai"
                     path="/images_folder/Award-for-excellence-presented-to-Dr.-Chaudhry..png"
                     path1="/images_folder/Award-for-excellence-presented-to-Dr.-Chaudhry..png"
-                    alt="Dr. JC Chaudhry Excellence Award"
-                    alt1="Dr. JC Chaudhry Excellence Award"
+                    alt="Dr. J C Chaudhry Excellence Award"
+                    alt1="Dr. J C Chaudhry Excellence Award"
                     title="Excellence Award"
                 />
                 <CommonFlipCard
@@ -75,8 +75,8 @@ const page = async () => {
                     para="Felicitated as Key Note Speaker at the ‘Indo-European Investors Meet 2018’ for addressing the esteemed gathering on ‘New Investment Opportunities available in India in Education Sector’ at Portcullis House of Parliament, London"
                     path="/images_folder/keynoteaward.png"
                     path1="/images_folder/Dr.-Chaudhry-as-a-key-note-speaker.png"
-                    alt="Dr. JC Chaudhry Keynote Speaker"
-                    alt1="Dr. JC Chaudhry Keynote Speaker"
+                    alt="Dr. J C Chaudhry Keynote Speaker"
+                    alt1="Dr. J C Chaudhry Keynote Speaker"
                     title="Keynote Speaker"
                 />
                 <CommonFlipCard
@@ -104,8 +104,8 @@ const page = async () => {
                     para="Honoured with Life Time Achievement Award at India-UAE Business and Social Forum 2017"
                     path="/images_folder/Lifetime-achievement-award-for-Dr.-J-C-Chaudhry..png"
                     path1="/images_folder/Lifetime-achievement-award-for-Dr.-J-C-Chaudhry..png"
-                    alt="Dr. JC Chaudhry Lifetime Achievement"
-                    alt1="Dr. JC Chaudhry Lifetime Achievement"
+                    alt="Dr. J C Chaudhry Lifetime Achievement"
+                    alt1="Dr. J C Chaudhry Lifetime Achievement"
                     title="Lifetime Achievement"
                 />
                 <CommonFlipCard

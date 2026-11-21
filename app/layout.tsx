@@ -30,7 +30,7 @@ export const metadata: Metadata = {
 
   keywords: [
     "numerologist in india",
-    "numerology by jc chaudhry",
+    "numerology by Dr. J C chaudhry",
     "vaastu shastra expert",
     "motivational speaker",
     "motivational speakers in india",
@@ -63,7 +63,7 @@ export const metadata: Metadata = {
         url: "/allbanners/IMAGE-NAME.webp",
         width: 1200,
         height: 630,
-        alt: "J C Chaudhry Awards",
+        alt: "Dr. J C Chaudhry Awards",
       },
     ],
   },

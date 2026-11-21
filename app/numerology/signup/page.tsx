@@ -5,8 +5,8 @@ import BookAppointment from './BookAppointment';
 export const metadata = GenerateMetadata({
     banner: "/allbanners/Book-Appointment-Dr.J-C-Chaudhry-Numerology-Register.webp",
     title: "Numerology Appointment: Register for Consultation",
-    description: "Register for a numerology consultation with Dr. JC Chaudhry. Choose personal, career, business, marriage or relationship numerology.",
-    keywords: "numerologist in india, numerology by jc chaudhry, vaastu shastra expert, motivational speaker, motivational speakers in india",
+    description: "Register for a numerology consultation with Dr. J C Chaudhry. Choose personal, career, business, marriage or relationship numerology.",
+    keywords: "numerologist in india, numerology by Dr. J C Chaudhry, vaastu shastra expert, motivational speaker, motivational speakers in india",
     pagePath: "/numerology/signup",
 });
 const page = () => {

@@ -10,8 +10,8 @@ import { headers } from 'next/headers'
 
 export const metadata = GenerateMetadata({
     banner: "/logos/jclogo.png",
-    title: "Thank you | JC Chaudhry",
-    keywords: "numerologist in india, numerology by jc chaudhry, vaastu shastra expert, motivational speaker, motivational speakers in india",
+    title: "Thank you | Dr. J C Chaudhry",
+    keywords: "numerologist in india, numerology by Dr. J C Chaudhry, vaastu shastra expert, motivational speaker, motivational speakers in india",
     description: "Thanks for contacting us! We will get back to you soon.",
     pagePath: "/thankyou",
 });
@@ -35,7 +35,7 @@ const page = () => {
                     <LinkText para="Book Online or Face to Face Appointment" style="text-center" />
                 </Link>
             </div>
-            <Para style="text-center" para="For your appointment booking with Mr. J C Chaudhry, click here" />
+            <Para style="text-center" para="For your appointment booking with Dr. J C Chaudhry, click here" />
             <Para style="text-center" para="Email Id : support@jcchaudhry.com" />
         </div>
   )

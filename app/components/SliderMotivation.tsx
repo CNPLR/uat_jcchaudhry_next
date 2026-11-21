@@ -26,7 +26,7 @@ export default function SliderMotivation() {
             <div className="text-white border">
               <Img
                 title="Motivational Quote for Success"
-                alt="Dr. JC Chaudhry Motivational Quote"
+                alt="Dr. J C Chaudhry Motivational Quote"
                 path="/images_folder/Dr.-J-C-Chaudhry’s-motivational-quote-for-success.png"
                 style="m-auto"
                 width={1500}
@@ -44,7 +44,7 @@ export default function SliderMotivation() {
         <SwiperSlide>
           <div className="text-white border">
             <Img
-              alt="Inspirational awards for Dr. J.C. Chaudhry’s achievements"
+              alt="Inspirational awards for Dr. J C Chaudhry’s achievements"
               path="/images_folder/Inspirational-awards-for-Dr.-J.C.-Chaudhry’s-achievements.png"
               style="m-auto"
               width={1500}

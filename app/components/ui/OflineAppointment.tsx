@@ -271,7 +271,7 @@ export default function OflineAppointment() {
         <div>
           <Img
             title="Online Numerology Consultation"
-            alt="Dr. JC Chaudhry Online Consultation"
+            alt="Dr. J C Chaudhry Online Consultation"
             style="w-72 mx-auto lg:mx-0 shadow-2xl rounded-md"
             path="/images_folder/face-to-face-consultation.webp"
           />

@@ -7,9 +7,9 @@ import { headers } from 'next/headers';
 
 export const metadata = GenerateMetadata({
      banner: "/logos/jclogo.png",
-        title: "Privacy Policy | JC Chaudhry",
+        title: "Privacy Policy | Dr. J C Chaudhry",
         description: "PRIVACY POLICY The content of this Website/App is for your general information and use only. It is subject to change at our sole discretion without any notice.",
-        keywords: "numerologist in india, numerology by jc chaudhry, vaastu shastra expert, motivational speaker, motivational speakers in india",
+        keywords: "numerologist in india, numerology by Dr. J C Chaudhry, vaastu shastra expert, motivational speaker, motivational speakers in india",
     pagePath: "/privacy-policy",
 });
 const Privacypolicy = () => {

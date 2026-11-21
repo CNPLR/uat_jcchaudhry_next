@@ -94,7 +94,7 @@ export default function Login() {
                 <ToastContainer />
                 <div className='md:flex items-center justify-evenly'>
                     <div>
-                        <Img style='md:w-[500px] w-[300px] mx-auto' alt="Dr J C Chaudhry for numerology consultation services" path="/images_folder/Dr-J-C-Chaudhry-for-numerology-consultation-services.png" />
+                        <Img style='md:w-[500px] w-[300px] mx-auto' alt="Dr. J C Chaudhry for numerology consultation services" path="/images_folder/Dr-J-C-Chaudhry-for-numerology-consultation-services.png" />
                     </div>
                     <div className=''>
                         <div className='px-5 py-5 w-[320px] bg-white rounded-md border mx-auto'>

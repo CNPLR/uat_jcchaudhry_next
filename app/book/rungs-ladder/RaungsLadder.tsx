@@ -68,7 +68,7 @@ const RaungsLadder = () => {
             <Books
                 path="/allbanners/Rungs-of-Ladder-book-by-Dr-J-C-Chaudhry.webp"
                 alttag="Rungs of Ladder book by Dr. J C Chaudhry"
-                alt="Rungs of the Ladder Book by J C Chaudhry"
+                alt="Rungs of the Ladder Book by Dr. J C Chaudhry"
                 path1="/images_folder/Rungs-of-the-Ladder-Book-by-J-C-Chaudhry.webp"
                 para1="This book is authored by Dr. J C Chaudhry (Chairman of Aakash Educational Services Ltd.). He is an achiever and a valued contributor in the field of education industry, who is also an Ace Numerologist and a powerful connect with all his students when it comes to motivation and guidance"
                 para2="With an eye for finest detail and discipline, he has framed his thoughts in words. He has simply and clearly listed the challenges and how we should handle them with the best approach, so as to get the best results. It is often said that your thoughts become your environment. So, what are you waiting for, let your thoughts be inspired by his book and who knows, you might be the next unstoppable following in his footsteps, and achieving all your goals with absolute determination, motivation for life and steps to success."

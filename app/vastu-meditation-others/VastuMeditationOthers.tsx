@@ -23,7 +23,7 @@ const VastuMeditationOthers = () => {
         <div className=''>
 
             <Link href="/contact-us">
-                <Banner title="Home and Office Vastu" alttag="Dr. JC Chaudhry Home and Office Vastu" path="/allbanners/Vastu-consultancy-of-Home-and-Office-by-Dr-J-C-Chaudhry.webp" />
+                <Banner title="Home and Office Vastu" alttag="Dr. J C Chaudhry Home and Office Vastu" path="/allbanners/Vastu-consultancy-of-Home-and-Office-by-Dr-J-C-Chaudhry.webp" />
             </Link>
             <SubHeading style="text-center my-10" subHeading="Vastu Shastra Expert" headTag='h1'/>
             <div className='lg:px-10 px-5'>
@@ -42,7 +42,7 @@ const VastuMeditationOthers = () => {
                     alt="Vastu for Health and Peaceful Living"
                     path="/images_folder/Vastu-for-health-and-peaceful-living-spaces.webp"
                     para="On the contrary, a person with the knowledge of Vastu can live very happily in a home that may be a low-cost budget house but is beaming with better energy flow. It is therefore essential that while a person is planning for a home, he/she should at least know the basics of Vastu Shastra to make life comfortable and pleasant."
-                    para1="Dr. J C Chaudhry with years of experience in Vastu Shastra & Numerology helps you easily plan the Vastu for your home and office. Vastu consultation by Dr. Chaudhry doesn’t need any reconstruction, even he advises the best Vastu remedies to bring luck and positivity in your home and business."
+                    para1="Dr. J C Chaudhry with years of experience in Vastu Shastra & Numerology helps you easily plan the Vastu for your home and office. Vastu consultation by Dr. J C Chaudhry doesn’t need any reconstruction, even he advises the best Vastu remedies to bring luck and positivity in your home and business."
                     nstyle="w-52"
                     nbutton="Book Appointment"
                     style="bg-gray-100 lg:p-10 p-5 rounded-md"

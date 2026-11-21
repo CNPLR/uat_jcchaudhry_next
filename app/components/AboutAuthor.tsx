@@ -13,7 +13,7 @@ export default function AboutAuthor() {
       <div>
         <Img
           style="shadow-lg rounded-md w-[207px] h-[281px] "
-          alt="J C Chaudhry, the Best Numerologist in Delhi, India"
+          alt="Dr. J C Chaudhry, the Best Numerologist in Delhi, India"
           path="/images_folder/J-C-Chaudhry-the-Best-Numerologist-in-Delhi-India.png"
         />
       </div>
@@ -28,7 +28,7 @@ export default function AboutAuthor() {
 
         <Para
           style="mt-5"
-          para="He is also a Numerologist with more than 40 years of experience in Numerology predictions and helping thousands of people alleviate their sufferings. Dr. Chaudhry has varied interests and hobbies. He writes books in a very simple and easy language, which is easy to understand is his best quality."
+          para="He is also a Numerologist with more than 40 years of experience in Numerology predictions and helping thousands of people alleviate their sufferings. Dr. J C Chaudhry has varied interests and hobbies. He writes books in a very simple and easy language, which is easy to understand is his best quality."
         />
 
         <Link href="/about">

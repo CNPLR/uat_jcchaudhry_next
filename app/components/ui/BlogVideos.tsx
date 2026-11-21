@@ -240,7 +240,7 @@ export function CNPL({ url, path, itemKey }: CNPLProps) {
     <div className="text-center transition" key={itemKey}>
       <div className="relative">
         <div onClick={() => setShowModal(true)}>
-          <Img style="w-full" title="Dr. JC Chaudhry Numerology Solutions" path={path  as string} alt="Dr. JC Chaudhry numerology solutions and consultation" />
+          <Img style="w-full" title="Dr. J C Chaudhry Numerology Solutions" path={path  as string} alt="Dr. J C Chaudhry numerology solutions and consultation" />
         </div>
 
         <button

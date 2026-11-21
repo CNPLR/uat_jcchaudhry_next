@@ -48,7 +48,7 @@ const FundamentalsVastu = () => {
             <Books
                 path="/allbanners/Fundamentals-of-vastu-book-by-Dr-J-C-Chaudhry.webp"
                 alttag="Fundamentals of vastu book by Dr. J C Chaudhry"
-                alt="Fundamentals of numerology by Dr. J.C. Chaudhry." 
+                alt="Fundamentals of numerology by Dr. J C Chaudhry." 
                 path1="/images_folder/Fundamentals-of-numerology-by-Dr.-J.C.-Chaudhry.webp"
                 para1="Similar to all the religious rituals and fundamentals for society, experts suggest that there are fundamentals to be considered for the construction of buildings and houses. This book on Vastu known as ‘Fundamentals of Vastu’ gives us a basic, clear, and simple but strong understanding of principles that must be followed while we build and give shape to our dream construction. This book gives us a fair understanding of the five basic elements and Vastu Shastra and a combination of both which works in perfect harmony for a blessed life."
                 para2="The information and guidance given in this book are by a seasoned personality, Dr. J C Chaudhry who has lived by performance and by examples."

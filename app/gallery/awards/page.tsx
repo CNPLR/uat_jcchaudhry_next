@@ -7,9 +7,9 @@ import { headers } from 'next/headers';
 
 
 export const metadata = GenerateMetadata({
-            title: "Dr. JC Chaudhry Awards Gallery: Achievements, Honors",
-            description: "Explore Dr. JC Chaudhry's awards gallery featuring major honours, achievements, Lifetime Achievement Award, Guinness World Record and more.",
-            keywords: "numerologist in india, numerology by jc chaudhry, vaastu shastra expert, motivational speaker, motivational speakers in india",
+            title: "Dr. J C Chaudhry Awards Gallery: Achievements, Honors",
+            description: "Explore Dr. J C Chaudhry's awards gallery featuring major honours, achievements, Lifetime Achievement Award, Guinness World Record and more.",
+            keywords: "numerologist in india, numerology by Dr. J C Chaudhry, vaastu shastra expert, motivational speaker, motivational speakers in india",
             pagePath: '/gallery/awards',
             banner: "/allbanners/Gallery-of-Dr-J-C-Chaudhry’s-awards.webp",
             
@@ -24,11 +24,11 @@ export default async function page() {
     const fullUrl = '/gallery/awards';
 
    const pageMetaData = {
-            title: "Numerology Awards to Dr Dr. J C Chaudhry | Best Numerologist Award",
+            title: "Numerology Awards to Dr. J C Chaudhry | Best Numerologist Award",
             pageUrl: fullUrl,
             banner: "/allbanners/Gallery-of-Dr-J-C-Chaudhry’s-awards.webp",
             description: "Dr. J C Chaudhry has been honored with national and international awards for his work in numerology, education, motivation, and other fields.",
-            keywords: "numerologist in india, numerology by jc chaudhry, vaastu shastra expert, motivational speaker, motivational speakers in india"
+            keywords: "numerologist in india, numerology by Dr. J C Chaudhry, vaastu shastra expert, motivational speaker, motivational speakers in india"
          };
         
          return (

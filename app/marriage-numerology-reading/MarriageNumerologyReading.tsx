@@ -36,13 +36,13 @@ const MarriageNumerologyReading = () => {
     <div>
 
             <Link href={token ? '/dashboard' : '/numerology/signup'}>
-                <Banner title="Marriage Numerology Reading" alttag="Dr. JC Chaudhry Marriage Numerology" path="/allbanners/Marriage-numerology-reading-by-Dr-J-C-Chaudhry.webp" priority />
+                <Banner title="Marriage Numerology Reading" alttag="Dr. J C Chaudhry Marriage Numerology" path="/allbanners/Marriage-numerology-reading-by-Dr-J-C-Chaudhry.webp" priority />
             </Link>
             <MainHeading style="text-center my-10" mainHeading="Marriage Compatibility Check by Dr. J C Chaudhry" headTag='h1' />
             <div className='mx-10 space-y-5'>
                 <Para style='text-justify' para="Marriage is a beautiful union. However, constant problems in a marriage give rise to the question: How do you make a marriage work? The answer to this question lies in numerology. For a happy marriage, the couples need to check number compatibility before marriage for a harmonious relationship." />
                 <Para style='text-justify' para="Many times, boys and girls get married without checking their numbers and select a marriage date that is unfriendly to their numbers, all of which become the reason for unhappy marriages. Numerology guidance can help couples check number compatibility, select a lucky marriage date, an auspicious time for marriage, etc. for a successful marriage." />
-                <Para style='text-justify' para="If you are getting married or facing marriage problems, get your numbers checked and solutions based on your date of birth and name from numerologist Dr. Dr. J C Chaudhry. Read some of the marriage-related questions we get, and if you have similar queries, consult us for marriage numerology solutions." />
+                <Para style='text-justify' para="If you are getting married or facing marriage problems, get your numbers checked and solutions based on your date of birth and name from numerologist Dr. J C Chaudhry. Read some of the marriage-related questions we get, and if you have similar queries, consult us for marriage numerology solutions." />
                 <Link href={token ? '/dashboard' : '/numerology/signup'}>
                     <NormalButton style="w-52 m-auto lg:ml-auto" text="Book Appointment" />
                 </Link>

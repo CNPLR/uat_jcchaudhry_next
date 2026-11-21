@@ -41,9 +41,9 @@ const FAQ: FAQItem[] = [
         </>
     },
     {
-        question:"Can I consult Dr. JC Chaudhry for Name Correction and Numerology?",
+        question:"Can I consult Dr. J C Chaudhry for Name Correction and Numerology?",
         answer: <>
-            Yes. If you are considering a <strong>name correction</strong>, choosing a <strong>business name</strong>, or want a detailed Chaldean Numerology analysis, you can consult <strong>Dr. JC Chaudhry</strong>. With decades of experience in numerology, he provides personalized guidance based on your date of birth, Name Number, and complete numerology chart to help you make informed decisions.
+            Yes. If you are considering a <strong>name correction</strong>, choosing a <strong>business name</strong>, or want a detailed Chaldean Numerology analysis, you can consult <strong>Dr. J C Chaudhry</strong>. With decades of experience in numerology, he provides personalized guidance based on your date of birth, Name Number, and complete numerology chart to help you make informed decisions.
         </>
     },
     {

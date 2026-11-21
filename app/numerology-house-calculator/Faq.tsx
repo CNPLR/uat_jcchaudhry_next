@@ -36,9 +36,9 @@ const FAQs = [
         </>
     },
     {
-        question:"Can I consult Dr. JC Chaudhry for House Number Numerology?",
+        question:"Can I consult Dr. J C Chaudhry for House Number Numerology?",
         answer:<>
-            Yes. For a detailed analysis of your house or property number, you can consult <strong>Dr. JC Chaudhry</strong>, a Guinness World Record holder in numerology with over <strong>40+ years of experience</strong>. A personalized consultation provides expert guidance based on your complete numerology chart and property number.
+            Yes. For a detailed analysis of your house or property number, you can consult <strong>Dr. J C Chaudhry</strong>, a Guinness World Record holder in numerology with over <strong>40+ years of experience</strong>. A personalized consultation provides expert guidance based on your complete numerology chart and property number.
         </>
     },
     {

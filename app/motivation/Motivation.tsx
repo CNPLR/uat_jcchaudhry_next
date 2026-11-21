@@ -26,7 +26,7 @@ const Motivation = () => {
     return (
         <div className=''>
             <Link href='/contact-us'>
-                <Banner title="Dr. JC Chaudhry Motivational Speaker" alttag="Dr. JC Chaudhry Motivational Speaker" path="/allbanners/Motivational-speaker-Dr-J-C-Chaudhry.webp" w={515} h={196} priority />
+                <Banner title="Dr. J C Chaudhry Motivational Speaker" alttag="Dr. J C Chaudhry Motivational Speaker" path="/allbanners/Motivational-speaker-Dr-J-C-Chaudhry.webp" w={515} h={196} priority />
             </Link>
             <MainHeading style="hidden" mainHeading="Motivational speaker by Dr. J C Chaudhry"  headTag="h1"/>
             <div className='flex items-center justify-center lg:space-x-10 bg-gray-100 lg:flex-row flex-col'>
@@ -48,7 +48,7 @@ const Motivation = () => {
                         <Para para="Distinguished Entrepreneurship Award 2020" />
                     </div>
                     <div className='w-60 border border-gray-200 p-5 h-80 bg-white rounded-md shadow-md mb-5'>
-                        <Img alt="Hall of Fame 2014 Recognition for Dr. J.C. Chaudhry" style="m-auto w-fit h-[200px]" path="/images_folder/Hall-of-Fame-2014-Recognition-for-Dr.-J.C.-Chaudhry.png" />
+                        <Img alt="Hall of Fame 2014 Recognition for Dr. J C Chaudhry" style="m-auto w-fit h-[200px]" path="/images_folder/Hall-of-Fame-2014-Recognition-for-Dr.-J.C.-Chaudhry.png" />
                         <Para para="Hall of Fame 2014’" />
                     </div>
                     <div className='w-60 border border-gray-200 p-5 h-80 bg-white rounded-md shadow-md mb-5'>
@@ -96,7 +96,7 @@ const Motivation = () => {
                 </div>
                 <div className='mt-5 lg:mt-0'>
                     <Link href="https://www.youtube.com/channel/UCkGRccoFIazt6GZUcdq6Byg">
-                        <Img title="Motivational Insights by Dr. JC Chaudhry" alt="Dr. JC Chaudhry Motivational Insights" style="w-96 " path="/images_folder/Subscribe-for-Dr.-Chaudhrys-motivational-insights.webp" />
+                        <Img title="Motivational Insights by Dr. J C Chaudhry" alt="Dr. J C Chaudhry Motivational Insights" style="w-96 " path="/images_folder/Subscribe-for-Dr.-Chaudhrys-motivational-insights.webp" />
                     </Link>
                 </div>
             </div>

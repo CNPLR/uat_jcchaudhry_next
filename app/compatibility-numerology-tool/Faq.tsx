@@ -36,9 +36,9 @@ const FAQs = [
         </>
     },
     {
-        question:"Can I consult Dr. JC Chaudhry for a detailed compatibility analysis?",
+        question:"Can I consult Dr. J C Chaudhry for a detailed compatibility analysis?",
         answer:<>
-            Yes. For a detailed relationship compatibility analysis, you can consult <strong>Dr. JC Chaudhry</strong>, a Guinness World Record holder in numerology with over <strong>40 years of experience</strong>. A personalized consultation provides deeper insights into relationship compatibility based on a complete <strong>Chaldean Numerology</strong> analysis.
+            Yes. For a detailed relationship compatibility analysis, you can consult <strong>Dr. J C Chaudhry</strong>, a Guinness World Record holder in numerology with over <strong>40 years of experience</strong>. A personalized consultation provides deeper insights into relationship compatibility based on a complete <strong>Chaldean Numerology</strong> analysis.
         </>
     },
     {
